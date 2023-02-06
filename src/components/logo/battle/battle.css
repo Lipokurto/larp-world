@@ -1,0 +1,35 @@
+.battle__clear {
+  z-index: 7;
+  position: absolute;
+  margin-left: -580px;
+  margin-top: 50px;
+}
+
+.fog__clear {
+  z-index: 6;
+  position: absolute;
+  margin-left: -350px;
+  margin-top: 500px;
+
+    width: var(--size);
+    height: var(--size);
+    filter: url(#wavy) blur(1px);
+}
+
+.fog__clear:before,
+.fog__clear:after {
+  content: "";
+  position: absolute;
+  top: var(--s);
+  left: var(--s);
+  right: var(--s);
+  bottom: var(--s);
+}
+
+.battle__effect {
+  z-index: 5;
+  position: absolute;
+  margin-left: -220px;
+  margin-top: 180px;
+  transform: scaleX(-1);
+}

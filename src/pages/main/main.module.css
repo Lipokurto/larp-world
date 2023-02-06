@@ -1,0 +1,16 @@
+.logo {
+  margin-left: 50%;
+  margin-right: 50%;
+  height: 700px;
+  margin-bottom: 100px;
+}
+
+.container {
+  display: block;
+}
+
+.bandsContainer {
+  display: flex;
+  flex-direction: column;
+  z-index: 15;
+}

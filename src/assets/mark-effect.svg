@@ -1,0 +1,51 @@
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ width="295.000000pt" height="400.000000pt" 
+ viewBox="0 0 750.000000 1000.000000"
+ preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <radialGradient id="MyGradient">
+      <stop offset="5%" stop-color="#800000" />
+      <stop offset="95%" stop-color="#FF0000" />
+    </radialGradient>
+  </defs>
+   <filter id="displacementFilter">
+    <feTurbulence
+      type="turbulence"
+      baseFrequency="0.009"
+      numOctaves="3"
+      speed="2">
+      <animate 
+      attributeName="baseFrequency" 
+      dur="60s" values="0.002; 0.005; 0.02" 
+      repeatCount="indefinite" />
+    </feTurbulence>
+
+    <feDisplacementMap
+      in="SourceGraphic"
+      scale="300" 
+      xChannelSelector="R"
+      yChannelSelector="G" />
+  </filter>
+
+<g transform="translate(0.000000,1000.000000) scale(0.100000,-0.100000)"
+fill="#FF0000" stroke="none" 
+style="filter: url(#displacementFilter) blur(20px); fill: url(#MyGradient);"
+>
+<path d="M3720 7523 c-18 -92 -36 -173 -39 -180 -4 -7 -36 7 -96 42 -49 30
+-90 53 -92 51 -2 -2 33 -70 77 -153 l80 -149 -2 -797 -3 -797 -520 459 c-286
+253 -524 466 -529 473 -6 10 66 143 228 427 130 228 235 416 233 418 -2 2 -44
+-39 -93 -89 -48 -51 -230 -238 -404 -416 -173 -177 -316 -328 -317 -335 -1 -7
+277 -282 618 -611 341 -330 618 -603 617 -607 -2 -4 -280 -287 -618 -629 -338
+-342 -617 -626 -619 -632 -2 -5 48 -62 111 -126 570 -585 1221 -1253 1358
+-1395 l46 -48 669 687 c369 377 711 729 762 782 l91 97 -92 95 c-52 52 -328
+338 -616 634 l-522 540 174 171 c95 94 372 367 615 607 l443 435 -402 421
+c-221 232 -403 420 -405 419 -1 -2 87 -192 198 -422 l200 -419 -28 -26 c-29
+-28 -166 -159 -598 -576 -143 -137 -281 -270 -307 -293 l-48 -44 0 796 0 796
+78 155 c43 86 75 156 72 156 -3 0 -43 -25 -90 -55 -47 -30 -88 -51 -91 -47 -4
+4 -26 79 -49 167 -23 88 -46 166 -50 173 -4 8 -22 -61 -40 -155z m-70 -3610
+l0 -938 -484 484 c-267 267 -483 489 -480 493 3 5 186 178 407 386 221 207
+433 407 472 444 38 37 73 68 78 68 4 0 7 -422 7 -937z m765 457 c242 -227 441
+-417 443 -424 1 -6 -214 -227 -478 -491 l-480 -480 0 940 0 939 38 -36 c20
+-19 235 -221 477 -448z"/>
+</g>
+</svg>

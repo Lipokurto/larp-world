@@ -1,0 +1,26 @@
+<svg width="1200" height="200" viewBox="0 0 120 120"
+   xmlns="http://www.w3.org/2000/svg">
+
+  <filter id="wavy">
+    <feTurbulence 
+      x="0" y="0" 
+      baseFrequency="0.65" 
+      numOctaves="5" 
+      speed="5"
+    >
+      <animate attributeName="baseFrequency" dur="120s" values="1; 0.5; 0.2" repeatCount="indefinite" />
+    </feTurbulence>
+    <feDisplacementMap in="SourceGraphic" scale="20" />
+  </filter>
+
+  <defs>
+    <radialGradient id="exampleGradient"
+    >
+      <stop offset="30%" stop-color="#FFFFFF" stop-opacity="0.5" />
+      <stop offset="60%" stop-color="#FFFFFF" stop-opacity="0.75"/>
+      <stop offset="95%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <ellipse  cx="60" cy="140" rx="300" ry="150" fill="url(#exampleGradient)" filter="url(#wavy) blur(1px);" />
+</svg>

@@ -1,0 +1,19 @@
+.mark__container {
+  display: flex;
+  position: relative;
+  margin-top: 86px;
+}
+
+.black-circle {
+  z-index: 1;
+  position: absolute;
+  filter: blur(5px);
+}
+
+.circle {
+  z-index: 0;
+  left:0%;
+  top: 0%;
+  margin-left: -93px;
+  margin-top: -100px;
+}

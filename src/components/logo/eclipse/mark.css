@@ -1,0 +1,16 @@
+.mark__clear {
+  position: absolute;
+  z-index: 4;
+}
+
+.mark__effect {
+  z-index: 3;
+  position: absolute;
+}
+
+.mark {
+  z-index: 2;
+  position: absolute;
+  margin-left: 37.5px;
+  margin-top: -15px;
+}

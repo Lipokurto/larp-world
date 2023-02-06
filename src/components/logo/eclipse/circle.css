@@ -1,0 +1,35 @@
+:root {
+  --size: 70vh;
+  --s: calc(var(--size) / 6);
+  --bor: calc(var(--size) / 25);
+  --boxShadow: calc(var(--size) / 12);
+}
+
+.circle {
+  position: relative;
+  left: 50%;
+  top: 50%;
+  width: var(--size);
+  height: var(--size);
+  filter: url(#wavy) blur(1px);
+}
+
+.circle:before,
+.circle:after {
+  content: "";
+  position: absolute;
+  top: var(--s);
+  left: var(--s);
+  right: var(--s);
+  bottom: var(--s);
+  border-radius: 50%;
+  border: var(--bor) solid rgb(255, 255, 255);
+}
+.circle:before {
+  box-shadow: 0 0 var(--boxShadow) rgb(255, 255, 255), inset 0 0 var(--boxShadow) rgb(255, 255, 255);
+}
+
+.circle:after {
+  box-shadow: 0 0 calc(var(--bor)/2) #fff, inset 0 0 var(--bor) #fff;
+}
+
