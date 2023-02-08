@@ -1,11 +1,10 @@
 import React from "react";
 
-import { LinkButton } from '../../../components/link/link-button';
 import { TimeTable } from "./time-table";
 import craft from './assets/craft.png';
+import { ObjectModal, LinkButton } from "../../../components";
 
 import s from './location.module.css';
-import { ObjectModal } from "../../../components/object-modal/object-modal";
 
 export function Location() {
   const [isOpen, setIsOpen] = React.useState(false);

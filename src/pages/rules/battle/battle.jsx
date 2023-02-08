@@ -1,11 +1,7 @@
 import React from 'react';
 
-import { ItemModal } from '../../../components/item-modals/item-modal';
-import { LinkButton } from '../../../components/link/link-button';
-import { healPack } from '../../../rules-text/items/heal-pack';
-import { healPotion } from '../../../rules-text/items/heal-potion';
-import { repairPack } from '../../../rules-text/items/repair-pack';
-import { repairPotion } from '../../../rules-text/items/repair-potion';
+import { ItemModal, LinkButton } from '../../../components';
+import { healPack, healPotion, repairPack, repairPotion } from '../../../rules-text/items';
 
 import s from './battle.module.css';
 

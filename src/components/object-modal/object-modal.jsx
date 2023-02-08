@@ -1,5 +1,6 @@
 import React from "react";
 import { RiCloseLine } from "react-icons/ri";
+
 import { NavButton } from "../button/nav-button";
 
 import s from './object-modal.module.css';
