@@ -29,7 +29,7 @@ export function Resources() {
             <h3>Список предметов</h3>
             <li><LinkButton text='Игровые деньги' hint={money.hint} onclick={() => handleClick(money)}/>. Не имеет веса</li>
             <li><LinkButton text='Артефакт' hint={artifact.hint} onclick={() => handleClick(artifact)}/>. Не имеет веса</li>
-            <li><LinkButton text='Зелье лечения' hint={healPotion.hint} onclick={() => handleClick(healPotion)}/>. Не имеет веса</li>
+            <li><LinkButton text='Целебная мазь' hint={healPotion.hint} onclick={() => handleClick(healPotion)}/>. Не имеет веса</li>
             <li><LinkButton text='Оружейное масло' hint={repairPotion.hint} onclick={() => handleClick(repairPotion)}/>. Не имеет веса</li>
             <li><LinkButton text='Медкомплект' hint={healPack.hint} onclick={() => handleClick(healPack)}/>. Весит 1</li>
             <li><LinkButton text='Ремкоплект' hint={repairPack.hint} onclick={() => handleClick(repairPack)}/>. Весит 1</li>

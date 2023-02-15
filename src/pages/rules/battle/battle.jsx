@@ -70,7 +70,7 @@ export function Battle() {
             <div>Восстанавливаются живые хиты:</div>
               <li>Госпитль</li>
               <li><LinkButton text='Медкомплект' hint={healPack.hint} onclick={() => handleClick(healPack)}/></li>
-              <li><LinkButton text='Зелье лечения' hint={healPotion.hint} onclick={() => handleClick(healPotion)}/></li>
+              <li><LinkButton text='Целебная мазь' hint={healPotion.hint} onclick={() => handleClick(healPotion)}/></li>
               <li>Мертвяк</li>
           </div>
 
@@ -145,8 +145,8 @@ export function Battle() {
             <li>Во время лечения игрок не напрягает раненную конечность</li>
             <div><b>ПРИМЕЧАНИЕ:</b> Использованный <LinkButton text='медкомплект' hint={healPack.hint} onclick={() => handleClick(healPack)}/> можно продать мастерам</div>
             <br />
-            <div>Лечение легкого ранения при помощи <LinkButton text='зелья лечения' hint={healPotion.hint} onclick={() => handleClick(healPotion)}/>:</div>
-            <li>Раненный вскрывает пузырек с зельем</li>
+            <div>Лечение легкого ранения при помощи <LinkButton text='целебной мази' hint={healPotion.hint} onclick={() => handleClick(healPotion)}/>:</div>
+            <li>Раненный вскрывает пузырек мазью</li>
             <li>Рвется бумажка которая находится внутри</li>
             <li>Игров восстанавливает все живые хиты моментально</li>
             <h3>Условия срыва лечения</h3>
