@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ItemModal, LinkButton } from '../../../components';
+import { ItemModal, LinkButton, Chapter } from '../../../components';
 import { healPack, healPotion, repairPack, repairPotion } from '../../../rules-text/items';
 
 import s from './battle.module.css';
@@ -17,7 +17,7 @@ export function Battle() {
   return (
     <>
       <div className={s.container}>
-        <h1>Боевые взаимодействия</h1>
+        <Chapter chapter='БОЕВЫЕ ДЕЙСТВИЯ' />
         <div className={s.block}>
           <h2>Допуск оружия</h2>
             <li>Допускаются только мягкие образцы оружия</li>

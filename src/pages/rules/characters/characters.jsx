@@ -1,11 +1,13 @@
 import React from "react";
 
+import { Chapter } from "../../../components";
+
 import s from './characters.module.css';
 
 export function Characters() {
   return (
     <div className={s.container}>
-      <h1>Персонажи</h1>
+      <Chapter chapter='ПЕРСОНАЖИ' />
       <div className={s.block}>
         <h2>Люди</h2>
         <div>персонажи-люди подчиняются общим правилам и не имеют особых преимуществ</div>

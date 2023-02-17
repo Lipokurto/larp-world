@@ -7,3 +7,6 @@ export { Logo } from './logo/logo';
 export { Modal } from './modal/modal';
 export { Navigation } from './navigation/navigation';
 export { ObjectModal } from './object-modal/object-modal';
+export { Chapter } from './chapter/chapter';
+export { AccordionItemStyle } from './accordion/accordion-item-style';
+export { AccordionBlock } from './accordion/accordion-block';
