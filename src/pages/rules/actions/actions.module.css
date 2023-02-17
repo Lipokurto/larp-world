@@ -1,21 +1,97 @@
 .container {
   display: flex;
+  width: 50%;
   color: white;
   flex-direction: column;
-  border: solid wheat;
-  left: 50%;
-  right: 50%;
-  width: 75%;
-  margin-left: auto;
-  margin-right: auto;
+  text-align: center;
   padding: 20px 20px 20px 20px;
+  margin: 0 auto 0 auto;
+}
 
+.chapter_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.chapter {
+  width: -webkit-fill-available;
+  white-space: nowrap;
+  border-bottom: 10px solid #FF0000;
+  border-top: 10px solid #FF0000;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to left, #FF0000, #000000, #FF0000);
+}
+
+@media only screen and (max-width: 1024px) {
+  .chapter {
+    white-space: break-spaces;
+    border-image-slice: 1;
+    border-image-source:  linear-gradient(to left, #000000, #FF0000, #000000);
+  }
+
+  .divider {
+    display: none;
+  }
+}
+
+.container h2 {
+  text-shadow: 10px 0 10px red, -10px 0 10px red;
 }
 
 .block {
-  margin-left: 10px;
+  padding: 0 20px 20px 20px;
+  border-bottom: 2px solid;
+  border-left: 2px solid;
+  border-right: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to top, wheat, #000000);
 }
 
-.block2 {
-  margin-left: 10px;
+.item {
+  padding: 20px 0 20px 0;
+  border-left: 2px solid;
+  border-right: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to top, #000000, wheat, #000000);
+}
+
+/* INSIDE ITEM */
+.label, .label_open {
+  display: flex;
+  justify-content: space-between;
+  border-top: 2px solid;
+  border-image-slice: 1;
+  border-image-source: repeating-linear-gradient(to right, #000000, wheat, #000000);
+}
+
+.label_open {
+  border-bottom: 2px solid;
+}
+
+.label_open h3 {
+  transform: scale(1.25);
+  text-shadow: 5px 0 10px red, -5px 0 10px red;
+}
+
+.label:hover h3 {
+  transform: scale(1.25);
+}
+
+h3 {
+  transition: all 0.2s ease-in-out;
+}
+
+.arrow_left_down, .arrow_right_down,
+.arrow_left_up, .arrow_right_up {
+  margin-top: 15px;
+  height: 24px;
+  transition: all 0.2s ease-in-out;
+}
+
+.label:hover .arrow_left_down {
+  transform: rotate(-90deg);
+}
+
+.label:hover .arrow_right_down {
+  transform: rotate(90deg);
 }
