@@ -2,7 +2,7 @@ import React from "react";
 
 import { TimeTable } from "./time-table";
 import craft from './assets/craft.png';
-import { ObjectModal, LinkButton } from "../../../components";
+import { ObjectModal, LinkButton, Chapter } from "../../../components";
 
 import s from './location.module.css';
 
@@ -18,7 +18,7 @@ export function Location() {
   return (
     <>
       <div className={s.container}>
-        <h1>Локация</h1>
+      <Chapter chapter='ЛОКАЦИЯ' />
         <div className={s.block}>
           <h2>Лагерь</h2>
           <div>Фактическим командиром в лагере является капитан, интендант выполняет роли регионала, т.е. консультирует и ведет учет игровых взаимодействий. Интендант так же как и капитан выбирается силами команды из состава команды</div>

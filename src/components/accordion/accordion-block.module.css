@@ -1,0 +1,12 @@
+h2 {
+  text-shadow: 10px 0 10px red, -10px 0 10px red;
+}
+
+.block {
+  padding: 0 20px 20px 20px;
+  border-bottom: 2px solid;
+  border-left: 2px solid;
+  border-right: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to top, wheat, #000000);
+}

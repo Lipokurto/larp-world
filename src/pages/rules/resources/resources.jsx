@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ItemModal, LinkButton } from "../../../components";
+import { Chapter, ItemModal, LinkButton } from "../../../components";
 
 import { 
   healPack, healPotion, repairPack, repairPotion,
@@ -20,7 +20,8 @@ export function Resources() {
   return (
     <>
       <div className={s.container}>
-        <h1>Ресурсы</h1>
+        <Chapter chapter='РЕСУРСЫ' />
+
         <div className={s.block}>
           <h2>Предметы</h2>
           <div>Все игровые предметы имеют свое физическое отображение (не бумажки). Все предметы из списка являются лутаемыми</div>
