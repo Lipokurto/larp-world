@@ -1,0 +1,25 @@
+.chapter_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.chapter {
+  width: -webkit-fill-available;
+  white-space: nowrap;
+  border-bottom: 10px solid #FF0000;
+  border-top: 10px solid #FF0000;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to left, #FF0000, #000000, #FF0000);
+}
+
+@media only screen and (max-width: 1024px) {
+  .chapter {
+    white-space: break-spaces;
+    border-image-slice: 1;
+    border-image-source:  linear-gradient(to left, #000000, #FF0000, #000000);
+  }
+
+  .divider {
+    display: none;
+  }
+}
