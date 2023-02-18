@@ -12,6 +12,35 @@ import { AccordionBlock, Chapter } from "../../../components";
 
 import s from './politic.module.css';
 
+function Image({ img }) {
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  if (isOpen) {
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${window.scrollY}px`;
+    
+    return (
+      <>
+        <div className={s.portrait_open} onClick={() => setIsOpen(false)}>
+          <img src={img} alt='Kings' width='600'/>
+        </div>
+
+        <div className={s.portrait_wrapper} onClick={() => setIsOpen(false)}>
+        </div>
+      </>
+    )
+  }
+
+  document.body.style.position = '';
+  document.body.style.top = '';
+  
+  return (
+    <div onClick={() => setIsOpen(true)}>
+      <img src={img} alt='Kings' width='200' />
+    </div>
+  )
+}
+
 export function Politic() {
   return (
     <div className={s.container}>
@@ -38,7 +67,7 @@ export function Politic() {
                     </div>
                     
                     <div className={s.portrait}>
-                      <img src={rich} alt='Kings' width='200' />
+                      <Image img={rich} />
                     </div>
                   </div>
 
@@ -48,7 +77,7 @@ export function Politic() {
                     </div>
                     
                     <div className={s.portrait}>
-                      <img src={midlend} alt='Towns' width='200' />
+                      <Image img={midlend} />
                     </div>
                   </div>
                 </div>
@@ -71,7 +100,7 @@ export function Politic() {
                     </div>
             
                     <div className={s.portrait}>
-                      <img src={ferd} alt='Kings' width='200' />
+                      <Image img={ferd} />
                     </div>
                   </div>
 
@@ -81,7 +110,7 @@ export function Politic() {
                     </div>
             
                     <div className={s.portrait}>
-                      <img src={tudor} alt='Towns' width='200' />
+                      <Image img={tudor} />
                     </div>
                   </div>
                 </div>
@@ -103,7 +132,7 @@ export function Politic() {
                     </div>
             
                     <div className={s.portrait}>
-                      <img src={gani} alt='Kings' width='200' />
+                      <Image img={gani} />
                     </div>
                   </div>
 
@@ -113,7 +142,7 @@ export function Politic() {
                     </div>
             
                     <div className={s.portrait}>
-                      <img src={kushan} alt='Towns' width='200' />
+                      <Image img={kushan} />
                     </div>
                   </div>
                 </div>
@@ -121,21 +150,6 @@ export function Politic() {
                 <div className={s.block2}>
                   <h3>Краткая история</h3>
                   <div>Таинственная империя, ведущая бесконечные завоевания на своих дальних рубежах</div>
-                </div>
-              </>
-          },
-          {
-            label: 'Племена нордов',
-            text: 
-              <>
-                <div>Столица: -</div>
-                <div>Знамя: -</div>
-                <div>Правящая династия: -</div>
-                <div>Правитель: -</div>
-
-                <div className={s.block2}>
-                  <h3>Краткая история</h3>
-                  <div>Бесчисленные племена воюющие между собой</div>
                 </div>
               </>
           },
