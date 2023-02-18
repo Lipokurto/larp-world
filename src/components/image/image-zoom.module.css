@@ -1,0 +1,24 @@
+.portrait_wrapper {
+  z-index: 8;
+  background: fixed;
+  background-color: #000000;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  min-width: 100%;
+  min-height: 100%;
+  opacity: 50%;
+  
+  overflow-y: hidden;
+}
+
+.portrait_open {
+  position: absolute;
+  z-index: 10;
+  right: 50%;
+  top: 30%;
+  transform: translate(50%, -50%);
+  background: fixed;
+  background-color: #000000;
+  opacity: 100%;
+}

@@ -8,38 +8,9 @@ import tudor from '../../../assets/towns/tudor.png';
 import midlend from '../../../assets/towns/midlend.png'; 
 import kushan from '../../../assets/towns/kushan.png'; 
 
-import { AccordionBlock, Chapter } from "../../../components";
+import { AccordionBlock, Chapter, ImageZoom } from "../../../components";
 
 import s from './politic.module.css';
-
-function Image({ img }) {
-  const [isOpen, setIsOpen] = React.useState(false);
-
-  if (isOpen) {
-    document.body.style.position = 'fixed';
-    document.body.style.top = `-${window.scrollY}px`;
-    
-    return (
-      <>
-        <div className={s.portrait_open} onClick={() => setIsOpen(false)}>
-          <img src={img} alt='Kings' width='600'/>
-        </div>
-
-        <div className={s.portrait_wrapper} onClick={() => setIsOpen(false)}>
-        </div>
-      </>
-    )
-  }
-
-  document.body.style.position = '';
-  document.body.style.top = '';
-  
-  return (
-    <div onClick={() => setIsOpen(true)}>
-      <img src={img} alt='Kings' width='200' />
-    </div>
-  )
-}
 
 export function Politic() {
   return (
@@ -67,7 +38,7 @@ export function Politic() {
                     </div>
                     
                     <div className={s.portrait}>
-                      <Image img={rich} />
+                      <ImageZoom image={rich} startWidth='200' zoomWidth='600'/>
                     </div>
                   </div>
 
@@ -77,7 +48,7 @@ export function Politic() {
                     </div>
                     
                     <div className={s.portrait}>
-                      <Image img={midlend} />
+                      <ImageZoom image={midlend} startWidth='200' zoomWidth='600'/>
                     </div>
                   </div>
                 </div>
@@ -100,7 +71,7 @@ export function Politic() {
                     </div>
             
                     <div className={s.portrait}>
-                      <Image img={ferd} />
+                      <ImageZoom image={ferd} startWidth='200' zoomWidth='600' />
                     </div>
                   </div>
 
@@ -110,7 +81,7 @@ export function Politic() {
                     </div>
             
                     <div className={s.portrait}>
-                      <Image img={tudor} />
+                      <ImageZoom image={tudor} startWidth='200' zoomWidth='600' />
                     </div>
                   </div>
                 </div>
@@ -132,7 +103,7 @@ export function Politic() {
                     </div>
             
                     <div className={s.portrait}>
-                      <Image img={gani} />
+                      <ImageZoom image={gani} startWidth='200' zoomWidth='600' />
                     </div>
                   </div>
 
@@ -142,7 +113,7 @@ export function Politic() {
                     </div>
             
                     <div className={s.portrait}>
-                      <Image img={kushan} />
+                      <ImageZoom image={kushan} startWidth='200' zoomWidth='600' />
                     </div>
                   </div>
                 </div>

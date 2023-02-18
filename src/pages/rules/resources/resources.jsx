@@ -3,8 +3,9 @@ import React from "react";
 import { Chapter, ItemModal, LinkButton } from "../../../components";
 
 import { 
-  healPack, healPotion, repairPack, repairPotion,
-  artifact, ore, herbs, money
+  healPack, healPotion, repairPack,
+  repairPotion, artifact, ore, 
+  herbs, money, cannonBox,
 } from "../../../rules-text/items";
 
 import s from './resources.module.css';
@@ -36,6 +37,7 @@ export function Resources() {
             <li><LinkButton text='Ремкоплект' hint={repairPack.hint} onclick={() => handleClick(repairPack)}/>. Весит 1</li>
             <li><LinkButton text='Руда' hint={ore.hint} onclick={() => handleClick(ore)}/>. Весит 1</li>
             <li><LinkButton text='Травы' hint={herbs.hint} onclick={() => handleClick(herbs)}/>. Весит 1</li>
+            <li><LinkButton text='Зарядный ящик' hint={cannonBox.hint} onclick={() => handleClick(cannonBox)}/>. Весит 2</li>
           </div>
         </div>
 

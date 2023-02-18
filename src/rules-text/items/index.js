@@ -6,3 +6,4 @@ export { artifact } from './artifact';
 export { ore } from './ore';
 export { herbs } from './herbs';
 export { money } from './money';
+export { cannonBox } from './cannon-box';
