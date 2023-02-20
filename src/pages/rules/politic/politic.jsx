@@ -8,7 +8,7 @@ import tudor from '../../../assets/towns/tudor.png';
 import midlend from '../../../assets/towns/midlend.png'; 
 import kushan from '../../../assets/towns/kushan.png'; 
 
-import { AccordionBlock, Chapter } from "../../../components";
+import { AccordionBlock, Chapter, ImageZoom } from "../../../components";
 
 import s from './politic.module.css';
 
@@ -38,7 +38,7 @@ export function Politic() {
                     </div>
                     
                     <div className={s.portrait}>
-                      <img src={rich} alt='Kings' width='200' />
+                      <ImageZoom image={rich} startWidth='200' zoomWidth='600'/>
                     </div>
                   </div>
 
@@ -48,7 +48,7 @@ export function Politic() {
                     </div>
                     
                     <div className={s.portrait}>
-                      <img src={midlend} alt='Towns' width='200' />
+                      <ImageZoom image={midlend} startWidth='200' zoomWidth='600'/>
                     </div>
                   </div>
                 </div>
@@ -71,7 +71,7 @@ export function Politic() {
                     </div>
             
                     <div className={s.portrait}>
-                      <img src={ferd} alt='Kings' width='200' />
+                      <ImageZoom image={ferd} startWidth='200' zoomWidth='600' />
                     </div>
                   </div>
 
@@ -81,7 +81,7 @@ export function Politic() {
                     </div>
             
                     <div className={s.portrait}>
-                      <img src={tudor} alt='Towns' width='200' />
+                      <ImageZoom image={tudor} startWidth='200' zoomWidth='600' />
                     </div>
                   </div>
                 </div>
@@ -103,7 +103,7 @@ export function Politic() {
                     </div>
             
                     <div className={s.portrait}>
-                      <img src={gani} alt='Kings' width='200' />
+                      <ImageZoom image={gani} startWidth='200' zoomWidth='600' />
                     </div>
                   </div>
 
@@ -113,7 +113,7 @@ export function Politic() {
                     </div>
             
                     <div className={s.portrait}>
-                      <img src={kushan} alt='Towns' width='200' />
+                      <ImageZoom image={kushan} startWidth='200' zoomWidth='600' />
                     </div>
                   </div>
                 </div>
@@ -121,21 +121,6 @@ export function Politic() {
                 <div className={s.block2}>
                   <h3>Краткая история</h3>
                   <div>Таинственная империя, ведущая бесконечные завоевания на своих дальних рубежах</div>
-                </div>
-              </>
-          },
-          {
-            label: 'Племена нордов',
-            text: 
-              <>
-                <div>Столица: -</div>
-                <div>Знамя: -</div>
-                <div>Правящая династия: -</div>
-                <div>Правитель: -</div>
-
-                <div className={s.block2}>
-                  <h3>Краткая история</h3>
-                  <div>Бесчисленные племена воюющие между собой</div>
                 </div>
               </>
           },
