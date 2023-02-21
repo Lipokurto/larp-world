@@ -1,15 +1,11 @@
 .container {
   display: flex;
+  width: 50%;
   color: white;
   flex-direction: column;
-  border: solid wheat;
-  left: 50%;
-  right: 50%;
-  width: 75%;
-  margin-left: auto;
-  margin-right: auto;
+  text-align: center;
   padding: 20px 20px 20px 20px;
-
+  margin: 0 auto 0 auto;
 }
 
 .block {
