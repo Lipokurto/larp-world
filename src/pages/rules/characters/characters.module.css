@@ -8,10 +8,37 @@
   margin: 0 auto 0 auto;
 }
 
+.fasion_container {
+  display: flex;
+  justify-content: center;
+}
+
+.fasion_container h3 {
+  padding: 10px;
+}
+
 .block {
   margin-left: 10px;
 }
 
 .block2 {
   margin-left: 10px;
+}
+
+@media only screen and (max-width: 1600px) {
+  .container {
+    width: 75%;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .container {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .container {
+    width: 100%;
+  }
 }
