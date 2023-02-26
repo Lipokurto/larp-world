@@ -13,6 +13,7 @@ import { Actions } from "./pages/rules/actions/actions";
 import { Politic } from "./pages/rules/politic/politic";
 
 import s from './app.module.css';
+import { Tolerance } from "./pages/rules/tolerance/tolerance";
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
       <Routes>
         <Route path='/' element={<Main />} />
         <Route path='rules/general' element={<General />} />
+        <Route path='rules/tolerance' element={<Tolerance />} />
         <Route path='rules/battle' element={<Battle />} />
         <Route path='rules/characters' element={<Characters />} />
         <Route path='rules/location' element={<Location />} />
