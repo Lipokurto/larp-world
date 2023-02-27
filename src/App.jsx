@@ -6,14 +6,14 @@ import { Main } from "./pages/main/main";
 import { General } from "./pages/rules/general/general";
 import { Battle } from "./pages/rules/battle/battle";
 import { Characters } from "./pages/rules/characters/characters";
-
 import { Location } from "./pages/rules/location/location";
 import { Resources } from "./pages/rules/resources/resources";
 import { Actions } from "./pages/rules/actions/actions";
 import { Politic } from "./pages/rules/politic/politic";
+import { Tolerance } from "./pages/rules/tolerance/tolerance";
+import { Monsters } from "./pages/rules/monsters/monsters";
 
 import s from './app.module.css';
-import { Tolerance } from "./pages/rules/tolerance/tolerance";
 
 export default function App() {
   return (
@@ -25,13 +25,13 @@ export default function App() {
         <Route path='rules/general' element={<General />} />
         <Route path='rules/tolerance' element={<Tolerance />} />
         <Route path='rules/battle' element={<Battle />} />
+        <Route path='rules/monsters' element={<Monsters />} />
         <Route path='rules/characters' element={<Characters />} />
         <Route path='rules/location' element={<Location />} />
         <Route path='rules/resources' element={<Resources />} />
         <Route path='rules/actions' element={<Actions />} />
         <Route path='rules/actions' element={<Actions />} />
         <Route path='rules/politic' element={<Politic />} />
-
         <Route path='players' element={<></>} />
       </Routes>
     </div>

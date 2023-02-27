@@ -30,6 +30,17 @@ export const rules = [
     ]
   },
   {
+    label: 'Монстры',
+    link: '/monsters',
+    subLabels: [
+      'Урон чудовщи',
+      'Правила чудовищ',
+      'Одержимые',
+      'Прмиеры чудовищ',
+      'Архетипы',
+    ]
+  },
+  {
     label: 'Персонажи',
     link: '/characters',
     subLabels: [
