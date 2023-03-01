@@ -1,6 +1,6 @@
 import React from "react";
 
-import s from './time-table.module.css';
+import s from './table.module.css';
 
 export function TimeTable() {
   return (

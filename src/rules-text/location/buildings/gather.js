@@ -5,7 +5,7 @@ import s from './buildings.module.css';
 
 
 export const gather = {
-  label: 'Производственные постройки',
+  label: 'Ресурсная постройка',
   text: 
     <>
       <div className={s.container}>
