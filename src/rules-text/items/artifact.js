@@ -1,9 +1,13 @@
+import icon from '../../assets/icons/items/artefact.png';
+
+import s from './items.module.css';
+
 export const artifact = {
   label: 'Артефакт',
-  icon: '',
-  hint: 'Выполняет игротехнические свойства',
+  icon: icon,
   text: 
     <>
+      <div className={s.icon}><img src={icon} alt='' /></div>
       <h2>Эффекты</h2>
         <div>Имеет игротехнические свойвства</div>
       <h2>Вес: 0</h2>

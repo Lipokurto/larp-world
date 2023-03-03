@@ -1,9 +1,13 @@
+import icon from '../../assets/icons/items/ore.png';
+
+import s from './items.module.css';
+
 export const ore = {
   label: 'Руда',
-  icon: '',
-  hint: 'Производственный ресурс',
+  icon: icon,
   text: 
     <>
+      <div className={s.icon}><img src={icon} alt='' /></div>
       <h2>Эффекты</h2>
         <div>Руда необходимая для производства ремкомплектов</div>
       <h2>Вес: 1</h2>

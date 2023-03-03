@@ -112,8 +112,8 @@ export function Battle() {
                   <li>Нанесли удар любым оружием по игроку без шлема (даже если он в доспехах)</li>
                   <h3>Восстанавливаются живые хиты:</h3>
                     <li>Госпитль</li>
-                    <li><LinkButton text='Медкомплект' hint={healPack.hint} onclick={() => handleClick(healPack)}/></li>
-                    <li><LinkButton text='Целебная мазь' hint={healPotion.hint} onclick={() => handleClick(healPotion)}/></li>
+                    <li><LinkButton text='Медкомплект' onclick={() => handleClick(healPack)}/></li>
+                    <li><LinkButton text='Целебная мазь' onclick={() => handleClick(healPotion)}/></li>
                     <li>Мертвяк</li>
                 </>
             },
@@ -127,14 +127,14 @@ export function Battle() {
                   <li>Раненый игрок должен пробыть (для легкого ранения: 15 минут, для тяжелого: 30 минут) возле госпиталя, не напрягая раненную конечность</li>
                   <li>Ресурсы при этом не расходуются</li>
 
-                  <h3>Для лечения ранения <LinkButton text='медкомплектом' hint={healPack.hint} onclick={() => handleClick(healPack)}/></h3>
-                  <li>На <LinkButton text='медкомплекте' hint={healPack.hint} onclick={() => handleClick(healPack)}/> ломается печать</li>
-                  <li>Внутри <LinkButton text='медкомплекта' hint={healPack.hint} onclick={() => handleClick(healPack)}/> находятся: бинт, значек</li>
+                  <h3>Для лечения ранения <LinkButton text='медкомплектом' onclick={() => handleClick(healPack)}/></h3>
+                  <li>На <LinkButton text='медкомплекте' onclick={() => handleClick(healPack)}/> ломается печать</li>
+                  <li>Внутри <LinkButton text='медкомплекта' onclick={() => handleClick(healPack)}/> находятся: бинт, значек</li>
                   <li>Раненая конечность перевязывается, бинт подкалывается значком "лечится"</li>
                   <li>На значке указывается когда необходимо снять перевязку (для легкого ранения: 15 минут, для тяжелого: 30 минут)</li>
                   <li>Во время лечения игрок не напрягает раненную конечность</li>
 
-                  <h3>Лечение легкого ранения при помощи <LinkButton text='целебной мази' hint={healPotion.hint} onclick={() => handleClick(healPotion)}/></h3>
+                  <h3>Лечение легкого ранения при помощи <LinkButton text='целебной мази' onclick={() => handleClick(healPotion)}/></h3>
                   <li>Раненный вскрывает пузырек мазью</li>
                   <li>Рвется бумажка которая находится внутри</li>
                   <li>Игров восстанавливает все живые хиты моментально</li>
@@ -147,7 +147,7 @@ export function Battle() {
                   <li><b>Снятие бинта раньше срока:</b> Бинт свалился, развязался, сполз, потерялась записка с временем</li>
                   <div><b>ПРИМЕЧАНИЕ:</b> Бинт снимается только тем доктором который его ставил, и только после снятия игроку насчитываются восстановленные хиты</div>
                   <br />
-                  <div><LinkButton text='Пояснение о медицине' hint={healPotion.hint} onclick={() => handleClick(explainHeal)}/></div>
+                  <div><LinkButton text='Пояснение о медицине' onclick={() => handleClick(explainHeal)}/></div>
                 </>
             },
           ]}
@@ -199,8 +199,8 @@ export function Battle() {
                   <br />
                   <h3>Восстанавливаются броневые хиты:</h3>
                   <li>Кузница</li>
-                  <li><LinkButton text='Ремкоплект' hint={repairPack.hint} onclick={() => handleClick(repairPack)}/></li>
-                  <li><LinkButton text='Оружейное масло' hint={repairPotion.hint} onclick={() => handleClick(repairPotion)}/></li>
+                  <li><LinkButton text='Ремкоплект' onclick={() => handleClick(repairPack)}/></li>
+                  <li><LinkButton text='Оружейное масло' onclick={() => handleClick(repairPotion)}/></li>
                   <li>Мертвяк</li>
                 </>
             },
@@ -234,14 +234,14 @@ export function Battle() {
                   <li>Игрок должен пробыть (для поврежденной брони: 15 минут, для сломанной брони: 30 минут) возле кузницы, не вступая в боевые взаимодействия</li>
                   <li>Ресурсы при этом не расходуются</li>
 
-                  <h3>Для ремонта брони  <LinkButton text='ремкомплектом' hint={repairPack.hint} onclick={() => handleClick(repairPack)}/></h3>
-                  <li>На <LinkButton text='ремкомплекте' hint={repairPack.hint} onclick={() => handleClick(repairPack)}/> ломается печать</li>
-                  <li>Внутри <LinkButton text='ремкомплекта' hint={repairPack.hint} onclick={() => handleClick(repairPack)}/> находятся: значек ремонта, проволка</li>
+                  <h3>Для ремонта брони  <LinkButton text='ремкомплектом' onclick={() => handleClick(repairPack)}/></h3>
+                  <li>На <LinkButton text='ремкомплекте' onclick={() => handleClick(repairPack)}/> ломается печать</li>
+                  <li>Внутри <LinkButton text='ремкомплекта' onclick={() => handleClick(repairPack)}/> находятся: значек ремонта, проволка</li>
                   <li>К доспеху приматывается проволкой значек "в ремонте"</li>
                   <li>На обратной стороне значка пишется время когда ремонт закончится</li>
                   <li>Во время ремонта игрок не вступает в боевые взаимодействия</li>
 
-                  <h3>Ремонт поврежеденной брони при помощи <LinkButton text='оружейного масла' hint={repairPotion.hint} onclick={() => handleClick(repairPotion)}/></h3>
+                  <h3>Ремонт поврежеденной брони при помощи <LinkButton text='оружейного масла' onclick={() => handleClick(repairPotion)}/></h3>
                   <li>Игрок вскрывает пузырек с маслом</li>
                   <li>Рвется бумажка которая находится внутри</li>
                   <li>Игрок восстанавливает все броневые хиты</li>
@@ -333,14 +333,14 @@ export function Battle() {
                   <li>Игроку восстанавливается его базовый 1 хит</li>
                   <li>Ресурсы при этом не расходуются</li>
 
-                  <h3>Для лечения ранения <LinkButton text='медкомплектом' hint={healPack.hint} onclick={() => handleClick(healPack)}/></h3>
-                  <li>На <LinkButton text='медкомплекте' hint={healPack.hint} onclick={() => handleClick(healPack)}/> ломается печать</li>
-                  <li>Внутри <LinkButton text='медкомплекта' hint={healPack.hint} onclick={() => handleClick(healPack)}/> находятся: бинт, значек</li>
+                  <h3>Для лечения ранения <LinkButton text='медкомплектом' onclick={() => handleClick(healPack)}/></h3>
+                  <li>На <LinkButton text='медкомплекте' onclick={() => handleClick(healPack)}/> ломается печать</li>
+                  <li>Внутри <LinkButton text='медкомплекта' onclick={() => handleClick(healPack)}/> находятся: бинт, значек</li>
                   <li>Игрок перевязывается, бинт подкалывается значком "лечится"</li>
                   <li>На значке указывается когда необходимо снять перевязку (20 минут)</li>
                   <li>Игроку восстанавливается его базовый 1 хит</li>
 
-                  <h3>Лечение легкого ранения при помощи <LinkButton text='целебной мази' hint={healPotion.hint} onclick={() => handleClick(healPotion)}/></h3>
+                  <h3>Лечение легкого ранения при помощи <LinkButton text='целебной мази' onclick={() => handleClick(healPotion)}/></h3>
                   <li>Раненный вскрывает пузырек мазью</li>
                   <li>Рвется бумажка которая находится внутри</li>
                   <li>Игроку восстанавливается его базовый 1 хит</li>
@@ -365,15 +365,15 @@ export function Battle() {
                   <li>Игрок восстанавливает все свои хиты</li>
                   <li>Ресурсы при этом не расходуются</li>
 
-                  <h3>Для ремонта брони  <LinkButton text='ремкомплектом' hint={repairPack.hint} onclick={() => handleClick(repairPack)}/></h3>
-                  <li>На <LinkButton text='ремкомплекте' hint={repairPack.hint} onclick={() => handleClick(repairPack)}/> ломается печать</li>
-                  <li>Внутри <LinkButton text='ремкомплекта' hint={repairPack.hint} onclick={() => handleClick(repairPack)}/> находятся: значек ремонта, проволка</li>
+                  <h3>Для ремонта брони  <LinkButton text='ремкомплектом' onclick={() => handleClick(repairPack)}/></h3>
+                  <li>На <LinkButton text='ремкомплекте' onclick={() => handleClick(repairPack)}/> ломается печать</li>
+                  <li>Внутри <LinkButton text='ремкомплекта' onclick={() => handleClick(repairPack)}/> находятся: значек ремонта, проволка</li>
                   <li>К доспеху приматывается проволкой значек "в ремонте"</li>
                   <li>На обратной стороне значка пишется время когда ремонт закончится</li>
                   <li>Игрок восстанавливает все свои хиты</li>
                   <li>Во время ремонта игрок не вступает в боевые взаимодействия</li>
 
-                  <h3>Ремонт поврежеденной брони при помощи <LinkButton text='оружейного масла' hint={repairPotion.hint} onclick={() => handleClick(repairPotion)}/></h3>
+                  <h3>Ремонт поврежеденной брони при помощи <LinkButton text='оружейного масла' onclick={() => handleClick(repairPotion)}/></h3>
                   <li>Игрок вскрывает пузырек с маслом</li>
                   <li>Рвется бумажка которая находится внутри</li>
                   <li>Игрок восстанавливает все хиты</li>

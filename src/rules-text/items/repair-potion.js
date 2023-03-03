@@ -1,9 +1,13 @@
+import icon from '../../assets/icons/items/repairPotion.png';
+
+import s from './items.module.css';
+
 export const repairPotion = {
   label: 'Оружейное масло',
-  icon: '',
-  hint: 'Мгновенно восстанавливает все бронехиты на участках броне где количество броневых хитов не равно нулю',
+  icon: icon,
   text: 
     <>
+      <div className={s.icon}><img src={icon} alt='' /></div>
       <h2>Эффекты</h2>
         <div>Мгновенно восстанавливает все бронехиты на участках броне где количество броневых хитов не равно нулю</div>
       <h2>Вес: 0</h2>

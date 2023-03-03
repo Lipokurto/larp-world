@@ -1,9 +1,13 @@
+import icon from '../../assets/icons/items/herbs.png';
+
+import s from './items.module.css';
+
 export const herbs = {
   label: 'Лечебные травы',
-  icon: '',
-  hint: 'Производственный ресурс',
+  icon: icon,
   text: 
     <>
+      <div className={s.icon}><img src={icon} alt='' /></div>
       <h2>Эффекты</h2>
         <div>Лечебные травы необходимы для производства медкомплектов</div>
       <h2>Вес: 1</h2>

@@ -1,9 +1,13 @@
+import icon from '../../assets/icons/items/repairPack.png';
+
+import s from './items.module.css';
+
 export const repairPack = {
   label: 'Ремкомплект',
-  icon: '',
-  hint: 'Полностью восстанавливает броневые хиты',
+  icon: icon,
   text: 
     <>
+      <div className={s.icon}><img src={icon} alt='' /></div>
       <h2>Эффекты</h2>
         <div>Полностью восстанавливает броневые хиты</div>
       <h2>Вес: 1</h2>
