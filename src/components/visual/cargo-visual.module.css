@@ -2,3 +2,9 @@
   height: 500px;
   width: 300px;
 }
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

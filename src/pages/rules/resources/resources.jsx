@@ -1,6 +1,7 @@
 import React from "react";
 
 import { AccordionBlock, Chapter, ItemModal, LinkButton } from "../../../components";
+import { cargo } from "../../../rules-text/examples/cargo/cargo";
 
 import { 
   healPack, healPotion, repairPack,
@@ -66,7 +67,7 @@ export function Resources() {
                   <br />
                   <div>При превышении грузоподьемности на 1 единицу игрок не может сражаться и передвигается исключительно пешком</div>
                   <div>При превышении грузоподьемности на 2 единицы игрок не может сражаться и передвигаться</div>
-                  <h3><LinkButton text='Зарядный ящик' onclick={() => handleClick(cannonBox)}/></h3>
+                  <h3><LinkButton text='Визуализация грузоподъемности' onclick={() => handleClick(cargo)}/></h3>
                 </>
             },
           ]}
