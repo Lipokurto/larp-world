@@ -3,12 +3,9 @@ import React from "react";
 import { TimeTable } from "./time-table";
 import { LinkButton, Chapter, AccordionBlock, ItemModal } from "../../../components";
 import { captain, quartermaster } from "../../../rules-text/examples/characters";
-
-import { alchemist, gather, hospital, smith } from "../../../rules-text/location/buildings";
-import { healPack, healPotion, herbs, ore, repairPack, repairPotion } from "../../../rules-text/items";
+import { BuildTable } from "./build-table";
 
 import s from './location.module.css';
-import { BuildTable } from "./build-table";
 
 export function Location() {
   const [isOpen, setIsOpen] = React.useState(false);

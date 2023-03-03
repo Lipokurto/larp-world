@@ -21,7 +21,6 @@ export function ItemModal({ title, text, setIsOpen }) {
 
           <div className={s.modalContent}>
             <h1>{text.label}</h1>
-            {/* <img src='' alt='Icon' /> */}
             {text.text}
           </div>
 

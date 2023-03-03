@@ -1,9 +1,13 @@
+import icon from '../../assets/icons/items/healPack.png';
+
+import s from './items.module.css';
+
 export const healPack = {
   label: 'Медкомплект',
-  icon: '',
-  hint: 'Лечит тяжелые и легкие ранения',
+  icon: icon,
   text: 
     <>
+      <div className={s.icon}><img src={icon} alt='' /></div>
       <h2>Эффекты</h2>
         <div>Содержит средства для лечения ран, в случае успеха лечит тяжелые и легкие раны</div>
       <h2>Вес: 1</h2>

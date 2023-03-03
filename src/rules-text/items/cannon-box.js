@@ -1,9 +1,13 @@
+import icon from '../../assets/icons/items/box.png';
+
+import s from './items.module.css';
+
 export const cannonBox = {
   label: 'Зарядный ящик',
-  icon: '',
-  hint: 'Необходим для стрельбы артилерии',
+  icon: icon,
   text: 
     <>
+      <div className={s.icon}><img src={icon} alt='' /></div>
       <h2>Эффекты</h2>
         <div>Позволяет перезаряжать огнестрельное осадное орудие</div>
       <h2>Вес: каждые 10 снарядов +1 весу (округляется в большу сторону)</h2>

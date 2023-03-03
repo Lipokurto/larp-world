@@ -1,9 +1,13 @@
+import icon from '../../assets/icons/items/healPotion.png';
+
+import s from './items.module.css';
+
 export const healPotion = {
   label: 'Целебная мазь',
-  icon: '',
-  hint: 'В случае легкого ранения мгновенно востанавлвиает живые хиты',
+  icon: icon,
   text: 
     <>
+      <div className={s.icon}><img src={icon} alt='' /></div>
       <h2>Эффекты</h2>
         <div>В случае легкого ранения мгновенно востанавлвиает живые хиты</div>
       <h2>Вес: 0</h2>

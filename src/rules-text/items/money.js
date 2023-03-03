@@ -1,9 +1,13 @@
+import icon from '../../assets/icons/items/money.png';
+
+import s from './items.module.css';
+
 export const money = {
   label: 'Деньги',
-  icon: '',
-  hint: 'Игровые деньги',
+  icon: icon,
   text: 
     <>
+      <div className={s.icon}><img src={icon} alt='' /></div>
       <h2>Эффекты</h2>
         <div>Универсальный способ обмена товаров</div>
       <h2>Вес: 0</h2>
