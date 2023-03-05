@@ -1,20 +1,17 @@
 import priest01 from '../../../assets/rules/man/priest/01.jpg';
 import priest02 from '../../../assets/rules/man/priest/02.jpg';
 import priest03 from '../../../assets/rules/man/priest/03.jpg';
-import { AccordionBlock } from '../../../components';
 
-import s from './characters.module.css';
+import { AccordionBlock, ImagesAdaptive } from '../../../components';
+
+const images = [priest01, priest02, priest03];
 
 export const priest = {
   label: 'Капитан',
   text: 
     <>      
       <div>      
-        <div class={s.container}>
-          <img src={priest01} alt='Character' />
-          <img src={priest02} alt='Character' />
-          <img src={priest03} alt='Character' />
-        </div>
+        <ImagesAdaptive images={images} />
       </div>
 
       <AccordionBlock

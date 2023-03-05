@@ -1,20 +1,17 @@
 import executor01 from '../../../assets/rules/man/executor/01.jpg';
 import executor02 from '../../../assets/rules/man/executor/02.jpg';
 import executor03 from '../../../assets/rules/man/executor/03.jpg';
-import { AccordionBlock } from '../../../components';
 
-import s from './characters.module.css';
+import { AccordionBlock, ImagesAdaptive } from '../../../components';
+
+const images = [executor01, executor02, executor03];
 
 export const executor = {
   label: 'Палач',
   text: 
     <>      
       <div>      
-        <div class={s.container}>
-          <img src={executor01} alt='Character' />
-          <img src={executor02} alt='Character' />
-          <img src={executor03} alt='Character' />
-        </div>
+        <ImagesAdaptive images={images} />
       </div>
 
       <AccordionBlock

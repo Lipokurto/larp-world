@@ -5,7 +5,12 @@ import north02 from '../../../assets/rules/nation/north/02.jpg';
 import north03 from '../../../assets/rules/nation/north/03.jpg';
 import north04 from '../../../assets/rules/nation/north/04.jpg';
 
+import { ImagesAdaptive } from '../../../components';
+
 import s from './nation.module.css';
+
+const casual = [north01, north02];
+const high = [north03, north04];
 
 export const northFasionNorm = {
   label: 'Повседневная мода',
@@ -14,10 +19,7 @@ export const northFasionNorm = {
       <div>Суровые северные земли, не богаты обильными урожаями, что толкнуло северян к осваиванию ремесла скотоводства, активным морским рейдами и наемничеству</div>
       <div>Одежда должна был удобной, темлой и защитной</div>
       <div>Обязательным явлением среди северян считается оружие, даже у женщин,</div>
-      <div class={s.sub_container}>
-        <img src={north01} alt='Fasion' />
-        <img src={north02} alt='Fasion' />
-      </div>
+      <ImagesAdaptive images={casual} />
     </div>
 }
 
@@ -27,10 +29,7 @@ export const northFasionHigh = {
     <div className={s.container}>
       <div>Чем больше у тебя трофеев и чем грознее твой вид - тем более ты опытный воин, а значит успешный северянин</div>
       <div>Красота постигается в воинском вооружении, без него богатство не сохранить, и тем более не приумножить</div>
-      <div class={s.sub_container}>
-        <img src={north03} alt='Fasion' />
-        <img src={north04} alt='Fasion' />
-      </div>
+      <ImagesAdaptive images={high} />
     </div>
 }
 
@@ -40,7 +39,7 @@ export const north = {
   text: 
     <>      
       <div>      
-        <div class={s.container_first}>
+        <div className={s.container_first}>
           <img src={male} alt='Fasion' />
           <img src={female} alt='Fasion' />
         </div>

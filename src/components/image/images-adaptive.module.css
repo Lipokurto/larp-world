@@ -1,9 +1,9 @@
-.container {
+.containerlg {
   display: flex;
   padding: 10px;
 }
 
-.container img {
+.containerlg img {
   height: 300px;
   margin: 10px;
   transition: all 0.2s ease-in-out;
@@ -11,18 +11,24 @@
   z-index: 10;
 }
 
-.container img:hover {
+
+.containerlg img:hover {
   transform: scale(1.5);
   box-shadow: 0 10px 10px #FF0000;
   z-index: 15;
 }
 
-@media only screen and (max-width: 1024px) {
-  .container {
-    display: block;
-  }
+.container {
+  width: 350px;
+  margin: 0 auto 0 auto;
+}
 
-  .container img {
-    height: 200px;
-  }
+.container img{
+  height: 400px;
+  border-radius: 10px;
+  z-index: 10;
+}
+
+.button {
+  border-radius: 10px;
 }

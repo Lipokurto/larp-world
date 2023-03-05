@@ -5,7 +5,12 @@ import midens02 from '../../../assets/rules/nation/midens/02.jpg';
 import midens03 from '../../../assets/rules/nation/midens/03.jpg';
 import midens04 from '../../../assets/rules/nation/midens/04.jpg';
 
+import { ImagesAdaptive } from '../../../components';
+
 import s from './nation.module.css';
+
+const casual = [midens01, midens02];
+const high = [midens03, midens04];
 
 export const midensFasionNorm = {
   label: 'Повседневная мода',
@@ -13,10 +18,7 @@ export const midensFasionNorm = {
     <div className={s.container}>
       <div>Простолюдины старались формировать свою одежду из практичных соображений</div>
       <div>Одежда должна быть удобной, теплой, и уже потом красивой</div>
-      <div class={s.sub_container}>
-        <img src={midens01} alt='Fasion' />
-        <img src={midens02} alt='Fasion' />
-      </div>
+      <ImagesAdaptive images={casual} />
     </div>
 }
 
@@ -27,10 +29,7 @@ export const midensFasionHigh = {
       <div>Аристократия всегда стремилась отделить себя от простолюдин, и одежда один из способов этого добиться</div>
       <div>Яркие цвета, вышивка, редкие ткани, все это должно говорить о том, что хозяин одежды может себе это позволить</div>
       <div>Различные аксессуары в виде цепей, фибул, перьев позволяли подчеркнуть статус своего хозяина</div>
-      <div class={s.sub_container}>
-        <img src={midens03} alt='Fasion' />
-        <img src={midens04} alt='Fasion' />
-      </div>
+      <ImagesAdaptive images={high} />
     </div>
 }
 
@@ -39,7 +38,7 @@ export const midens = {
   text: 
     <>      
       <div>      
-        <div class={s.container_first}>
+        <div className={s.container_first}>
           <img src={male} alt='Fasion' />
           <img src={female} alt='Fasion' />
         </div>

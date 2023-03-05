@@ -1,20 +1,17 @@
 import inquisitor01 from '../../../assets/rules/man/inquisitor/01.jpg';
 import inquisitor02 from '../../../assets/rules/man/inquisitor/02.jpg';
 import inquisitor03 from '../../../assets/rules/man/inquisitor/03.jpg';
-import { AccordionBlock } from '../../../components';
 
-import s from './characters.module.css';
+import { AccordionBlock, ImagesAdaptive } from '../../../components';
+
+const images = [inquisitor01, inquisitor02, inquisitor03];
 
 export const inquisitor = {
   label: 'Инквизитор',
   text: 
     <>      
-      <div>      
-        <div class={s.container}>
-          <img src={inquisitor01} alt='Character' />
-          <img src={inquisitor02} alt='Character' />
-          <img src={inquisitor03} alt='Character' />
-        </div>
+      <div>     
+        <ImagesAdaptive images={images} /> 
       </div>
 
       <AccordionBlock

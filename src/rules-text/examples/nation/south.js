@@ -5,7 +5,12 @@ import south02 from '../../../assets/rules/nation/south/02.jpg';
 import south03 from '../../../assets/rules/nation/south/03.jpg';
 import south04 from '../../../assets/rules/nation/south/04.jpg';
 
+import { ImagesAdaptive } from '../../../components';
+
 import s from './nation.module.css';
+
+const casual = [south01, south02];
+const high = [south03, south04];
 
 export const southFasionNorm = {
   label: 'Повседневная мода',
@@ -14,10 +19,7 @@ export const southFasionNorm = {
       <div>Суровый жаркий климат сформировал свой уникальынй стиль одежды который позволяет сохранять температуру тела в любых условиях</div>
       <div>Одежда должна просторной, удобной, и уже потом красивой</div>
       <div>При этом способы выделиться в таком стиле достаточно ограничены и в основном сводятся к ветиватым головным уборам</div>
-      <div class={s.sub_container}>
-        <img src={south01} alt='Fasion' />
-        <img src={south02} alt='Fasion' />
-      </div>
+      <ImagesAdaptive images={casual} />
     </div>
 }
 
@@ -27,10 +29,7 @@ export const southFasionHigh = {
     <div className={s.container}>
       <div>Южане не отделяют себя по сословиям, но очень любят показать свою состоятельность</div>
       <div>Красивые узоры, редкие ткани, украшения, все что может показать твой достаток и успех</div>
-      <div class={s.sub_container}>
-        <img src={south03} alt='Fasion' />
-        <img src={south04} alt='Fasion' />
-      </div>
+      <ImagesAdaptive images={high} />
     </div>
 }
 
@@ -40,7 +39,7 @@ export const south = {
   text: 
     <>      
       <div>      
-        <div class={s.container_first}>
+        <div className={s.container_first}>
           <img src={male} alt='Fasion' />
           <img src={female} alt='Fasion' />
         </div>

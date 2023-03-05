@@ -49,7 +49,7 @@ export function AccordionItemStyle(item) {
 
   return (
     <AccordionItem
-      key={Math.random()}
+      key={item.label}
       title={formedLabel}
       onExpand={() => handleExpand()}
       onClose={() => handleClose()}

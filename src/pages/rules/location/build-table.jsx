@@ -17,7 +17,7 @@ export function BuildTable() {
 
   return (
     <>
-      <table class={s.iksweb}>
+      <table className={s.iksweb}>
         <tbody>
           <tr>
             <td>Постройка</td>

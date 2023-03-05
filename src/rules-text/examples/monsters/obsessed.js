@@ -12,7 +12,7 @@ export const obsessed = {
   text: 
     <>      
       <div>      
-        <div class={s.container}>
+        <div className={s.container}>
             <Carousel 
               cols={1}
               rows={1}

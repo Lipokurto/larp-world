@@ -1,20 +1,17 @@
 import quartermaster01 from '../../../assets/rules/man/quartermaster/01.jpg';
 import quartermaster02 from '../../../assets/rules/man/quartermaster/02.jpg';
 import quartermaster03 from '../../../assets/rules/man/quartermaster/03.jpg';
-import { AccordionBlock } from '../../../components';
 
-import s from './characters.module.css';
+import { AccordionBlock, ImagesAdaptive } from '../../../components';
+
+const images = [quartermaster01, quartermaster02, quartermaster03];
 
 export const quartermaster = {
   label: 'Интендант',
   text: 
     <>      
       <div>      
-        <div class={s.container}>
-          <img src={quartermaster01} alt='Character' />
-          <img src={quartermaster02} alt='Character' />
-          <img src={quartermaster03} alt='Character' />
-        </div>
+        <ImagesAdaptive images={images} />
       </div>
 
       <AccordionBlock

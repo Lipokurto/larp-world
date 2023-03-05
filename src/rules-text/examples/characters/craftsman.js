@@ -1,20 +1,17 @@
 import craftsman01 from '../../../assets/rules/man/craftsman/01.jpg';
 import craftsman02 from '../../../assets/rules/man/craftsman/02.jpg';
 import craftsman03 from '../../../assets/rules/man/craftsman/03.jpg';
-import { AccordionBlock } from '../../../components';
 
-import s from './characters.module.css';
+import { AccordionBlock, ImagesAdaptive } from '../../../components';
+
+const images = [craftsman01, craftsman02, craftsman03];
 
 export const craftsman = {
   label: 'Ремесленник',
   text: 
     <>      
       <div>      
-        <div class={s.container}>
-          <img src={craftsman01} alt='Character' />
-          <img src={craftsman02} alt='Character' />
-          <img src={craftsman03} alt='Character' />
-        </div>
+        <ImagesAdaptive images={images} />
       </div>
 
       <AccordionBlock

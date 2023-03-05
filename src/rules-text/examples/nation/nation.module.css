@@ -11,24 +11,3 @@
   box-shadow: 0 10px 10px #FF0000;
   z-index: 15;
 }
-
-.sub_container {
-  display: flex;
-  padding: 10px;
-  justify-content: center;
-}
-
-.sub_container img{
-  height: 300px;
-  margin: 10px;
-  transition: all 0.2s ease-in-out;
-  border-radius: 10px;
-  z-index: 10;
-}
-
-.sub_container img:hover {
-  transform: scale(1.5);
-  box-shadow: 0 10px 10px #FF0000;
-  z-index: 15;
-}
-
