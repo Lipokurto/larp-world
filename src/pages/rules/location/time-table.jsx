@@ -4,7 +4,7 @@ import s from './table.module.css';
 
 export function TimeTable() {
   return (
-    <table class={s.iksweb}>
+    <table className={s.iksweb}>
 	<tbody>
 		<tr>
 			<td>Уровень постройки</td>

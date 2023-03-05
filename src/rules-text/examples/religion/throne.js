@@ -7,7 +7,7 @@ export const throne = {
   text: 
     <>      
       <div>      
-        <div class={s.container_first}>
+        <div className={s.container_first}>
           <img src={symbol} alt='Religion' />
         </div>
       </div>

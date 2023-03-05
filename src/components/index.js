@@ -15,5 +15,8 @@ export { AccordionStyle } from './accordion/accordion-style';
 export { AccordionItemStyle } from './accordion/accordion-item-style';
 
 export { ImageZoom } from './image/image-zoom';
+export { ImagesAdaptive } from './image/images-adaptive';
 
 export { CargoVisual } from './visual/cargo-visual';
+
+export { useResize } from './utils/use-resize';

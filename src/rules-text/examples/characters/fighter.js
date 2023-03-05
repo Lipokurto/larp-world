@@ -1,20 +1,17 @@
 import fighter01 from '../../../assets/rules/man/fighter/01.jpg';
 import fighter02 from '../../../assets/rules/man/fighter/02.jpg';
 import fighter03 from '../../../assets/rules/man/fighter/03.jpg';
-import { AccordionBlock } from '../../../components';
 
-import s from './characters.module.css';
+import { AccordionBlock, ImagesAdaptive } from '../../../components';
+
+const images = [fighter01, fighter02, fighter03];
 
 export const fighter = {
   label: 'Боец',
   text: 
     <>      
       <div>      
-        <div class={s.container}>
-          <img src={fighter01} alt='Character' />
-          <img src={fighter02} alt='Character' />
-          <img src={fighter03} alt='Character' />
-        </div>
+        <ImagesAdaptive images={images} />
       </div>
 
       <AccordionBlock

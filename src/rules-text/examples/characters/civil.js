@@ -1,20 +1,17 @@
 import civil01 from '../../../assets/rules/man/civil/01.jpg';
 import civil02 from '../../../assets/rules/man/civil/02.jpg';
 import civil03 from '../../../assets/rules/man/civil/03.jpg';
-import { AccordionBlock } from '../../../components';
 
-import s from './characters.module.css';
+import { AccordionBlock, ImagesAdaptive } from '../../../components';
+
+const images = [civil01, civil02, civil03];
 
 export const civil = {
   label: 'Простолюдин',
   text: 
     <>      
       <div>      
-        <div class={s.container}>
-          <img src={civil01} alt='Character' />
-          <img src={civil02} alt='Character' />
-          <img src={civil03} alt='Character' />
-        </div>
+        <ImagesAdaptive images={images} />
       </div>
 
       <AccordionBlock
