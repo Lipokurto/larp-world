@@ -6,26 +6,37 @@ import { NavButton } from "../button/nav-button";
 import s from './item-modal.module.css';
 
 export function ItemModal({ title, text, setIsOpen }) {
+
+  React.useEffect(() => {
+      document.body.style.overflowY = 'hidden';
+  }, []);
+
+  const handleClose = React.useCallback(() => {
+    document.body.style.overflowY = 'visible';
+
+    setIsOpen(false);
+  }, [setIsOpen]);
+
   return (
     <>
-      <div className={s.darkBG} onClick={() => setIsOpen(false)} />
+      <div className={s.darkBG} onClick={handleClose} />
       <div className={s.centered}>
         <div className={s.modal}>
           <div className={s.modalHeader}>
             <h5 className={s.heading}>{title}</h5>
           </div>
           
-          <button className={s.closeBtn} onClick={() => setIsOpen(false)}>
+          <button className={s.closeBtn} onClick={handleClose}>
             <RiCloseLine style={{ marginBottom: "-3px" }} />
           </button>
 
           <div className={s.modalContent}>
-            <h1>{text.label}</h1>
+            <b style={{ fontSize: '20px' }}>{text.label}</b>
             {text.text}
           </div>
 
           <div className={s.actionsContainer}>
-            <NavButton text='Закрыть' onclick={() => setIsOpen(false)} />
+            <NavButton text='Закрыть' onclick={handleClose} />
           </div>
         </div>
       </div>

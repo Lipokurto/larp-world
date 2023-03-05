@@ -19,3 +19,16 @@
   border-image-slice: 1;
   border-image-source:  linear-gradient(to left, #000000, wheat, #000000);
 }
+
+@media only screen and (max-width: 1600px) {
+  .container {
+    width: 75%;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .container {
+    width: 95%;
+    padding: 0 0 0 0;
+  }
+}

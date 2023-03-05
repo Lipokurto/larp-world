@@ -1,4 +1,4 @@
-h2 {
+.block h2 {
   text-shadow: 10px 0 10px red, -10px 0 10px red;
 }
 
