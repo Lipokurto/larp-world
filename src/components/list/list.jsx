@@ -15,7 +15,6 @@ export function List(props) {
             onClick={() => props.setIsOpen(false)}
           >
             <span className={s.label}>{p.label}</span>
-            <span className={s.subLabel}>{p.subLabels.map((pp) => <div key={pp}>{pp}<br /></div>)}</span>
             <br />
           </Link>
         )

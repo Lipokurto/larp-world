@@ -1,7 +1,7 @@
 .darkBG {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.75);
   width: 100vw;
-  height: 100vh;
+  height: 1000%;
   z-index: 12;
   top: 50%;
   left: 50%;
@@ -26,7 +26,6 @@
 }
 
 .modalHeader {
-  height: 50px;
   background: white;
   overflow: hidden;
   border-top-left-radius: 16px;
@@ -40,11 +39,10 @@
   font-weight: 500;
   font-size: 18px;
   text-align: center;
-  font-family: verdana;
 }
 
 .modalContent {
-  padding: 10px;
+  padding: 0 10px 10px 10px;
   font-size: 14px;
   color: #2c3e50;
   text-align: center;

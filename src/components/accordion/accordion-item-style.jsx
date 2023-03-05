@@ -26,9 +26,8 @@ export function AccordionItemStyle(item) {
   const [isOpen, setIsOpen] = React.useState(false);
 
   const handleExpand = React.useCallback(() => {
-    console.log('expand', isOpen)
     return setIsOpen(true);
-  }, [isOpen]);
+  }, []);
   
   const handleClose = React.useCallback(() => {
     if (isOpen) return setIsOpen(false);
@@ -50,6 +49,7 @@ export function AccordionItemStyle(item) {
 
   return (
     <AccordionItem
+      key={Math.random()}
       title={formedLabel}
       onExpand={() => handleExpand()}
       onClose={() => handleClose()}
