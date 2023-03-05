@@ -7,8 +7,8 @@ import s from './accordion-block.module.css';
 
 export function AccordionBlock({ label, items }) {
   return (
-    <div className={s.block}>
-      <h2>{label}</h2>
+    <div className={s.blockContainer}>
+      <h2 className={s.label}>{label}</h2>
 
       <Accordion>
         {items.map(p => AccordionItemStyle(p))}
