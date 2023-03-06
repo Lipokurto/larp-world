@@ -1,7 +1,7 @@
 .darkBG {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.75);
   width: 100vw;
-  height: 100vh;
+  height: 1000%;
   z-index: 12;
   top: 50%;
   left: 50%;
@@ -19,15 +19,14 @@
 
 .modal {
   min-width: 340px;
-  background: white;
-  color: white;
+  background: black;
+  color: wheat;
   border-radius: 5px;
-  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.04);
+  box-shadow: 0 0 50px -10px wheat;;
 }
 
 .modalHeader {
-  height: 50px;
-  background: white;
+  background: black;
   overflow: hidden;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
@@ -36,16 +35,14 @@
 .heading {
   margin: 0;
   padding: 10px;
-  color: #2c3e50;
   font-weight: 500;
   font-size: 18px;
   text-align: center;
 }
 
 .modalContent {
-  padding: 10px;
+  padding: 0 10px 10px 10px;
   font-size: 14px;
-  color: #2c3e50;
   text-align: center;
 }
 
@@ -62,8 +59,8 @@
   border-radius: 8px;
   border: none;
   font-size: 18px;
-  color: #2c3e50;
-  background: white;
+  color: wheat;
+  background: black;
   transition: all 0.25s ease;
   box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.06);
   position: absolute;
