@@ -18,11 +18,18 @@
 
 .avatar {
   display: block;
+  color: white;
   text-align: center;
   height: 100px;
   width: 20%;
   margin: 5px 5px 5px 5px;
   border-radius: 10px;
+}
+
+.status {
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .band-text {
@@ -31,4 +38,21 @@
   margin-left: auto;
   margin-right: auto;
   vertical-align: middle;
+}
+
+@media only screen and (max-width: 1024px) {
+  .band-text {
+    text-align: end;
+    margin-right: 20px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .band-text {
+    text-align: center;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: middle;
+  }
 }

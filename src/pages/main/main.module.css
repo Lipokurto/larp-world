@@ -14,3 +14,15 @@
   flex-direction: column;
   z-index: 15;
 }
+
+@media only screen and (max-width: 1024px) {
+  .logo {
+    margin-bottom: 0;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .logo {
+    height: 260px;
+  }
+}
