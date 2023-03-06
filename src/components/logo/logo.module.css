@@ -1,5 +1,23 @@
 .logo {
   display: flex;
+  width: 100%;
   margin-bottom: 15%;
   margin-left: -240px;
+  overflow: visible;
+}
+
+.labelTextsm {
+
+}
+
+@media only screen and (max-width: 1024px) {
+  .labelTextsm {
+    margin-top: -200px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .labelTextsm {
+    margin-top: -550px;
+  }
 }

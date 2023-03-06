@@ -12,15 +12,20 @@ export function Eclipse() {
     <>
       <div className='mark__container'>
         <Mark />
-
+      
         <div className='black-circle'>
-          <img src={blackCircle} alt='Mark' style={{width: 475}}/>
+          <img 
+            src={blackCircle} 
+            alt='Mark' 
+            width={475}
+              />
+        </div>
+
+        <div className='circle'>
+          <Circle />
         </div>
       </div>
 
-      <div className='circle'>
-        <Circle />
-      </div>
     </>
   )
 }

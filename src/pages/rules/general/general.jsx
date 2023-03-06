@@ -1,6 +1,6 @@
 import React from "react";
 
-import { AccordionStyle, Chapter } from "../../../components";
+import { AccordionBlock, Chapter } from "../../../components";
 
 import s from './general.module.css';
 
@@ -9,7 +9,7 @@ export function General() {
     <div className={s.container}>
       <Chapter chapter='БАЗОВЫЕ ПРАВИЛА' />
 
-      <AccordionStyle 
+      <AccordionBlock
         items={[
           {
             label: 'Вижу то что вижу',
