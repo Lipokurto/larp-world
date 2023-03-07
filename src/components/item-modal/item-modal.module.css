@@ -9,25 +9,27 @@
   position: absolute;
 }
 
-.centered {
+.modal {
   position: fixed;
+  /* тут высоту модалки фиксить */
+  height: 80vh; 
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 16;
-}
+  overflow-y: visible;
+  -webkit-overflow-scrolling: touch;
 
-.modal {
   min-width: 340px;
   background: black;
   color: wheat;
   border-radius: 5px;
-  box-shadow: 0 0 50px -10px wheat;;
+  box-shadow: 0 0 50px -10px wheat;
 }
 
 .modalHeader {
+  min-width: 340px;
   background: black;
-  overflow: hidden;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
 }
@@ -41,15 +43,25 @@
 }
 
 .modalContent {
+  overflow: auto;
+  /* Тут высоту контента отслеживать */
+  height: 85%;
   padding: 0 10px 10px 10px;
   font-size: 14px;
   text-align: center;
 }
 
+.modalContent::-webkit-scrollbar {
+  width: 3px;
+}
+
+.modalContent::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: rgb(117, 117, 117);  
+}
+
 .actionsContainer {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+  text-align: center;
 }
 
 .closeBtn {
