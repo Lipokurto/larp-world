@@ -54,6 +54,7 @@ export function CargoVisual() {
       <Select 
         options={optionsCargo} 
         onChange={handleChange}
+        className={s.select}
         />
       <h3>Максимальная грузоподъемность: {maxWeight}</h3>
       <h3>Весомые игровые предметы</h3>

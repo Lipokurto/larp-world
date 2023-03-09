@@ -5,10 +5,13 @@ import { Navigation } from "./components/navigation";
 import { Main } from "./pages/main/main";
 
 import { 
-  Actions, Battle, Characters,
-  General, Location, Monsters,
-  Politic, Resources, Tolerance,
+  Actions, Battle, General,
+  Location, Monsters, Resources,
+  Tolerance,
 } from "./pages/rules";
+
+import { Characters, Politic } from "./pages/world";
+import { Charcalc } from "./pages/help";
 
 import s from './app.module.css';
 
@@ -24,11 +27,15 @@ export default function App() {
         <Route path='rules/tolerance' element={<Tolerance />} />
         <Route path='rules/battle' element={<Battle />} />
         <Route path='rules/monsters' element={<Monsters />} />
-        <Route path='rules/characters' element={<Characters />} />
         <Route path='rules/location' element={<Location />} />
         <Route path='rules/resources' element={<Resources />} />
         <Route path='rules/actions' element={<Actions />} />
-        <Route path='rules/politic' element={<Politic />} />
+
+        <Route path='world/politic' element={<Politic />} />
+        <Route path='world/characters' element={<Characters />} />
+
+        <Route path='help/charcalc' element={<Charcalc />} />
+
         <Route path='players' element={<></>} />
       </Routes>
     </div>

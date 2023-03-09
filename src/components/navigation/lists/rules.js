@@ -16,10 +16,6 @@ export const rules = [
     link: '/monsters',
   },
   {
-    label: 'Персонажи',
-    link: '/characters',
-  },
-  {
     label: 'Локация',
     link: '/location',
   },
@@ -30,9 +26,5 @@ export const rules = [
   {
     label: 'Игровые действия',
     link: '/actions',
-  },
-  {
-    label: 'Политика',
-    link: '/politic',
   },
 ]

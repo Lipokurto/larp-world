@@ -3,17 +3,15 @@ import { useNavigate } from 'react-router-dom';
 
 import { NavButton } from '../button/nav-button';
 import { Modal } from '../modal/modal';
-import { players } from './lists/players';
-import { rules } from './lists/rules';
+import { help, rules, world } from './lists';
 
 import s from './navigation.module.css';
 
 const buttons = [
   { title: 'Главная', list: [], link: '/' },
   { title: 'Правила', list: rules, link: '/rules' },
-  { title: 'Игрокам', list: players, link: '/players' },
-  { title: 'Капитанам', list: [], link: '/captain' },
-  { title: 'Прочее', list: [], link: '/else' },
+  { title: 'Мир', list: world, link: '/world' },
+  { title: 'Помощь', list: help, link: '/help' },
 ];
 
 export function Navigation() {
