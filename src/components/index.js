@@ -18,5 +18,7 @@ export { ImageZoom } from './image/image-zoom';
 export { ImagesAdaptive } from './image/images-adaptive';
 
 export { CargoVisual } from './visual/cargo-visual';
+export { HitZone } from './visual/hit-zone';
+export { SelectItem } from './visual/select-item'
 
 export { useResize } from './utils/use-resize';

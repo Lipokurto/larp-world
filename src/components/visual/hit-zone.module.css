@@ -1,0 +1,7 @@
+.image {
+  margin: 20px auto 0 auto;
+  width: 300px;
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source: repeating-linear-gradient(to top, wheat, #000000, #000000, wheat);
+}
