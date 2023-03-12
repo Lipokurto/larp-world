@@ -1,5 +1,3 @@
-import React from 'react';
-
 import symbol from '../../../assets/rules/religion/south.png';
 
 import { Item } from '../../type';

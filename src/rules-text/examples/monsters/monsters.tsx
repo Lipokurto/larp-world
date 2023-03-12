@@ -1,4 +1,3 @@
-import React from 'react';
 import Carousel from 'better-react-carousel';
 
 import mon01 from '../../../assets/rules/monsters/monsters/01.jpg';

@@ -1,4 +1,3 @@
-import React from 'react';
 import Carousel from 'better-react-carousel';
 
 import ob01 from '../../../assets/rules/monsters/obsessed/01.jpg';

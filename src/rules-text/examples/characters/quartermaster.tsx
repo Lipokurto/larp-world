@@ -1,5 +1,3 @@
-import React from 'react';
-
 import quartermaster01 from '../../../assets/rules/man/quartermaster/01.jpg';
 import quartermaster02 from '../../../assets/rules/man/quartermaster/02.jpg';
 import quartermaster03 from '../../../assets/rules/man/quartermaster/03.jpg';

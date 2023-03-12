@@ -1,5 +1,3 @@
-import React from 'react';
-
 import male from '../../../assets/rules/nation/midens/male.png';
 import female from '../../../assets/rules/nation/midens/female.png';
 import midens01 from '../../../assets/rules/nation/midens/01.jpg';

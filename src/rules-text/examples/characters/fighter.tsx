@@ -1,5 +1,3 @@
-import React from 'react';
-
 import fighter01 from '../../../assets/rules/man/fighter/01.jpg';
 import fighter02 from '../../../assets/rules/man/fighter/02.jpg';
 import fighter03 from '../../../assets/rules/man/fighter/03.jpg';

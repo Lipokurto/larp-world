@@ -1,4 +1,3 @@
-import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import { Navigation } from "./components/navigation";
@@ -11,7 +10,7 @@ import {
 } from "./pages/rules";
 
 import { Characters, Politic } from "./pages/world";
-import { Charcalc } from "./pages/help";
+import { BuildCalc, CharCalc } from "./pages/help";
 
 import s from './app.module.css';
 
@@ -35,7 +34,8 @@ export default function App(): JSX.Element {
           <Route path='world/politic' element={<Politic />} />
           <Route path='world/characters' element={<Characters />} />
 
-          <Route path='help/charcalc' element={<Charcalc />} />
+          <Route path='help/char-calc' element={<CharCalc />} />
+          <Route path='help/build-calc' element={<BuildCalc />} />
 
           <Route path='players' element={<></>} />
         </Routes>

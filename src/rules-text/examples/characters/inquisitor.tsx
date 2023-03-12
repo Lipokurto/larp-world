@@ -1,5 +1,3 @@
-import React from 'react';
-
 import inquisitor01 from '../../../assets/rules/man/inquisitor/01.jpg';
 import inquisitor02 from '../../../assets/rules/man/inquisitor/02.jpg';
 import inquisitor03 from '../../../assets/rules/man/inquisitor/03.jpg';

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import icon from '../../assets/icons/items/box.png';
 
 import { Item } from '../type';

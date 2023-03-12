@@ -1,5 +1,3 @@
-import React from 'react';
-
 import civil01 from '../../../assets/rules/man/civil/01.jpg';
 import civil02 from '../../../assets/rules/man/civil/02.jpg';
 import civil03 from '../../../assets/rules/man/civil/03.jpg';

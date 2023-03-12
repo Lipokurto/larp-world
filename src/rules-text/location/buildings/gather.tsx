@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { AccordionBlock } from '../../../components';
 import gatherImg from '../../../assets/locations/peasant.png';
 import { Item } from '../../type';

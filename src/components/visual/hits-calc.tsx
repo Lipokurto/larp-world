@@ -1,20 +1,17 @@
 import React from "react";
 
-import { ItemModal, LinkButton } from "../../../components";
-import { SelectItem } from "../../../components";
-import { Item } from "../../../rules-text/type";
-
 import { 
   ArmorHit, ArmorItem, BackItem,
   HandleArmor, HelmetItem,
 } from "./type";
 
-import {
-  itemHelmet, itemShoulder, itemTorso,
-  itemArm, itemHip, itemLeg,
-} from "../../../rules-text/armor";
+import man from '../../assets/armor-zone/man.png';
 
-import man from '../../../assets/armor-zone/man.png';
+import { Item } from "../../rules-text/type";
+import { itemArm, itemHelmet, itemHip, itemLeg, itemShoulder, itemTorso } from "../../rules-text/armor";
+import { LinkButton } from "../link/link-button";
+import { SelectItem } from "./select-item";
+import { ItemModal } from "../item-modal/item-modal";
 
 import s from './hit-calc.module.css';
 

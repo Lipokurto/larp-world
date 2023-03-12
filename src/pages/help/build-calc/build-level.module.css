@@ -1,0 +1,88 @@
+.container {
+  width: fit-content;
+  color: white;
+  padding: 20px 20px 20px 20px;
+  justify-content: center;
+  margin: 0 auto 0 auto;
+}
+
+.item {
+  display: flex;
+  margin: 5px;
+  justify-content: left;
+}
+
+.item:hover .textContainer {
+  background-image: linear-gradient(to right, transparent, rgba(245, 222, 179, 0.445));
+}
+
+.label {
+  font-size: 20px;
+  color: wheat;
+}
+
+.textContainer_chosen {
+  background-image: linear-gradient(to right, transparent, rgba(245, 222, 179, 0.445));
+}
+
+.textContainer, .textContainer_chosen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: end;
+  padding-right: 20px;
+  width: 180px;
+
+  transition: background-color 0.5s ease-out;
+
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to left, wheat, #000000);
+}
+
+.description {
+  width: 180px;
+  white-space: nowrap;
+  display: flex;
+  margin: auto 0 19px -20px;
+}
+
+.text {
+  margin: auto 0 19px 0;
+}
+
+.workersContainer {
+  display: flex;
+  align-items: center;
+}
+
+.workers, .noWorkers {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  width: 260px;
+  text-align: left;
+  padding-left: 20px;
+}
+
+.noWorkers {
+  color: red;
+}
+
+.header {
+
+}
+
+.workerText {
+  width: 180px;
+  padding-right: 25px;
+  text-align: end;
+
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to left, wheat, #000000);
+}
+
+.workerItem {
+  width: 30px;
+}

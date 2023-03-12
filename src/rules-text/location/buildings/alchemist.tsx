@@ -1,8 +1,5 @@
 import { AccordionBlock } from '../../../components';
 import alchemistImg from '../../../assets/locations/alchemist.png';
-
-import React from 'react';
-
 import { Item } from '../../type';
 
 import s from './buildings.module.css';

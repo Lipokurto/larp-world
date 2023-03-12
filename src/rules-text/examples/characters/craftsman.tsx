@@ -1,5 +1,3 @@
-import React from 'react';
-
 import craftsman01 from '../../../assets/rules/man/craftsman/01.jpg';
 import craftsman02 from '../../../assets/rules/man/craftsman/02.jpg';
 import craftsman03 from '../../../assets/rules/man/craftsman/03.jpg';
