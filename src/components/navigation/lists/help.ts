@@ -3,6 +3,10 @@ import { ListItem } from "./type";
 export const help: ListItem[] = [
   {
     label: 'Рассчет персонажа',
-    link: '/charcalc',
+    link: '/char-calc',
+  },
+  {
+    label: 'Рассчет скорости производства',
+    link: '/build-calc',
   },
 ]

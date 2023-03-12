@@ -1,5 +1,3 @@
-import React from 'react';
-
 import male from '../../../assets/rules/nation/south/male.png';
 import female from '../../../assets/rules/nation/south/female.png';
 import south01 from '../../../assets/rules/nation/south/01.jpg';

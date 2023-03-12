@@ -1,5 +1,3 @@
-import React from 'react';
-
 import icon from '../../assets/icons/items/money.png';
 
 import { Item } from '../type';

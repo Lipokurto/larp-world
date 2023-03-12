@@ -1,5 +1,3 @@
-import React from 'react';
-
 import nobleman01 from '../../../assets/rules/man/nobleman/01.jpg';
 import nobleman02 from '../../../assets/rules/man/nobleman/02.jpg';
 import nobleman03 from '../../../assets/rules/man/nobleman/03.jpg';

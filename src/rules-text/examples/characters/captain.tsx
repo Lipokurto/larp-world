@@ -1,5 +1,3 @@
-import React from 'react';
-
 import captain01 from '../../../assets/rules/man/captain/01.jpg';
 import captain02 from '../../../assets/rules/man/captain/02.jpg';
 import captain03 from '../../../assets/rules/man/captain/03.jpg';

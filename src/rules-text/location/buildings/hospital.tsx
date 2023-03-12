@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { AccordionBlock } from '../../../components';
 import hospitalImg from '../../../assets/locations/hospital.png';
 import { Item } from '../../type';

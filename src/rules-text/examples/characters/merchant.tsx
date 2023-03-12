@@ -1,5 +1,3 @@
-import React from 'react';
-
 import merchant01 from '../../../assets/rules/man/merchant/01.jpg';
 import merchant02 from '../../../assets/rules/man/merchant/02.jpg';
 import merchant03 from '../../../assets/rules/man/merchant/03.jpg';

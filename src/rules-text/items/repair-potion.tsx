@@ -1,5 +1,3 @@
-import React from 'react';
-
 import icon from '../../assets/icons/items/repairPotion.png';
 
 import { Item } from '../type';

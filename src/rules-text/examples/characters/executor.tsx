@@ -1,5 +1,3 @@
-import React from 'react';
-
 import executor01 from '../../../assets/rules/man/executor/01.jpg';
 import executor02 from '../../../assets/rules/man/executor/02.jpg';
 import executor03 from '../../../assets/rules/man/executor/03.jpg';
