@@ -57,7 +57,7 @@ export function CargoVisual(): JSX.Element {
         options={optionsCargo} 
         onChange={(option) => handleChange(option as OptionsCargo)}
         className={s.select}
-        />
+      />
       <h3>Максимальная грузоподъемность: {maxWeight}</h3>
       <h3>Весомые игровые предметы</h3>
       {options.filter(p => p.value.weight !== 0).map(p => {

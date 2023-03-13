@@ -2,14 +2,13 @@ import React from 'react';
 import { BsFillPersonPlusFill, BsFillPersonCheckFill } from 'react-icons/bs';
 import Tooltip from 'react-tooltip-lite';
 
-import arrow from '../../../assets/icons/icon-arrow-up.svg';
-import workPlaceSmith from '../../../assets/icons/build/01_anvil.png';
-import workToolsSmith from '../../../assets/icons/build/02_tools.png';
-import tent01Smith from '../../../assets/icons/build/03_tent_01.png';
-import tent02Smith from '../../../assets/icons/build/04_tent_02.png';
-import tent03Smith from '../../../assets/icons/build/05_tent_03.png';
-
-import { decimalText } from '../../../components';
+import arrow from '../../assets/icons/icon-arrow-up.svg';
+import workPlaceSmith from '../../assets/icons/build/01_anvil.png';
+import workToolsSmith from '../../assets/icons/build/02_tools.png';
+import tent01Smith from '../../assets/icons/build/03_tent_01.png';
+import tent02Smith from '../../assets/icons/build/04_tent_02.png';
+import tent03Smith from '../../assets/icons/build/05_tent_03.png';
+import { decimalText } from '../utils/decimal-text';
 
 import s from './build-level.module.css';
 

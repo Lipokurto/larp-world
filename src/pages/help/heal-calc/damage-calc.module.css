@@ -1,0 +1,105 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.calcContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.select {
+  color: black;
+}
+
+.char {
+  width: 300px;
+  float: left;
+}
+
+.itemContainer {
+  display: flex;
+  flex-direction: column;
+  height: 329px;
+}
+
+.charItem {
+  width: 300px;
+}
+
+.weapon {
+  width: 300px;
+}
+
+.attackRegular, .attackDistant,
+.attackSpecial, .attackHeavy {
+  float: left;
+  position: relative;
+  z-index: 2;
+  left: 34%;
+  opacity: 0;
+
+  transition: all 0.1s ease-in;
+}
+
+.attackDistant {
+  rotate: 20deg;
+}
+
+.attackSpecial {
+  margin-top: 30px;
+}
+
+.attackHeavy {
+  margin-top: 100px;
+}
+
+.charItem:active .attackRegular {
+  opacity: 0.8;
+  transform: scale(1.25) rotate(-20deg) translate(-10px, 30px);
+}
+
+.charItem:active .attackDistant {
+  opacity: 0.8;
+  transform: scale(1.25) translate(-10px, 30px);
+}
+
+.charItem:active .attackSpecial {
+  opacity: 0.8;
+  transform: scale(1.25) rotate(-45deg) translate(0, 50px);
+}
+
+.charItem:active .attackHeavy {
+  opacity: 0.8;
+  transform: scale(2);
+}
+
+
+.health {
+  display: flex;
+  justify-content: center;
+}
+
+.dead {
+  margin-bottom: 20px;
+}
+
+.items {
+  display: flex;
+}
+
+.usableItem {
+  min-width: 80px;
+  margin-right: 5px;
+
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to bottom, wheat, #000000);
+
+  transition: all 0.1s ease-in-out;
+}
+
+.usableItem:hover {
+  transform: scale(1.1);  
+}
