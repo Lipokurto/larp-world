@@ -18,7 +18,8 @@ export { ImagesAdaptive } from './image/images-adaptive';
 export { CargoVisual } from './visual/cargo-visual';
 export { HitZone } from './visual/hit-zone';
 export { HitsCalc } from './visual/hits-calc';
-export { SelectItem } from './visual/select-item'
+export { SelectItem } from './visual/select-item';
+export { BuildLevel } from './visual/build-level';
 
 export { useResize } from './utils/use-resize';
 export { decimalText } from './utils/decimal-text';

@@ -9,4 +9,8 @@ export const help: ListItem[] = [
     label: 'Рассчет скорости производства',
     link: '/build-calc',
   },
+  {
+    label: 'Рассчет лечения',
+    link: '/heal-calc',
+  },
 ]
