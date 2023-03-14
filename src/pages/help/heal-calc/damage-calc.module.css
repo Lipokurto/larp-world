@@ -15,21 +15,34 @@
 
 .char {
   width: 300px;
-  float: left;
+  padding: 10px;
+
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to left, wheat, #000000);
 }
 
 .itemContainer {
-  display: flex;
-  flex-direction: column;
-  height: 329px;
+  margin-bottom: 10px;
+  padding: 10px;
+
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to bottom, wheat, #000000);
 }
 
 .charItem {
-  width: 300px;
+  width: 250px;
 }
 
 .weapon {
-  width: 300px;
+  width: 400px;
+  padding: 10px;
+  margin-left: 10px;
+
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to right, wheat, #000000);
 }
 
 .attackRegular, .attackDistant,
@@ -38,6 +51,7 @@
   position: relative;
   z-index: 2;
   left: 34%;
+  top: 100px;
   opacity: 0;
 
   transition: all 0.1s ease-in;
@@ -45,14 +59,6 @@
 
 .attackDistant {
   rotate: 20deg;
-}
-
-.attackSpecial {
-  margin-top: 30px;
-}
-
-.attackHeavy {
-  margin-top: 100px;
 }
 
 .charItem:active .attackRegular {
@@ -75,22 +81,18 @@
   transform: scale(2);
 }
 
-
 .health {
   display: flex;
   justify-content: center;
 }
 
-.dead {
-  margin-bottom: 20px;
-}
-
 .items {
   display: flex;
+  justify-content: center;
 }
 
 .usableItem {
-  min-width: 80px;
+  max-width: 80px;
   margin-right: 5px;
 
   border: 2px solid;
@@ -101,5 +103,70 @@
 }
 
 .usableItem:hover {
-  transform: scale(1.1);  
+  transform: scale(1.1);
+}
+
+.waitButton {
+  background-color: #000000;
+  margin-top: 20px;
+  padding: 5px 10px 5px 10px;
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to left, wheat, #000000, wheat);
+}
+
+.waitButton:hover {
+  background-color: green;
+  transform: scale(1.1);
+}
+
+.heal, .repair {
+  float: left;
+  position: relative;
+  z-index: 2;
+  left: 25%;
+  top: 100px;
+
+  animation-duration: 1s;
+  animation-name: healing;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.repair {
+  left: 25%;
+}
+
+.heal {
+  left: 30%;
+}
+
+@keyframes healing {
+  from {
+    scale: 1;
+    opacity: 0.5;
+  }
+
+  to {
+    scale: 1.25;
+    opacity: 1;
+  }
+}
+
+.description {
+  margin-bottom: 10px;
+  padding: 10px;
+
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to bottom, wheat, #000000);
+}
+
+.inventory {
+  margin-bottom: 10px;
+  padding: 10px;
+
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to bottom, wheat, #000000);
 }

@@ -19,11 +19,15 @@ import tomb from '../../../assets/icons/tombNew.png';
 
 import heart from '../../../assets/icons/health/heart.png';
 import shield from '../../../assets/icons/health/shield.png';
+import heal from '../../../assets/icons/health/heal.png';
+import repair from '../../../assets/icons/health/repair.png';
 
 import healPack from '../../../assets/icons/items/healPack.png';
 import healPotion from '../../../assets/icons/items/healPotion.png';
 import repairPack from '../../../assets/icons/items/repairPack.png';
 import repairPotion from '../../../assets/icons/items/repairPotion.png';
+
+import { decimalText } from '../../../components';
 
 import s from './damage-calc.module.css';
 
@@ -45,6 +49,7 @@ type Weapon = {
 };
 
 type Status = 'Мертв' | 'Тяжело ранен' | 'Ранен' | 'Здоров';
+type UsableItems = 'Медкомплект' | 'Целебная мазь' | 'Ремкомплект' | 'Оружейное масло';
 
 const weapon: Weapon[] = [
   {label: 'Обычное оружие', value: { src: wRegular, damage: 1, breakShields: false }},
@@ -69,11 +74,10 @@ const items = [
 export function DamageCalc(): JSX.Element {
   const [maxHits, setMaxHits] = React.useState<number>(0);
   const [timer, setTimer] = React.useState<number | null>(null);
-
-  const [weaponDamage, setWeaponDamage] = React.useState<number>(0);
-  const [currentHits, setCurrentHits] = React.useState<number>(0);
   const [status, setStatus] = React.useState<Status>('Здоров');
-
+  const [currentHits, setCurrentHits] = React.useState<number>(0);
+  const [weaponDamage, setWeaponDamage] = React.useState<number>(0);
+  const [currentItem, setCurrentItem] = React.useState<UsableItems | null>(null);
   const [armorImg, setArmorImg] = React.useState<string>('');
   const [weaponImg, setWeaponImg] = React.useState<string>('');
 
@@ -89,8 +93,16 @@ export function DamageCalc(): JSX.Element {
     setMaxHits(option.value.hits);
     setCurrentHits(option.value.hits);
     setArmorImg(option.value.src);
+    setTimer(0);
     setStatus('Здоров');
   }, []);
+
+  const resetCharacter = React.useCallback(() => {
+    const newArmor = armor.find(p => p.value.hits === maxHits) || armor[0];
+    handleArmorChange(newArmor);
+    setStatus('Здоров');
+    setTimer(null);
+  }, [handleArmorChange, maxHits]);
 
   const handleWeaponChange = React.useCallback((option: Weapon) => {
     setWeaponDamage(option.value.damage);
@@ -115,6 +127,16 @@ export function DamageCalc(): JSX.Element {
     }
   }, [weaponDamage]);
 
+  const healType = React.useMemo(() => {
+    if (currentItem === 'Медкомплект') {
+      return <div className={s.heal}><img src={heal} alt='' width='100' /></div>
+    }
+
+    if (currentItem === 'Ремкомплект') {
+      return <div className={s.repair}><img src={repair} alt='' width='100' /></div>
+    }
+  }, [currentItem]);
+
   const handleAttack = React.useCallback(() => {
     if (status !== 'Мертв') {    
       const restHits = currentHits - weaponDamage;
@@ -122,18 +144,24 @@ export function DamageCalc(): JSX.Element {
       if (restHits >= 1 && restHits <= maxHits) {
         setStatus('Ранен');
         setCurrentHits(restHits);
+        setCurrentItem(null);
+        setTimer(0);
         return;
       }
   
       if (status === 'Тяжело ранен') {
         setStatus('Мертв');
+        setTimer(120)
         setCurrentHits(0);
+        setCurrentItem(null);
         return;
       }
   
       if (restHits <= 0) {
         setStatus('Тяжело ранен');
         setCurrentHits(0);
+        setCurrentItem(null);
+        setTimer(0);
         return;
       }
     }
@@ -160,7 +188,7 @@ export function DamageCalc(): JSX.Element {
   }, [status]);
 
   const renderStatus = React.useMemo(() => {
-    return <div style={{ color: color, fontWeight: 'bold' }}>{status}</div>
+    return <div>Статус персонажа: <b style={{ color: color }}>{status}</b></div>
   }, [color, status]);
 
   const renderHealth = React.useMemo(() => {
@@ -171,7 +199,8 @@ export function DamageCalc(): JSX.Element {
     }
 
     return (
-      <div className={currentHits !== 0 ? s.health : s.dead}>
+      <div className={s.health}>
+        Вид хитов: 
         {shields.map((p,i) => {
           return (
             <img src={p} key={p+i} alt='' width='20' />
@@ -182,35 +211,33 @@ export function DamageCalc(): JSX.Element {
   }, [currentHits]);
 
   const handleHeal = React.useCallback((item: string) => {
-    if (item === 'Медкомплект' && currentHits === 0) {
+    if (item === 'Медкомплект' && currentHits === 0 && status === 'Тяжело ранен') {
+      setCurrentItem('Медкомплект');
       setTimer(10);
-      setCurrentHits(1);
-      setStatus('Ранен');
-      return
+      return;
     }
 
-    if (item === 'Целебная мазь' && currentHits === 0) {
+    if (item === 'Целебная мазь' && currentHits === 0 && status === 'Тяжело ранен') {
       setTimer(0);
       setCurrentHits(1);
       setStatus('Ранен');
-      return
+      return;
     }
 
-    if (item === 'Ремкомплект' && currentHits >= 1) {
+    if (item === 'Ремкомплект' && currentHits >= 1 && status === 'Ранен') {
+      setCurrentItem('Ремкомплект');
       setTimer(10);
-      setCurrentHits(maxHits);
-      setStatus('Здоров');
-      return
+      return;
     }
 
-    if (item === 'Оружейное масло' && currentHits >= 1) {
+    if (item === 'Оружейное масло' && currentHits >= 1 && status === 'Ранен') {
       setTimer(0);
       setCurrentHits(maxHits);
       setStatus('Здоров');
-      return
+      return;
     }
     
-  }, [currentHits, maxHits]);
+  }, [currentHits, maxHits, status]);
 
   const itemsList = React.useMemo(() => {
     return (
@@ -226,6 +253,80 @@ export function DamageCalc(): JSX.Element {
       </div>
     )
   }, [handleHeal]);
+
+  const handleHealWait = React.useCallback(() => {
+    if (currentItem === 'Медкомплект' && currentHits === 0 && status === 'Тяжело ранен') {
+      setCurrentHits(1);
+      setStatus('Ранен');
+      setTimer(null);
+      setCurrentItem(null);
+      return;
+    }
+
+    if (currentItem === 'Ремкомплект' && currentHits >= 1 && status === 'Ранен') {
+      setCurrentHits(maxHits);
+      setStatus('Здоров');
+      setTimer(null);
+      setCurrentItem(null);
+      return;
+    }
+
+  }, [currentHits, currentItem, maxHits, status]);
+
+  const renderTimer = React.useMemo(() => {
+    if (timer) {
+      return (
+        <div>
+          <button 
+            className={s.waitButton}
+            onClick={status === 'Мертв' ? resetCharacter : handleHealWait}
+          >
+              Подождать {timer} {decimalText(timer, ['минуту', 'минуты', 'минут'])}
+          </button>
+        </div>
+      )
+    }
+  }, [handleHealWait, resetCharacter, status, timer]);
+
+  const renderDescription = React.useMemo(() => {
+    if (currentItem === null) {
+      if (status === 'Здоров') {
+        return (
+          <div>Вы полностью здоровы и готовы к бою</div>
+        )
+      }
+
+      if (status === 'Ранен') {
+        return (
+          <div>Вы ранены, но можете продолжать сражаться без ограничений</div>
+        )
+      }
+
+      if (status === 'Тяжело ранен') {
+        return (
+          <div>Мы не можете продолжать сражаться и самостоятельно передигааться. Это состояние длится 15 минут, если вас за это время не полечили - вы мертвы</div>
+        )
+      }
+
+      if (status === 'Мертв') {
+        return (
+          <div>Одевайте хайратник и возвращайтесь кратчайшим маршрутом в свой мертвяк, вам предстоит там пробыть</div>
+        )
+      }
+    }
+
+    if (currentItem === 'Медкомплект') {
+      return (
+        <div>Вы лечитесь, любой урон в течении лечения переводит вас в состояние мертв</div>
+      )
+    }
+
+    if (currentItem === 'Ремкомплект') {
+      return (
+        <div>Ваша броня ремонтируется, любой урон отменяет ремонт и снимает хит с состояниния ДО начала ремонта</div>
+      )
+    }
+  }, [currentItem, status]);
 
   return (
     <div className={s.wrapper}>
@@ -246,33 +347,49 @@ export function DamageCalc(): JSX.Element {
       
             {renderHealth}
             
-            <div> Остлось хитов: {currentHits}</div>
+            <div> Остлось хитов: <b>{currentHits}</b></div>
             <div onClick={handleAttack}>
-              <div className={s.attackType}>{attackType}</div>
-              <img src={status === 'Мертв' ? tomb : armorImg} alt='' height='300' style={{position: 'relative', right: '20%'}}/>
+              <div className={s.attackType}>{currentItem ? healType : attackType}</div>
+              <img 
+                src={status === 'Мертв' ? tomb : armorImg} 
+                alt='' height='500'
+                style={{position: 'relative', marginTop: '-90px'}}
+              />
             </div>
           </div>
         </div>
 
         <div className={s.weapon}>
-          <ReactSelect
-              className={s.select} 
-              options={weapon}
-              defaultValue={weapon[0]}
-              onChange={(option) => handleWeaponChange(option as Weapon)}
-              styles={{
-                menu: (provided: any) => ({...provided, zIndex: 5})
-              }}
-            />
-
+          <b style={{ color: 'wheat' }}>АРСЕНАЛ</b>
           <div className={s.itemContainer}>
-            <div> Урон оружия {weaponDamage}</div>
+            <ReactSelect
+                className={s.select} 
+                options={weapon}
+                defaultValue={weapon[0]}
+                onChange={(option) => handleWeaponChange(option as Weapon)}
+                styles={{
+                  menu: (provided: any) => ({...provided, zIndex: 5})
+                }}
+              />
+            <div> Урон оружия: <b>{weaponDamage} {decimalText(weaponDamage, ['хит', 'хита', 'хитов'])}</b></div>
 
             <div style={{ margin: 'auto 0 auto 0' }}>
               <img  src={weaponImg} alt='' width='300 '/>
             </div>
+          </div>
+
+          <b style={{ color: 'wheat' }}>ПРЕДМЕТЫ</b>
+          <div className={s.inventory}>
             {itemsList}
           </div>
+
+          <b style={{ color: 'wheat' }}>ОПИСАНИЕ</b>
+          <div className={s.description}>
+            {renderDescription}
+
+            {renderTimer}
+          </div>
+
         </div>
       </div>
     </div>
