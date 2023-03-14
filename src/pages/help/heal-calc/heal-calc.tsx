@@ -1,4 +1,4 @@
-import { DamageCalc } from './damage-calc';
+import { DamageCalc } from '../../../components';
 
 import s from './heal-calc.module.css';
 

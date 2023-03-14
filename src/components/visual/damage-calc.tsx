@@ -1,33 +1,33 @@
 import React from 'react';
 import ReactSelect from 'react-select';
 
-import medium from '../../../assets/armor-preset/medium.png';
-import heavy from '../../../assets/armor-preset/heavy.png';
-import full from '../../../assets/armor-preset/full.png';
+import medium from '../../assets/armor-preset/medium.png';
+import heavy from '../../assets/armor-preset/heavy.png';
+import full from '../../assets/armor-preset/full.png';
 
-import wRegular from '../../../assets/weapon-preset/regular.png';
-import wDistant from '../../../assets/weapon-preset/distant.png';
-import wHeavy from '../../../assets/weapon-preset/heavy.png';
-import wSpetial from '../../../assets/weapon-preset/spetial.png';
+import wRegular from '../../assets/weapon-preset/regular.png';
+import wDistant from '../../assets/weapon-preset/distant.png';
+import wHeavy from '../../assets/weapon-preset/heavy.png';
+import wSpetial from '../../assets/weapon-preset/spetial.png';
 
-import sword from '../../../assets/icons/damage/sword.png';
-import arrow from '../../../assets/icons/damage/arrow.png';
-import claw from '../../../assets/icons/damage/claw.png';
-import blast from '../../../assets/icons/damage/blast.png';
+import sword from '../../assets/icons/damage/sword.png';
+import arrow from '../../assets/icons/damage/arrow.png';
+import claw from '../../assets/icons/damage/claw.png';
+import blast from '../../assets/icons/damage/blast.png';
 
-import tomb from '../../../assets/icons/tombNew.png';
+import tomb from '../../assets/icons/tombNew.png';
 
-import heart from '../../../assets/icons/health/heart.png';
-import shield from '../../../assets/icons/health/shield.png';
-import heal from '../../../assets/icons/health/heal.png';
-import repair from '../../../assets/icons/health/repair.png';
+import heart from '../../assets/icons/health/heart.png';
+import shield from '../../assets/icons/health/shield.png';
+import heal from '../../assets/icons/health/heal.png';
+import repair from '../../assets/icons/health/repair.png';
 
-import healPack from '../../../assets/icons/items/healPack.png';
-import healPotion from '../../../assets/icons/items/healPotion.png';
-import repairPack from '../../../assets/icons/items/repairPack.png';
-import repairPotion from '../../../assets/icons/items/repairPotion.png';
+import healPack from '../../assets/icons/items/healPack.png';
+import healPotion from '../../assets/icons/items/healPotion.png';
+import repairPack from '../../assets/icons/items/repairPack.png';
+import repairPotion from '../../assets/icons/items/repairPotion.png';
 
-import { decimalText } from '../../../components';
+import { decimalText } from '../../components';
 
 import s from './damage-calc.module.css';
 
@@ -329,68 +329,66 @@ export function DamageCalc(): JSX.Element {
   }, [currentItem, status]);
 
   return (
-    <div className={s.wrapper}>
-      <div className={s.calcContainer}>
-        <div className={s.char}>
+    <div className={s.calcContainer}>
+      <div className={s.char}>
+        <ReactSelect
+          className={s.select} 
+          options={armor}
+          defaultValue={armor[0]}
+          onChange={(option) => handleArmorChange(option as Armor)}
+          styles={{
+            menu: (provided: any) => ({...provided, zIndex: 5})
+          }}
+        />
+
+        <div className={s.charItem}>
+          {renderStatus}
+    
+          {renderHealth}
+          
+          <div> Остлось хитов: <b>{currentHits}</b></div>
+          <div onClick={handleAttack}>
+            <div className={s.attackType}>{currentItem ? healType : attackType}</div>
+            <img 
+              src={status === 'Мертв' ? tomb : armorImg} 
+              alt='' height='500'
+              style={{position: 'relative', marginTop: '-90px'}}
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className={s.weapon}>
+        <b style={{ color: 'wheat' }}>АРСЕНАЛ</b>
+        <div className={s.itemContainer}>
           <ReactSelect
-            className={s.select} 
-            options={armor}
-            defaultValue={armor[0]}
-            onChange={(option) => handleArmorChange(option as Armor)}
-            styles={{
-              menu: (provided: any) => ({...provided, zIndex: 5})
-            }}
-          />
+              className={s.select} 
+              options={weapon}
+              defaultValue={weapon[0]}
+              onChange={(option) => handleWeaponChange(option as Weapon)}
+              styles={{
+                menu: (provided: any) => ({...provided, zIndex: 5})
+              }}
+            />
+          <div> Урон оружия: <b>{weaponDamage} {decimalText(weaponDamage, ['хит', 'хита', 'хитов'])}</b></div>
 
-          <div className={s.charItem}>
-            {renderStatus}
-      
-            {renderHealth}
-            
-            <div> Остлось хитов: <b>{currentHits}</b></div>
-            <div onClick={handleAttack}>
-              <div className={s.attackType}>{currentItem ? healType : attackType}</div>
-              <img 
-                src={status === 'Мертв' ? tomb : armorImg} 
-                alt='' height='500'
-                style={{position: 'relative', marginTop: '-90px'}}
-              />
-            </div>
+          <div style={{ margin: 'auto 0 auto 0' }}>
+            <img  src={weaponImg} alt='' width='300 '/>
           </div>
         </div>
 
-        <div className={s.weapon}>
-          <b style={{ color: 'wheat' }}>АРСЕНАЛ</b>
-          <div className={s.itemContainer}>
-            <ReactSelect
-                className={s.select} 
-                options={weapon}
-                defaultValue={weapon[0]}
-                onChange={(option) => handleWeaponChange(option as Weapon)}
-                styles={{
-                  menu: (provided: any) => ({...provided, zIndex: 5})
-                }}
-              />
-            <div> Урон оружия: <b>{weaponDamage} {decimalText(weaponDamage, ['хит', 'хита', 'хитов'])}</b></div>
-
-            <div style={{ margin: 'auto 0 auto 0' }}>
-              <img  src={weaponImg} alt='' width='300 '/>
-            </div>
-          </div>
-
-          <b style={{ color: 'wheat' }}>ПРЕДМЕТЫ</b>
-          <div className={s.inventory}>
-            {itemsList}
-          </div>
-
-          <b style={{ color: 'wheat' }}>ОПИСАНИЕ</b>
-          <div className={s.description}>
-            {renderDescription}
-
-            {renderTimer}
-          </div>
-
+        <b style={{ color: 'wheat' }}>ПРЕДМЕТЫ</b>
+        <div className={s.inventory}>
+          {itemsList}
         </div>
+
+        <b style={{ color: 'wheat' }}>ОПИСАНИЕ</b>
+        <div className={s.description}>
+          {renderDescription}
+
+          {renderTimer}
+        </div>
+
       </div>
     </div>
   );
