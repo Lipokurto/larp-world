@@ -7,6 +7,9 @@ import {
 
 import man from '../../assets/armor-zone/man.png';
 
+import heart from '../../assets/icons/health/heart.png';
+import shield from '../../assets/icons/health/shield.png';
+
 import { Item } from "../../rules-text/type";
 import { itemArm, itemHelmet, itemHip, itemLeg, itemShoulder, itemTorso } from "../../rules-text/armor";
 import { LinkButton } from "../link/link-button";
@@ -107,12 +110,31 @@ export function HitsCalc(): JSX.Element {
     setBack(option);
   }, [back.value, currentArmor]);
 
+  const renderHealth = React.useMemo(() => {
+    const shields = Array(Math.round(hits + 1)).fill(shield);
+    
+    shields[0] = heart;
+
+    return (
+      <div style={{display: 'flex', justifyContent: 'center'}}>
+        Вид хитов: 
+        {hasArmor ? shields.map((p,i) => {
+          return (
+            <img src={p} key={p+i} alt='' width='20' />
+          )
+        }) : null}
+      </div>
+    )
+  }, [hasArmor, hits]);
+
   return (
     <>
       <div className={s.container}>
         
         <div className={s.character}>
         <h1>Ваши хиты: { hasArmor ? Math.round(hits + 1) : 1 }</h1>
+
+        {renderHealth}
         
         {!hasArmor ? <div style={{ color: 'red' }}>Нет шлема - нет хитов</div> : <br />}
           <div className={s.row}>
