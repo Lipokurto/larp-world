@@ -1,0 +1,185 @@
+.calcContainer {
+  display: block;
+  justify-content: center;
+  /* flex-wrap: wrap; */
+}
+
+.charItemContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.select {
+  color: black;
+}
+
+.char {
+  width: 300px;
+  padding: 10px;
+
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to left, wheat, #000000);
+}
+
+.itemContainer {
+  margin-bottom: 10px;
+  padding: 10px;
+
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to bottom, wheat, #000000);
+}
+
+.charItem {
+  width: 250px;
+}
+
+.weapon {
+  width: 400px;
+  padding: 10px;
+  margin-left: 10px;
+
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to right, wheat, #000000);
+}
+
+.attackRegular, .attackDistant,
+.attackSpecial, .attackHeavy {
+  float: left;
+  position: relative;
+  z-index: 2;
+  left: 34%;
+  top: 100px;
+  opacity: 0;
+
+  transition: all 0.1s ease-in;
+}
+
+.attackDistant {
+  rotate: 20deg;
+}
+
+.charItem:active .attackRegular {
+  opacity: 0.8;
+  transform: scale(1.25) rotate(-20deg) translate(-10px, 30px);
+}
+
+.charItem:active .attackDistant {
+  opacity: 0.8;
+  transform: scale(1.25) translate(-10px, 30px);
+}
+
+.charItem:active .attackSpecial {
+  opacity: 0.8;
+  transform: scale(1.25) rotate(-45deg) translate(0, 50px);
+}
+
+.charItem:active .attackHeavy {
+  opacity: 0.8;
+  transform: scale(2);
+}
+
+.health {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.items {
+  display: flex;
+  justify-content: center;
+}
+
+.usableItem {
+  max-width: 80px;
+  margin-right: 5px;
+
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to bottom, wheat, #000000);
+
+  transition: all 0.1s ease-in-out;
+}
+
+.usableItem:hover {
+  transform: scale(1.1);
+}
+
+.waitButton {
+  background-color: #000000;
+  margin-top: 20px;
+  padding: 5px 10px 5px 10px;
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to left, wheat, #000000, wheat);
+}
+
+.waitButton:hover {
+  background-color: green;
+  transform: scale(1.1);
+}
+
+.heal, .repair {
+  float: left;
+  position: relative;
+  z-index: 2;
+  left: 25%;
+  top: 100px;
+
+  animation-duration: 1s;
+  animation-name: healing;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.repair {
+  left: 25%;
+}
+
+.heal {
+  left: 30%;
+}
+
+@keyframes healing {
+  from {
+    scale: 1;
+    opacity: 0.5;
+  }
+
+  to {
+    scale: 1.25;
+    opacity: 1;
+  }
+}
+
+.description {
+  margin-bottom: 10px;
+  padding: 10px;
+
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to bottom, wheat, #000000);
+}
+
+.inventory {
+  margin-bottom: 10px;
+  padding: 10px;
+
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to bottom, wheat, #000000);
+}
+
+.obsessedContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.obsItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
