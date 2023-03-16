@@ -13,4 +13,8 @@ export const help: ListItem[] = [
     label: 'Рассчет лечения',
     link: '/heal-calc',
   },
+  {
+    label: 'Рассчет чудовищ',
+    link: '/monster-calc',
+  },
 ]
