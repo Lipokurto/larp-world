@@ -60,7 +60,7 @@ type Weapon = {
 
 type Status = 'Мертв' | 'Напуган' | 'Голоден' | 'Здоров';
 
-type Warning = 'Невозможно создать одержимого' | 'Невозможно вылечить одержимого';
+type Warning = 'Невозможно создать одержимого' | 'Невозможно вылечить одержимого' | 'Выберете кого хотите возродить' | 'Выберете кого хотите вылечить' | 'Некого лечить';
 
 type UsableItems = 'Пожирание' | 'Пожирание жертвы' | 'Создать одержимого' | 'Излечить одержимого';
 
@@ -107,6 +107,9 @@ export function BeastCalc(): JSX.Element {
   const [maxHits, setMaxHits] = React.useState<number>(0);
   const [timer, setTimer] = React.useState<number | null>(null);
   const [warning, setWarning] = React.useState<Warning | null>(null);
+
+  const [isRiseActive, setIsRiseActive] = React.useState<boolean>(false);
+  const [isObsHealActive, setIsObsHealActive] = React.useState<boolean>(false);
 
   const [obsState, setObsState] = React.useState<ObsessedType[]>(obsessedList);
 
@@ -192,7 +195,8 @@ export function BeastCalc(): JSX.Element {
         setCurrentHits(0);
         setCurrentItem(null);
 
-        setObsState(getObsList(maxHits));
+        setObsState(obsessedList);
+        return;
       }
   
       if (restHits <= 0) {
@@ -264,17 +268,49 @@ export function BeastCalc(): JSX.Element {
       setCurrentHits(resultHits);
       return;
     }
+  }, [currentHits, maxHits, status]);
 
+  const handleCreate = React.useCallback((item: UsableItems) => {
     if (item === 'Создать одержимого') {
       if (currentHits - 5 <= 0) {
         setWarning('Невозможно создать одержимого');
         return;
       }
 
+      if (isRiseActive) {
+        return;
+      }
+      
+      setWarning('Выберете кого хотите возродить');
+      setIsRiseActive(true);
       setStatus('Голоден');
       setCurrentHits(currentHits - 5);
+    }
 
-        const deadIndex = obsState.findIndex(p => !p.value.isAlive);
+    if (item === 'Излечить одержимого') {
+      if (currentHits - 2 <= 0) {
+        setWarning('Невозможно вылечить одержимого');
+        return;
+      }
+
+      if (isObsHealActive) {
+        return;
+      }
+
+      if (!obsState.some(p => p.value.isAlive)) {
+        setWarning('Некого лечить');
+        return;
+      }
+      
+      setWarning('Выберете кого хотите вылечить');
+      setIsObsHealActive(true);
+      setStatus('Голоден');
+      setCurrentHits(currentHits - 2);
+    }
+  }, [currentHits, isObsHealActive, isRiseActive, obsState]);
+
+  const handleRise = React.useCallback((index: number) => {
+    if (isRiseActive) {
         const resultObsessed = obsState.map((p ,i) => {
           return ({
               label: p.label,
@@ -284,21 +320,48 @@ export function BeastCalc(): JSX.Element {
                   off: p.value.src.off,
                 }, 
                 hits: p.value.hits,
-                isAlive: i === deadIndex || p.value.isAlive,
+                isAlive: i === index || p.value.isAlive,
               }
             })
         })
         setObsState(resultObsessed);
+        setIsRiseActive(false);
+        setWarning(null);
+        return;
     }
-    
-  }, [currentHits, maxHits, obsState, status]);
+
+    if (isObsHealActive) {
+        setIsObsHealActive(false);
+        setIsRiseActive(false);
+        setWarning(null);
+        return;
+    }
+  }, [isObsHealActive, isRiseActive, obsState]);
 
   const itemsList = React.useMemo(() => {
     return (
       <div className={s.items}>
         {items.map(p => {
+          if (p.label === 'Пожирание' || p.label === 'Пожирание жертвы') {
+            return (
+              <div className={s.usableItem} key={p.label} onClick={() => handleHeal(p.label as UsableItems)}>
+                <img  src={p.src} alt='' width='65' />
+                <div style={{height: '48px'}}>{p.label}</div>
+              </div>
+            )
+          }
+
+          if (p.label === 'Создать одержимого') {
+            return (
+              <div className={isRiseActive ? s.usableItemActive : s.usableItem} key={p.label} onClick={() => handleCreate(p.label as UsableItems)}>
+                <img  src={p.src} alt='' width='65' />
+                <div style={{height: '48px'}}>{p.label}</div>
+              </div>
+            )
+          }
+
           return (
-            <div className={s.usableItem} key={p.label} onClick={() => handleHeal(p.label as UsableItems)}>
+            <div className={isObsHealActive ? s.usableItemActive : s.usableItem} key={p.label} onClick={() => handleCreate(p.label as UsableItems)}>
               <img  src={p.src} alt='' width='65' />
               <div style={{height: '48px'}}>{p.label}</div>
             </div>
@@ -306,7 +369,7 @@ export function BeastCalc(): JSX.Element {
         })}
       </div>
     )
-  }, [handleHeal]);
+  }, [handleCreate, handleHeal, isObsHealActive, isRiseActive]);
 
   const handleHealWait = React.useCallback(() => {
     if (currentItem === 'Пожирание' && ( status === 'Напуган' || status === 'Голоден')) {
@@ -315,7 +378,7 @@ export function BeastCalc(): JSX.Element {
       setStatus(resultHits === maxHits ? 'Здоров' : 'Голоден');
       setTimer(null);
       setCurrentItem(null);
-      setObsState(obsessedList);
+
       return;
     }
   }, [currentHits, currentItem, maxHits, status]);
@@ -370,21 +433,26 @@ export function BeastCalc(): JSX.Element {
   }, [currentItem, status]);
 
   const renderObsessedList = React.useMemo(() => {
-
-    console.log('LIST', obsState);
       return (
-        obsState.map((p, i) => {
-          return (
-            <ObsessedCalc
-              ob={p}
-              index={i}
-              weaponDamage={weaponDamage}
-            />
+        <div className={s.obsContainer}>
+          {obsState.map((p, i) => {
+            return (
+              <div 
+                onClick={() => handleRise(i)}
+                className={isRiseActive || isObsHealActive ?  s.obsItemOuter : undefined}
+              >
+                <ObsessedCalc
+                  isObsHealActive={p.value.isAlive ? isObsHealActive : false}
+                  ob={p}
+                  index={i}
+                  weaponDamage={weaponDamage}
+                />
+              </div>
+            )}
           )}
-        )
+        </div>
       )
-    }
-  , [obsState, weaponDamage]);
+  }, [handleRise, isObsHealActive, isRiseActive, obsState, weaponDamage]);
 
   return (
     <div className={s.calcContainer}>
@@ -443,15 +511,16 @@ export function BeastCalc(): JSX.Element {
 
           <b style={{ color: 'wheat' }}>ОПИСАНИЕ</b>
           <div className={s.description}>
-            {renderDescription}
+            {warning ? warning : renderDescription}
 
             {renderTimer}
           </div>
         </div>
       </div>
 
+      <b style={{ color: 'wheat' }}>ОДЕРЖИМЫЕ</b>
       <div className={s.obsessedContainer}>
-          {renderObsessedList}
+        {renderObsessedList}
       </div>
     </div>
   );

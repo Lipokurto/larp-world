@@ -1,7 +1,7 @@
 import React from 'react';
 
 import heart from '../../../assets/icons/health/heart.png';
-import heal from '../../../assets/icons/health/heal.png';
+import strike from '../../../assets/icons/damage/strike.png';
 
 import { ObsessedType } from './type';
 
@@ -11,13 +11,16 @@ type Props = {
   ob: ObsessedType,
   index: number,
   weaponDamage: number,
+  isObsHealActive: boolean,
 };
 
-export function ObsessedCalc({ ob, index, weaponDamage }: Props): JSX.Element {
+export function ObsessedCalc({ isObsHealActive, ob, index, weaponDamage }: Props): JSX.Element {
+  const [maxHits, setMaxHits] = React.useState<number>(0);
   const [currentHits, setCurrentHits] = React.useState<number>(0);
 
   React.useEffect(() => {
     setCurrentHits(ob.value.hits);
+    setMaxHits(ob.value.hits);
   }, [ob.value.hits, ob.value.isAlive]);
 
   const renderObsessedHits = React.useCallback((maxObsHits: number) => {
@@ -36,6 +39,11 @@ export function ObsessedCalc({ ob, index, weaponDamage }: Props): JSX.Element {
   }, []); 
 
   const handleAttack = React.useCallback(() => {
+    if (isObsHealActive && currentHits !== 0 && ob.value.isAlive) {
+      setCurrentHits(maxHits);
+      return;
+    }
+
     if (ob.value.isAlive) {
       const resultHits = currentHits - weaponDamage;
       if (resultHits === 0) {
@@ -46,7 +54,19 @@ export function ObsessedCalc({ ob, index, weaponDamage }: Props): JSX.Element {
       
       setCurrentHits(currentHits - weaponDamage);
     }
-  }, [currentHits, ob.value, weaponDamage]);
+  }, [currentHits, isObsHealActive, maxHits, ob.value, weaponDamage]);
+
+  const renderStrike = React.useMemo(() => {
+    if (ob.value.isAlive && !isObsHealActive) {
+      return (
+        <div className={s.obsStrike}>
+          <img src={strike} alt='' width='100' />
+        </div>
+      )
+    }
+
+    return null;
+  }, [isObsHealActive, ob.value.isAlive]);
 
   return (
     <div className={s.obsItem} onClick={handleAttack}>
@@ -61,13 +81,16 @@ export function ObsessedCalc({ ob, index, weaponDamage }: Props): JSX.Element {
 
       {ob.value.isAlive ? renderObsessedHits(currentHits) : null}
 
-      <img
-        key={`${ob.label + index}`}
-        src={ob.value.isAlive ? ob.value.src.on : ob.value.src.off}
-        alt=''
-        width='100'
-      />
+      {renderStrike}
 
+      <div style={{position: 'relative', marginTop: ob.value.isAlive && !isObsHealActive? '-105px' : 0}}>
+        <img
+          key={`${ob.label + index}`}
+          src={ob.value.isAlive ? ob.value.src.on : ob.value.src.off}
+          alt=''
+          width='100'
+        />
+      </div>
     </div>
   )
 }
