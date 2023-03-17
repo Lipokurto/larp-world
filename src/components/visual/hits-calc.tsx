@@ -60,7 +60,7 @@ function getHits(name: string, armorClass: number, hasBack: boolean): number {
 
 export function HitsCalc(): JSX.Element {
   const [hasArmor, setHasArmor] = React.useState<boolean>(false);
-  const [hits, setHits] = React.useState<number>(0);
+  const [hits, setHits] = React.useState<number>(1);
   const [currentArmor, setCurrentArmor] = React.useState<ArmorHit[]>(defaultArmor);
   const [back, setBack] = React.useState<BackItem>({ value: false, label: 'Нет' });
 
@@ -87,7 +87,7 @@ export function HitsCalc(): JSX.Element {
     setCurrentArmor(currentArmor);
 
     const totalHits = currentArmor.reduce((acc, p) => acc + p.hits, 0);
-    setHits(totalHits);
+    setHits(totalHits + 1);
   }, [back.value, currentArmor]);
 
   const handleBack = React.useCallback((option: BackItem) => {
@@ -111,7 +111,7 @@ export function HitsCalc(): JSX.Element {
   }, [back.value, currentArmor]);
 
   const renderHealth = React.useMemo(() => {
-    const shields = Array(Math.round(hits + 1)).fill(shield);
+    const shields = Array(Math.round(hits)).fill(shield);
     
     shields[0] = heart;
 
@@ -120,9 +120,9 @@ export function HitsCalc(): JSX.Element {
         Вид хитов: 
         {hasArmor ? shields.map((p,i) => {
           return (
-            <img src={p} key={p+i} alt='' width='20' />
+            <img src={p} key={p + i} alt='' width='20' />
           )
-        }) : null}
+        }) : <img src={heart}  alt='' width='20' />}
       </div>
     )
   }, [hasArmor, hits]);
@@ -132,11 +132,12 @@ export function HitsCalc(): JSX.Element {
       <div className={s.container}>
         
         <div className={s.character}>
-        <h1>Ваши хиты: { hasArmor ? Math.round(hits + 1) : 1 }</h1>
+          <h1>Ваши хиты: { hasArmor ? Math.round(hits) : 1 }</h1>
 
-        {renderHealth}
+          {renderHealth}
         
-        {!hasArmor ? <div style={{ color: 'red' }}>Нет шлема - нет хитов</div> : <br />}
+          {!hasArmor ? <div style={{ color: 'red' }}>Нет шлема - нет брони</div> : <br />}
+
           <div className={s.row}>
             <div className={s.item}>
               <div><LinkButton text='Шлем' onclick={() => handleClick(itemHelmet)} /></div>
@@ -253,10 +254,10 @@ export function HitsCalc(): JSX.Element {
               </div>
             </div>
           </div>
+        </div>
 
-          <div className={s.charBackground}>
-            <img src={man} alt='' width='420' />
-          </div>
+        <div className={s.charBackground}>
+          <img src={man} alt='' width='420' />
         </div>
       </div>
 
