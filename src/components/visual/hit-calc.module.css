@@ -23,12 +23,10 @@
 
 .character {
   position: absolute;
-  /* margin: 0 auto 0 auto; */
   margin: auto;
   width: 320px;
   left: 0;
   right: 0;
-  /* top: 25%; */
 }
 
 .item, .torso {
@@ -44,7 +42,6 @@
   display: flex;
   justify-content: center;
   height: 125px;
-  z-index: 2;
 }
 
 .column {
@@ -53,7 +50,6 @@
 
 .rowCenter {
   display: flex;
-  z-index: 2;
 }
 
 .leg {
@@ -64,12 +60,14 @@
 .legs {
   display: flex;
   justify-content: center;
-  z-index: 2;
 }
 
 .charBackground {
-  position: absolute;
-  z-index: -2;
-  left: -13.5%;
-  top: 19%;
+  margin: 160px 0 0 16px;
+}
+
+@media only screen and (max-width: 600px) {
+  .charBackground {
+    display: none;
+  }
 }

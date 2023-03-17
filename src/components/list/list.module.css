@@ -3,6 +3,8 @@
   flex-flow: wrap;
   position: relative;
   justify-content: center;
+  flex-direction: column;
+  margin-left: 27.5px;
 }
 
 .label {
