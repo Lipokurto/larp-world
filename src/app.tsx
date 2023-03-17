@@ -13,6 +13,7 @@ import { Characters, Politic } from "./pages/world";
 import { BuildCalc, CharCalc, HealCalc, MonsterCalc } from "./pages/help";
 
 import s from './app.module.css';
+import { Registration } from "./pages/registration/registration";
 
 export default function App(): JSX.Element {
   return (
@@ -39,7 +40,7 @@ export default function App(): JSX.Element {
           <Route path='help/heal-calc' element={<HealCalc />} />
           <Route path='help/monster-calc' element={<MonsterCalc />} />
 
-          <Route path='players' element={<></>} />
+          <Route path='player/registration' element={<Registration />} />
         </Routes>
       </div>
     </BrowserRouter>
