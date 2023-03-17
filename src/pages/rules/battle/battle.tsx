@@ -14,7 +14,6 @@ import {
   noArmor,
 } from '../../../rules-text/examples/armor';
 
-import { explainHeal, explainRepair } from '../../../rules-text/examples/explain';
 import { hiArmor } from '../../../rules-text/examples/armor/hi-quality';
 import { Item } from '../../../rules-text/type';
 

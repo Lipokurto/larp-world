@@ -3,7 +3,7 @@ import { NavigateFunction, useNavigate } from 'react-router-dom';
 
 import { NavButton } from '../button/nav-button';
 import { NavigationModal } from '../navigation-modal/navigation-modal';
-import { help, rules, world } from './lists';
+import { help, player, rules, world } from './lists';
 import { ListItem } from './lists/type';
 
 import s from './navigation.module.css';
@@ -19,6 +19,7 @@ const buttons: NavigationButton[] = [
   { title: 'Правила', list: rules, link: '/rules' },
   { title: 'Мир', list: world, link: '/world' },
   { title: 'Помощь', list: help, link: '/help' },
+  { title: 'Игроку', list: player, link: '/player' },
 ];
 
 export function Navigation(): JSX.Element {
