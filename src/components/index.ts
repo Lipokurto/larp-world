@@ -25,3 +25,5 @@ export { BeastCalc } from './visual//beast/beast-calc';
 
 export { useResize } from './utils/use-resize';
 export { decimalText } from './utils/decimal-text';
+
+export { Registration } from './registration/registration';
