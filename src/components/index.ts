@@ -22,8 +22,10 @@ export { SelectItem } from './visual/select-item';
 export { BuildLevel } from './visual/build-level';
 export { DamageCalc } from './visual/damage-calc';
 export { BeastCalc } from './visual//beast/beast-calc';
+export { BattleCalc } from './visual/battle/battle-calc';
 
 export { useResize } from './utils/use-resize';
 export { decimalText } from './utils/decimal-text';
+export { randomInt } from './utils/random-int';
 
 export { Registration } from './registration/registration';
