@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.console {
+  display: flex;
+  width: 300px;
+  height: 200px;
+}
+
+.mapContainer {
+  margin: auto auto 0 auto;
+  width: 564px;
+}
+
+.backMap {
+  position: relative;
+  float: left;
+  z-index: 1;
+}
+
+.banner, .bannerActive {
+  position: relative;
+  float: left;
+  z-index: 2;
+  width: 75px;
+  height: 75px;
+  -webkit-filter: drop-shadow(0 0 5px #FFF);
+  filter: drop-shadow(0 0 5px #FFF);
+}
+
+.bannerActive {
+  transition: all 0.1s ease-in-out;
+}
+
+.bannerActive:hover {
+  transform: scale(1.25);
+}
