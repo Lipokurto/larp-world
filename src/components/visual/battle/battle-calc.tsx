@@ -34,7 +34,7 @@ type Banners = {
   name: string,
 }
 
-type Phase = 'Ставки' | 'Очередь' | 'Установка';
+type Phase = 'Ставки' | 'Очередь' | 'Установка' | 'Финиш';
 
 const banners: Banners[] = [
   {
@@ -127,7 +127,6 @@ export function BattleCalc(): JSX.Element {
   const [goldBet, setGoldBet] = React.useState<number>(0);
   const [phase, setPhase] = React.useState<Phase>('Ставки');
   const [currentBanners, setCurrentBanners] = React.useState<Banners[]>(banners);
-  // const [playerBanner, setPlayerBanner] = React.useState<number | null>(null);
   
   React.useEffect(() => {
     const startOthers = others.map(p => {
@@ -149,10 +148,18 @@ export function BattleCalc(): JSX.Element {
     const { name, value } = e.target;
 
     if (name === 'influenceBet') {
+      if (Number(value) >= START_INFLUENCE) {
+        return;
+      }
+
       setInfBet(Number(value));
     }
     
     if (name === 'goldBet') {
+      if (Number(value) >= START_MONEY) {
+        return;
+      }
+      
       setGoldBet(Number(value));
     }
   }, []);
@@ -174,51 +181,42 @@ export function BattleCalc(): JSX.Element {
     setOthers(others);
   }, [currentBet, others]); 
 
-  const renderResultBet = React.useMemo(() => {
-    const resultBet = infBet + Math.floor(Number(goldBet) / START_CHANGE);
-    setCurrentBet(resultBet);
-
-    return <div><b>ВАША ФИНАЛЬНАЯ СТАВКА {resultBet}</b></div>
-  }, [goldBet, infBet]);
-
   const renderPlayerBet = React.useMemo(() => {
     return (
       <div className={s.consoleText}>
         <div>
           <div>
-            <b>Ваше влияние: </b>{START_INFLUENCE}
+            Ваше влияние: <b>{START_INFLUENCE}</b>
           </div>
 
           <div>
-            <b>Ваша ставка влияния:</b>
-            <input type='number' name='influenceBet' min='0' max={START_INFLUENCE} onChange={handleBetChange} />
+            Ваша ставка влияния:
+            <b><input type='number' name='influenceBet' min='0' max={START_INFLUENCE} onChange={handleBetChange} /></b>
           </div>
         </div>
 
         <div>
           <div>
-            <div><b>Ваше золото: </b>{START_MONEY}</div>
+            <div>Ваше золото: <b>{START_MONEY}</b></div>
           </div>
 
           <div>
-            <b>Ваша ставка золота:</b>
-            <input type='number' name='goldBet' min='0' max={START_MONEY} onChange={handleBetChange}/>
+            Ваша ставка золота:
+            <b><input type='number' name='goldBet' min='0' max={START_MONEY} onChange={handleBetChange}/></b>
           </div>
         </div>
 
-        <div><b>1 влияние = {`${START_CHANGE} ${decimalText(START_CHANGE, ['золотой', 'золота', 'золотых'])}`}</b></div>
-
-        {renderResultBet}
+        <div><b>1 влияние</b> = <b>{`${START_CHANGE} ${decimalText(START_CHANGE, ['золотой', 'золота', 'золотых'])}`}</b></div>
       </div>
     )  
-  }, [handleBetChange, renderResultBet]);
+  }, [handleBetChange]);
 
   const handlePlaceBanner = React.useCallback(() => {
     const firstEmptyIndex = currentBanners.findIndex(p => p.name === 'ПУСТО');
     const playersIndex = others.findIndex(p => p.name === 'ОТРЯД ИГРОКА');
 
     if (phase === 'Очередь') {
-      if (firstEmptyIndex + 1 === playersIndex) setPhase('Установка');
+      if (firstEmptyIndex + 1 === playersIndex || playersIndex === 0) setPhase('Установка');
 
       const newBanners = currentBanners.map((p, i) => {
         if (i === firstEmptyIndex && i < playersIndex) {
@@ -284,42 +282,58 @@ export function BattleCalc(): JSX.Element {
       })
 
       setCurrentBanners(newBanners);
+      setPhase('Финиш');
     }
   }, [currentBanners, currentBet, others, phase]);
 
   const renderPlayersButtons = React.useMemo(() => {
+    const resultBet = infBet + Math.floor(Number(goldBet) / START_CHANGE);
+    setCurrentBet(resultBet);
+
     if (phase === 'Ставки') {
-      return <button onClick={handleConfirmBet}>Подтвердить ставку</button>
+      return <button onClick={handleConfirmBet}>Подтвердить ставку {resultBet} влияния</button>
     }
 
     if (phase === 'Очередь') {
-      handleMakeQueue();
+      if (others.length !== othersStart.length + 1) {
+        handleMakeQueue();
+      }
+
+      if (others[0].name === 'ОТРЯД ИГРОКА') {
+        handlePlaceBanner();
+        return;
+      }
 
       return (
         <button onClick={handlePlaceBanner}>Ждать</button>
       )
     }
-  }, [handleConfirmBet, handleMakeQueue, handlePlaceBanner, phase]);
+  }, [goldBet, handleConfirmBet, handleMakeQueue, handlePlaceBanner, infBet, others, phase]);
 
   const renderPlayerScore = React.useMemo(() => {
     return (
-      <div className={s.console}>
-        <div style={{ width: '100px', height: '100px', backgroundColor: 'red' }}></div>
-
-        {renderPlayerBet}
-
+      <div className={s.score}>
         {renderPlayersButtons}
+
+        <div className={s.consolePlayer}>
+
+          <div className={s.othersFlag}>
+            <img src={redBanner} alt='' width='100' height='100' />
+          </div>
+
+          {phase === 'Ставки' ? renderPlayerBet : null}
+
+        </div>
       </div>
     )
-  }, [renderPlayerBet, renderPlayersButtons])
+  }, [phase, renderPlayerBet, renderPlayersButtons])
 
   const renderBanners = React.useMemo(() => {
     if (phase !== 'Установка') {
       return (
-        currentBanners.map((p, i) => {
+        currentBanners.map(p => {
           return (
             <div className={s.banner} key={p.name+p.size.left} style={{left: p.size.left, top: p.size.top}}>
-              <div>{i}</div>
               <img src={p.banner} alt='' width='50' />
               <div>{p.name}</div>
           </div>
@@ -333,7 +347,6 @@ export function BattleCalc(): JSX.Element {
         if (p.name === 'ПУСТО') {
           return (
             <div className={s.bannerActive} key={p.name+p.size.left} style={{left: p.size.left, top: p.size.top}} onClick={() => restBannersSet(i as number)}>
-              <div>{i}</div>
               <img src={p.banner} alt='' width='50' />
               <div>{p.name}</div>
           </div>
@@ -342,7 +355,6 @@ export function BattleCalc(): JSX.Element {
 
         return (
           <div className={s.banner} key={p.name+p.size.left} style={{left: p.size.left, top: p.size.top}}>
-            <div>{i}</div>
             <img src={p.banner} alt='' width='50' />
             <div>{p.name}</div>
         </div>
@@ -364,32 +376,77 @@ export function BattleCalc(): JSX.Element {
 
   const renderOthers = React.useMemo(() => {
     return (
-      <div style={{display: 'flex'}}>
-        {others.map((p, i) => {
-          return (
-            <div className={s.console} key={p.name+i}>
-              <div style={{ width: '100px', height: '100px', backgroundColor: p.color }}></div>
-      
-              <div className={s.consoleText}>
-                <div>{p.name}</div>
-                <div>{phase === 'Ставки' ? 'Текущая ставка скрыта' : `Влияение: ${p.bet}`}</div>
-                <div>{phase === 'Очередь' ? `Очередь: ${i + 1}` : null}</div>
+      <div>
+        Список всех команд
+
+        <div className={s.others}>
+          {others.map((p, i) => {
+            return (
+              <div className={s.console} key={p.name+i}>
+                <div className={s.othersFlag}>
+                  <img src={p.flag} alt='' width='50' height='50' />
+                </div>
+        
+                <div className={s.consoleText}>
+                  <div>{p.name}</div>
+                  <div>{phase === 'Ставки' ? 'Cтавка скрыта' : `Влияение: ${p.bet}`}</div>
+                  <div>{phase === 'Очередь' ? `Очередь: ${i + 1}` : null}</div>
+                </div>
               </div>
-            </div>
-          )
-        })}
+            )
+          })}
+        </div>
       </div>
     )
   }, [others, phase]);
+
+  const renderActionText = React.useMemo(() => {
+    if (phase === 'Ставки') {
+      return (
+        <div className={s.actionText}>
+          Сделайте свою ставку
+        </div>
+      )
+    }
+
+    if (phase === 'Очередь') {
+      return (
+        <div className={s.actionText}>
+          Подождите пока игроки выше очередностью установят свои позиции
+        </div>
+      )
+    }
+
+    if (phase === 'Установка') {
+      return (
+        <div className={s.actionText}>
+          Выбирите свою позици из оставшихся
+        </div>
+      )
+    }
+
+    if (phase === 'Финиш') {
+      return (
+        <div className={s.actionText}>
+          Все команды знают свои места старта
+        </div>
+      )
+    }
+  }, [phase]);
   
   return (
-    <div className={s.container}>
-      {renderMap}
+    <div className={s.sumContainer}>
+      <div className={s.container}>
+        {renderMap}
 
-      {renderOthers}
+        {renderOthers}
+      </div>
 
-      {/* {phase === 'Ставки' ? renderPlayerScore : null} */}
-      {renderPlayerScore}
+      <div className={s.panel}>
+        {renderPlayerScore}
+
+        {renderActionText}
+      </div>
     </div>
   )
 }
