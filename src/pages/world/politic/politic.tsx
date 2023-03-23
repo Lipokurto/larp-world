@@ -8,7 +8,7 @@ import tudor from '../../../assets/towns/tudor.png';
 import midlend from '../../../assets/towns/midlend.png'; 
 import kushan from '../../../assets/towns/kushan.png'; 
 
-import { AccordionBlock, Chapter, ImageZoom } from "../../../components";
+import { AccordionBlock, Chapter } from "../../../components";
 
 import s from './politic.module.css';
 
@@ -38,7 +38,7 @@ export function Politic(): JSX.Element {
             </div>
 
             <div className={s.portrait}>
-              <ImageZoom image={rich} startWidth='200' zoomWidth='600' />
+              <img src={rich} alt='' width='200' />
             </div>
           </div><div className={s.global}>
               <div className={s.text}>
@@ -46,7 +46,7 @@ export function Politic(): JSX.Element {
               </div>
 
               <div className={s.portrait}>
-                <ImageZoom image={midlend} startWidth='200' zoomWidth='600' />
+                <img src={midlend} alt='' width='200'/>
               </div>
             </div></>
                 </div>
@@ -69,7 +69,7 @@ export function Politic(): JSX.Element {
                     </div>
             
                     <div className={s.portrait}>
-                      <ImageZoom image={ferd} startWidth='200' zoomWidth='600' />
+                      <img src={ferd} alt='' width='200'/>
                     </div>
                   </div>
 
@@ -79,7 +79,7 @@ export function Politic(): JSX.Element {
                     </div>
             
                     <div className={s.portrait}>
-                      <ImageZoom image={tudor} startWidth='200' zoomWidth='600' />
+                      <img src={tudor} alt='' width='200'/>
                     </div>
                   </div>
                 </div>
@@ -101,7 +101,7 @@ export function Politic(): JSX.Element {
                     </div>
             
                     <div className={s.portrait}>
-                      <ImageZoom image={gani} startWidth='200' zoomWidth='600' />
+                      <img src={gani} alt='' width='200'/>
                     </div>
                   </div>
 
@@ -111,7 +111,7 @@ export function Politic(): JSX.Element {
                     </div>
             
                     <div className={s.portrait}>
-                      <ImageZoom image={kushan} startWidth='200' zoomWidth='600' />
+                      <img src={kushan} alt='' width='200'/>
                     </div>
                   </div>
                 </div>
