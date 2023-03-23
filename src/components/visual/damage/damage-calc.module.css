@@ -8,7 +8,7 @@
   color: black;
 }
 
-.char {
+.char, .charManual, .fullCharManual {
   width: 300px;
   padding: 10px;
 
@@ -17,7 +17,33 @@
   border-image-source:  linear-gradient(to left, wheat, #000000);
 }
 
-.itemContainer {
+.charManual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 280px;
+  height: 14px;
+  position: absolute;
+  background-color: black;
+  border: 2px solid red;
+  background-color: rgba(0,0,0, 0.75);
+  z-index: 5;
+}
+
+.fullCharManual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 280px;
+  height: 495px;
+  position: absolute;
+  background-color: black;
+  border: 2px solid red;
+  background-color: rgba(0,0,0, 0.75);
+  z-index: 5;
+}
+
+.itemContainer, .itemContainerManual, .weaponManual {
   margin-bottom: 10px;
   padding: 10px;
 
@@ -26,8 +52,46 @@
   border-image-source:  linear-gradient(to bottom, wheat, #000000);
 }
 
-.charItem {
+.weaponManual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 353px;
+  height: 185px;
+  position: absolute;
+  background-color: black;
+  border: 2px solid red;
+  background-color: rgba(0,0,0, 0.75);
+  z-index: 5;
+}
+
+.itemContainerManual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 353px;
+  height: 14px;
+  position: absolute;
+  background-color: black;
+  border: 2px solid red;
+  background-color: rgba(0,0,0, 0.75);
+  z-index: 5;
+}
+
+.charItem, .charItemManual {
   width: 250px;
+}
+
+.charItemManual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 75px;
+  position: absolute;
+  background-color: rgba(0,0,0, 0.75);
+  border: 2px solid red;
+  z-index: 5;
 }
 
 .weapon {
@@ -157,11 +221,31 @@
   border-image-source:  linear-gradient(to bottom, wheat, #000000);
 }
 
-.inventory {
+.inventory, .inventoryManual {
   margin-bottom: 10px;
   padding: 10px;
 
   border: 2px solid;
   border-image-slice: 1;
   border-image-source:  linear-gradient(to bottom, wheat, #000000);
+}
+
+.inventoryManual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 353px;
+  height: 105px;
+  position: absolute;
+  background-color: rgba(0,0,0, 0.75);
+  border: 2px solid red;
+  z-index: 5;
+}
+
+.attack {
+  transition: all 0.1s ease-in-out;
+}
+
+.attack:hover {
+  transform: scale(1.05);
 }

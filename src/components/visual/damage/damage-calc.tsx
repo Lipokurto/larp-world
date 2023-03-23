@@ -1,33 +1,33 @@
 import React from 'react';
 import ReactSelect from 'react-select';
 
-import medium from '../../assets/armor-preset/medium.png';
-import heavy from '../../assets/armor-preset/heavy.png';
-import full from '../../assets/armor-preset/full.png';
+import medium from '../../../assets/armor-preset/medium.png';
+import heavy from '../../../assets/armor-preset/heavy.png';
+import full from '../../../assets/armor-preset/full.png';
 
-import wRegular from '../../assets/weapon-preset/regular.png';
-import wDistant from '../../assets/weapon-preset/distant.png';
-import wHeavy from '../../assets/weapon-preset/heavy.png';
-import wSpetial from '../../assets/weapon-preset/spetial.png';
+import wRegular from '../../../assets/weapon-preset/regular.png';
+import wDistant from '../../../assets/weapon-preset/distant.png';
+import wHeavy from '../../../assets/weapon-preset/heavy.png';
+import wSpetial from '../../../assets/weapon-preset/spetial.png';
 
-import sword from '../../assets/icons/damage/sword.png';
-import arrow from '../../assets/icons/damage/arrow.png';
-import claw from '../../assets/icons/damage/claw.png';
-import blast from '../../assets/icons/damage/blast.png';
+import sword from '../../../assets/icons/damage/sword.png';
+import arrow from '../../../assets/icons/damage/arrow.png';
+import claw from '../../../assets/icons/damage/claw.png';
+import blast from '../../../assets/icons/damage/blast.png';
 
-import tomb from '../../assets/icons/tombNew.png';
+import tomb from '../../../assets/icons/tombNew.png';
 
-import heart from '../../assets/icons/health/heart.png';
-import shield from '../../assets/icons/health/shield.png';
-import heal from '../../assets/icons/health/heal.png';
-import repair from '../../assets/icons/health/repair.png';
+import heart from '../../../assets/icons/health/heart.png';
+import shield from '../../../assets/icons/health/shield.png';
+import heal from '../../../assets/icons/health/heal.png';
+import repair from '../../../assets/icons/health/repair.png';
 
-import healPack from '../../assets/icons/items/healPack.png';
-import healPotion from '../../assets/icons/items/healPotion.png';
-import repairPack from '../../assets/icons/items/repairPack.png';
-import repairPotion from '../../assets/icons/items/repairPotion.png';
+import healPack from '../../../assets/icons/items/healPack.png';
+import healPotion from '../../../assets/icons/items/healPotion.png';
+import repairPack from '../../../assets/icons/items/repairPack.png';
+import repairPotion from '../../../assets/icons/items/repairPotion.png';
 
-import { decimalText } from '../../components';
+import { decimalText } from '../../../components';
 
 import s from './damage-calc.module.css';
 
@@ -71,7 +71,11 @@ const items = [
   {label: 'Оружейное масло', src: repairPotion},
 ];
 
-export function DamageCalc(): JSX.Element {
+type Props = {
+  isManual: boolean,
+}
+
+export function DamageCalc({ isManual }: Props): JSX.Element {
   const [maxHits, setMaxHits] = React.useState<number>(0);
   const [timer, setTimer] = React.useState<number | null>(null);
   const [status, setStatus] = React.useState<Status>('Здоров');
@@ -331,6 +335,8 @@ export function DamageCalc(): JSX.Element {
   return (
     <div className={s.calcContainer}>
       <div className={s.char}>
+        {isManual ? <div className={s.charManual}>1 шаг: Выберете шаблон брони персонажа</div> : null}
+
         <ReactSelect
           className={s.select} 
           options={armor}
@@ -342,12 +348,16 @@ export function DamageCalc(): JSX.Element {
         />
 
         <div className={s.charItem}>
+          {isManual ? <div className={s.charItemManual}>Тут отображаются текущие показатели персонажа</div> : null}
+          
           {renderStatus}
     
           {renderHealth}
           
           <div> Остлось хитов: <b>{currentHits}</b></div>
-          <div onClick={handleAttack}>
+
+          {isManual ? <div className={s.fullCharManual}>3 шаг: Кликните на персонажа чтоб нанести урон выбранным оружием</div> : null}
+          <div onClick={handleAttack} className={s.attack}>
             <div className={s.attackType}>{currentItem ? healType : attackType}</div>
             <img 
               src={status === 'Мертв' ? tomb : armorImg} 
@@ -361,15 +371,20 @@ export function DamageCalc(): JSX.Element {
       <div className={s.weapon}>
         <b style={{ color: 'wheat' }}>АРСЕНАЛ</b>
         <div className={s.itemContainer}>
+          {isManual ? <div className={s.itemContainerManual}>2 шаг: Выберете оружие из арсенала</div> : null}
+
           <ReactSelect
-              className={s.select} 
-              options={weapon}
-              defaultValue={weapon[0]}
-              onChange={(option) => handleWeaponChange(option as Weapon)}
-              styles={{
-                menu: (provided: any) => ({...provided, zIndex: 5})
-              }}
-            />
+            className={s.select} 
+            options={weapon}
+            defaultValue={weapon[0]}
+            onChange={(option) => handleWeaponChange(option as Weapon)}
+            styles={{
+              menu: (provided: any) => ({...provided, zIndex: 5})
+            }}
+          />
+
+          {isManual ? <div className={s.weaponManual}>Тут отображается пример внешнего вида оружия и его урон</div> : null}
+
           <div> Урон оружия: <b>{weaponDamage} {decimalText(weaponDamage, ['хит', 'хита', 'хитов'])}</b></div>
 
           <div style={{ margin: 'auto 0 auto 0' }}>
@@ -379,6 +394,8 @@ export function DamageCalc(): JSX.Element {
 
         <b style={{ color: 'wheat' }}>ПРЕДМЕТЫ</b>
         <div className={s.inventory}>
+          {isManual ? <div className={s.inventoryManual}>4 шаг: Излечите полученный урон</div> : null}
+
           {itemsList}
         </div>
 

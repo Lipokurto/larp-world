@@ -148,18 +148,10 @@ export function BattleCalc(): JSX.Element {
     const { name, value } = e.target;
 
     if (name === 'influenceBet') {
-      if (Number(value) >= START_INFLUENCE) {
-        return;
-      }
-
       setInfBet(Number(value));
     }
     
-    if (name === 'goldBet') {
-      if (Number(value) >= START_MONEY) {
-        return;
-      }
-      
+    if (name === 'goldBet') {      
       setGoldBet(Number(value));
     }
   }, []);
