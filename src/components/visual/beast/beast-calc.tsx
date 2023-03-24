@@ -102,8 +102,11 @@ function getObsList(maxMonsterHits: number): ObsessedType[] {
 
   return obsessedList
 }
+type Props = {
+  isManual: boolean;
+};
 
-export function BeastCalc(): JSX.Element {
+export function BeastCalc({ isManual }: Props): JSX.Element {
   const [maxHits, setMaxHits] = React.useState<number>(0);
   const [timer, setTimer] = React.useState<number | null>(null);
   const [warning, setWarning] = React.useState<Warning | null>(null);
@@ -232,8 +235,6 @@ export function BeastCalc(): JSX.Element {
   const renderStatus = React.useMemo(() => {
     return <div>Статус персонажа: <b style={{ color: color }}>{status}</b></div>
   }, [color, status]);
-
-
 
   const renderHealth = React.useMemo(() => {
     const hearts = Array(currentHits).fill(heart);
@@ -383,6 +384,30 @@ export function BeastCalc(): JSX.Element {
     }
   }, [currentHits, currentItem, maxHits, status]);
 
+  const renderItemsManual = React.useMemo(() => {
+    return (
+      <div className={s.inventoryManual}>
+        <div className={s.inventoryManualItem01}>4 шаг: Излечите полученный урон</div>
+
+        <div className={s.inventoryManualItem02}>6 шаг: Создайте одержимого</div>
+
+        <div className={s.inventoryManualItem03}>9 шаг: Излечите одержимого</div>
+      </div>
+    )
+  }, []);
+
+  const renderObsessedManual = React.useMemo(() => {
+    return (
+      <div className={s.obsessedContainerManual}>
+        <div>4 шаг: Излечите полученный урон</div>
+
+        <div>6 шаг: Создайте одержимого</div>
+
+        <div>9 шаг: Излечите одержимого</div>
+      </div>
+    )
+  }, []);
+
   const renderTimer = React.useMemo(() => {
     if (timer) {
       return (
@@ -458,6 +483,8 @@ export function BeastCalc(): JSX.Element {
     <div className={s.calcContainer}>
       <div className={s.charItemContainer}>
         <div className={s.char}>
+          {isManual ? <div className={s.charManual}>1 шаг: Выберете шаблон чудовища</div> : null}
+
           <ReactSelect
             className={s.select} 
             options={monster}
@@ -469,16 +496,20 @@ export function BeastCalc(): JSX.Element {
           />
 
           <div className={s.charItem}>
+          {isManual ? <div className={s.charItemManual}>Тут отображаются текущие чудовища</div> : null}
             {renderStatus}
       
             {renderHealth}
             
             <div> Остлось хитов: <b>{currentHits}</b></div>
+
+            {isManual ? <div className={s.fullCharManual}>5 шаг: Кликните на чудовище чтоб нанести урон выбранным оружием</div> : null}
+
             <div onClick={handleAttack}>
               <div className={s.attackType}>{currentItem ? healType : attackType}</div>
               <img 
                 src={status === 'Мертв' ? tomb : monsterImg} 
-                alt='' height='400'
+                alt='' height='350'
                 style={{position: 'relative', marginTop: '-90px'}}
               />
             </div>
@@ -488,6 +519,8 @@ export function BeastCalc(): JSX.Element {
         <div className={s.weapon}>
           <b style={{ color: 'wheat' }}>АРСЕНАЛ</b>
           <div className={s.itemContainer}>
+            {isManual ? <div className={s.itemContainerManual}>2 шаг: Выберете оружие из арсенала</div> : null}
+            
             <ReactSelect
                 className={s.select} 
                 options={weapon}
@@ -497,15 +530,20 @@ export function BeastCalc(): JSX.Element {
                   menu: (provided: any) => ({...provided, zIndex: 5})
                 }}
               />
+
+            {isManual ? <div className={s.weaponManual}>Тут отображается пример внешнего вида оружия и его урон</div> : null}
+
             <div> Урон оружия: <b>{weaponDamage} {decimalText(weaponDamage, ['хит', 'хита', 'хитов'])}</b></div>
 
             <div style={{ margin: 'auto 0 auto 0' }}>
-              <img  src={weaponImg} alt='' width='300 '/>
+              <img  src={weaponImg} alt='' width='200 '/>
             </div>
           </div>
 
-          <b style={{ color: 'wheat' }}>ПРЕДМЕТЫ</b>
+          <b style={{ color: 'wheat' }}>ДЕЙСТВИЯ</b>
           <div className={s.inventory}>
+            {isManual ? renderItemsManual : null}
+            
             {itemsList}
           </div>
 
@@ -520,6 +558,8 @@ export function BeastCalc(): JSX.Element {
 
       <b style={{ color: 'wheat' }}>ОДЕРЖИМЫЕ</b>
       <div className={s.obsessedContainer}>
+        {isManual ? renderObsessedManual : null}
+
         {renderObsessedList}
       </div>
     </div>

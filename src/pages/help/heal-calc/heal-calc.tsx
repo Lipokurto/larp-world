@@ -10,7 +10,7 @@ export function HealCalc(): JSX.Element {
   const manualButton = React.useMemo(() => {
     const buttonText = isManual ? 'Спрятать подсказки' : 'Показать подсказки';
 
-    return <button style={{margin: '10px 10px 10px 10px'}}onClick={() =>setIsManual(!isManual)}>{buttonText}</button>
+    return <button style={{margin: '10px 10px 10px 10px'}} onClick={() =>setIsManual(!isManual)}>{buttonText}</button>
   }, [isManual]);
 
   return (

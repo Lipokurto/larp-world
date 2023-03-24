@@ -1,7 +1,6 @@
 .calcContainer {
   display: block;
   justify-content: center;
-  /* flex-wrap: wrap; */
 }
 
 .charItemContainer {
@@ -14,7 +13,7 @@
   color: black;
 }
 
-.char {
+.char, .charManual, .fullCharManual {
   width: 300px;
   padding: 10px;
 
@@ -23,7 +22,33 @@
   border-image-source:  linear-gradient(to left, wheat, #000000);
 }
 
-.itemContainer {
+.charManual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 280px;
+  height: 14px;
+  position: absolute;
+  background-color: black;
+  border: 2px solid red;
+  background-color: rgba(0,0,0, 0.75);
+  z-index: 5;
+}
+
+.fullCharManual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 280px;
+  height: 355px;
+  position: absolute;
+  background-color: black;
+  border: 2px solid red;
+  background-color: rgba(0,0,0, 0.75);
+  z-index: 5;
+}
+
+.itemContainer, .itemContainerManual, .weaponManual {
   margin-bottom: 10px;
   padding: 10px;
 
@@ -32,8 +57,46 @@
   border-image-source:  linear-gradient(to bottom, wheat, #000000);
 }
 
-.charItem {
+.weaponManual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 353px;
+  height: 130px;
+  position: absolute;
+  background-color: black;
+  border: 2px solid red;
+  background-color: rgba(0,0,0, 0.75);
+  z-index: 5;
+}
+
+.itemContainerManual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 353px;
+  height: 14px;
+  position: absolute;
+  background-color: black;
+  border: 2px solid red;
+  background-color: rgba(0,0,0, 0.75);
+  z-index: 5;
+}
+
+.charItem, .charItemManual {
   width: 250px;
+}
+
+.charItemManual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 85px;
+  position: absolute;
+  background-color: rgba(0,0,0, 0.75);
+  border: 2px solid red;
+  z-index: 5;
 }
 
 .weapon {
@@ -169,13 +232,65 @@
   border-image-source:  linear-gradient(to bottom, wheat, #000000);
 }
 
-.inventory {
+.inventory, .inventoryManual, .inventoryManualItem01, .inventoryManualItem02 {
   margin-bottom: 10px;
   padding: 10px;
 
   border: 2px solid;
   border-image-slice: 1;
   border-image-source:  linear-gradient(to bottom, wheat, #000000);
+}
+
+.inventoryManual {
+  border: none;
+  padding: none;
+  display: flex;
+  align-items: start;
+  width: 353px;
+  height: 105px;
+  position: absolute;
+  z-index: 5;
+}
+
+.inventoryManualItem01 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -10px;
+  width: 142px;
+  height: 105px;
+  position: absolute;
+  background-color: rgba(0,0,0, 0.75);
+  border: 2px solid red;
+  z-index: 6;
+}
+
+.inventoryManualItem02 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -10px;
+  margin-left: 167px;
+  width: 67px;
+  height: 105px;
+  position: absolute;
+  background-color: rgba(0,0,0, 0.75);
+  border: 2px solid red;
+  z-index: 6;
+}
+
+.inventoryManualItem03 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -10px;
+  margin-left: 259px;
+  width: 82px;
+  height: 125px;
+  position: absolute;
+  background-color: rgba(0,0,0, 0.75);
+  border: 2px solid red;
+  z-index: 6;
 }
 
 .obsessedContainer {
@@ -197,7 +312,7 @@
   transform: scale(1.1);
 }
 
-.obsContainer {
+.obsContainer, .obsessedContainerManual {
   display: flex;
   margin-top: 10px;
   padding: 10px;
@@ -205,6 +320,18 @@
   border: 2px solid;
   border-image-slice: 1;
   border-image-source:  linear-gradient(to bottom, wheat, #000000);
+}
+
+.obsessedContainerManual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 353px;
+  height: 195px;
+  position: absolute;
+  background-color: rgba(0,0,0, 0.75);
+  border: 2px solid red;
+  z-index: 5;
 }
 
 .obsStrike {
