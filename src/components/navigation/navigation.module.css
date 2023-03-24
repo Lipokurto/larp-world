@@ -3,3 +3,17 @@
   vertical-align: middle;
   margin-top: 25px;
 }
+
+.smallMenu {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: -webkit-fill-available;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+}
+
+.containerSmall {
+  display: flex;
+  justify-content: center;
+}
