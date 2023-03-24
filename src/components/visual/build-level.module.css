@@ -40,6 +40,12 @@
   border-image-source:  linear-gradient(to left, wheat, #000000);
 }
 
+@media only screen and (max-width: 600px) {
+  .textContainer, .textContainer_chosen {
+    width: 50px;
+  }
+}
+
 .description {
   width: 180px;
   white-space: nowrap;
@@ -81,6 +87,12 @@
   border: 2px solid;
   border-image-slice: 1;
   border-image-source:  linear-gradient(to left, wheat, #000000);
+}
+
+@media only screen and (max-width: 600px) {
+  .workerText {
+    width: 50px;
+  }
 }
 
 .workerItem {

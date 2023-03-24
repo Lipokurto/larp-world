@@ -9,6 +9,7 @@ import tent01Smith from '../../assets/icons/build/03_tent_01.png';
 import tent02Smith from '../../assets/icons/build/04_tent_02.png';
 import tent03Smith from '../../assets/icons/build/05_tent_03.png';
 import { decimalText } from '../utils/decimal-text';
+import { useResize } from '../utils/use-resize';
 
 import s from './build-level.module.css';
 
@@ -45,6 +46,7 @@ const workerChosenStyle = {
 const workersHint = <div>Количество доступных помошников без учета главного мастерового</div>
 
 export function BuildLevel(): JSX.Element {
+  const { width } = useResize();
   const [currentLevel, setCurrentLevel] = React.useState<number>(1);
   const [currentCountWorkers, setCurrentCountWorkers] = React.useState<number>(0);
   const [levelBonus, setLevelBonus] = React.useState<number>(0);
@@ -132,7 +134,7 @@ export function BuildLevel(): JSX.Element {
           return (
             <div className={s.item} key={p.src} onClick={() => handleLevelChange(p.level)}>
               <div className={currentLevel === p.level ? s.textContainer_chosen : s.textContainer}>
-                <b className={s.label}>Уровень {p.level}</b>
+                <b className={s.label}>{width < 600 ? 'Ур.' : 'Уровень'} {p.level}</b>
               </div>
 
               <img src={p.src} alt='' width='100' style={{ opacity: p.level <= currentLevel ? 1 : 0.5 }}/>
@@ -149,9 +151,7 @@ export function BuildLevel(): JSX.Element {
                       background='wheat'
                       className={s.text}
                     >
-                      {/* <div className={s.text}> */}
-                        {smithBuild.find(pp => pp.level === p.level)?.label.toUpperCase()}
-                      {/* </div> */}
+                      {smithBuild.find(pp => pp.level === p.level)?.label.toUpperCase()}
                     </Tooltip>
                   </>
                 ) : ''}
