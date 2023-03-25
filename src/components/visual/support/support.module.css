@@ -1,0 +1,31 @@
+.container {
+  width: fit-content;
+  color: white;
+  padding: 20px 20px 20px 20px;
+  justify-content: center;
+  margin: 0 auto 0 auto;
+}
+
+.hexagon {
+  
+
+
+}
+
+.hexItem {
+  /* fill: red; */
+  /* stroke: black; */
+  /* stroke-width: 1px; */
+  opacity: 0.75;
+
+  transition: all 0.2s ease-in-out;
+}
+
+.hexItem:hover {
+  opacity: 1;
+}
+
+.hexText {
+  font-family: 'Oswald';
+  font-size: 2px;
+}

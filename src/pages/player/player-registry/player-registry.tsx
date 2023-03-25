@@ -1,4 +1,4 @@
-import { Chapter, Registration } from "../../components";
+import { Chapter, Registration } from "../../../components";
 
 import s from './player-registry.module.css';
 

@@ -22,6 +22,7 @@ export { BuildLevel } from './visual/build-level';
 export { DamageCalc } from './visual/damage/damage-calc';
 export { BeastCalc } from './visual//beast/beast-calc';
 export { BattleCalc } from './visual/battle/battle-calc';
+export { Support } from './visual/support/support';
 
 export { useResize } from './utils/use-resize';
 export { decimalText } from './utils/decimal-text';

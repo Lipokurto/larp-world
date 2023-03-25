@@ -11,7 +11,7 @@ import {
 
 import { Characters, Politic } from "./pages/world";
 import { BuildCalc, CharCalc, HealCalc, MonsterCalc, FinalCalc } from "./pages/help";
-import { PlayerRegistry } from "./pages/player/player-registry";
+import { PlayerRegistry, MapSupport } from "./pages/player";
 
 import s from './app.module.css';
 
@@ -41,6 +41,7 @@ export default function App(): JSX.Element {
           <Route path='help/monster-calc' element={<MonsterCalc />} />
           <Route path='help/final-calc' element={<FinalCalc />} />
 
+          <Route path='player/map-support' element={<MapSupport />} />
           <Route path='player/registration' element={<PlayerRegistry />} />
         </Routes>
       </div>
