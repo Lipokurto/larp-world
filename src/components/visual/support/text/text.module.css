@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+}
+
+.container img {
+  height: 300px;
+  margin: 10px;
+  border-radius: 10px;
+  z-index: 10;
+}
+
+@media only screen and (max-width: 1024px) {
+  .container {
+    display: block;
+  }
+
+  .container img {
+    height: 200px;
+  }
+}

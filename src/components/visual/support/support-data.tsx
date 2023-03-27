@@ -1,4 +1,8 @@
 import { Item } from "../../../rules-text/type";
+import { campBuild } from "./text/camp-build";
+import { campPlace } from "./text/camp-place";
+import { camping } from "./text/camping";
+import { life } from "./text/life";
 
 type SupportItems = {
   coordinates: {
@@ -22,7 +26,7 @@ export const supportItems: SupportItems[] = [
     label: 'Походный набор',
     element: {
       label: 'Походный набор',
-      element: <div>POHOFD</div>
+      element: camping.element,
     },
   },
   {
@@ -35,7 +39,7 @@ export const supportItems: SupportItems[] = [
     label: 'Место сна',
     element: {
       label: 'Место сна',
-      element: <div>POHOFD</div>
+      element: campPlace.element,
     },
   },
 
@@ -49,7 +53,7 @@ export const supportItems: SupportItems[] = [
     label: 'Строяк',
     element: {
       label: 'Строяк',
-      element: <div>POHOFD</div>
+      element: campBuild.element,
     },
   },
 
@@ -267,7 +271,7 @@ export const supportItems: SupportItems[] = [
     label: 'Быт',
     element: {
       label: 'Быт',
-      element: <div>POHOFD</div>
+      element: life.element,
     },
   },
 
