@@ -3,6 +3,8 @@ import { campBuild } from "./text/camp-build";
 import { campPlace } from "./text/camp-place";
 import { camping } from "./text/camping";
 import { life } from "./text/life";
+import { team } from "./text/team";
+import { warCamp } from "./text/war-camp";
 
 type SupportItems = {
   coordinates: {
@@ -67,7 +69,7 @@ export const supportItems: SupportItems[] = [
     label: 'Команда',
     element: {
       label: 'Команда',
-      element: <div>POHOFD</div>
+      element: team.element,
     },
   },
   {
@@ -80,7 +82,7 @@ export const supportItems: SupportItems[] = [
     label: 'Лагерь',
     element: {
       label: 'Лагерь',
-      element: <div>POHOFD</div>
+      element: warCamp.element,
     },
   },
 
