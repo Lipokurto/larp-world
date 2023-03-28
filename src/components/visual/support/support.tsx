@@ -1,8 +1,10 @@
 import React from 'react';
-import { HexGrid, Layout, Hexagon, GridGenerator, Text } from 'react-hexgrid';
+import { HexGrid, Layout, Hexagon, GridGenerator, Text, Pattern } from 'react-hexgrid';
 import { Item } from '../../../rules-text/type';
 import { ItemModal } from '../../item-modal/item-modal';
 import { supportItems } from './support-data';
+
+import sss from '../../../assets/icons/health/heart.png'
 
 import s from './support.module.css';
 
@@ -38,13 +40,14 @@ export function Support(): JSX.Element {
         className={s.hexItem}
         cellStyle={style}
         onClick={() => handleClick(gotItem?.element || {label: '', element: <></>})}
+        // fill='qwerty'
       >
         <Text className={s.hexText}>
           {gotItem?.label}
         </Text>
       </Hexagon>
     )
-  }, [])
+  }, [handleClick])
 
   return (
     <>    
@@ -56,6 +59,7 @@ export function Support(): JSX.Element {
             >
               {hexagons.map((hex, i) => getHexItem(hex.q, hex.r, hex.s, i)) }
             </Layout>
+            <Pattern id='qwerty' link={sss} />
           </HexGrid>
       </div>
 
