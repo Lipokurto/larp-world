@@ -11,7 +11,7 @@ export const team: Item = {
       <div className={s.container}>
         <div>Каждая команда имеет свою внутренюю организацию в которую мастера не лезут, но должно быть несколько общих вещей</div>
         <div>
-          <NavLink replace to='/world/characters' style={{color: 'goldenrod'}}>Подробнее с персонажами можно ознакомиться тут</NavLink>
+          <NavLink replace to='/world/characters' onClick={() => document.body.style.overflowY = 'visible'} style={{color: 'goldenrod'}}>Подробнее с персонажами можно ознакомиться тут</NavLink>
         </div>
       </div>
 

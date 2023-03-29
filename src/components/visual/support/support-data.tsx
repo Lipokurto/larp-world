@@ -2,7 +2,10 @@ import { Item } from "../../../rules-text/type";
 import { campBuild } from "./text/camp-build";
 import { campPlace } from "./text/camp-place";
 import { camping } from "./text/camping";
+import { hierarchy } from "./text/hierarchy";
 import { life } from "./text/life";
+import { politic } from "./text/politic";
+import { race } from "./text/race";
 import { team } from "./text/team";
 import { warCamp } from "./text/war-camp";
 
@@ -25,9 +28,9 @@ export const supportItems: SupportItems[] = [
       r: -1,
     }, 
     color: 'red',
-    label: 'Походный набор',
+    label: 'Поход',
     element: {
-      label: 'Походный набор',
+      label: 'Поход',
       element: camping.element,
     },
   },
@@ -38,9 +41,9 @@ export const supportItems: SupportItems[] = [
       r: -2,
     }, 
     color: 'red',
-    label: 'Место сна',
+    label: 'Стоянка',
     element: {
-      label: 'Место сна',
+      label: 'Стоянка',
       element: campPlace.element,
     },
   },
@@ -96,7 +99,7 @@ export const supportItems: SupportItems[] = [
     label: 'Иерархия',
     element: {
       label: 'Иерархия',
-      element: <div>POHOFD</div>
+      element: hierarchy.element,
     },
   },
 
@@ -110,7 +113,7 @@ export const supportItems: SupportItems[] = [
     label: 'Народность',
     element: {
       label: 'Народность',
-      element: <div>POHOFD</div>
+      element: race.element,
     },
   },
   {
@@ -123,7 +126,7 @@ export const supportItems: SupportItems[] = [
     label: 'Политика',
     element: {
       label: 'Политика',
-      element: <div>POHOFD</div>
+      element: politic.element,
     },
   },
 
@@ -243,9 +246,9 @@ export const supportItems: SupportItems[] = [
       r: 0,
     }, 
     color: 'cyan',
-    label: 'Отправка себя',
+    label: 'Маршрут',
     element: {
-      label: 'Отправка себя',
+      label: 'Маршрут',
       element: <div>POHOFD</div>
     },
   },
@@ -256,7 +259,7 @@ export const supportItems: SupportItems[] = [
       r: 0,
     }, 
     color: 'cyan',
-    label: 'Отправка вещей',
+    label: 'Вещи',
     element: {
       label: 'Отправка вещей',
       element: <div>POHOFD</div>

@@ -9,6 +9,7 @@ export const life: Item = {
     <>
       <div className={s.container}>
         <div>Чтоб чувствовать себя уверено надо строго знать трив ещи: где есть, где спать, где ходить в туалет</div>
+        <div>Подсмотреть схемы для мебели можно тут <a href='http://larpinfo.ru/' target='_blank' rel="noreferrer" style={{color: 'goldenrod'}}>Калькулятор строяка</a></div>
       </div>
 
       <AccordionBlock
@@ -68,7 +69,6 @@ export const life: Item = {
             element:
               <>
                 <div>Содержите мебель в чистоте, не бросайте снаряжение на столы или скамейки, постарайтесь изготовить для этоо отдельные стойки</div>
-                <div>Подсмотреть схемы для мебели можно тут <a href='http://larpinfo.ru/' target='_blank' rel="noreferrer" style={{color: 'goldenrod'}}>Калькулятор строяка</a></div>
               </>
           },
         ]}

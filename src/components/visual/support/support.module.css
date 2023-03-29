@@ -13,19 +13,19 @@
 }
 
 .hexItem {
-  /* fill: red; */
-  /* stroke: black; */
-  /* stroke-width: 1px; */
   opacity: 0.75;
+  cursor: pointer;
 
   transition: all 0.2s ease-in-out;
 }
 
 .hexItem:hover {
   opacity: 1;
+  scale: 1.05;
+  filter: drop-shadow(0 0 2px black);
 }
 
 .hexText {
   font-family: 'Oswald';
-  font-size: 2px;
+  font-size: 3px;
 }
