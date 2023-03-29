@@ -7,15 +7,12 @@
 }
 
 .hexagon {
-  
-
 
 }
 
 .hexItem {
   opacity: 0.75;
   cursor: pointer;
-
   transition: all 0.2s ease-in-out;
 }
 

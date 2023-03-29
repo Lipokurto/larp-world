@@ -2,9 +2,12 @@ import { Item } from "../../../rules-text/type";
 import { campBuild } from "./text/camp-build";
 import { campPlace } from "./text/camp-place";
 import { camping } from "./text/camping";
+import { equip } from "./text/equip";
+import { fight } from "./text/fight";
 import { hierarchy } from "./text/hierarchy";
 import { life } from "./text/life";
 import { politic } from "./text/politic";
+import { quest } from "./text/quest";
 import { race } from "./text/race";
 import { team } from "./text/team";
 import { warCamp } from "./text/war-camp";
@@ -27,7 +30,7 @@ export const supportItems: SupportItems[] = [
       s: 1,
       r: -1,
     }, 
-    color: 'red',
+    color: 'lightGray',
     label: 'Поход',
     element: {
       label: 'Поход',
@@ -40,7 +43,7 @@ export const supportItems: SupportItems[] = [
       s: 2,
       r: -2,
     }, 
-    color: 'red',
+    color: 'darkGray',
     label: 'Стоянка',
     element: {
       label: 'Стоянка',
@@ -68,7 +71,7 @@ export const supportItems: SupportItems[] = [
       s: 0,
       r: -1,
     }, 
-    color: 'yellow',
+    color: 'lightGray',
     label: 'Команда',
     element: {
       label: 'Команда',
@@ -81,7 +84,7 @@ export const supportItems: SupportItems[] = [
       s: 0,
       r: -2,
     }, 
-    color: 'yellow',
+    color: 'darkGray',
     label: 'Лагерь',
     element: {
       label: 'Лагерь',
@@ -109,7 +112,7 @@ export const supportItems: SupportItems[] = [
       s: -1,
       r: 0,
     }, 
-    color: 'springGreen',
+    color: 'lightGray',
     label: 'Народность',
     element: {
       label: 'Народность',
@@ -122,7 +125,7 @@ export const supportItems: SupportItems[] = [
       s: -2,
       r: 0,
     }, 
-    color: 'springGreen',
+    color: 'darkGray',
     label: 'Политика',
     element: {
       label: 'Политика',
@@ -140,7 +143,7 @@ export const supportItems: SupportItems[] = [
     label: 'Квесты',
     element: {
       label: 'Квесты',
-      element: <div>POHOFD</div>
+      element: quest.element,
     },
   },
 
@@ -150,11 +153,11 @@ export const supportItems: SupportItems[] = [
       s: -1,
       r: 1,
     }, 
-    color: 'khaki',
+    color: 'lightGray',
     label: 'Боевка',
     element: {
       label: 'Боевка',
-      element: <div>POHOFD</div>
+      element: fight.element,
     },
   },
   {
@@ -163,11 +166,11 @@ export const supportItems: SupportItems[] = [
       s: -2,
       r: 2,
     }, 
-    color: 'khaki',
+    color: 'darkGray',
     label: 'Снаряжение',
     element: {
       label: 'Снаряжение',
-      element: <div>POHOFD</div>
+      element: equip.element,
     },
   },
 
@@ -184,27 +187,13 @@ export const supportItems: SupportItems[] = [
       element: <div>POHOFD</div>
     },
   },
-
-  {
-    coordinates: {
-      q: 0,
-      s: -1,
-      r: 1,
-    }, 
-    color: 'khaki',
-    label: 'Быт',
-    element: {
-      label: 'Быт',
-      element: <div>POHOFD</div>
-    },
-  },
   {
     coordinates: {
       q: -1,
       s: 0,
       r: 1,
     }, 
-    color: 'orange',
+    color: 'lightGray',
     label: 'Экономика',
     element: {
       label: 'Экономика',
@@ -217,7 +206,7 @@ export const supportItems: SupportItems[] = [
       s: 0,
       r: 2,
     }, 
-    color: 'orange',
+    color: 'darkGray',
     label: 'Постройка',
     element: {
       label: 'Постройка',
@@ -245,7 +234,7 @@ export const supportItems: SupportItems[] = [
       s: 1,
       r: 0,
     }, 
-    color: 'cyan',
+    color: 'lightGray',
     label: 'Маршрут',
     element: {
       label: 'Маршрут',
@@ -258,7 +247,7 @@ export const supportItems: SupportItems[] = [
       s: 2,
       r: 0,
     }, 
-    color: 'cyan',
+    color: 'darkGray',
     label: 'Вещи',
     element: {
       label: 'Отправка вещей',

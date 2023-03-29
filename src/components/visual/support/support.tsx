@@ -39,14 +39,14 @@ export function Support(): JSX.Element {
         cellStyle={style}
         onClick={() => handleClick(gotItem?.element || {label: '', element: <></>})}
       >
+
         <Text className={s.hexText}>
           {gotItem?.label}
         </Text>
       </Hexagon>
     )
-  }, [handleClick])
+  }, [handleClick]);
   
-
   return (
     <>    
       <div className={s.container}>
@@ -61,7 +61,6 @@ export function Support(): JSX.Element {
           </HexGrid>
       </div>
 
-      
       {isOpen && (
         <ItemModal
           setIsOpen={setIsOpen}

@@ -15,9 +15,27 @@
   z-index: 15;
 }
 
+.buttons {
+  position:absolute;
+  display: flex;
+  left: 50%;
+  right: 50%;
+  top:60%;
+  margin-left: -115px;
+  width: 200px;
+  color: black;
+  flex-direction: column;
+  text-align: center;
+  z-index: 16;
+}
+
 @media only screen and (max-width: 1024px) {
   .logo {
     margin-bottom: 0;
+  }
+
+  .buttons {
+    top: 45%;
   }
 }
 
@@ -25,4 +43,45 @@
   .logo {
     height: 260px;
   }
+
+  .buttons {
+    top: 8.5%;
+  }
+}
+
+.mainButton, .secondButton {
+  font-family: 'Oswald';
+  color: rgb(255, 255, 255);
+  flex-direction: column;
+  font-size: 20px;
+  padding: 10px;
+
+  background-color: black;
+  text-decoration-line: none;
+  cursor: pointer;
+
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to left, wheat, #000000, wheat);
+  box-shadow: 0 0 20px black;
+
+  transition: all 0.25s ease;
+}
+
+.mainButton {
+  margin-bottom: 10px;
+  width: 200px;
+  font-size: 20px;
+}
+
+.secondButton {
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 180px;
+  font-size: 16px;
+}
+
+.mainButton:hover, .secondButton:hover {
+  transform: scale(1.25);
+  box-shadow: 0 0 10px red;
 }
