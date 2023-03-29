@@ -12,12 +12,12 @@
 
 @media only screen and (max-width: 1024px) {
   .labelTextsm {
-    margin-top: -200px;
+    margin-top: -125px;
   }
 }
 
 @media only screen and (max-width: 800px) {
   .labelTextsm {
-    margin-top: -550px;
+    margin-top: -500px;
   }
 }

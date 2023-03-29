@@ -1,4 +1,4 @@
-import React from "react";
+import { NavLink } from "react-router-dom";
 
 import { Logo } from "../../components/logo";
 import { Band } from "./band";
@@ -10,6 +10,12 @@ export function Main(): JSX.Element {
 
   return (
     <div className={s.container}>
+      <div className={s.buttons}>
+          <NavLink className={s.mainButton} replace to='/player/registration'>Регистрация на игру</NavLink>
+
+          <NavLink className={s.secondButton} replace to='/player/map-support'>Как подготовить себя</NavLink>
+      </div>
+
       <div className={s.logo}>
         <Logo />
       </div>
