@@ -4,7 +4,7 @@ import { AccordionBlock } from "../../../accordion/accordion-block";
 import s from './text.module.css';
 
 export const camping: Item = {
-  label: 'Походный набор',
+  label: 'Поход',
   element:
     <>
       <div className={s.container}>
