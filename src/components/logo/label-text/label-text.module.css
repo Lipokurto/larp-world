@@ -39,6 +39,12 @@
   filter: contrast(10);
 }
 
+.container {
+  position: absolute;
+  filter: drop-shadow(0 0 2px red) drop-shadow(0 0 25px black) ;
+  z-index: 3;
+}
+
 @media only screen and (max-width: 800px) {
   .labelText {
     font-size: 3em;

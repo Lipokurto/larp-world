@@ -6,7 +6,7 @@ import s from './label-text.module.css';
 
 export function LabelText(): JSX.Element {
   return (
-    <div>
+    <div className={s.container}>
       <img className={s.blood} src={blood} alt="Blood" />
 
       <span className={s.labelText}>Темные<br />века</span>

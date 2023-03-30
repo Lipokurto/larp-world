@@ -1,14 +1,21 @@
 import { Item } from "../../../rules-text/type";
+import { build } from "./text/build";
 import { campBuild } from "./text/camp-build";
 import { campPlace } from "./text/camp-place";
 import { camping } from "./text/camping";
+import { economic } from "./text/economic";
 import { equip } from "./text/equip";
 import { fight } from "./text/fight";
+import { heal } from "./text/heal";
 import { hierarchy } from "./text/hierarchy";
 import { life } from "./text/life";
+import { player } from "./text/player";
 import { politic } from "./text/politic";
 import { quest } from "./text/quest";
 import { race } from "./text/race";
+import { rate } from "./text/rate";
+import { route } from "./text/route";
+import { stuff } from "./text/stuff";
 import { team } from "./text/team";
 import { warCamp } from "./text/war-camp";
 
@@ -184,7 +191,7 @@ export const supportItems: SupportItems[] = [
     label: 'Лечение',
     element: {
       label: 'Лечение',
-      element: <div>POHOFD</div>
+      element: heal.element,
     },
   },
   {
@@ -197,7 +204,7 @@ export const supportItems: SupportItems[] = [
     label: 'Экономика',
     element: {
       label: 'Экономика',
-      element: <div>POHOFD</div>
+      element: economic.element,
     },
   },
   {
@@ -210,7 +217,7 @@ export const supportItems: SupportItems[] = [
     label: 'Постройка',
     element: {
       label: 'Постройка',
-      element: <div>POHOFD</div>
+      element: build.element,
     },
   },
 
@@ -224,7 +231,7 @@ export const supportItems: SupportItems[] = [
     label: 'Расходники',
     element: {
       label: 'Расходники',
-      element: <div>POHOFD</div>
+      element: rate.element,
     },
   },
 
@@ -238,7 +245,7 @@ export const supportItems: SupportItems[] = [
     label: 'Маршрут',
     element: {
       label: 'Маршрут',
-      element: <div>POHOFD</div>
+      element: route.element,
     },
   },
   {
@@ -250,8 +257,8 @@ export const supportItems: SupportItems[] = [
     color: 'darkGray',
     label: 'Вещи',
     element: {
-      label: 'Отправка вещей',
-      element: <div>POHOFD</div>
+      label: 'Вещи',
+      element: stuff.element,
     },
   },
 
@@ -279,7 +286,7 @@ export const supportItems: SupportItems[] = [
     label: 'ИГРОК',
     element: {
       label: 'ИГРОК',
-      element: <div>POHOFD</div>
+      element: player.element,
     },
   },
 ]

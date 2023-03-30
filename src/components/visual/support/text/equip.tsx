@@ -1,4 +1,3 @@
-import { NavLink } from "react-router-dom";
 import { Item } from "../../../../rules-text/type";
 import { AccordionBlock } from "../../../accordion/accordion-block";
 
