@@ -16,6 +16,8 @@ export function Logo(): JSX.Element {
     return (
       <>
         <div className={s.logo}>
+          <LabelText />
+
           <MouseParallaxContainer 
             globalFactorX={0.1} 
             globalFactorY={0.1}
@@ -26,13 +28,7 @@ export function Logo(): JSX.Element {
               gridTemplateColumns: "auto auto auto auto auto",
               overflow: "visible"
             }}
-          >
-            <MouseParallaxChild factorX={0.3} factorY={0.3}
-              style={{ zIndex: 3 }}
-            >
-              <LabelText />
-            </MouseParallaxChild>
-            
+          >            
             <MouseParallaxChild factorX={0.2} factorY={0.2}
               style={{ zIndex: 2 }}
             >

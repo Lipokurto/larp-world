@@ -1,5 +1,6 @@
 import React from 'react';
 import { HexGrid, Layout, Hexagon, GridGenerator, Text } from 'react-hexgrid';
+
 import { Item } from '../../../rules-text/type';
 import { ItemModal } from '../../item-modal/item-modal';
 import { supportItems } from './support-data';
@@ -56,7 +57,7 @@ export function Support(): JSX.Element {
               className={s.hexagon} 
               spacing={1.05} origin={{ x: 0, y: 0 }}
             >
-              {hexagons.map((hex, i) => getHexItem(hex.q, hex.r, hex.s, i)) }
+              {hexagons.map((hex, i) => getHexItem(hex.q, hex.r, hex.s, i))}
             </Layout>
           </HexGrid>
       </div>
