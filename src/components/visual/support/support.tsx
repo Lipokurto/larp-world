@@ -2,7 +2,9 @@ import React from 'react';
 import { HexGrid, Layout, Hexagon, GridGenerator, Text } from 'react-hexgrid';
 
 import { Item } from '../../../rules-text/type';
+import { Chapter } from '../../chapter/chapter';
 import { ItemModal } from '../../item-modal/item-modal';
+import { useResize } from '../../utils/use-resize';
 import { supportItems } from './support-data';
 
 import s from './support.module.css';
@@ -10,6 +12,8 @@ import s from './support.module.css';
 export function Support(): JSX.Element {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
   const [item, setItem] = React.useState<Item | null>(null);
+
+  const { isScreenSm, isScreenMd, width } = useResize();
 
   const hexagons = GridGenerator.hexagon(2);
 
@@ -47,11 +51,33 @@ export function Support(): JSX.Element {
       </Hexagon>
     )
   }, [handleClick]);
+
+  const reSize = React.useCallback(() => {
+    if (isScreenMd) {
+      return {
+        x: 600,
+        y: 600,
+      }
+    }
+
+    if (isScreenSm || width <= 360) {
+      return {
+        x: 300,
+        y: 300,
+      }
+    }
+
+    return {
+      x: 700,
+      y: 700.
+    }
+  }, [isScreenMd, isScreenSm, width]);
   
   return (
     <>    
       <div className={s.container}>
-          <HexGrid width={700} height={700}>
+          <Chapter chapter='Подготовка на игру' />
+          <HexGrid width={reSize().x} height={reSize().y}>
             <Layout 
               size={{ x: 10, y: 10 }}
               className={s.hexagon} 
