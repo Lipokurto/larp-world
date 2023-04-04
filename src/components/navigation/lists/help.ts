@@ -21,4 +21,8 @@ export const help: ListItem[] = [
     label: 'Рассчет финальной битвы',
     link: '/final-calc',
   },
+  {
+    label: 'Рассчет штурма',
+    link: '/assault-calc',
+  },
 ]
