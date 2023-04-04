@@ -15,6 +15,7 @@ import { PlayerRegistry, MapSupport } from "./pages/player";
 
 import s from './app.module.css';
 import { Update } from "./update";
+import { AssaultCalc } from "./pages/help/assalt-calc/assalt-calc";
 
 export default function App(): JSX.Element {
   return (
@@ -41,6 +42,7 @@ export default function App(): JSX.Element {
           <Route path='help/heal-calc' element={<HealCalc />} />
           <Route path='help/monster-calc' element={<MonsterCalc />} />
           <Route path='help/final-calc' element={<FinalCalc />} />
+          <Route path='help/assault-calc' element={<AssaultCalc />} />
 
           <Route path='player/map-support' element={<MapSupport />} />
           <Route path='player/registration' element={<PlayerRegistry />} />
