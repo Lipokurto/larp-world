@@ -3,9 +3,16 @@
   justify-content: space-between;
 }
 
-.win {
+.begin, .win {
   position: absolute;
   left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%)
+  top: 57.5%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.75);
+
+  padding: 10px 50px 10px 50px;
+}
+
+.win {
+  top: 48%;
 }

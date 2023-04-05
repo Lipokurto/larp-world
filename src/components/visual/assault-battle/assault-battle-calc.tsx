@@ -1,7 +1,16 @@
 import React from 'react';
 
-import s from './assault-battle-calc.module.css';
 import { randomInt } from '../../utils/random-int';
+
+import soldierRed from '../../../assets/icons/assault/warrior01.png';
+import soldierBlue from '../../../assets/icons/assault/warrior02.png';
+import ghostRed from '../../../assets/icons/assault/ghost01.png';
+import ghostBlue from '../../../assets/icons/assault/ghost02.png';
+import tomb from '../../../assets/icons/assault/tomb.png';
+import mapFort from '../../../assets/icons/assault/battle-map-fort.jpg';
+import mapNoFort from '../../../assets/icons/assault/battle-map-no-fort.jpg';
+
+import s from './assault-battle-calc.module.css';
 
 type Position = {
   x: number,
@@ -11,21 +20,14 @@ type Position = {
 type Soldier = {
   key: string,
   position: Position,
-  color: string,
+  pic: string,
 }
 
 type Phase = 'Подготовка' | 'Штурм' | 'Итоги';
 
 const SQUARE_SIZE = 25;
 
-const FIRST_ATTACK_SOLDIER: Soldier = {
-  key: randomInt(0, 99999).toString(),
-  position: {
-    x: 100 - SQUARE_SIZE,
-    y: 300,
-  },
-  color: 'red',
-};
+
 
 const FORT = [
   {
@@ -76,7 +78,16 @@ const FORT = [
     },
     color: 'brown',
   },
-]
+];
+
+const FIRST_ATTACK_SOLDIER: Soldier = {
+  key: randomInt(0, 99999).toString(),
+  position: {
+    x: 100 - SQUARE_SIZE,
+    y: 300,
+  },
+  pic: 'sol-red',
+};
 
 const FIRST_DEFEND_SOLDIER: Soldier = {
   key: randomInt(0, 99999).toString(),
@@ -84,12 +95,11 @@ const FIRST_DEFEND_SOLDIER: Soldier = {
     x: 500,
     y: 300,
   },
-  color: 'blue',
+  pic: 'sol-blue',
 };
 
 const START_ATTACK_LIVES = randomInt(1, 35);
 const START_DEFEND_LIVES = randomInt(1, 35);
-
 
 const FIELD_SIZE = {
   x: 600,
@@ -150,7 +160,7 @@ function attackVertDead(y: number, x: number): number {
 }
 
 function attackVerticalMove(y: number): number {
-  const isVetFort = FORT.findIndex(p => (p.position.y < y && p.position.y + p.size.height > y));
+  const isVetFort = FORT.findIndex(p => (p.position.y < y && p.position.y + p.size.height > y) || (p.position.y < y + SQUARE_SIZE && p.position.y + p.size.height > y + SQUARE_SIZE));
 
   if (isVetFort === 0 || isVetFort === 1) {
     return y + 5;
@@ -211,8 +221,8 @@ function defendHorizontalMove(x: number, y: number, isFort: boolean): number {
     return x + randomInt(1, 5);
   }
 
-  if (x > 600) {
-    return x + randomInt(-3, 0);
+  if (x + SQUARE_SIZE > 600) {
+    return x + randomInt(-5, 0);
   }
 
   return x + randomInt(-3, 1);
@@ -259,11 +269,11 @@ export function AssaultBattleCalc(): JSX.Element {
                 x: attackHorDead(p.position.x),
                 y: attackVertDead(p.position.y, p.position.x),
               },
-              color: 'lightGray',
+              pic: 'ghost-red',
             }
           }
 
-          if (p.color === 'lightGray' 
+          if (p.pic === 'ghost-red'
               && 
               p.position.x > FIRST_ATTACK_SOLDIER.position.x 
               ) {
@@ -276,14 +286,14 @@ export function AssaultBattleCalc(): JSX.Element {
             }
           }
 
-          if (attackLivesCount <= 0 && p.color === 'lightGray') {
+          if (attackLivesCount <= 0 && p.pic === 'ghost-red') {
             return {
               ...p,
-              color: 'lightGreen',
+              pic: 'tomb',
             }
           }
 
-          if (p.color === 'lightGreen') {
+          if (p.pic === 'tomb') {
             return {
               ...p,
               position: {
@@ -299,7 +309,7 @@ export function AssaultBattleCalc(): JSX.Element {
               x: newPositionX,
               y: newPositionY,
             },
-            color: 'red',
+            pic: 'sol-red',
           }
         });
 
@@ -330,11 +340,11 @@ export function AssaultBattleCalc(): JSX.Element {
                   x: defendHorDead(p.position.x),
                   y: defendVertDead(p.position.y),
                 },
-                color: 'lightGray',
+                pic: 'ghost-blue',
               }
             }
 
-            if (p.color === 'lightGray' 
+            if (p.pic === 'ghost-blue' 
             && 
             p.position.x < FIRST_DEFEND_SOLDIER.position.x 
             ) {
@@ -347,14 +357,14 @@ export function AssaultBattleCalc(): JSX.Element {
               }
             }
 
-          if (defendLivesCount <= 0 && p.color === 'lightGray') {
+          if (defendLivesCount <= 0 && p.pic === 'ghost-blue') {
             return {
               ...p,
-              color: 'lightGreen',
+              pic: 'tomb',
             }
           }
 
-          if (p.color === 'lightGreen') {
+          if (p.pic === 'tomb') {
             return {
               ...p,
               position: {
@@ -370,28 +380,23 @@ export function AssaultBattleCalc(): JSX.Element {
               x: newPositionX,
               y: newPositionY,
             },
-            color: 'blue',
+            pic: 'sol-blue',
           }
-
-
         });
         
         setAttackForce(newAttackPosition);
         setDefendForce(newDefendPosition);
 
-        if (!newAttackPosition.some(p => p.color === 'red') && attackLivesCount <= 0) {
+        if (!newAttackPosition.some(p => p.pic === 'sol-red') && attackLivesCount <= 0) {
           setPhase('Итоги');
-          setWinner('Победила сторона обороны');
+          setWinner('ЛАГЕРЬ БЫЛ ЗАЩИЩЕН');
         }
 
-        if (!newDefendPosition.some(p => p.color === 'blue') && defendLivesCount <= 0) {
+        if (!newDefendPosition.some(p => p.pic === 'sol-blue') && defendLivesCount <= 0) {
           setPhase('Итоги');
-          setWinner('Победила сторона атаки');
+          setWinner('ЛАГЕРЬ БЫЛ ЗАХВАЧЕН');
         }
-
       }, 50);
-
-
 
       return () => clearInterval(interval);
     }
@@ -456,6 +461,7 @@ export function AssaultBattleCalc(): JSX.Element {
   const renderAttackForces = React.useMemo(() => {
     return (
       attackForces.map(p => {
+        const filterStyle = p.pic === 'ghost-red' ? 'opacity(0.5)' : 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5))'
         return (
           <rect
             key={p.key}
@@ -463,7 +469,8 @@ export function AssaultBattleCalc(): JSX.Element {
             y={p.position.y}
             width={SQUARE_SIZE}
             height={SQUARE_SIZE}
-            fill={p.color}
+            fill={`url(#${p.pic})`}
+            filter={filterStyle}
           />
         )
       })
@@ -473,6 +480,7 @@ export function AssaultBattleCalc(): JSX.Element {
   const renderDefendForces = React.useMemo(() => {
     return (
       defendForces.map(p => {
+        const filterStyle = p.pic === 'ghost-blue' ? 'opacity(0.5)' : 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5))'
         return (
           <rect
             key={p.key}
@@ -480,7 +488,8 @@ export function AssaultBattleCalc(): JSX.Element {
             y={p.position.y}
             width={SQUARE_SIZE}
             height={SQUARE_SIZE}
-            fill={p.color}
+            fill={`url(#${p.pic})`}
+            filter={filterStyle}
           />
         )
       })
@@ -540,6 +549,7 @@ export function AssaultBattleCalc(): JSX.Element {
             width={p.size.width}
             height={p.size.height}
             fill={p.color}
+            filter='opacity(0%)'
           />
         )
       })
@@ -557,6 +567,27 @@ export function AssaultBattleCalc(): JSX.Element {
     }
   }, [fortress, phase])
 
+  const renderWinText = React.useMemo(() => {
+    if (phase === 'Подготовка') {
+      return (
+        <div className={s.begin}>
+          <div style={{fontSize: '18px', fontWeight: 'bold'}}>ПОСТРОЕНИЕ</div>
+          <i>не более 15 минут</i>
+          <div>Подсчет бойцов каждой стороны</div>
+          <div>Подсчет очков подкреплений</div>
+        </div>
+      )
+    }
+
+    if (phase === 'Итоги') {
+      return (
+        <div className={s.win}>{winner}</div>
+      )
+    }
+
+    return null;
+  }, [phase, winner]);
+
   return (
     <div>
       
@@ -568,16 +599,50 @@ export function AssaultBattleCalc(): JSX.Element {
         {renderDefendPoints}
       </div>
 
-      {phase === 'Подготовка' ? <div className={s.win}>Построение войск перед штурмом</div> : null}
-      {phase === 'Итоги' ? <div className={s.win}>{winner}</div> : null}
+      {renderWinText}
       
-      <svg width={FIELD_SIZE.x} height={FIELD_SIZE.y} style={{backgroundColor: 'green'}}>
+      <svg width={FIELD_SIZE.x} height={FIELD_SIZE.y}>
+
+      <defs>
+        <pattern id='sol-red' patternUnits='objectBoundingBox' width={SQUARE_SIZE} height={SQUARE_SIZE}>
+          <image xlinkHref={soldierRed} x="0" y="0" width={SQUARE_SIZE} height={SQUARE_SIZE} />
+        </pattern>
+
+        <pattern id='sol-blue' patternUnits="objectBoundingBox" width={SQUARE_SIZE} height={SQUARE_SIZE}>
+          <image xlinkHref={soldierBlue} x="0" y="0" width={SQUARE_SIZE} height={SQUARE_SIZE} />
+        </pattern>
+
+        <pattern id='ghost-red' patternUnits="objectBoundingBox" width={SQUARE_SIZE} height={SQUARE_SIZE}>
+          <image xlinkHref={ghostRed} x="0" y="0" width={SQUARE_SIZE} height={SQUARE_SIZE} />
+        </pattern>
+
+        <pattern id='ghost-blue' patternUnits="objectBoundingBox" width={SQUARE_SIZE} height={SQUARE_SIZE}>
+          <image xlinkHref={ghostBlue} x="0" y="0" width={SQUARE_SIZE} height={SQUARE_SIZE} />
+        </pattern>
+
+        <pattern id='tomb' patternUnits="objectBoundingBox" width={SQUARE_SIZE} height={SQUARE_SIZE}>
+          <image xlinkHref={tomb} x="0" y="0" width={SQUARE_SIZE} height={SQUARE_SIZE} />
+        </pattern>
+
+        <pattern id='back-paper' patternUnits="userSpaceOnUse" width="600" height="600">
+          <image xlinkHref={fortress ? mapFort : mapNoFort} x="0" y="0" width="600" height="600" />
+        </pattern>
+      </defs>
+
+        <rect
+          x='0'
+          y='0'
+          width='600'
+          height='600'
+          fill='url(#back-paper)'
+        />
         
         {fortress ? renderFort : null}
 
         {renderAttackForces}
 
         {renderDefendForces}
+
       </svg>
     </div>
   );
