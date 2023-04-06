@@ -36,7 +36,7 @@ export function ItemModal({ title, item, setIsOpen }: Props) {
     return (
       <h1>А нету контента</h1>
     )
-  }, []);
+  }, [item]);
 
   return (
     <>

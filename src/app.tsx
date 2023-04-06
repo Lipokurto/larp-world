@@ -12,10 +12,10 @@ import {
 import { Characters, Politic } from "./pages/world";
 import { BuildCalc, CharCalc, HealCalc, MonsterCalc, FinalCalc } from "./pages/help";
 import { PlayerRegistry, MapSupport } from "./pages/player";
-
-import s from './app.module.css';
 import { Update } from "./update";
 import { AssaultCalc } from "./pages/help/assalt-calc/assalt-calc";
+
+import s from './app.module.css';
 
 export default function App(): JSX.Element {
   return (
