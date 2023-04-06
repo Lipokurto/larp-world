@@ -7,16 +7,3 @@
   padding: 20px 20px 20px 20px;
   margin: 0 auto 0 auto;
 }
-
-.container button {
-  width: fit-content;
-  height: 20px;
-  font-family: 'Oswald';
-  background-color: black;
-  color: wheat;
-}
-
-.container button:hover {
-  background-color: rgb(83, 83, 83);
-  color: wheat;
-}

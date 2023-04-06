@@ -6,7 +6,6 @@
 .begin, .win {
   position: absolute;
   left: 50%;
-  top: 57.5%;
   transform: translate(-50%, -50%);
   background-color: rgba(0, 0, 0, 0.75);
 
@@ -15,4 +14,47 @@
 
 .win {
   top: 48%;
+}
+
+.begin {
+  top: 54%;
+}
+
+.cardContainer {
+  width: 200px;
+  height: 250px;
+  background-image: linear-gradient(to top, lightGray, darkGray);
+  border-radius: 10px;
+  border: solid white;
+  margin: 10px 5px 10px 5px;
+  box-shadow: 0 0 5px white;
+
+  transition: all 0.2s ease-in-out;
+}
+
+.cardContainer:hover {
+  box-shadow: 0 0 20px white;
+  transform: scale(1.1);
+}
+
+.cards {
+  display: flex;
+}
+
+.cardContainer i {
+  display: flex;
+  height: 100px;
+  font-size: 14px;
+  margin: 0 5px 10px 5px;
+}
+
+.label {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 10px 0 10px 0;
+}
+
+.text {
+  font-weight: bold;
+  margin: 0 5px 10px 5px;
 }

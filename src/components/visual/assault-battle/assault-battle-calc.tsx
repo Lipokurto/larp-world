@@ -10,6 +10,16 @@ import tomb from '../../../assets/icons/assault/tomb.png';
 import mapFort from '../../../assets/icons/assault/battle-map-fort.jpg';
 import mapNoFort from '../../../assets/icons/assault/battle-map-no-fort.jpg';
 
+import { AssaultCard } from './assault-card';
+import { ItemModal } from '../../item-modal/item-modal';
+import { Item } from '../../../rules-text/type';
+
+import { 
+  assWin01, assWin02, assWin03,
+  assWin04, defWin01, defWin02,
+  defWin03, defWin04,
+} from '../../../rules-text/actions';
+
 import s from './assault-battle-calc.module.css';
 
 type Position = {
@@ -25,9 +35,9 @@ type Soldier = {
 
 type Phase = 'Подготовка' | 'Штурм' | 'Итоги';
 
+type Winner = 'ЛАГЕРЬ БЫЛ ЗАХВАЧЕН' | 'ЛАГЕРЬ БЫЛ ЗАЩИЩЕН';
+
 const SQUARE_SIZE = 25;
-
-
 
 const FORT = [
   {
@@ -198,7 +208,19 @@ function attackHorizontalMove(x: number, y: number, isFort: boolean): number {
   return x + randomInt(-3, 3);
 }
 
-function defendVerticalMove(y: number): number {
+function defendVerticalMove(x: number, y: number, isFort: boolean): number {
+  const isHorFort = FORT.findIndex(p => p.position.x + p.size.width < x && (y < 200 || y + SQUARE_SIZE > 400));
+
+  if (isHorFort >= 0 && isFort) {
+    if (y < 200) {
+      return y + 5;
+    }
+
+    if (y + SQUARE_SIZE > 400) {
+      return y - 5;
+    }
+  }
+
   if (y > 400 - SQUARE_SIZE) {
     return y + randomInt(-3, 0);
   }
@@ -230,7 +252,7 @@ function defendHorizontalMove(x: number, y: number, isFort: boolean): number {
 
 export function AssaultBattleCalc(): JSX.Element {
   const [phase, setPhase] = React.useState<Phase>('Подготовка');
-  const [winner, setWinner] = React.useState<string | null>(null);
+  const [winner, setWinner] = React.useState<Winner | null>(null);
   const [fortress, setFortress] = React.useState<boolean>(true);
 
   const [attackForces, setAttackForce] = React.useState<Soldier[]>([FIRST_ATTACK_SOLDIER]);
@@ -238,6 +260,14 @@ export function AssaultBattleCalc(): JSX.Element {
 
   const [attackLivesCount, setAttackLivesCount] = React.useState<number>(START_ATTACK_LIVES);
   const [defendLivesCount, setDefendLivesCount] = React.useState<number>(START_DEFEND_LIVES);
+
+  const [isOpen, setIsOpen] = React.useState<boolean>(false);
+  const [item, setItem] = React.useState<Item | null>(null);
+
+  const handleClick = React.useCallback((item: Item) => {
+    setItem(item);
+    setIsOpen(true);
+  }, []);
 
   React.useEffect(() => {
     if (phase === 'Штурм') {
@@ -261,7 +291,8 @@ export function AssaultBattleCalc(): JSX.Element {
             ));
 
           if (isHit) {
-            setAttackLivesCount(attackLivesCount - 1);
+            const currentLives = attackLivesCount - 1;
+            setAttackLivesCount(currentLives >= 0 ? currentLives : 0);
 
             return {
               ...p,
@@ -315,7 +346,7 @@ export function AssaultBattleCalc(): JSX.Element {
 
         const newDefendPosition = defendForces.map(p => {
           const newPositionX = defendHorizontalMove(p.position.x, p.position.y, fortress);
-          const newPositionY = defendVerticalMove(p.position.y);
+          const newPositionY = defendVerticalMove(p.position.x, p.position.y, fortress);
 
           const isHit = attackForces.find(pp => (
             (
@@ -332,7 +363,8 @@ export function AssaultBattleCalc(): JSX.Element {
             ));
 
             if (isHit) {
-              setDefendLivesCount(defendLivesCount - 1);
+              const currentLives = defendLivesCount - 1;
+              setDefendLivesCount(currentLives >= 0 ? currentLives : 0);
   
               return {
                 ...p,
@@ -503,7 +535,7 @@ export function AssaultBattleCalc(): JSX.Element {
           <div>Подкрепления атакующих: {attackLivesCount}</div>
   
           <div>
-            <div>Сколько бойцоа физически?</div>
+            <div>Сколько бойцов физически?</div>
             <input type='number' name='attackLives' max={START_ATTACK_LIVES} onChange={handleForceChange}/>
           </div>
         </div>
@@ -524,7 +556,7 @@ export function AssaultBattleCalc(): JSX.Element {
           <div>Подкрепления обороняющихся:: {defendLivesCount}</div>
 
           <div>
-            <div>Сколько бойцоа физически?</div>
+            <div>Сколько бойцов физически?</div>
             <input type='number' name='defendLives' max={START_DEFEND_LIVES} onChange={handleForceChange}/>
           </div>
         </div>
@@ -572,7 +604,7 @@ export function AssaultBattleCalc(): JSX.Element {
       return (
         <div className={s.begin}>
           <div style={{fontSize: '18px', fontWeight: 'bold'}}>ПОСТРОЕНИЕ</div>
-          <i>не более 15 минут</i>
+          <i>Не более 15 минут</i>
           <div>Подсчет бойцов каждой стороны</div>
           <div>Подсчет очков подкреплений</div>
         </div>
@@ -580,71 +612,171 @@ export function AssaultBattleCalc(): JSX.Element {
     }
 
     if (phase === 'Итоги') {
-      return (
-        <div className={s.win}>{winner}</div>
-      )
+      if (winner === 'ЛАГЕРЬ БЫЛ ЗАХВАЧЕН') {
+        return (
+          <div className={s.win}>
+            <div style={{fontSize: '18px', fontWeight: 'bold'}}>{winner}</div>
+            <i>Лагерь не доступен для штурма в течении 2 часов</i>
+            <div>
+              <div>
+                Доступно 1 из следующих действий:
+              </div>
+
+              <div className={s.cards}>
+                <div onClick={() => handleClick(assWin01)}>
+                  <AssaultCard 
+                    label='Благородная победа'
+                    text='После победы вы благородно уходите, показав тем самым что вы пришли сюдa не как воры или грабители'
+                    effect='Вы получаете +20% к своему влиянию'
+                  />
+                </div>
+
+                <div onClick={() => handleClick(assWin02)}>
+                  <AssaultCard 
+                    label='Сжечь лагерь'
+                    text='Искры пылающих шатров лучшее подтверждение слабости вашего врага'
+                    effect='Лагерь теряет 20% влияния'
+                  />
+                </div>
+
+                <div onClick={() => handleClick(assWin03)}>
+                  <AssaultCard 
+                    label='Ограбить лагерь'
+                    text='Все что имеет хоть какую-то ценность теперь пренадлежит победителю'
+                    effect='Атакующие получают все игровые предметы которые были в лагере и на телах бойцов'
+                  />
+                </div>
+
+                <div onClick={() => handleClick(assWin04)}>
+                  <AssaultCard 
+                    label='Захватить казну'
+                    text='Казна - единсвенное что имеет ценность этого места'
+                    effect='Атакующие получают все деньги лагеря и с бойцов поверженных'
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        )
+      }
+
+      if (winner === 'ЛАГЕРЬ БЫЛ ЗАЩИЩЕН') {
+        return (
+          <div className={s.win}>
+          <div style={{fontSize: '18px', fontWeight: 'bold'}}>{winner}</div>
+          <i>Лагерь не доступен для штурма в течении 2 часов</i>
+          <div>
+            <div>
+              Доступно 1 из следующих действий:
+            </div>
+
+            <div className={s.cards}>
+              <div onClick={() => handleClick(defWin01)}>
+                <AssaultCard 
+                  label='Благодарность небесам'
+                  text='Вы хороните павших товарищей и даже врагов'
+                  effect='Лагерь не платит следующую десятину'
+                />
+              </div>
+
+              <div onClick={() => handleClick(defWin02)}>
+                <AssaultCard 
+                  label='Заслуженный отдых'
+                  text='Время отдохнуть и залечить раны свои бойцам'
+                  effect='Лагерь получает +5% влияния'
+                />
+              </div>
+
+              <div onClick={() => handleClick(defWin03)}>
+                <AssaultCard 
+                  label='Трупы как предуприждение'
+                  text='Страх наших врагов - сила нашей победы'
+                  effect='Влияние штурмующих -5%'
+                />
+              </div>
+
+              <div onClick={() => handleClick(defWin04)}>
+                <AssaultCard 
+                  label='Сбор трофеев'
+                  text='даже от мертвых бывает польза'
+                  effect='Вы получаете +5% к козне лагеря'
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        )
+      }
     }
 
     return null;
-  }, [phase, winner]);
+  }, [handleClick, phase, winner]);
 
   return (
-    <div>
-      
-      {renderButtons}
+    <>
+      <div>      
+        {renderButtons}
 
-      <div className={s.pointsContainer}>
-        {renderAttackPoints}
+        <div className={s.pointsContainer}>
+          {renderAttackPoints}
 
-        {renderDefendPoints}
+          {renderDefendPoints}
+        </div>
+
+        {renderWinText}
+        
+        <svg width={FIELD_SIZE.x} height={FIELD_SIZE.y}>
+
+        <defs>
+          <pattern id='sol-red' patternUnits='objectBoundingBox' width={SQUARE_SIZE} height={SQUARE_SIZE}>
+            <image xlinkHref={soldierRed} x="0" y="0" width={SQUARE_SIZE} height={SQUARE_SIZE} />
+          </pattern>
+
+          <pattern id='sol-blue' patternUnits="objectBoundingBox" width={SQUARE_SIZE} height={SQUARE_SIZE}>
+            <image xlinkHref={soldierBlue} x="0" y="0" width={SQUARE_SIZE} height={SQUARE_SIZE} />
+          </pattern>
+
+          <pattern id='ghost-red' patternUnits="objectBoundingBox" width={SQUARE_SIZE} height={SQUARE_SIZE}>
+            <image xlinkHref={ghostRed} x="0" y="0" width={SQUARE_SIZE} height={SQUARE_SIZE} />
+          </pattern>
+
+          <pattern id='ghost-blue' patternUnits="objectBoundingBox" width={SQUARE_SIZE} height={SQUARE_SIZE}>
+            <image xlinkHref={ghostBlue} x="0" y="0" width={SQUARE_SIZE} height={SQUARE_SIZE} />
+          </pattern>
+
+          <pattern id='tomb' patternUnits="objectBoundingBox" width={SQUARE_SIZE} height={SQUARE_SIZE}>
+            <image xlinkHref={tomb} x="0" y="0" width={SQUARE_SIZE} height={SQUARE_SIZE} />
+          </pattern>
+
+          <pattern id='back-paper' patternUnits="userSpaceOnUse" width="600" height="600">
+            <image xlinkHref={fortress ? mapFort : mapNoFort} x="0" y="0" width="600" height="600" />
+          </pattern>
+        </defs>
+
+          <rect
+            x='0'
+            y='0'
+            width='600'
+            height='600'
+            fill='url(#back-paper)'
+          />
+          
+          {fortress ? renderFort : null}
+
+          {renderAttackForces}
+
+          {renderDefendForces}
+
+        </svg>
       </div>
 
-      {renderWinText}
-      
-      <svg width={FIELD_SIZE.x} height={FIELD_SIZE.y}>
-
-      <defs>
-        <pattern id='sol-red' patternUnits='objectBoundingBox' width={SQUARE_SIZE} height={SQUARE_SIZE}>
-          <image xlinkHref={soldierRed} x="0" y="0" width={SQUARE_SIZE} height={SQUARE_SIZE} />
-        </pattern>
-
-        <pattern id='sol-blue' patternUnits="objectBoundingBox" width={SQUARE_SIZE} height={SQUARE_SIZE}>
-          <image xlinkHref={soldierBlue} x="0" y="0" width={SQUARE_SIZE} height={SQUARE_SIZE} />
-        </pattern>
-
-        <pattern id='ghost-red' patternUnits="objectBoundingBox" width={SQUARE_SIZE} height={SQUARE_SIZE}>
-          <image xlinkHref={ghostRed} x="0" y="0" width={SQUARE_SIZE} height={SQUARE_SIZE} />
-        </pattern>
-
-        <pattern id='ghost-blue' patternUnits="objectBoundingBox" width={SQUARE_SIZE} height={SQUARE_SIZE}>
-          <image xlinkHref={ghostBlue} x="0" y="0" width={SQUARE_SIZE} height={SQUARE_SIZE} />
-        </pattern>
-
-        <pattern id='tomb' patternUnits="objectBoundingBox" width={SQUARE_SIZE} height={SQUARE_SIZE}>
-          <image xlinkHref={tomb} x="0" y="0" width={SQUARE_SIZE} height={SQUARE_SIZE} />
-        </pattern>
-
-        <pattern id='back-paper' patternUnits="userSpaceOnUse" width="600" height="600">
-          <image xlinkHref={fortress ? mapFort : mapNoFort} x="0" y="0" width="600" height="600" />
-        </pattern>
-      </defs>
-
-        <rect
-          x='0'
-          y='0'
-          width='600'
-          height='600'
-          fill='url(#back-paper)'
+      {isOpen && (
+        <ItemModal
+          setIsOpen={setIsOpen}
+          item={item}
         />
-        
-        {fortress ? renderFort : null}
-
-        {renderAttackForces}
-
-        {renderDefendForces}
-
-      </svg>
-    </div>
+      )}
+    </>
   );
 };
 
