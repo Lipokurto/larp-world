@@ -3,7 +3,7 @@
   justify-content: space-between;
 }
 
-.begin, .win {
+.begin, .win, .assault, .beginTop {
   position: absolute;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -17,7 +17,29 @@
 }
 
 .begin {
-  top: 54%;
+  top: 44%;
+}
+
+.beginTop {
+  top: 12%;
+}
+
+.assault {
+  width: 90%;
+  top: 15%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.middle {
+  width: 200px;
+}
+
+.points {
+  background-color: black;
+  padding: 10px 10px 10px 10px;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px white;
 }
 
 .cardContainer {
@@ -57,4 +79,30 @@
 .text {
   font-weight: bold;
   margin: 0 5px 10px 5px;
+}
+
+.mainButton {
+  margin-bottom: 15px;
+  width: 200px;
+  height: 50px;
+  font-family: 'oswald';
+  font-size: 20px;
+}
+
+.buttonsContainer {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  justify-content: center;
+  margin: 0 auto 0 auto;
+}
+
+.buttonsContainer button {
+  margin-bottom: 10px;
+}
+
+.inputNumber {
+  text-align: center;
+  font-size: 16px;
+  width: 150px;
 }
