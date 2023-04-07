@@ -10,7 +10,7 @@ import { Item } from '../../type';
 const armor = [noAr01, noAr02, noAr03];
 
 export const noArmor: Item = {
-  label: 'Примеры отсутсвия брони',
+  label: 'Примеры отсутствия брони',
   element: 
     <>
       <div>      

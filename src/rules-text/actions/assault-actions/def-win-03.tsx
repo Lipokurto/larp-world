@@ -1,7 +1,7 @@
 import { Item } from "../../type";
 
 export const defWin03: Item = {
-  label: 'Трупы как предуприждение',
+  label: 'Трупы как предупреждение',
   element:
     <>
       <h3>Эффект:</h3>

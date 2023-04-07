@@ -24,7 +24,7 @@ const BUILD_DEFAULT = 10;
 
 const smithBuild: BuildItem[] = [
   {src: workPlaceSmith, level: 1, label: 'Рабочее место', hint: <div>Основное место работы главного мастерового</div>},
-  {src: workToolsSmith, level: 2, label: 'Рабочий инстурмент', hint: <div>Дополнительный антураж, помогающий в производстве</div>},
+  {src: workToolsSmith, level: 2, label: 'Рабочий инструмент', hint: <div>Дополнительный антураж, помогающий в производстве</div>},
   {src: tent01Smith, level: 3, label: 'Тент', hint: <div>Крыша над мастерской</div>},
   {src: tent02Smith, level: 4, label: 'Шатер', hint: <div>Крыша с стенами, огораживающими мастерскую</div>},
   {src: tent03Smith, level: 5, label: 'Большой шатер', hint: <div>Большая мастерская с крышей и стенами</div>},
@@ -43,7 +43,7 @@ const workerChosenStyle = {
   color: 'wheat',
 };
 
-const workersHint = <div>Количество доступных помошников без учета главного мастерового</div>
+const workersHint = <div>Количество доступных помощников без учета главного мастерового</div>
 
 export function BuildLevel(): JSX.Element {
   const { width } = useResize();
@@ -88,7 +88,7 @@ export function BuildLevel(): JSX.Element {
             background='wheat'
           >
             <div className={s.workerText}>
-                Помошники:
+                Помощники:
             </div>
           </Tooltip>
 

@@ -12,7 +12,7 @@ import { CargoItem, OptionsCargo } from './type';
 import s from './cargo-visual.module.css';
 
 const options: CargoItem[] = [
-  { value: { id: 'artifact', weight: 0 }, icon: artifact.icon, label: 'Артифакт'},
+  { value: { id: 'artifact', weight: 0 }, icon: artifact.icon, label: 'Артефакт'},
   { value: { id: 'money', weight: 0 }, icon: money.icon, label: 'Деньги'},
   { value: { id: 'herbs', weight: 1 }, icon: herbs.icon, label: 'Лечебные травы'},
   { value: { id: 'ore', weight: 1 }, icon: ore.icon, label: 'Руда'},
@@ -51,7 +51,7 @@ export function CargoVisual(): JSX.Element {
 
   return  (
     <div className={s.container}>
-      <h3>Базовая грузопъемность: {START_WEIGHT}</h3>
+      <h3>Базовая грузоподъемность: {START_WEIGHT}</h3>
       <h3>Предмет для переноса</h3>
       <Select 
         options={optionsCargo} 

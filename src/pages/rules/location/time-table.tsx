@@ -13,7 +13,6 @@ export function TimeTable(): JSX.Element {
 		</tr>
 		<tr>
 			<td>1</td>
-			{/* <td rowspan="4">1</td> */}
 			<td>1</td>
 			<td>10</td>
 		</tr>
@@ -31,7 +30,6 @@ export function TimeTable(): JSX.Element {
 		</tr>
 		<tr>
 			<td>2</td>
-			{/* <td rowspan="4">2</td> */}
 			<td>1</td>
 			<td>9</td>
 		</tr>
@@ -49,7 +47,6 @@ export function TimeTable(): JSX.Element {
 		</tr>
 		<tr>
 			<td>3</td>
-			{/* <td rowspan="4">3</td> */}
 			<td>1</td>
 			<td>8</td>
 		</tr>
@@ -67,7 +64,6 @@ export function TimeTable(): JSX.Element {
 		</tr>
 		<tr>
 			<td>4</td>
-			{/* <td rowspan="4">4</td> */}
 			<td>1</td>
 			<td>7</td>
 		</tr>
@@ -85,7 +81,6 @@ export function TimeTable(): JSX.Element {
 		</tr>
 		<tr>
 			<td>5</td>
-			{/* <td rowspan="4">5</td> */}
 			<td>1</td>
 			<td>6</td>
 		</tr>

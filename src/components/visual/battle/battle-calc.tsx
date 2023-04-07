@@ -381,7 +381,7 @@ export function BattleCalc(): JSX.Element {
         
                 <div className={s.consoleText}>
                   <div>{p.name}</div>
-                  <div>{phase === 'Ставки' ? 'Cтавка скрыта' : `Влияение: ${p.bet}`}</div>
+                  <div>{phase === 'Ставки' ? 'Ставка скрыта' : `Влияние: ${p.bet}`}</div>
                   <div>{phase === 'Очередь' ? `Очередь: ${i + 1}` : null}</div>
                 </div>
               </div>
@@ -412,7 +412,7 @@ export function BattleCalc(): JSX.Element {
     if (phase === 'Установка') {
       return (
         <div className={s.actionText}>
-          Выбирите свою позици из оставшихся
+          Выберите свою позицию из оставшихся
         </div>
       )
     }

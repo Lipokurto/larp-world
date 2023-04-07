@@ -11,7 +11,7 @@ export const artifact: Item = {
     <>
       <div className={s.icon}><img src={icon} alt='' /></div>
       <h2>Эффекты</h2>
-        <div>Имеет игротехнические свойвства</div>
+        <div>Имеет игротехнические свойства</div>
       <h2>Вес: 0</h2>
       <h2>Ограничения:</h2>
         <li>Запрещается уничтожать</li>

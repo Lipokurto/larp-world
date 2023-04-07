@@ -1,5 +1,3 @@
-import React from "react";
-
 import { Item } from "../type";
 
 export const tithe: Item = {
@@ -7,7 +5,7 @@ export const tithe: Item = {
   element:
     <>
       <h3>Доступно:</h3>
-      <div>Свящщенники инквизиции</div>
+      <div>Священники инквизиции</div>
       <h3>Результат:</h3>
         <li>Представитель церкви вручает командиру лагеря грамоту об уплате церковной десятины</li>
       <h3>Условия проведения:</h3>
