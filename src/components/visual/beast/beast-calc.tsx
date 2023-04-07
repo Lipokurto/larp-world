@@ -501,7 +501,7 @@ export function BeastCalc({ isManual }: Props): JSX.Element {
       
             {renderHealth}
             
-            <div> Остлось хитов: <b>{currentHits}</b></div>
+            <div> Осталось хитов: <b>{currentHits}</b></div>
 
             {isManual ? <div className={s.fullCharManual}>5 шаг: Кликните на чудовище чтоб нанести урон выбранным оружием</div> : null}
 

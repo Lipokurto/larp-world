@@ -10,10 +10,9 @@ import {
 } from "./pages/rules";
 
 import { Characters, Politic } from "./pages/world";
-import { BuildCalc, CharCalc, HealCalc, MonsterCalc, FinalCalc } from "./pages/help";
+import { BuildCalc, CharCalc, HealCalc, MonsterCalc, FinalCalc, AssaultCalc } from "./pages/help";
 import { PlayerRegistry, MapSupport } from "./pages/player";
 import { Update } from "./update";
-import { AssaultCalc } from "./pages/help/assalt-calc/assalt-calc";
 
 import s from './app.module.css';
 

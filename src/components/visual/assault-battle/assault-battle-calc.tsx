@@ -665,7 +665,7 @@ export function AssaultBattleCalc(): JSX.Element {
                 <div onClick={() => handleClick(assWin01)}>
                   <AssaultCard 
                     label='Благородная победа'
-                    text='После победы вы благородно уходите, показав тем самым что вы пришли сюдa не как воры или грабители'
+                    text='После победы вы благородно уходите, показав тем самым что вы пришли не как воры или грабители'
                     effect='Вы получаете +20% к своему влиянию'
                   />
                 </div>
@@ -681,7 +681,7 @@ export function AssaultBattleCalc(): JSX.Element {
                 <div onClick={() => handleClick(assWin03)}>
                   <AssaultCard 
                     label='Ограбить лагерь'
-                    text='Все что имеет хоть какую-то ценность теперь пренадлежит победителю'
+                    text='Все что имеет хоть какую-то ценность теперь принадлежит победителю'
                     effect='Атакующие получают все игровые предметы которые были в лагере и на телах бойцов'
                   />
                 </div>
@@ -689,7 +689,7 @@ export function AssaultBattleCalc(): JSX.Element {
                 <div onClick={() => handleClick(assWin04)}>
                   <AssaultCard 
                     label='Захватить казну'
-                    text='Казна - единсвенное что имеет ценность этого места'
+                    text='Деньги - единственное что имеет ценность этого места'
                     effect='Атакующие получают все деньги лагеря и с бойцов поверженных'
                   />
                 </div>
@@ -729,7 +729,7 @@ export function AssaultBattleCalc(): JSX.Element {
 
               <div onClick={() => handleClick(defWin03)}>
                 <AssaultCard 
-                  label='Трупы как предуприждение'
+                  label='Трупы как предупреждение'
                   text='Страх наших врагов - сила нашей победы'
                   effect='Влияние штурмующих -5%'
                 />

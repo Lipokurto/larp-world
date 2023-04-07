@@ -1,4 +1,3 @@
-import { NavLink } from "react-router-dom";
 import { Item } from "../../../../rules-text/type";
 import { AccordionBlock } from "../../../accordion/accordion-block";
 
@@ -16,7 +15,7 @@ export const route: Item = {
         label="Логистика"
         items={[
           {
-            label: 'Самалет',
+            label: 'Самолет',
             element:
               <>
                 <div>Не затягивайте с покупкой билетов, чем ближе дата вылета тем дороже</div>

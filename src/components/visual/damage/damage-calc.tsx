@@ -308,7 +308,7 @@ export function DamageCalc({ isManual }: Props): JSX.Element {
 
       if (status === 'Тяжело ранен') {
         return (
-          <div>Мы не можете продолжать сражаться и самостоятельно передигааться. Это состояние длится 15 минут, если вас за это время не полечили - вы мертвы</div>
+          <div>Мы не можете продолжать сражаться и самостоятельно передвигаться. Это состояние длится 15 минут, если вас за это время не полечили - вы мертвы</div>
         )
       }
 
@@ -327,7 +327,7 @@ export function DamageCalc({ isManual }: Props): JSX.Element {
 
     if (currentItem === 'Ремкомплект') {
       return (
-        <div>Ваша броня ремонтируется, любой урон отменяет ремонт и снимает хит с состояниния ДО начала ремонта</div>
+        <div>Ваша броня ремонтируется, любой урон отменяет ремонт и снимает хит с состояния ДО начала ремонта</div>
       )
     }
   }, [currentItem, status]);
@@ -354,7 +354,7 @@ export function DamageCalc({ isManual }: Props): JSX.Element {
     
           {renderHealth}
           
-          <div> Остлось хитов: <b>{currentHits}</b></div>
+          <div> Осталось хитов: <b>{currentHits}</b></div>
 
           {isManual ? <div className={s.fullCharManual}>3 шаг: Кликните на персонажа чтоб нанести урон выбранным оружием</div> : null}
           <div onClick={handleAttack} className={s.attack}>
