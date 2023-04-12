@@ -245,7 +245,7 @@
   border: none;
   padding: none;
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   width: 353px;
   height: 105px;
   position: absolute;

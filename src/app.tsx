@@ -12,9 +12,10 @@ import {
 import { Characters, Politic } from "./pages/world";
 import { BuildCalc, CharCalc, HealCalc, MonsterCalc, FinalCalc, AssaultCalc } from "./pages/help";
 import { PlayerRegistry, MapSupport } from "./pages/player";
-import { Update } from "./update";
+import { Update } from "./pages/update/update";
 
 import s from './app.module.css';
+import { About } from "./pages/about/about";
 
 export default function App(): JSX.Element {
   return (
@@ -45,6 +46,8 @@ export default function App(): JSX.Element {
 
           <Route path='player/map-support' element={<MapSupport />} />
           <Route path='player/registration' element={<PlayerRegistry />} />
+
+          <Route path='about' element={<About />} />
           <Route path='update' element={<Update />} />
         </Routes>
       </div>
