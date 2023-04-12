@@ -13,6 +13,8 @@ export function Main(): JSX.Element {
       <div className={s.buttons}>
           <NavLink className={s.mainButton} replace to='/player/registration'>Регистрация на игру</NavLink>
 
+          <NavLink className={s.secondButton} replace to='/about'>О мероприятии</NavLink>
+
           <NavLink className={s.secondButton} replace to='/player/map-support'>Как подготовить себя</NavLink>
       </div>
 
