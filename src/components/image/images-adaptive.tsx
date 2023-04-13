@@ -28,7 +28,7 @@ export function ImagesAdaptive(props: Props): JSX.Element {
       gap={10}
       loop
       showDots
-      mobileBreakpoint={800}
+      mobileBreakpoint={359}
       responsiveLayout={[
         {
           breakpoint: 800,

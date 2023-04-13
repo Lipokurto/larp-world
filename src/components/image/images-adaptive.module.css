@@ -13,7 +13,7 @@
 
 
 .containerlg img:hover {
-  transform: scale(1.5);
+  transform: scale(1.2);
   box-shadow: 0 10px 10px #FF0000;
   z-index: 15;
 }

@@ -43,7 +43,8 @@
 }
 
 .modalContent {
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
   /* Тут высоту контента отслеживать */
   height: 85%;
   padding: 0 10px 10px 10px;
