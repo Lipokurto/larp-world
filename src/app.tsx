@@ -13,9 +13,11 @@ import { Characters, Politic } from "./pages/world";
 import { BuildCalc, CharCalc, HealCalc, MonsterCalc, FinalCalc, AssaultCalc } from "./pages/help";
 import { PlayerRegistry, MapSupport } from "./pages/player";
 import { Update } from "./pages/update/update";
+import { About } from "./pages/about/about";
+import { LinksMap } from "./pages/links-map/links-map";
+import { CargoVisual } from "./components";
 
 import s from './app.module.css';
-import { About } from "./pages/about/about";
 
 export default function App(): JSX.Element {
   return (
@@ -38,6 +40,7 @@ export default function App(): JSX.Element {
           <Route path='world/characters' element={<Characters />} />
 
           <Route path='help/char-calc' element={<CharCalc />} />
+          <Route path='help/cargo-calc' element={<CargoVisual />} />
           <Route path='help/build-calc' element={<BuildCalc />} />
           <Route path='help/heal-calc' element={<HealCalc />} />
           <Route path='help/monster-calc' element={<MonsterCalc />} />
@@ -49,6 +52,7 @@ export default function App(): JSX.Element {
 
           <Route path='about' element={<About />} />
           <Route path='update' element={<Update />} />
+          <Route path='links-map' element={<LinksMap />} />
         </Routes>
       </div>
     </BrowserRouter>

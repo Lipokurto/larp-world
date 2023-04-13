@@ -49,6 +49,7 @@ export function Navigation(): JSX.Element {
     setList(list);
     setLink(link);
     setIsOpen(true);
+    setIsMenuOpen(false);
   }, [navigate]);
 
   const renderSmallMenu = React.useMemo(() => {
@@ -61,9 +62,9 @@ export function Navigation(): JSX.Element {
         {isMenuOpen && (
           <div className={s.smallMenu}>
             {buttons.map((p) => <NavButton
-            key={p.title}
-            text={p.title} 
-            onclick={() => handleClick(p.title, p.list, p.link)}
+              key={p.title}
+              text={p.title} 
+              onclick={() => handleClick(p.title, p.list, p.link)}
             /> )}
           </div>
  

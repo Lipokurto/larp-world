@@ -1,5 +1,3 @@
-import React from "react";
-
 import blood from '../../../assets/blood.svg';
 
 import s from './label-text.module.css';
@@ -11,7 +9,7 @@ export function LabelText(): JSX.Element {
 
       <span className={s.labelText}>Темные<br />века</span>
 
-      <span className={s.labelSubtext}>полевая ролевая игра</span>
+      <span className={s.labelSubtext}>полигонная ролевая игра</span>
     </div>
   )
 }
