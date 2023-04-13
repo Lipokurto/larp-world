@@ -4,7 +4,7 @@
   position: absolute;
   line-height: 80px;
   margin-top: 700px;
-  margin-left: -155px;
+  margin-left: -116px;
   transform: translate(50%,-50%);
   text-transform: uppercase;
   font-family: verdana;
@@ -35,7 +35,6 @@
   position: absolute;
   transform: rotate(90deg);
   margin-top: 375px;
-  margin-left: -50px;
   filter: contrast(10);
 }
 
@@ -43,19 +42,31 @@
   position: absolute;
   filter: drop-shadow(0 0 2px red) drop-shadow(0 0 25px black) ;
   z-index: 3;
+  margin-left: -42px;
+  margin-top: -233px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .container {
+    margin-top: -273px;
+  }
 }
 
 @media only screen and (max-width: 800px) {
+  .container {
+    margin-top: -250px;
+  }
+
   .labelText {
     font-size: 3em;
     line-height: 50px;
-    margin-left: auto;
+    margin-left: 40px;
   }
 
   .blood {
     width: 400px;
     margin-top: 510px;
-    margin-left: 45px;
+    margin-left: 93px;
   }
 
   .labelSubtext {

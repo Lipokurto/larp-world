@@ -11,6 +11,16 @@
 .mark {
   z-index: 2;
   position: absolute;
-  margin-left: 37.5px;
-  margin-top: -15px;
+  margin-left: 88px;
+  margin-top: -40px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .mark {
+    z-index: 2;
+    position: absolute;
+    margin-left: 138px;
+    margin-top: -114px;
+    filter: drop-shadow(0 0 10px white);
+  }
 }

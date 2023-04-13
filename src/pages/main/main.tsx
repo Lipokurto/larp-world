@@ -15,6 +15,8 @@ export function Main(): JSX.Element {
 
           <NavLink className={s.secondButton} replace to='/about'>О мероприятии</NavLink>
 
+          <NavLink className={s.secondButton} replace to='/links-map'>Правила</NavLink>
+
           <NavLink className={s.secondButton} replace to='/player/map-support'>Как подготовить себя</NavLink>
       </div>
 

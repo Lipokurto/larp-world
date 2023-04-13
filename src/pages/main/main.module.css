@@ -20,7 +20,7 @@
   display: flex;
   left: 50%;
   right: 50%;
-  top: 58%;
+  top: 70%;
   margin-left: -115px;
   width: 200px;
   color: black;
@@ -35,17 +35,17 @@
   }
 
   .buttons {
-    top: 45%;
+    top: 55%;
   }
 }
 
 @media only screen and (max-width: 800px) {
   .logo {
-    height: 260px;
+    height: 455px;
   }
 
   .buttons {
-    top: 8.5%;
+    top: 30%;
   }
 }
 
@@ -75,13 +75,12 @@
 }
 
 .secondButton {
-  margin-left: 10px;
-  margin-right: 10px;
+  margin: 0 10px 5px 10px;
   width: 180px;
   font-size: 16px;
 }
 
 .mainButton:hover, .secondButton:hover {
-  transform: scale(1.25);
+  transform: scale(1.1);
   box-shadow: 0 0 10px red;
 }
