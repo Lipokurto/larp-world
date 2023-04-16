@@ -42,6 +42,7 @@ export function Navigation(): JSX.Element {
     ) => {
 
     if (title === 'Главная') {
+      setIsMenuOpen(false);
       return navigate('/');
     }
 

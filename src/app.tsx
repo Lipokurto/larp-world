@@ -12,7 +12,6 @@ import {
 import { Characters, Politic } from "./pages/world";
 import { BuildCalc, CharCalc, HealCalc, MonsterCalc, FinalCalc, AssaultCalc } from "./pages/help";
 import { PlayerRegistry, MapSupport } from "./pages/player";
-import { Update } from "./pages/update/update";
 import { About } from "./pages/about/about";
 import { LinksMap } from "./pages/links-map/links-map";
 import { CargoVisual } from "./components";
@@ -51,7 +50,6 @@ export default function App(): JSX.Element {
           <Route path='player/registration' element={<PlayerRegistry />} />
 
           <Route path='about' element={<About />} />
-          <Route path='update' element={<Update />} />
           <Route path='links-map' element={<LinksMap />} />
         </Routes>
       </div>
