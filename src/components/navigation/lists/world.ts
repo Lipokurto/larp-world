@@ -9,4 +9,8 @@ export const world: ListItem[] = [
     label: 'Политика',
     link: '/politic',
   },
+  {
+    label: 'Карта',
+    link: '/map',
+  },
 ]
