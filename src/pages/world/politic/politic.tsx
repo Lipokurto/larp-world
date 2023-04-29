@@ -1,5 +1,3 @@
-import React from "react";
-
 import ferd from '../../../assets/kings/ferd.png';
 import rich from '../../../assets/kings/rich.png';
 import gani from '../../../assets/kings/gani.png';

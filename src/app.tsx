@@ -9,7 +9,7 @@ import {
   Tolerance,
 } from "./pages/rules";
 
-import { Characters, Politic } from "./pages/world";
+import { Characters, GlobalMap, Politic } from "./pages/world";
 import { BuildCalc, CharCalc, HealCalc, MonsterCalc, FinalCalc, AssaultCalc } from "./pages/help";
 import { PlayerRegistry, MapSupport } from "./pages/player";
 import { About } from "./pages/about/about";
@@ -37,6 +37,7 @@ export default function App(): JSX.Element {
 
           <Route path='world/politic' element={<Politic />} />
           <Route path='world/characters' element={<Characters />} />
+          <Route path='world/map' element={<GlobalMap />} />
 
           <Route path='help/char-calc' element={<CharCalc />} />
           <Route path='help/cargo-calc' element={<CargoVisual />} />
