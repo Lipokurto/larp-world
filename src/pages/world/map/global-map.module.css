@@ -6,3 +6,30 @@
   padding: 20px 20px 20px 20px;
   margin: 0 auto 0 auto;
 }
+
+.buttonsContainer {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  justify-content: center;
+  margin: 10px auto 0 auto;
+}
+
+.buttonsContainer button {
+  color: aliceblue;
+  background-color: #000000;
+  margin: 0 5px 0 5px;
+  padding: 5px 10px 5px 10px;
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to left, wheat, #000000, wheat);
+  cursor: pointer;
+
+  transition: all 0.1s ease-in-out;
+}
+
+.buttonsContainer button:hover {
+  background-color: wheat;
+  color: #000000;
+  transform: scale(1.1);
+}
