@@ -1,12 +1,5 @@
-import ferd from '../../../assets/kings/ferd.png';
-import rich from '../../../assets/kings/rich.png';
-import gani from '../../../assets/kings/gani.png';
-
-import tudor from '../../../assets/towns/tudor.png'; 
-import midlend from '../../../assets/towns/midlend.png'; 
-import kushan from '../../../assets/towns/kushan.png'; 
-
 import { AccordionBlock, Chapter } from "../../../components";
+import { baldenHistory, midlendHistory, tudorHistory } from '../../../history';
 
 import s from './politic.module.css';
 
@@ -26,67 +19,16 @@ export function Politic(): JSX.Element {
         label='Крупнейшие государства континента'
         items={[
           {
-            label: 'Королевство Мидлeнд',
-            element:
-              <>
-                <div className={s.info}>
-                  <><div className={s.global}>
-            <div className={s.text}>
-              <div>Правитель: король Ричманд</div>
-            </div>
-
-            <div className={s.portrait}>
-              <img src={rich} alt='' width='200' />
-            </div>
-          </div><div className={s.global}>
-              <div className={s.text}>
-                <div>Столица: город Виндем</div>
-              </div>
-
-              <div className={s.portrait}>
-                <img src={midlend} alt='' width='200'/>
-              </div>
-            </div></>
-                </div>
-
-                <div className={s.block2}>
-                  <h3>Краткая история</h3>
-                  <div>Большую часть своего влияния королевство получило за счет объединительной компании императора Гейзериха. Король Ричманд считается потомком императора Гейзериха</div>
-                  <div>На текущий момент королевство Мидленд ведет "столетнюю" войну с империей Тюдор</div>
-                </div>
-              </>
+            label: midlendHistory.label,
+            element: midlendHistory.element,
           },
           {
-            label: 'Тюдорская империя',
-            element:
-              <>
-                <div className={s.info}>
-                  <div className={s.global}>
-                    <div className={s.text}>
-                      <div>Правитель: король Фердинад</div>
-                    </div>
-            
-                    <div className={s.portrait}>
-                      <img src={ferd} alt='' width='200'/>
-                    </div>
-                  </div>
-
-                  <div className={s.global}>
-                    <div className={s.text}>
-                      <div>Столица: город Голберг</div>
-                    </div>
-            
-                    <div className={s.portrait}>
-                      <img src={tudor} alt='' width='200'/>
-                    </div>
-                  </div>
-                </div>
-
-                <div className={s.block2}>
-                  <h3>Краткая история</h3>
-                  <div>Империя располагается на западной границе королевства Мидленд. Имеет тесное торговое сотрудничество с Кушанской империей</div>
-                </div>
-              </>
+            label: tudorHistory.label,
+            element: tudorHistory.element,
+          },
+          {
+            label: baldenHistory.label,
+            element: baldenHistory.element,
           },
           {
             label: 'Кушанская империя',
@@ -99,7 +41,7 @@ export function Politic(): JSX.Element {
                     </div>
             
                     <div className={s.portrait}>
-                      <img src={gani} alt='' width='200'/>
+                      {/* <img src={gani} alt='' width='200'/> */}
                     </div>
                   </div>
 
@@ -109,7 +51,7 @@ export function Politic(): JSX.Element {
                     </div>
             
                     <div className={s.portrait}>
-                      <img src={kushan} alt='' width='200'/>
+                      {/* <img src={kushan} alt='' width='200'/> */}
                     </div>
                   </div>
                 </div>
