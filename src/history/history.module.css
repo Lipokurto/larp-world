@@ -1,0 +1,19 @@
+.info {
+  display: flex;
+  justify-content: center;
+}
+
+.coat {
+  display: flex;
+  margin-right: 10px;
+  margin-left: 10px;
+  padding-right: 10px;
+  border-right: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to top, #000000, wheat, #000000);
+}
+
+.text {
+  text-align: left;
+  margin-left: 10px;
+}
