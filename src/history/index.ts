@@ -1,3 +1,11 @@
 export { midlendHistory } from './midlend';
 export { tudorHistory } from './tudor';
 export { baldenHistory } from './balden';
+export { isKingdomHistory } from './is-kingdom';
+export { randelHistory } from './randel';
+export { grantHistory } from './grant';
+export { morgarHistory } from './morgar';
+export { vallatoriaHistory } from './vallatoria';
+export { kushanHistory } from './kushan';
+export { paneriaHistory } from './paneria';
+export { holyHistory } from './holy-city';

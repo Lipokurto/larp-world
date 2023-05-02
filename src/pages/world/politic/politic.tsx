@@ -1,5 +1,11 @@
 import { AccordionBlock, Chapter } from "../../../components";
-import { baldenHistory, midlendHistory, tudorHistory } from '../../../history';
+
+import {
+  baldenHistory, grantHistory, holyHistory, isKingdomHistory,
+  kushanHistory,
+  midlendHistory, morgarHistory, paneriaHistory, randelHistory,
+  tudorHistory, vallatoriaHistory,
+} from '../../../history';
 
 import s from './politic.module.css';
 
@@ -31,36 +37,36 @@ export function Politic(): JSX.Element {
             element: baldenHistory.element,
           },
           {
-            label: 'Кушанская империя',
-            element:
-              <>
-                <div className={s.info}>
-                  <div className={s.global}>
-                    <div className={s.text}>
-                      <div>Правитель: Император Ганишка</div>
-                    </div>
-            
-                    <div className={s.portrait}>
-                      {/* <img src={gani} alt='' width='200'/> */}
-                    </div>
-                  </div>
-
-                  <div className={s.global}>
-                    <div className={s.text}>
-                    <div>Столица: город Артиполис</div>
-                    </div>
-            
-                    <div className={s.portrait}>
-                      {/* <img src={kushan} alt='' width='200'/> */}
-                    </div>
-                  </div>
-                </div>
-
-                <div className={s.block2}>
-                  <h3>Краткая история</h3>
-                  <div>Таинственная империя, ведущая бесконечные завоевания на своих дальних рубежах</div>
-                </div>
-              </>
+            label: isKingdomHistory.label,
+            element: isKingdomHistory.element,
+          },
+          {
+            label: randelHistory.label,
+            element: randelHistory.element,
+          },
+          {
+            label: grantHistory.label,
+            element: grantHistory.element,
+          },
+          {
+            label: morgarHistory.label,
+            element: morgarHistory.element,
+          },
+          {
+            label: vallatoriaHistory.label,
+            element: vallatoriaHistory.element,
+          },
+          {
+            label: kushanHistory.label,
+            element: kushanHistory.element,
+          },
+          {
+            label: paneriaHistory.label,
+            element: paneriaHistory.element,
+          },
+          {
+            label: holyHistory.label,
+            element: holyHistory.element,
           },
         ]}
       />
