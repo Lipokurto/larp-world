@@ -30,3 +30,5 @@ export { decimalText } from './utils/decimal-text';
 export { randomInt } from './utils/random-int';
 
 export { Registration } from './registration/registration';
+
+export { CharStatus } from './char-status/char-status';
