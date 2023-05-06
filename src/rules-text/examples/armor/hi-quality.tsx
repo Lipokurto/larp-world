@@ -1,5 +1,3 @@
-import React from 'react';
-
 import hiAr01 from '../../../assets/rules/armor/hi-quality/01.jpg';
 import hiAr02 from '../../../assets/rules/armor/hi-quality/02.jpg';
 import hiAr03 from '../../../assets/rules/armor/hi-quality/03.jpg';
@@ -15,7 +13,6 @@ export const hiArmor: Item = {
     <>
       <div>
         <ImagesAdaptive images={armor} />
-        <div>В примерах не учитывается наличие шлема</div>
       </div>
     </>
 }

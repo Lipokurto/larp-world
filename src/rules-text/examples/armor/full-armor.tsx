@@ -1,5 +1,3 @@
-import React from 'react';
-
 import fuAr01 from '../../../assets/rules/armor/full/01.jpg';
 import fuAr02 from '../../../assets/rules/armor/full/02.jpg';
 import fuAr03 from '../../../assets/rules/armor/full/03.jpg';
@@ -12,10 +10,8 @@ const armor = [fuAr01, fuAr02, fuAr03];
 export const fullArmor: Item = {
   label: 'Примеры полной брони',
   element: 
-    <>
-      <div>      
-        <ImagesAdaptive images={armor} />
-        <div>В примерах не учитывается наличие шлема</div>
-      </div>
-    </>
+    <div>      
+      <ImagesAdaptive images={armor} />
+      <div>В примерах не учитывается наличие шлема</div>
+    </div>
 }
