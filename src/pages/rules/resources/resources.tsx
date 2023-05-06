@@ -48,8 +48,8 @@ export function Resources(): JSX.Element {
                   <li><LinkButton text='Оружейное масло' onclick={() => handleClick(repairPotion)}/>. Не имеет веса</li>
                   <li><LinkButton text='Медкомплект' onclick={() => handleClick(healPack)}/>. Весит 1</li>
                   <li><LinkButton text='Ремкомплект' onclick={() => handleClick(repairPack)}/>. Весит 1</li>
-                  <li><LinkButton text='Руда' onclick={() => handleClick(ore)}/>. Весит 1</li>
-                  <li><LinkButton text='Травы' onclick={() => handleClick(herbs)}/>. Весит 1</li>
+                  <li><LinkButton text='Железная руда' onclick={() => handleClick(ore)}/>. Весит 1</li>
+                  <li><LinkButton text='Лечебные травы' onclick={() => handleClick(herbs)}/>. Весит 1</li>
                   <li><LinkButton text='Зарядный ящик' onclick={() => handleClick(cannonBox)}/>. Весит 2</li>
                 </>
             },

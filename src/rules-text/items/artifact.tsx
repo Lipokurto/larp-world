@@ -10,13 +10,17 @@ export const artifact: Item = {
   element:
     <>
       <div className={s.icon}><img src={icon} alt='' /></div>
-      <h2>Эффекты</h2>
+      <div className={s.label}>Эффекты</div>
         <div>Имеет игротехнические свойства</div>
-      <h2>Вес: 0</h2>
+      <div className={s.label}>Вес: 0</div>
       <h2>Ограничения:</h2>
+
+      <div className={s.listContainer}>
         <li>Запрещается уничтожать</li>
         <li>Любой артефакт имеет лишь сюжетное назначение</li>
         <li>Игровой предмет</li>
+      </div>
+      
       <h2>Моделируется:</h2>
         <div>Игровой предмет с мастерской печатью</div>
       <br />

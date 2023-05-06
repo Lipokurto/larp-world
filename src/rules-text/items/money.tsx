@@ -10,15 +10,18 @@ export const money: Item = {
   element:
     <>
       <div className={s.icon}><img src={icon} alt='' /></div>
-      <h2>Эффекты</h2>
+      <div className={s.label}>Эффекты</div>
         <div>Универсальный способ обмена товаров</div>
-      <h2>Вес: 0</h2>
-      <h2>Ограничения:</h2>
+      <div className={s.label}>Вес: 0</div>
+      <div className={s.label}>Ограничения:</div>
+      
+      <div className={s.listContainer}>
         <li>Представлены тремя номиналами: золото, серебро, медь</li>
         <li>Обменный курс: Золото -1 = Серебро - 5 = медь - 10</li>
         <li>Игровой предмет</li>
+      </div>
       
-      <h2>Моделируется:</h2>
+      <div className={s.label}>Моделируется:</div>
         <div>Монеты разного наминала</div>
     </>
 }
