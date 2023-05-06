@@ -1,4 +1,5 @@
 import icon from '../../assets/icons/items/healPack.png';
+import card from '../../assets/cards/heal-pack.png';
 
 import { Item } from '../type';
 
@@ -9,19 +10,17 @@ export const healPack: Item = {
   icon: icon,
   element:
     <>
-      <div className={s.icon}><img src={icon} alt='' /></div>
-      <h2>Эффекты</h2>
-        <div>Восстанавливает все живые хиты у людей</div>
-      <h2>Вес: 1</h2>
-      <h2>Ограничения:</h2>
-        <li>До полного восстановления требуется подождать 15 минут</li>
+      <div className={s.icon}><img src={card} alt='' /></div>
+      <div className={s.label}>Эффекты</div>
+      <div>Восстанавливает все живые хиты у людей</div>
+      <div className={s.label}>Вес: 1</div>
+      <div className={s.label}>Ограничения:</div>
+      
+      <div className={s.listContainer}>
+        <li>Требуется подождать 15 минут</li>
         <li>Одноразовое</li>
         <li>Игровой предмет</li>
-        <li>Не использованный медкомплект имеет вес 1, использованный 0</li>
-        <li>Для корректного применения требует наличие у игрока повязки "лечение"</li>
-      
-      <h2>Моделируется:</h2>
-      <div>Карточка с соответствующим описанием</div>
+      </div>
       <br />
       <div>Производится в госпитале, потребляет лечебные травы</div>
       <div>Использованные карточки можно продать мастерским торговцам</div>

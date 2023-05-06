@@ -40,6 +40,8 @@ export function Battle(): JSX.Element {
               label: 'Статус персонажа',
               element:
                 <>
+                  <div>переходы между статусами и снятие урона различным оружием можно проверить на нашей визуализации</div>
+                  <NavLink replace to='/help/heal-calc'>Проверить как работает боевая система</NavLink>
                   <CharStatus
                     label='Лечение'
                     model='Красная повязка с зеленой печатью'

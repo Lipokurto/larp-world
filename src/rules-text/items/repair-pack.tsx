@@ -1,4 +1,5 @@
 import icon from '../../assets/icons/items/repairPack.png';
+import card from '../../assets/cards/repair-pack.png';
 
 import { Item } from '../type';
 
@@ -9,17 +10,16 @@ export const repairPack: Item = {
   icon: icon,
   element:
     <>
-      <div className={s.icon}><img src={icon} alt='' /></div>
-      <h2>Эффекты</h2>
+      <div className={s.icon}><img src={card} alt='' /></div>
+      <div className={s.label}>Эффекты</div>
         <div>Восстанавливает все броневые хиты у людей</div>
-      <h2>Вес: 1</h2>
-      <h2>Ограничения:</h2>
-        <li>До полного восстановления требуется подождать 15 минут</li>
+      <div className={s.label}>Вес: 1</div>
+      <div className={s.label}>Ограничения:</div>
+      <div className={s.listContainer}>
+        <li>Требуется подождать 15 минут</li>
         <li>Одноразовое</li>
         <li>Игровой предмет</li>
-        <li>Не использованный медкомплект имеет вес 1, использованный 0</li>
-      <h2>Моделируется:</h2>
-      <div>Карточка с соответствующим описанием</div>
+      </div>
       <br />
       <div>Производится в кузнице, потребляет руду</div>
       <div>Использованные карточки можно продать мастерским торговцам</div>

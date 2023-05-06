@@ -1,4 +1,5 @@
 import icon from '../../assets/icons/items/herbs.png';
+import card from '../../assets/cards/herbs.png';
 
 import { Item } from '../type';
 
@@ -9,17 +10,17 @@ export const herbs: Item = {
   icon: icon,
   element:
     <>
-      <div className={s.icon}><img src={icon} alt='' /></div>
-      <h2>Эффекты</h2>
-        <div>Лечебные травы необходимы для производства медкомплектов</div>
-      <h2>Вес: 1</h2>
-      <h2>Ограничения:</h2>
+      <div className={s.icon}><img src={card} alt='' /></div>
+      <div className={s.label}>Эффекты</div>
+      <div>Лечебные травы необходимы для производства медкомплектов</div>
+      <div className={s.label}>Вес: 1</div>
+      <div className={s.label}>Ограничения:</div>
+
+      <div className={s.listContainer}>
         <li>Одноразовое</li>
         <li>Игровой предмет</li>
         <li>Используются исключительно для производства и торговли</li>
-      
-      <h2>Моделируется:</h2>
-      <div>Карточка с соответствующим описанием</div>
+      </div>
       <br />
       <div>Использованные травы можно продать мастерам</div>
       <div>Может покупаться у мастерского торговца, или добываться крестьянами</div>
