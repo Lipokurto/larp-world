@@ -1,6 +1,7 @@
 .containerlg {
   display: flex;
   padding: 10px;
+  justify-content: center;
 }
 
 .containerlg img {
@@ -24,7 +25,7 @@
 }
 
 .container img{
-  height: 400px;
+  height: 320px;
   border-radius: 10px;
   z-index: 10;
 }

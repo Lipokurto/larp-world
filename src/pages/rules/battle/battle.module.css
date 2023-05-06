@@ -14,10 +14,6 @@
 
 .sub_container {
   padding: 0 20px 20px 20px;
-  border-top: 2px solid;
-  border-bottom: 2px solid;
-  border-image-slice: 1;
-  border-image-source:  linear-gradient(to left, #000000, wheat, #000000);
 }
 
 @media only screen and (max-width: 1600px) {
@@ -31,4 +27,11 @@
     width: 95%;
     padding: 0 0 0 0;
   }
+}
+
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  text-align: initial;
+  margin-left: 20%;
 }
