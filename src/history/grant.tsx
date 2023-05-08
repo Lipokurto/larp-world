@@ -10,7 +10,7 @@ export const grantHistory: Item = {
     <>
       <div className={s.info}>
         <div className={s.coat}>
-          <img src={grantCoat} alt='' width='200'/>
+          <img src={grantCoat} alt='' />
         </div>
 
         <div className={s.text}>

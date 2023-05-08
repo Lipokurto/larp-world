@@ -10,7 +10,7 @@ export const midlendHistory: Item = {
     <>
       <div className={s.info}>
         <div className={s.coat}>
-          <img src={midlendCoat} alt='' width='200'/>
+          <img src={midlendCoat} alt='' />
         </div>
 
         <div className={s.text}>

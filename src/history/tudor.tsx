@@ -10,7 +10,7 @@ export const tudorHistory: Item = {
     <>
       <div className={s.info}>
         <div className={s.coat}>
-          <img src={tudorCoat} alt='' width='200'/>
+          <img src={tudorCoat} alt='' />
         </div>
 
         <div className={s.text}>

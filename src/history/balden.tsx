@@ -10,7 +10,7 @@ export const baldenHistory: Item = {
     <>
       <div className={s.info}>
         <div className={s.coat}>
-          <img src={baldenCoat} alt='' width='200'/>
+          <img src={baldenCoat} alt='' />
         </div>
 
         <div className={s.text}>

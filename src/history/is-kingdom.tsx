@@ -10,7 +10,7 @@ export const isKingdomHistory: Item = {
     <>
       <div className={s.info}>
         <div className={s.coat}>
-          <img src={isCoat} alt='' width='200'/>
+          <img src={isCoat} alt='' />
         </div>
 
         <div className={s.text}>
