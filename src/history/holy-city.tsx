@@ -10,7 +10,7 @@ export const holyHistory: Item = {
     <>
       <div className={s.info}>
         <div className={s.coat}>
-          <img src={holyCoat} alt='' width='200'/>
+          <img src={holyCoat} alt='' />
         </div>
 
         <div className={s.text}>

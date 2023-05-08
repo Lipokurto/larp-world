@@ -10,7 +10,7 @@ export const paneriaHistory: Item = {
     <>
       <div className={s.info}>
         <div className={s.coat}>
-          <img src={paneriaCoat} alt='' width='200'/>
+          <img src={paneriaCoat} alt='' />
         </div>
 
         <div className={s.text}>

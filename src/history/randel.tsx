@@ -10,7 +10,7 @@ export const randelHistory: Item = {
     <>
       <div className={s.info}>
         <div className={s.coat}>
-          <img src={randelCoat} alt='' width='200'/>
+          <img src={randelCoat} alt='' />
         </div>
 
         <div className={s.text}>

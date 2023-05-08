@@ -10,7 +10,7 @@ export const vallatoriaHistory: Item = {
     <>
       <div className={s.info}>
         <div className={s.coat}>
-          <img src={vallatoriaCoat} alt='' width='200'/>
+          <img src={vallatoriaCoat} alt='' />
         </div>
 
         <div className={s.text}>

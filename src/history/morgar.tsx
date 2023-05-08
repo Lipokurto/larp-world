@@ -10,7 +10,7 @@ export const morgarHistory: Item = {
     <>
       <div className={s.info}>
         <div className={s.coat}>
-          <img src={morgarCoat} alt='' width='200'/>
+          <img src={morgarCoat} alt='' />
         </div>
 
         <div className={s.text}>
