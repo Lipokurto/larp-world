@@ -1,12 +1,10 @@
-import React from "react";
-
 import { AccordionBlock, Chapter } from "../../../components";
 
 import { 
   tithe, assault, search,
   prison, ransom, pray,
   fire, globalPray, eat,
-  ham,
+  ham, loot, theft,
 } from "../../../rules-text/actions";
 
 import s from './actions.module.css';
@@ -19,7 +17,12 @@ export function Actions(): JSX.Element {
 
         <AccordionBlock 
           label='Боевые действия' 
-          items={[prison, ransom, assault, search]} 
+          items={[prison, ransom, loot, theft]} 
+          />
+
+        <AccordionBlock 
+          label='Боевые действия' 
+          items={[assault, search]} 
           />
 
         <AccordionBlock 

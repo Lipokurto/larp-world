@@ -8,6 +8,8 @@ export { pray } from './pray';
 export { fire } from './fire';
 export { eat } from './eat';
 export { ham } from './ham';
+export { loot } from './loot';
+export { theft } from './theft';
 
 export { assWin01 } from './assault-actions/ass-win-01';
 export { assWin02 } from './assault-actions/ass-win-02';
