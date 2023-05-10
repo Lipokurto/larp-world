@@ -27,31 +27,31 @@ export default function App(): JSX.Element {
 
         <Routes>
           <Route path='/' element={<Main />} />
-          <Route path='rules/general' element={<General />} />
-          <Route path='rules/tolerance' element={<Tolerance />} />
-          <Route path='rules/battle' element={<Battle />} />
-          <Route path='rules/monsters' element={<Monsters />} />
-          <Route path='rules/location' element={<Location />} />
-          <Route path='rules/resources' element={<Resources />} />
-          <Route path='rules/actions' element={<Actions />} />
+          <Route path='/rules/general' element={<General />} />
+          <Route path='/rules/tolerance' element={<Tolerance />} />
+          <Route path='/rules/battle' element={<Battle />} />
+          <Route path='/rules/monsters' element={<Monsters />} />
+          <Route path='/rules/location' element={<Location />} />
+          <Route path='/rules/resources' element={<Resources />} />
+          <Route path='/rules/actions' element={<Actions />} />
 
-          <Route path='world/politic' element={<Politic />} />
-          <Route path='world/characters' element={<Characters />} />
-          <Route path='world/map' element={<GlobalMap />} />
+          <Route path='/world/politic' element={<Politic />} />
+          <Route path='/world/characters' element={<Characters />} />
+          <Route path='/world/map' element={<GlobalMap />} />
 
-          <Route path='help/char-calc' element={<CharCalc />} />
-          <Route path='help/cargo-calc' element={<CargoVisual />} />
-          <Route path='help/build-calc' element={<BuildCalc />} />
-          <Route path='help/heal-calc' element={<HealCalc />} />
-          <Route path='help/monster-calc' element={<MonsterCalc />} />
-          <Route path='help/final-calc' element={<FinalCalc />} />
-          <Route path='help/assault-calc' element={<AssaultCalc />} />
+          <Route path='/help/char-calc' element={<CharCalc />} />
+          <Route path='/help/cargo-calc' element={<CargoVisual />} />
+          <Route path='/help/build-calc' element={<BuildCalc />} />
+          <Route path='/help/heal-calc' element={<HealCalc />} />
+          <Route path='/help/monster-calc' element={<MonsterCalc />} />
+          <Route path='/help/final-calc' element={<FinalCalc />} />
+          <Route path='/help/assault-calc' element={<AssaultCalc />} />
 
-          <Route path='player/map-support' element={<MapSupport />} />
-          <Route path='player/registration' element={<PlayerRegistry />} />
+          <Route path='/player/map-support' element={<MapSupport />} />
+          <Route path='/player/registration' element={<PlayerRegistry />} />
 
-          <Route path='about' element={<About />} />
-          <Route path='links-map' element={<LinksMap />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/links-map' element={<LinksMap />} />
         </Routes>
       </div>
     </BrowserRouter>
