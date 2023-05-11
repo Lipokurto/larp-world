@@ -1,4 +1,5 @@
 import icon from '../../assets/icons/items/repairPotion.png';
+import card from '../../assets/cards/repair-potion.png';
 
 import { Item } from '../type';
 
@@ -9,17 +10,19 @@ export const repairPotion: Item = {
   icon: icon,
   element:
     <>
-      <div className={s.icon}><img src={icon} alt='' /></div>
-      <h2>Эффекты</h2>
-        <div>В случае не полной потери брони мгновенно восстанавливает броневые хиты</div>
-      <h2>Вес: 0</h2>
-      <h2>Ограничения:</h2>
+      <div className={s.icon}><img src={card} alt='' /></div>
+      <div className={s.label}>Эффекты</div>
+      <div>В случае не полной потери брони мгновенно восстанавливает броневые хиты</div>
+      <div className={s.label}>Вес: 0</div>
+      <div className={s.label}>Ограничения:</div>
+      <div className={s.listContainer}>
         <li>Не восстанавливает броневые хиты на поломанной броне (0 броневых хитов)</li>
         <li>Одноразовое</li>
         <li>Игровой предмет</li>
+      </div>
 
-      <h2>Моделируется:</h2>
-        <div>Прозрачная колба с соответствующим маркером, и вложенной запиской</div>
+      <div className={s.label}>Моделируется:</div>
+      <div>Прозрачная колба внутри которой находится карточка зелья</div>
       <br />
       <div>Производится у алхимиков, потребляет ремкомплект и руду</div>
     </>
