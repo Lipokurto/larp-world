@@ -29,11 +29,10 @@ export function BuildTable(): JSX.Element {
           <tr>
             <td><LinkButton text='Ресурсная постройка' onclick={() => handleClick(gather)} /></td>
             <td></td>
-            <td><LinkButton text='Лечебная трава' onclick={() => handleClick(herbs)} /></td>
+            <td><LinkButton text='Железная руда' onclick={() => handleClick(ore)} /> / <LinkButton text='Лечебная трава' onclick={() => handleClick(herbs)} /></td>
           </tr>
 
           <tr>
-            <td><LinkButton text='руда' onclick={() => handleClick(ore)} /></td>
           </tr>
 
           <tr>
@@ -44,19 +43,14 @@ export function BuildTable(): JSX.Element {
 
           <tr>
             <td><LinkButton text='Кузница' onclick={() => handleClick(smith)} /></td>
-            <td><LinkButton text='Руда' onclick={() => handleClick(ore)} /></td>
+            <td><LinkButton text='Железная руда' onclick={() => handleClick(ore)} /></td>
             <td><LinkButton text='Ремкомплект' onclick={() => handleClick(repairPack)} /></td>
           </tr>
 
           <tr>
             <td><LinkButton text='Лаборатория' onclick={() => handleClick(alchemist)} /></td>
-            <td><LinkButton text='Медкомплект' onclick={() => handleClick(healPack)} /></td>
-            <td><LinkButton text='Ремкомплект' onclick={() => handleClick(repairPack)} /></td>
-          </tr>
-          
-          <tr>
-            <td><LinkButton text='Целебная мазь' onclick={() => handleClick(healPotion)} /></td>
-            <td><LinkButton text='Оружейное масло' onclick={() => handleClick(repairPotion)} /></td>
+            <td><LinkButton text='Медкомплект' onclick={() => handleClick(healPack)} /> / <LinkButton text='Ремкомплект' onclick={() => handleClick(repairPack)} /> / <LinkButton text='Железная руда' onclick={() => handleClick(ore)} /> / <LinkButton text='Лечебная трава' onclick={() => handleClick(herbs)} /></td>
+            <td><LinkButton text='Целебная мазь' onclick={() => handleClick(healPotion)} /> / <LinkButton text='Оружейное масло' onclick={() => handleClick(repairPotion)} /></td>
           </tr>
         </tbody>
       </table>

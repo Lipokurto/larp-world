@@ -1,4 +1,5 @@
 import icon from '../../assets/icons/items/healPotion.png';
+import card from '../../assets/cards/heal-potion.png';
 
 import { Item } from '../type';
 
@@ -9,17 +10,19 @@ export const healPotion: Item = {
   icon: icon,
   element:
     <>
-      <div className={s.icon}><img src={icon} alt='' /></div>
-      <h2>Эффекты</h2>
-        <div>В случае легкого ранения мгновенно восстанавливает живые хиты</div>
-      <h2>Вес: 0</h2>
-      <h2>Ограничения:</h2>
-        <li>Не лечит тяжелое ранение</li>
+      <div className={s.icon}><img src={card} alt='' /></div>
+      <div className={s.label}>Эффекты</div>
+      <div>Игрок-человек мгновенно восстанавливает живые хиты</div>
+      <div className={s.label}>Вес: 0</div>
+      <div className={s.label}>Ограничения:</div>
+
+      <div className={s.listContainer}>
         <li>Одноразовое</li>
         <li>Игровой предмет</li>
+      </div>
       
-      <h2>Моделируется:</h2>
-        <div>Прозрачная колба с соответствующим маркером, и вложенной запиской</div>
+      <div className={s.label}>Моделируется:</div>
+        <div>Прозрачная колба внутри которой находится карточка зелья</div>
       <br />
       <div>Производится у алхимиков, потребляет медокмплект и лечебные травы</div>
     </>
