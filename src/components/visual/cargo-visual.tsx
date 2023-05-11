@@ -2,7 +2,7 @@ import React from 'react';
 import Select from 'react-select';
 
 import { 
-  artifact, cannonBox, healPack, healPotion,
+  artifact, healPack, healPotion,
   herbs, money, ore, repairPack,
   repairPotion,
 } from '../../rules-text/items';
@@ -20,7 +20,6 @@ const options: CargoItem[] = [
   { value: { id: 'repairPack', weight: 1 }, icon: repairPack.icon, label: 'Ремкомплект'},
   { value: { id: 'repairPotion', weight: 0 }, icon: repairPotion.icon, label: 'Оружейное масло'},
   { value: { id: 'healPotion', weight: 0 }, icon: healPotion.icon, label: 'Целебная мазь'},
-  { value: { id: 'canonBox', weight: 2 }, icon: cannonBox.icon, label: 'Зарядный ящик'},
 ];
 
 function getCargoComponent(label: string, bonus: number): JSX.Element {

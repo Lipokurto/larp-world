@@ -1,13 +1,4 @@
-
-import React from 'react';
-
-import { 
-  ItemModal, LinkButton, Chapter,
-  AccordionBlock,
-} from '../../../components';
-
-import { cannonBox } from '../../../rules-text/items';
-import { Item } from '../../../rules-text/type';
+import { Chapter, AccordionBlock } from '../../../components';
 
 import ar01 from '../../../assets/rules/projectile/ar01.jpg';
 import ar02 from '../../../assets/rules/projectile/ar02.jpg';
@@ -17,15 +8,6 @@ import ar04 from '../../../assets/rules/projectile/ar04.jpg';
 import s from './tolerance.module.css';
 
 export function Tolerance(): JSX.Element {
-  const [isOpen, setIsOpen] = React.useState<boolean>(false);
-
-  const [item, setItem] = React.useState<Item | null>(null);
-
-  const handleClick = React.useCallback((item: Item) => {
-    setItem(item);
-    setIsOpen(true);
-  }, []);
-
   return (
     <>
       <div className={s.container}>
@@ -199,7 +181,6 @@ export function Tolerance(): JSX.Element {
                     <li>Диаметр канала трубки, имитирующей ствол пушки, ограничен. Минимальный диаметр 64 мм</li>
                     <li>Каждое огнестрельное орудие должно быть снабжено лафетом. Орудие, снятое с лафета к выстрелу не пригодно</li>
                     <li>Полевые орудия – пушки, установленные на колёсном лафете. Минимальная высота оси крепления ствола орудия с колёсным лафетом от земли 60 сантиметров. Иные варианты лафета для полевых орудий оговариваются индивидуально</li>
-                    <li>Обязательным атрибутом тяжелого огнестрельного орудия является <LinkButton text='зарядный ящик' onclick={() => handleClick(cannonBox)}/></li>
                     <h3>Снаряды</h3>                  
                     <li>В качестве снаряда допускаются к использованию окрашенные в чёрный, стальной или серый цвет 
                       теннисные мячи с внутренним давлением для грунтового и травяного покрытия (мягкие) с максимальным весом 57гр. 
@@ -232,15 +213,7 @@ export function Tolerance(): JSX.Element {
 
           ]}
         />
-       
-        </div>
-
-      {isOpen && (
-        <ItemModal
-          setIsOpen={setIsOpen}
-          item={item}
-        />
-      )}
+      </div>
     </>
   )
 }
