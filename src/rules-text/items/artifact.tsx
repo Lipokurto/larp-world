@@ -13,7 +13,6 @@ export const artifact: Item = {
       <div className={s.label}>Эффекты</div>
         <div>Имеет игротехнические свойства</div>
       <div className={s.label}>Вес: 0</div>
-      <h2>Ограничения:</h2>
 
       <div className={s.listContainer}>
         <li>Запрещается уничтожать</li>
@@ -25,5 +24,6 @@ export const artifact: Item = {
         <div>Игровой предмет с мастерской печатью</div>
       <br />
       <div>Любой артефакт можно продать мастерам за игровые деньги</div>
+      <div>На игре не предусмотрено наличие артефактов дающих игротехнические приимущества</div>
     </>
 }

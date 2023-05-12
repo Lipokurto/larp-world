@@ -6,11 +6,11 @@ import { HitZone } from '../../components';
 import { Item } from '../type';
 
 export const itemShoulder: Item = {
-  label: 'Плече',
+  label: 'Плечо',
   element: 
     <>
       <div>
-        Защитой плеча считается наплечник, закрывающий плече полностью
+        Защитой плеча считается наплечник, закрывающий плечо полностью
       </div>
       <br />
       <div>Горжет и бросары без самого наплечника не считаются защитой</div>
