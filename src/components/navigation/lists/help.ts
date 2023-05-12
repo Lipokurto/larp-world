@@ -5,10 +5,10 @@ export const help: ListItem[] = [
     label: 'Расчет персонажа',
     link: '/char-calc',
   },
-  {
-    label: 'Расчет грузоподъемности',
-    link: '/cargo-calc',
-  },
+  // {
+  //   label: 'Расчет грузоподъемности',
+  //   link: '/cargo-calc',
+  // },
   {
     label: 'Расчет скорости производства',
     link: '/build-calc',
@@ -21,12 +21,12 @@ export const help: ListItem[] = [
     label: 'Расчет чудовищ',
     link: '/monster-calc',
   },
-  {
-    label: 'Расчет финальной битвы',
-    link: '/final-calc',
-  },
-  {
-    label: 'Расчет штурма',
-    link: '/assault-calc',
-  },
+  // {
+  //   label: 'Расчет финальной битвы',
+  //   link: '/final-calc',
+  // },
+  // {
+  //   label: 'Расчет штурма',
+  //   link: '/assault-calc',
+  // },
 ]
