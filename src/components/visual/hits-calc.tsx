@@ -151,7 +151,7 @@ export function HitsCalc(): JSX.Element {
           <div className={s.rowCenter}>
             <div className={s.leftColumn}>
               <div className={s.item}>
-                <div><LinkButton text='Л.Плече' onclick={() => handleClick(itemShoulder)} /></div>
+                <div><LinkButton text='Л.Плечо' onclick={() => handleClick(itemShoulder)} /></div>
                 <SelectItem
                   placeholder='Нет брони'
                   options={armor}
@@ -190,7 +190,7 @@ export function HitsCalc(): JSX.Element {
 
             <div className={s.column}>
               <div className={s.item}>
-                <div><LinkButton text='П.Плече' onclick={() => handleClick(itemShoulder)} /></div>
+                <div><LinkButton text='П.Плечо' onclick={() => handleClick(itemShoulder)} /></div>
                 <SelectItem
                   placeholder='Нет брони'
                   options={armor}
