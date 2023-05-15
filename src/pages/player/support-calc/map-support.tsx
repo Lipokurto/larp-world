@@ -8,6 +8,7 @@ export function MapSupport(): JSX.Element {
   return (
     <div className={s.container}>
 
+      <div>Раздел еще не закончен</div>
       <Support />
     </div>
   )
