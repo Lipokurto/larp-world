@@ -1,7 +1,7 @@
 import React from "react";
 
-import { AccordionBlock, Chapter, ItemModal, LinkButton } from "../../../components";
-import { bag, barrow, cart, trap } from "../../../rules-text/examples/cargo";
+import { Chapter, ItemModal, LinkButton } from "../../../components";
+import { bag, barrow, cart } from "../../../rules-text/examples/cargo";
 
 import { 
   healPack, healPotion, repairPack,
@@ -44,12 +44,12 @@ export function Resources(): JSX.Element {
         <div>
           <div>Максимальная грузоподъемность для человека 2 (моделируется 2 кармашками в ДК)</div>
           <div>При этом ограничения на вес касаются только игровых предметов имеющими вес</div>
+          <div>Все предметы повышающие грузоподъемность обязаны обладать игровым паспортами</div>
           <div className={s.label}>Предметы повышающие грузоподъемность</div>
           <div className={s.listContainer}>
-            <li><LinkButton text='Сумка' onclick={() => handleClick(bag)}/> Бонус к грузоподъемности +1</li>
-            <li><LinkButton text='Носилки' onclick={() => handleClick(trap)}/> Бонус к грузоподъемности +2</li>
-            <li><LinkButton text='Тачка' onclick={() => handleClick(barrow)}/> Бонус к грузоподъемности +3</li>
-            <li><LinkButton text='Телега' onclick={() => handleClick(cart)}/> Бонус к грузоподъемности +4</li>
+            <li><LinkButton text='Сумка' onclick={() => handleClick(bag)}/> Бонус к грузоподъемности +2</li>
+            <li><LinkButton text='Тачка' onclick={() => handleClick(barrow)}/> Бонус к грузоподъемности +4</li>
+            <li><LinkButton text='Телега' onclick={() => handleClick(cart)}/> Бонус к грузоподъемности +6</li>
           </div>
           <br />
           <div>Грузоподъемность - один из важных игровых элементов, дающих возможность играть в распределение ресурсов, логистику</div>
@@ -59,7 +59,8 @@ export function Resources(): JSX.Element {
         <div className={s.label}>{'Карты'.toUpperCase()}</div>
         <div>На все карты НЕ распространяются действия "Воровство" и "Обыск"</div>
         <div>Карты могут носится в скрытую</div>
-        <div>Карты нужны как проверка правомерности некоторых игровых действий, не могут передаваться от одного игрока другому, только в некоторых случаях описанных ниже</div>
+        <div>Карты нужны как проверка правомерности некоторых игровых действий</div>
+        <div>Не могут передаваться от одного игрока другому, только в некоторых случаях описанных ниже</div>
 
         <div className={s.label}>Карта "Жертва"</div>
         <div className={s.listContainer}>

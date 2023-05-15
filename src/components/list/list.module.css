@@ -32,7 +32,6 @@
 }
 
 .item:hover {
-  border: 2px solid;
   border-image-source:  linear-gradient(to top, #000000, wheat);
   background-color: #FFF;
   box-shadow:0px 0px 0px 4px #EEE inset;

@@ -4,16 +4,15 @@ import { Navigation } from "./components/navigation";
 import { Main } from "./pages/main/main";
 
 import { 
-  Actions, Battle, General,
+  Actions, Battle, Camp, FinalBattle, General,
   Location, Monsters, Resources,
-  Tolerance,
+  Tolerance, Zones,
 } from "./pages/rules";
 
 import { Characters, GlobalMap, Politic } from "./pages/world";
 import { BuildCalc, CharCalc, HealCalc, MonsterCalc, FinalCalc, AssaultCalc } from "./pages/help";
 import { PlayerRegistry, MapSupport } from "./pages/player";
 import { About } from "./pages/about/about";
-import { LinksMap } from "./pages/links-map/links-map";
 import { CargoVisual } from "./components";
 
 import s from './app.module.css';
@@ -32,8 +31,11 @@ export default function App(): JSX.Element {
           <Route path='/rules/battle' element={<Battle />} />
           <Route path='/rules/monsters' element={<Monsters />} />
           <Route path='/rules/location' element={<Location />} />
+          <Route path='/rules/zones' element={<Zones />} />
+          <Route path='/rules/camp' element={<Camp />} />
           <Route path='/rules/resources' element={<Resources />} />
           <Route path='/rules/actions' element={<Actions />} />
+          <Route path='/rules/final-battle' element={<FinalBattle />} />
 
           <Route path='/world/politic' element={<Politic />} />
           <Route path='/world/characters' element={<Characters />} />
@@ -51,7 +53,6 @@ export default function App(): JSX.Element {
           <Route path='/player/registration' element={<PlayerRegistry />} />
 
           <Route path='/about' element={<About />} />
-          <Route path='/links-map' element={<LinksMap />} />
         </Routes>
       </div>
     </BrowserRouter>

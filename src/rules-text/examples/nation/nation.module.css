@@ -11,3 +11,16 @@
   box-shadow: 0 10px 10px #FF0000;
   z-index: 15;
 }
+
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  text-align: initial;
+  margin-left: 10%;
+}
+
+.label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}

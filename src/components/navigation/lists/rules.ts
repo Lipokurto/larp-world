@@ -10,7 +10,7 @@ export const rules: ListItem[] = [
     link: '/tolerance',
   },
   {
-    label: 'Боевые взаимодейсвтия',
+    label: 'Боевые взаимодействия',
     link: '/battle',
   },
   {
@@ -18,8 +18,16 @@ export const rules: ListItem[] = [
     link: '/monsters',
   },
   {
-    label: 'Локация',
+    label: 'Постройки',
     link: '/location',
+  },
+  {
+    label: 'Игровые зоны',
+    link: '/zones',
+  },
+  {
+    label: 'Лагерь',
+    link: '/camp',
   },
   {
     label: 'Игровые ресурсы',
@@ -28,5 +36,9 @@ export const rules: ListItem[] = [
   {
     label: 'Игровые действия',
     link: '/actions',
+  },
+  {
+    label: 'Финальная битва',
+    link: '/final-battle',
   },
 ]
