@@ -20,7 +20,6 @@ export function Location(): JSX.Element {
       <div className={s.container}>
       <Chapter chapter='ПОСТРОЙКИ' />
         <AccordionBlock
-            label='Постройки'
             items={[
               {
                 label: 'Экономические строения',
