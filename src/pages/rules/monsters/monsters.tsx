@@ -4,15 +4,41 @@ import { Chapter, AccordionBlock } from '../../../components';
 
 import heart from '../../../assets/icons/health/heart.png';
 
-import abomination from '../../../assets/rules/monsters/visual/abomination.png';
-import crab from '../../../assets/rules/monsters/visual/crab.png';
-import glutton from '../../../assets/rules/monsters/visual/glutton.png';
+import ab01 from '../../../assets/rules/monsters/monsters/heavy/ab-01.png';
+import ab02 from '../../../assets/rules/monsters/monsters/heavy/ab-02.png';
+import ab03 from '../../../assets/rules/monsters/monsters/heavy/ab-03.png';
 
-import twistedObs from '../../../assets/rules/monsters/visual/obs/twisted.png';
-import heavyObs from '../../../assets/rules/monsters/visual/obs/heavy.png';
-import lightObs from '../../../assets/rules/monsters/visual/obs/light.png';
+import mid01 from '../../../assets/rules/monsters/monsters/mid/mid-01.png';
+import mid02 from '../../../assets/rules/monsters/monsters/mid/mid-02.png';
+import mid03 from '../../../assets/rules/monsters/monsters/mid/mid-03.png';
+
+import li01 from '../../../assets/rules/monsters/monsters/light/light-01.png';
+import li02 from '../../../assets/rules/monsters/monsters/light/light-02.png';
+import li03 from '../../../assets/rules/monsters/monsters/light/light-03.png';
+
+import obsLi01 from '../../../assets/rules/monsters/obsessed/ob-light/obs-light-01.png';
+import obsLi02 from '../../../assets/rules/monsters/obsessed/ob-light/obs-light-02.png';
+import obsLi03 from '../../../assets/rules/monsters/obsessed/ob-light/obs-light-03.png';
+
+import obsMid01 from '../../../assets/rules/monsters/obsessed/ob-mid/ob-mid-01.png';
+import obsMid02 from '../../../assets/rules/monsters/obsessed/ob-mid/ob-mid-02.png';
+import obsMid03 from '../../../assets/rules/monsters/obsessed/ob-mid/ob-mid-03.png';
+
+import obsHeavy01 from '../../../assets/rules/monsters/obsessed/ob-heavy/ob-heavy-01.png';
+import obsHeavy02 from '../../../assets/rules/monsters/obsessed/ob-heavy/ob-heavy-02.png';
+import obsHeavy03 from '../../../assets/rules/monsters/obsessed/ob-heavy/ob-heavy-03.png';
+
+import { ImagesAdaptive } from '../../../components';
 
 import s from './monsters.module.css';
+
+const heavy = [ab01, ab02, ab03];
+const mid = [mid01, mid02, mid03];
+const light = [li01, li02, li03];
+
+const obsLi = [obsLi03, obsLi02, obsLi01];
+const obsMid = [obsMid03, obsMid02, obsMid01];
+const obsHeavy = [obsHeavy03, obsHeavy02, obsHeavy01];
 
 export function Monsters(): JSX.Element {
   const getHearts = React.useCallback((count: number) => {
@@ -32,6 +58,16 @@ export function Monsters(): JSX.Element {
     <div className={s.container}>
       <Chapter chapter='МОНСТРЫ' />
       <div>Монстры могут быть различного типа, и различных характеристик, все идеи и пожелания обсуждаются с мастерами</div>
+      <div>Ниже приведены примеры на которые можно ориентироваться при создании костюма</div>
+      <div>Любые характеристики чудовища могут быть изменены исходя из конечного вида костюма</div>
+      <div>Настоятельно рекомендуем связаться с мастерами на фазе обсуждения концепта</div>
+
+      <div className={s.label}>Критерии оценки костюма</div>
+      <div className={s.listContainer}>
+        <li>Размер костюма</li>
+        <li>Оригинальность</li>
+        <li>Качество исполнения</li>
+      </div>
       <AccordionBlock
         label='Чудовища'
         items={[
@@ -85,7 +121,7 @@ export function Monsters(): JSX.Element {
               <>
                 <h3>{'Мерзость'.toUpperCase()}</h3>
                 25 {getHearts(25)}
-                  <img src={abomination} alt='' height='300'/>
+                <ImagesAdaptive images={heavy} />
                 <h4>Описание</h4>
                 <i>те кто отрекаются от своей человечности во имя наслаждения силой и страданиями своих врагов, становятся тем кого называют "Темная мерзость бытия"</i>
                 <h4>Доступные одержимые</h4>
@@ -107,7 +143,7 @@ export function Monsters(): JSX.Element {
                 <br />
                 <h3>{'Тяжеловес'.toUpperCase()}</h3>
                 20 {getHearts(20)}
-                <img src={crab} alt='' height='300'/>
+                <ImagesAdaptive images={mid} />
                 <h4>Описание</h4>
                 <i>Те чьи грехи были вызваны благими намереньями, но не не темным желанием, становятся "Тяжелой поступью рока"</i>
                 <h4>Доступные одержимые</h4>
@@ -127,7 +163,7 @@ export function Monsters(): JSX.Element {
                 <br />
                 <h3>{'Падальщик'.toUpperCase()}</h3>
                 15 {getHearts(15)}
-                <img src={glutton} alt='' height='300'/>
+                <ImagesAdaptive images={light} />
                 <h4>Описание</h4>
                 <i>Желание выжить знакомо и коралю и бедняку, и если человек готов пожертвовать всем ради выживания он становится "Пожирателем греха"</i>
                 <h4>Доступные одержимые</h4>
@@ -182,7 +218,7 @@ export function Monsters(): JSX.Element {
               <>
                 <h3>{'Близкий'.toUpperCase()}</h3>
                 {getHearts(6)}
-                  <img src={twistedObs} alt='' height='300'/>
+                <ImagesAdaptive images={obsLi} />
                 <h4>Описание</h4>
                 <i>Близкий - это одержимый впитавший в себя слишком много плоти чудовища, из-за чего его тело было искривлено и изуродовано темными силами, но это даровало ему нечеловеческую выносливость и силу</i>
                 <h4>Требования</h4>
@@ -194,7 +230,7 @@ export function Monsters(): JSX.Element {
                 <br />
                 <h3>{'Воин'.toUpperCase()}</h3>
                 {getHearts(4)}
-                  <img src={heavyObs} alt='' height='300'/>
+                <ImagesAdaptive images={obsMid} />
                 <h4>Описание</h4>
                 <i>Воин смог вынести пытки темной плоти, его тело стало более крепким и выносливым чем у человека, его новые доспехи - это часть его плоти, боли и страха не существует, есть лишь воля черного сердца господина</i>
                 <h4>Требования</h4>
@@ -206,7 +242,7 @@ export function Monsters(): JSX.Element {
                 <br />
                 <h3>{'Разведчик'.toUpperCase()}</h3>
                 {getHearts(2)}
-                  <img src={lightObs} alt='' height='300'/>
+                <ImagesAdaptive images={obsHeavy} />
                 <h4>Описание</h4>
                 <i>Разведчик быстр, но слаб, его задача быть первой гончей черной стаи своего хозяина</i>
                 <h4>Требования</h4>
