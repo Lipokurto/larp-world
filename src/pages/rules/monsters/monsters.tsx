@@ -218,7 +218,7 @@ export function Monsters(): JSX.Element {
               <>
                 <h3>{'Близкий'.toUpperCase()}</h3>
                 {getHearts(6)}
-                <ImagesAdaptive images={obsLi} />
+                <ImagesAdaptive images={obsHeavy} />
                 <h4>Описание</h4>
                 <i>Близкий - это одержимый впитавший в себя слишком много плоти чудовища, из-за чего его тело было искривлено и изуродовано темными силами, но это даровало ему нечеловеческую выносливость и силу</i>
                 <h4>Требования</h4>
@@ -242,7 +242,7 @@ export function Monsters(): JSX.Element {
                 <br />
                 <h3>{'Разведчик'.toUpperCase()}</h3>
                 {getHearts(2)}
-                <ImagesAdaptive images={obsHeavy} />
+                <ImagesAdaptive images={obsLi} />
                 <h4>Описание</h4>
                 <i>Разведчик быстр, но слаб, его задача быть первой гончей черной стаи своего хозяина</i>
                 <h4>Требования</h4>
