@@ -2,8 +2,10 @@ import executor01 from '../../../assets/rules/man/executor/01.jpg';
 import executor02 from '../../../assets/rules/man/executor/02.jpg';
 import executor03 from '../../../assets/rules/man/executor/03.jpg';
 
-import { AccordionBlock, ImagesAdaptive } from '../../../components';
+import { ImagesAdaptive } from '../../../components';
 import { Item } from '../../type';
+
+import s from './char.module.css';
 
 const images = [executor01, executor02, executor03];
 
@@ -15,33 +17,26 @@ export const executor: Item = {
         <ImagesAdaptive images={images} />
       </div>
 
-      <AccordionBlock
-        items={[
-          {
-            label: 'Описание',
-            element:
-              <>
-                <li>Игрок желающий подготовить красивый внушающий страх образ упертого фанатика</li>
-                <li>Обладает "Особым оружием"</li>
-              </>
-          },
-          {
-            label: 'Требования',
-            element:
-              <>
-                <li>Хорошо знает разделы: основы,  допуск, боевые взаимодействия, религиозные действия, боевые действия</li>
-                <li>Наличие закрытой маски</li>
-                <li>Обязательный фотодопуск</li>
-              </>
-          },
-          {
-            label: 'Рекомендации',
-            element: 
-              <>
-                <li>Умение исполнять даже приказы инквизитора</li>
-                <li>Умение отыгрывать фанатичную жестокость</li>
-              </>
-          }
-        ]} />
+      <div className={s.label}>Описание</div>
+      <div className={s.listContainer}>
+        <li>Может использовать: "Очищение огнем"</li>
+        <li>Может использовать ТОЛЬКО "Особое оружие"</li>
+        <li>В случае получения "Психологической особенности" заменяет ее на особенность "Фанатик"</li>
+        <li>В свите инквизитора не более 5 палачей</li>
+      </div>
+
+      <div className={s.label}>Требования</div>
+      <div className={s.listContainer}>
+        <li>Наличие скрытого лица под маской</li>
+        <li>Наличие шлема</li>
+        <li>Максимальное количество доступных броневых хитов палача 2</li>
+        <li>Обязательный фотодопуск персонажа и оружия</li>
+      </div>
+
+      <div className={s.label}>Требования</div>
+      <div className={s.listContainer}>
+        <li>Умение исполнять даже приказы инквизитора</li>
+        <li>Умение отыгрывать фанатичную жестокость без перегибов</li>
+      </div>
     </>
 }
