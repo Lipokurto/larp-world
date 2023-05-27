@@ -6,7 +6,8 @@ import { Main } from "./pages/main/main";
 import { 
   Actions, Battle, Camp, FinalBattle, General,
   Location, Monsters, Resources,
-  Tolerance, Zones,
+  Role, Stress, Tolerance,
+  Zones,
 } from "./pages/rules";
 
 import { Characters, GlobalMap, Politic } from "./pages/world";
@@ -36,6 +37,8 @@ export default function App(): JSX.Element {
           <Route path='/rules/resources' element={<Resources />} />
           <Route path='/rules/actions' element={<Actions />} />
           <Route path='/rules/final-battle' element={<FinalBattle />} />
+          <Route path='/rules/stress' element={<Stress />} />
+          <Route path='/rules/role' element={<Role />} />
 
           <Route path='/world/politic' element={<Politic />} />
           <Route path='/world/characters' element={<Characters />} />

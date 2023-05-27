@@ -1,0 +1,21 @@
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  text-align: initial;
+  margin-left: 10%;
+}
+
+.label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .listContainer {
+    display: flex;
+    flex-direction: column;
+    text-align: initial;
+    margin-left: 25%;
+  }
+}

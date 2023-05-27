@@ -1,10 +1,11 @@
 export { captain } from './captain';
+export { knight } from './knight';
+export { owner } from './owner';
+export { manager } from './manager';
 export { quartermaster } from './quartermaster';
 export { fighter } from './fighter';
 export { inquisitor } from './inquisitor';
 export { executor } from './executor';
-export { priest } from './priest';
 export { civil } from './civil';
 export { craftsman } from './craftsman';
-export { nobleman } from './nobleman';
-export { merchant } from './merchant';
+export { artist } from './artist';

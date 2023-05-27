@@ -10,6 +10,12 @@ export { eat } from './eat';
 export { ham } from './ham';
 export { loot } from './loot';
 export { theft } from './theft';
+export { confession } from './confession';
+export { rest } from './rest';
+export { ground } from './ground';
+export { craft } from './craft';
+export { autograph } from './autograph';
+export { performance } from './performance';
 
 export { assWin01 } from './assault-actions/ass-win-01';
 export { assWin02 } from './assault-actions/ass-win-02';

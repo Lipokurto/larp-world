@@ -5,6 +5,8 @@ import {
   prison, ransom, pray,
   fire, globalPray, eat,
   ham, loot, theft,
+  confession, rest, ground,
+  craft, autograph,
 } from "../../../rules-text/actions";
 
 import s from './actions.module.css';
@@ -17,7 +19,7 @@ export function Actions(): JSX.Element {
 
         <AccordionBlock 
           label='Общие действия' 
-          items={[prison, ransom, loot, theft]} 
+          items={[prison, ransom, loot, theft, rest, ground, craft, autograph]} 
           />
 
         <AccordionBlock 
@@ -27,7 +29,7 @@ export function Actions(): JSX.Element {
 
         <AccordionBlock 
           label='Религиозные действия' 
-          items={[pray, fire, tithe, globalPray]} 
+          items={[pray, fire, tithe, globalPray, confession]} 
           />
 
         <AccordionBlock 

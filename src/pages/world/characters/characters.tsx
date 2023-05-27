@@ -3,13 +3,6 @@ import React from "react";
 import { Chapter, AccordionBlock, LinkButton, ItemModal } from "../../../components";
 
 import { 
-  captain, fighter, inquisitor,
-  quartermaster, executor, priest,
-  civil, craftsman, nobleman,
-  merchant,
-} from "../../../rules-text/examples/characters";
-
-import { 
   midens, midensFasionHigh, midensFasionNorm,
   north, northFasionHigh, northFasionNorm,
   south, southFasionHigh, southFasionNorm,
@@ -33,35 +26,7 @@ export function Characters(): JSX.Element {
   return (
     <>
       <div className={s.container}>
-        <Chapter chapter='ПЕРСОНАЖИ' />
-
-        
-        <AccordionBlock
-          label='Люди'
-          items={[
-            {
-              label: 'Архетипы',
-              element:
-                <>
-                  <div>Перечисленные ниже персонажи-люди подчиняются общим правилам и не имеют особых преимуществ</div>
-                    
-                    <li><LinkButton text='Капитан' onclick={() => handleClick(captain)} /> Опытный игрок готовы собрать и организовать бойцов для выполнения различных задач</li>
-                    <li><LinkButton text='Интендант' onclick={() => handleClick(quartermaster)} /> Опытный игрок, выполняющий функции локального мастера</li>
-                    <li><LinkButton text='Боец' onclick={() => handleClick(fighter)} /> Игрок желающий повоевать в составе команды</li>
-
-                    <li><LinkButton text='Инквизитор' onclick={() => handleClick(inquisitor)} /> Опытный игрок желающий отыграть принципиально верующего, для которого жизнь лишь метод оправдать загробное существование</li>
-                    <li><LinkButton text='Палач' onclick={() => handleClick(executor)} /> Может быть как классическим паладином света и добра, так и реалистичным крестоносцем, который легко мог в голодные годы сожрать соседа</li>
-                    <li><LinkButton text='Священник' onclick={() => handleClick(priest)} /> Опытный игрок в ораторском искусстве</li>
-
-                    <li><LinkButton text='Простолюдин' onclick={() => handleClick(civil)} /> Игрок желающий отыгрывать простолюдина разного достатка и прошлого</li>
-                    <li><LinkButton text='Ремесленник' onclick={() => handleClick(craftsman)} /> Игрок готовы играть в экономику и понимающий ее принципы</li>
-                    <li><LinkButton text='Аристократ' onclick={() => handleClick(nobleman)} /> Игрок любитель социальных взаимодействий, готовый при помощи слов и своего влияния продвигать интересы выбранной державы</li>
-                    <li><LinkButton text='Торговец' onclick={() => handleClick(merchant)} /> Игрок готовый толкать экономику, используя в качестве оружия слово, информацию и отличные знания экономики</li>
-                </>
-            },
-          ]}
-        />
-
+        <Chapter chapter='КУЛЬТУРА' />
         <AccordionBlock
           label='Народность'
           items={[

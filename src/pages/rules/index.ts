@@ -8,3 +8,5 @@ export { Tolerance } from './tolerance/tolerance';
 export { Zones } from './zones/zones';
 export { Camp } from './camp/camp';
 export { FinalBattle } from './final-battle/final-battle';
+export { Stress } from './stress/stress';
+export { Role } from './role/role';
