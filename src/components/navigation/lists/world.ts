@@ -2,8 +2,8 @@ import { ListItem } from "./type";
 
 export const world: ListItem[] = [
   {
-    label: 'Персонажи',
-    link: '/characters',
+    label: 'Культура',
+    link: '/culture',
   },
   {
     label: 'Политика',
@@ -12,5 +12,9 @@ export const world: ListItem[] = [
   {
     label: 'Карта',
     link: '/map',
+  },
+  {
+    label: 'Рыцарские ордена',
+    link: '/order',
   },
 ]

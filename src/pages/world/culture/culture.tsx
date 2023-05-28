@@ -11,9 +11,9 @@ import {
 import { ancestors, politeism, throne } from "../../../rules-text/examples/religion";
 import { Item } from "../../../rules-text/type";
 
-import s from './characters.module.css';
+import s from './culture.module.css';
 
-export function Characters(): JSX.Element {
+export function Culture(): JSX.Element {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
 
   const [item, setItem] = React.useState<Item | null>(null);
