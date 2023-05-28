@@ -6,7 +6,7 @@ import {
   fire, globalPray, eat,
   ham, loot, theft,
   confession, rest, ground,
-  craft, autograph,
+  craft, autograph, performance,
 } from "../../../rules-text/actions";
 
 import s from './actions.module.css';
@@ -19,7 +19,7 @@ export function Actions(): JSX.Element {
 
         <AccordionBlock 
           label='Общие действия' 
-          items={[prison, ransom, loot, theft, rest, ground, craft, autograph]} 
+          items={[prison, ransom, loot, theft, rest, ground, craft, autograph, performance]} 
           />
 
         <AccordionBlock 
