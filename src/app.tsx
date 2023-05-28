@@ -10,7 +10,7 @@ import {
   Zones,
 } from "./pages/rules";
 
-import { Characters, GlobalMap, Politic } from "./pages/world";
+import { Culture, GlobalMap, Order, Politic } from "./pages/world";
 import { BuildCalc, CharCalc, HealCalc, MonsterCalc, FinalCalc, AssaultCalc } from "./pages/help";
 import { PlayerRegistry, MapSupport } from "./pages/player";
 import { About } from "./pages/about/about";
@@ -41,8 +41,9 @@ export default function App(): JSX.Element {
           <Route path='/rules/role' element={<Role />} />
 
           <Route path='/world/politic' element={<Politic />} />
-          <Route path='/world/characters' element={<Characters />} />
+          <Route path='/world/culture' element={<Culture />} />
           <Route path='/world/map' element={<GlobalMap />} />
+          <Route path='/world/order' element={<Order />} />
 
           <Route path='/help/char-calc' element={<CharCalc />} />
           <Route path='/help/cargo-calc' element={<CargoVisual />} />
