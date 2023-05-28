@@ -3,7 +3,7 @@ import { Item } from "../type";
 import s from './actions.module.css';
 
 export const performance: Item = {
-  label: 'выступление',
+  label: 'Выступление',
   element:
     <>
       <div>Доступно только роли "Артист"</div>
