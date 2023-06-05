@@ -5,7 +5,7 @@ import holyCoat from '../assets/coats/holy.png';
 import s from './history.module.css';
 
 export const holyHistory: Item = {
-  label: 'Герцогство Гранта',
+  label: 'Святой Город',
   element:
     <>
       <div className={s.info}>

@@ -1,4 +1,5 @@
 import { Item } from "../rules-text/type";
+import pic from '../assets/orders/rino.png'; 
 
 import s from './orders.module.css';
 
@@ -7,8 +8,11 @@ export const rhinoOrder: Item = {
   element:
     <>
       <div className={s.info}>
+        <div className={s.coat}>
+          <img src={pic} alt='' />
+        </div>
+
         <div className={s.text}>
-          <div><i>Твердыня: </i> замок Долдрей</div>
           <div><i>Отличительные знаки: </i> Пурпурные плащи, шлема украшены рогами носорога</div>
           <div><i>Девиз: </i> "Нас не остановить!"</div>
           <div><i>Добродетель: </i> Не покидать строй</div>

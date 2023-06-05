@@ -1,4 +1,5 @@
 import { Item } from "../rules-text/type";
+import pic from '../assets/orders/dogs.png'; 
 
 import s from './orders.module.css';
 
@@ -7,8 +8,11 @@ export const dogsOrder: Item = {
   element:
     <>
       <div className={s.info}>
+        <div className={s.coat}>
+          <img src={pic} alt='' />
+        </div>
+
         <div className={s.text}>
-          <div><i>Твердыня: </i> замок партон</div>
           <div><i>Отличительные знаки: </i> Носят меховые плащи черного цвета с песьими головами</div>
           <div><i>Девиз: </i> "Делай что пожелаешь!"</div>
           <div><i>Добродетель: </i> Жестокость</div>

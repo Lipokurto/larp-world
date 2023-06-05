@@ -1,4 +1,5 @@
 import { Item } from "../rules-text/type";
+import pic from '../assets/orders/dragons.png'; 
 
 import s from './orders.module.css';
 
@@ -7,8 +8,11 @@ export const dragonsOrder: Item = {
   element:
     <>
       <div className={s.info}>
+        <div className={s.coat}>
+          <img src={pic} alt='' />
+        </div>
+
         <div className={s.text}>
-          <div><i>Твердыня: </i> замок Дафилд</div>
           <div><i>Отличительные знаки: </i> Начищенная броня, с белыми плащами, на шлемах драконья морда</div>
           <div><i>Девиз: </i> "Пламя, пожри наших врагов!"</div>
           <div><i>Добродетель: </i> Защищать главнокомандующего</div>

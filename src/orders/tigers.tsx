@@ -1,4 +1,5 @@
 import { Item } from "../rules-text/type";
+import pic from '../assets/orders/tigers.png'; 
 
 import s from './orders.module.css';
 
@@ -7,8 +8,11 @@ export const tigersOrder: Item = {
   element:
     <>
       <div className={s.info}>
+        <div className={s.coat}>
+          <img src={pic} alt='' />
+        </div>
+
         <div className={s.text}>
-        <div><i>Твердыня: </i>замок Дафилд</div>
           <div><i>Отличительные знаки: </i> Шлема стилизованные под морду тигра</div>
           <div><i>Девиз: </i> "Пусть рев услышат небеса!"</div>
           <div><i>Добродетель: </i> Дерзкая атака</div>
