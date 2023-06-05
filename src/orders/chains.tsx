@@ -1,4 +1,5 @@
 import { Item } from "../rules-text/type";
+import chains from '../assets/orders/chains.png'; 
 
 import s from './orders.module.css';
 
@@ -7,8 +8,11 @@ export const chainsOrder: Item = {
   element:
     <>
       <div className={s.info}>
+        <div className={s.coat}>
+          <img src={chains} alt='' />
+        </div>
+
         <div className={s.text}>
-        <div><i>Твердыня: </i>Святой город</div>
           <div><i>Отличительные знаки: </i> доспехи украшены символами цепей</div>
           <div><i>Девиз: </i> "Святость и честь!"</div>
           <div><i>Добродетель: </i> Охота на еретиков и чудовищ</div>

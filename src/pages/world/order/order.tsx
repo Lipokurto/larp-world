@@ -1,8 +1,8 @@
 import { AccordionBlock, Chapter } from "../../../components";
 
 import {
-  chainsOrder, dogsOrder, dragonsOrder, ramOrder,
-  rhinoOrder, tigersOrder,
+  chainsOrder, dogsOrder, dragonsOrder, heatOrder, ramOrder,
+  rhinoOrder, ternsOrder, tigersOrder,
 } from "../../../orders";
 
 import s from './order.module.css';
@@ -44,6 +44,14 @@ export function Order(): JSX.Element {
           {
             label: dogsOrder.label,
             element: dogsOrder.element,
+          },
+          {
+            label: ternsOrder.label,
+            element: ternsOrder.element,
+          },
+          {
+            label: heatOrder.label,
+            element: heatOrder.element,
           },
         ]}
       />
