@@ -15,8 +15,10 @@ import { BuildCalc, CharCalc, HealCalc, MonsterCalc, FinalCalc, AssaultCalc } fr
 import { PlayerRegistry, MapSupport } from "./pages/player";
 import { About } from "./pages/about/about";
 import { CargoVisual } from "./components";
+import { Intendant } from "./pages/intendant/intendant";
 
 import s from './app.module.css';
+import { Tech } from "./pages/tech/tech";
 
 export default function App(): JSX.Element {
   return (
@@ -57,6 +59,8 @@ export default function App(): JSX.Element {
           <Route path='/player/registration' element={<PlayerRegistry />} />
 
           <Route path='/about' element={<About />} />
+          <Route path='/intendant' element={<Intendant />} />
+          <Route path='/tech' element={<Tech />} />
         </Routes>
       </div>
     </BrowserRouter>
