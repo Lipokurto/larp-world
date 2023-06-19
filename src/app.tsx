@@ -6,7 +6,7 @@ import { Main } from "./pages/main/main";
 import { 
   Actions, Battle, Camp, FinalBattle, General,
   Location, Monsters, Resources,
-  Role, Stress, Tolerance,
+  Role, Psycho, Tolerance,
   Zones,
 } from "./pages/rules";
 
@@ -16,9 +16,9 @@ import { PlayerRegistry, MapSupport } from "./pages/player";
 import { About } from "./pages/about/about";
 import { CargoVisual } from "./components";
 import { Intendant } from "./pages/intendant/intendant";
+import { Tech } from "./pages/tech/tech";
 
 import s from './app.module.css';
-import { Tech } from "./pages/tech/tech";
 
 export default function App(): JSX.Element {
   return (
@@ -39,7 +39,7 @@ export default function App(): JSX.Element {
           <Route path='/rules/resources' element={<Resources />} />
           <Route path='/rules/actions' element={<Actions />} />
           <Route path='/rules/final-battle' element={<FinalBattle />} />
-          <Route path='/rules/stress' element={<Stress />} />
+          <Route path='/rules/psycho' element={<Psycho />} />
           <Route path='/rules/role' element={<Role />} />
 
           <Route path='/world/politic' element={<Politic />} />
