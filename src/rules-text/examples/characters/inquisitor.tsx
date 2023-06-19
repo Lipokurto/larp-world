@@ -21,7 +21,7 @@ export const inquisitor: Item = {
       <div className={s.listContainer}>
         <li>Может использовать: "Исповедь", "Очищение огнем", "Молитва"</li>
         <li>Может собирать "Церковную десятину"</li>
-        <li>Иммунен к повышению стресса</li>
+        <li>Не может получить психозы</li>
       </div>
 
       <div className={s.label}>Требования</div>
