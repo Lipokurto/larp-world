@@ -19,7 +19,7 @@ export const quartermaster: Item = {
 
       <div className={s.label}>Описание</div>
       <div className={s.listContainer}>
-        <li>Выполняет роль мастера в рамках указанной локации</li>
+        <li>Выполняет роль хрониста в рамках указанной локации</li>
       </div>
 
       <div className={s.label}>Требования</div>

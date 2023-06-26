@@ -7,6 +7,8 @@
 
 .container {
   display: block;
+  /* Убрать когда добавятся банды */
+  overflow-y: hidden;
 }
 
 .bandsContainer {
