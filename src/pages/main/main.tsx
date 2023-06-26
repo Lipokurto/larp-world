@@ -4,7 +4,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 
 import { Logo } from "../../components/logo";
-import { Band } from "./band";
+// import { Band } from "./band";
 import { bands } from "./bands";
 import { NavigationModal } from "../../components";
 import { rules } from "../../components/navigation/lists";
@@ -35,11 +35,12 @@ export function Main(): JSX.Element {
           <Logo />
         </div>
 
+        {/* Включить когда появятся реальные заявки на отряды наемников */}
         <div className={s.bandsContainer}>
           {bands.map((e) => {
             return (
               <div key={e.description}>
-                <Band band={e} />
+                {/* <Band band={e} /> */}
               </div>
             )
           })}

@@ -32,3 +32,5 @@ export { randomInt } from './utils/random-int';
 export { Registration } from './registration/registration';
 
 export { CharStatus } from './char-status/char-status';
+
+export { CardTooltip } from './card-tooltip/card-tooltip';

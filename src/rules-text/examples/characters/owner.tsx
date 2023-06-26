@@ -32,7 +32,7 @@ export const owner: Item = {
 
       <div className={s.label}>Рекомендации</div>
       <div className={s.listContainer}>
-        <li>Умение понимать желания игроков и требования мастеров</li>
+        <li>Умение понимать желания игроков и требования хронистов</li>
       </div>
     </>
 }
