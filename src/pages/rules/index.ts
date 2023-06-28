@@ -7,6 +7,6 @@ export { Resources } from './resources/resources';
 export { Tolerance } from './tolerance/tolerance';
 export { Zones } from './zones/zones';
 export { Camp } from './camp/camp';
-export { FinalBattle } from './final-battle/final-battle';
+export { Activity } from './activity/activity';
 export { Psycho } from './psycho/psycho';
 export { Role } from './role/role';

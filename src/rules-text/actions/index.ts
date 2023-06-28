@@ -16,6 +16,10 @@ export { ground } from './ground';
 export { craft } from './craft';
 export { autograph } from './autograph';
 export { performance } from './performance';
+export { idol } from './idol';
+export { exile } from './exile';
+export { removeAltar } from './remove-altar';
+export { addAltar } from './add-altar';
 
 export { assWin01 } from './assault-actions/ass-win-01';
 export { assWin02 } from './assault-actions/ass-win-02';
