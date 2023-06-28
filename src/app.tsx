@@ -4,14 +4,18 @@ import { Navigation } from "./components/navigation";
 import { Main } from "./pages/main/main";
 
 import { 
-  Actions, Battle, Camp, FinalBattle, General,
+  Actions, Battle, Camp,
   Location, Monsters, Resources,
   Role, Psycho, Tolerance,
-  Zones,
+  Zones, Activity, General,
 } from "./pages/rules";
 
+import {
+  BuildCalc, CharCalc, HealCalc,
+  MonsterCalc, FinalCalc, AssaultCalc,
+} from "./pages/help";
+
 import { Culture, GlobalMap, Order, Politic } from "./pages/world";
-import { BuildCalc, CharCalc, HealCalc, MonsterCalc, FinalCalc, AssaultCalc } from "./pages/help";
 import { PlayerRegistry, MapSupport } from "./pages/player";
 import { About } from "./pages/about/about";
 import { CargoVisual } from "./components";
@@ -38,7 +42,7 @@ export default function App(): JSX.Element {
           <Route path='/rules/camp' element={<Camp />} />
           <Route path='/rules/resources' element={<Resources />} />
           <Route path='/rules/actions' element={<Actions />} />
-          <Route path='/rules/final-battle' element={<FinalBattle />} />
+          <Route path='/rules/activity' element={<Activity />} />
           <Route path='/rules/psycho' element={<Psycho />} />
           <Route path='/rules/role' element={<Role />} />
 

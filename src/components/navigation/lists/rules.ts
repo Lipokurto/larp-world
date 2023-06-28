@@ -46,7 +46,7 @@ export const rules: ListItem[] = [
     link: '/role',
   },
   {
-    label: 'Финальная битва',
-    link: '/final-battle',
+    label: 'Активности',
+    link: '/activity',
   },
 ]
