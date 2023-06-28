@@ -9,6 +9,7 @@
   display: block;
   /* Убрать когда добавятся банды */
   overflow-y: hidden;
+  /* overflow-x: hidden; */
 }
 
 .bandsContainer {
@@ -43,7 +44,8 @@
 
 @media only screen and (max-width: 800px) {
   .logo {
-    height: 455px;
+    display: flex;
+    align-items: start;
   }
 
   .buttons {

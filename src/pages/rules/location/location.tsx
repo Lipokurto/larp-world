@@ -26,12 +26,8 @@ export function Location(): JSX.Element {
                 element: 
                   <>
                     <BuildTable />
-                  </>
-              },
-              {
-                label: 'Эффективность построек',
-                element:
-                  <>
+                    <br />
+                    <div className={s.label}>Эффективность построек</div>
                     <div>Эффективность построек зависит от нескольких факторов</div>
                     <div className={s.listContainer}>
                       <li><b>Антуражность.</b> Количество и качества антуражности инструментов и рабочего места</li>

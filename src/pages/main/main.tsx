@@ -3,10 +3,11 @@ import React from "react";
 
 import { NavLink } from "react-router-dom";
 
-import { Logo } from "../../components/logo";
 // import { Band } from "./band";
+import { Logo } from "../../components/logo";
+import staticLogo from '../../assets/logo_EMPTY_BACK_2024.png';
 import { bands } from "./bands";
-import { NavigationModal } from "../../components";
+import { NavigationModal, useResize } from "../../components";
 import { rules } from "../../components/navigation/lists";
 
 import s from './main.module.css';
@@ -14,9 +15,15 @@ import s from './main.module.css';
 export function Main(): JSX.Element {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
 
+  const { width } = useResize();
+
   const handleClick = React.useCallback(() => {
     setIsOpen(true);
   }, []);
+
+  const renderLogo = React.useMemo(() => {
+    return width < 800 ? <img src={staticLogo} alt='' width={200} style={{marginLeft:'-100px'}}/> : <Logo />
+  }, [width]);
 
   return (
     <>    
@@ -28,11 +35,12 @@ export function Main(): JSX.Element {
 
             <a className={s.secondButton} onClick={() => handleClick()}>Правила</a>
 
-            <NavLink className={s.secondButton} replace to='/player/map-support'>Как подготовить себя</NavLink>
+            {/* Включить когда раздел будет иметь смысл */}
+            {/* <NavLink className={s.secondButton} replace to='/player/map-support'>Как подготовить себя</NavLink> */}
         </div>
 
         <div className={s.logo}>
-          <Logo />
+          {renderLogo}
         </div>
 
         {/* Включить когда появятся реальные заявки на отряды наемников */}
