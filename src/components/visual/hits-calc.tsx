@@ -5,16 +5,19 @@ import {
   HandleArmor, HelmetItem,
 } from "./type";
 
-import man from '../../assets/armor-zone/man.png';
+import { SelectItem } from "./select-item";
+import { CardTooltip } from "../card-tooltip/card-tooltip";
+import { LinkButton } from "../link/link-button";
 
+import man from '../../assets/armor-zone/man.png';
 import heart from '../../assets/icons/health/heart.png';
 import shield from '../../assets/icons/health/shield.png';
-
-import { Item } from "../../rules-text/type";
-import { itemArm, itemHelmet, itemHip, itemLeg, itemShoulder, itemTorso } from "../../rules-text/armor";
-import { LinkButton } from "../link/link-button";
-import { SelectItem } from "./select-item";
-import { ItemModal } from "../item-modal/item-modal";
+import armorHelmet from '../../assets/armor-zone/helmet.jpg';
+import armorArm from '../../assets/armor-zone/arm.jpg';
+import armorShoulder from '../../assets/armor-zone/shoulder.jpg';
+import armorTorso from '../../assets/armor-zone/torso.jpg';
+import armorHip from '../../assets/armor-zone/hip.jpg';
+import armorLeg from '../../assets/armor-zone/leg.jpg';
 
 import s from './hit-calc.module.css';
 
@@ -63,14 +66,7 @@ export function HitsCalc(): JSX.Element {
   const [hits, setHits] = React.useState<number>(1);
   const [currentArmor, setCurrentArmor] = React.useState<ArmorHit[]>(defaultArmor);
   const [back, setBack] = React.useState<BackItem>({ value: false, label: 'Нет' });
-
-  const [isOpen, setIsOpen] = React.useState<boolean>(false);
-  const [item, setItem] = React.useState<Item | null>(null);
-
-  const handleClick = React.useCallback((item: Item) => {
-    setItem(item);
-    setIsOpen(true);
-  }, []);
+  const [isManual, setManual] = React.useState<Boolean>(true);
   
   const handleHelmetArmor = React.useCallback((option: HelmetItem) => {
     setHasArmor(option.value.hasArmor);
@@ -89,6 +85,10 @@ export function HitsCalc(): JSX.Element {
     const totalHits = currentArmor.reduce((acc, p) => acc + p.hits, 0);
     setHits(totalHits + 1);
   }, [back.value, currentArmor]);
+
+  const renderLabel = React.useCallback((text: string, element: JSX.Element) => {
+    return isManual ? element : text;
+  }, [isManual])
 
   const handleBack = React.useCallback((option: BackItem) => {
     if (option.value !== back.value) {
@@ -132,7 +132,9 @@ export function HitsCalc(): JSX.Element {
       <div className={s.container}>
         
         <div className={s.character}>
-          <h1>Ваши хиты: { hasArmor ? Math.round(hits) : 1 }</h1>
+          <LinkButton text={`${isManual ? 'Выключить' : 'Включить'} подсказки`} onclick={() => setManual(!isManual)}/>
+
+          <div style={{fontSize:18}}>Ваши хиты: { hasArmor ? Math.round(hits) : 1 }</div>
 
           {renderHealth}
         
@@ -140,37 +142,70 @@ export function HitsCalc(): JSX.Element {
 
           <div className={s.row}>
             <div className={s.item}>
-              <div><LinkButton text='Шлем' onclick={() => handleClick(itemHelmet)} /></div>
+              {renderLabel('Шлем',
+                <CardTooltip
+                  src={armorHelmet}
+                  cardName="Шлем"
+                  width={300}
+                />
+              )}
+
               <SelectItem
                 placeholder='Нет шлема'
                 options={helmet}
-                onChange={(option: HelmetItem) => handleHelmetArmor(option)}             />
+                onChange={(option: HelmetItem) => handleHelmetArmor(option)}
+              />
             </div>
           </div>
 
           <div className={s.rowCenter}>
             <div className={s.leftColumn}>
               <div className={s.item}>
-                <div><LinkButton text='Л.Плечо' onclick={() => handleClick(itemShoulder)} /></div>
+                {renderLabel(
+                  'Л.Плечо',
+                  <CardTooltip
+                    src={armorShoulder}
+                    cardName="Л.Плечо"
+                    width={300}
+                  />
+                )}
+
                 <SelectItem
                   placeholder='Нет брони'
                   options={armor}
-                  onChange={(option: ArmorItem) => handleArmor({ name: 'leftShoulder', option })} />
+                  onChange={(option: ArmorItem) => handleArmor({ name: 'leftShoulder', option })}
+                />
               </div>
 
               <div className={s.item}>
-                <div><LinkButton text='Л.Рука' onclick={() => handleClick(itemArm)} /></div>
-                  <SelectItem
-                    placeholder='Нет брони'
-                    options={armor}
-                    onChange={(option: ArmorItem) => handleArmor({ name: 'leftArm', option })} 
+                {renderLabel(
+                  'Л.Рука',
+                  <CardTooltip
+                    src={armorArm}
+                    cardName="Л.Рука"
+                    width={300}
                   />
+                )}
+
+                <SelectItem
+                  placeholder='Нет брони'
+                  options={armor}
+                  onChange={(option: ArmorItem) => handleArmor({ name: 'leftArm', option })} 
+                />
               </div>
             </div>
 
             <div className={s.columnCenter}>
               <div className={s.item}>
-                <div><LinkButton text='Торс' onclick={() => handleClick(itemTorso)} /></div>
+                {renderLabel(
+                  'Торс',
+                  <CardTooltip
+                    src={armorTorso}
+                    cardName="Торс"
+                    width={300}
+                  />
+                )}
+
                 <SelectItem 
                   placeholder='Нет брони'
                   options={armor}
@@ -190,7 +225,15 @@ export function HitsCalc(): JSX.Element {
 
             <div className={s.column}>
               <div className={s.item}>
-                <div><LinkButton text='П.Плечо' onclick={() => handleClick(itemShoulder)} /></div>
+                {renderLabel(
+                  'П.Плечо',
+                  <CardTooltip
+                    src={armorShoulder}
+                    cardName="П.Плечо"
+                    width={300}
+                  />
+                )}
+
                 <SelectItem
                   placeholder='Нет брони'
                   options={armor}
@@ -199,12 +242,20 @@ export function HitsCalc(): JSX.Element {
               </div>
 
               <div className={s.item}>
-                <div><LinkButton text='П.Рука' onclick={() => handleClick(itemArm)} /></div>
-                  <SelectItem
-                    placeholder='Нет брони'
-                    options={armor}
-                    onChange={(option: ArmorItem) => handleArmor({name: 'rightArm', option})}
+                {renderLabel(
+                  'П.Рука',
+                  <CardTooltip
+                    src={armorArm}
+                    cardName="П.Рука"
+                    width={300}
                   />
+                )}
+
+                <SelectItem
+                  placeholder='Нет брони'
+                  options={armor}
+                  onChange={(option: ArmorItem) => handleArmor({name: 'rightArm', option})}
+                />
               </div>
             </div>
           </div>
@@ -212,7 +263,15 @@ export function HitsCalc(): JSX.Element {
           <div className={s.legs}>
             <div className={s.leg}>
               <div className={s.item}>
-                <div><LinkButton text='Л.Бедро' onclick={() => handleClick(itemHip)} /></div>
+                {renderLabel(
+                  'Л.Бедро',
+                  <CardTooltip
+                    src={armorHip}
+                    cardName="Л.Бедро"
+                    width={300}
+                  />
+                )}
+
                 <SelectItem
                   name='legs'
                   placeholder='Нет брони'
@@ -222,7 +281,15 @@ export function HitsCalc(): JSX.Element {
               </div>
 
               <div className={s.item}>
-                <div><LinkButton text='Л.Голень' onclick={() => handleClick(itemLeg)} /></div>
+                {renderLabel(
+                  'Л.Нога',
+                  <CardTooltip
+                    src={armorLeg}
+                    cardName="Л.Нога"
+                    width={300}
+                  />
+                )}
+
                 <SelectItem
                   name='legs'
                   placeholder='Нет брони'
@@ -234,7 +301,15 @@ export function HitsCalc(): JSX.Element {
 
             <div className={s.leg}>
               <div className={s.item}>
-                <div><LinkButton text='П.Бедро' onclick={() => handleClick(itemHip)} /></div>
+                {renderLabel(
+                  'П.Бедро',
+                  <CardTooltip
+                    src={armorHip}
+                    cardName="П.Бедро"
+                    width={300}
+                  />
+                )}
+
                 <SelectItem
                   name='legs'
                   placeholder='Нет брони'
@@ -244,7 +319,15 @@ export function HitsCalc(): JSX.Element {
               </div>
 
               <div className={s.item}>
-                <div><LinkButton text='П.Голень' onclick={() => handleClick(itemLeg)} /></div>
+                {renderLabel(
+                  'П.Нога',
+                  <CardTooltip
+                    src={armorLeg}
+                    cardName="П.Нога"
+                    width={300}
+                  />
+                )}
+
                 <SelectItem
                   name='legs'
                   placeholder='Нет брони'
@@ -260,13 +343,6 @@ export function HitsCalc(): JSX.Element {
           <img src={man} alt='' width='420' />
         </div>
       </div>
-
-      {isOpen && (
-        <ItemModal
-          setIsOpen={setIsOpen}
-          item={item}
-        />
-      )}
     </>
   );
 }

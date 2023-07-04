@@ -5,9 +5,9 @@ import { Main } from "./pages/main/main";
 
 import { 
   Actions, Battle, Camp,
-  Location, Monsters, Resources,
+  Monsters, Resources, General,
   Role, Psycho, Tolerance,
-  Zones, Activity, General,
+  Activity,
 } from "./pages/rules";
 
 import {
@@ -37,9 +37,7 @@ export default function App(): JSX.Element {
           <Route path='/rules/tolerance' element={<Tolerance />} />
           <Route path='/rules/battle' element={<Battle />} />
           <Route path='/rules/monsters' element={<Monsters />} />
-          <Route path='/rules/location' element={<Location />} />
-          <Route path='/rules/zones' element={<Zones />} />
-          <Route path='/rules/camp' element={<Camp />} />
+          <Route path='/rules/location' element={<Camp />} />
           <Route path='/rules/resources' element={<Resources />} />
           <Route path='/rules/actions' element={<Actions />} />
           <Route path='/rules/activity' element={<Activity />} />
