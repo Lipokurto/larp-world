@@ -1,9 +1,16 @@
 import React from "react";
 
-import { ItemModal, LinkButton } from "../../../components";
-import { healPack, healPotion, herbs, ore, repairPack, repairPotion } from "../../../rules-text/items";
-import { alchemist, gather, hospital, smith } from "../../../rules-text/location/buildings";
 import { Item } from "../../../rules-text/type";
+import { ItemModal, LinkButton } from "../../../components";
+
+import { alchemist, gather, hospital,
+  smith,
+} from "../../../rules-text/location/buildings";
+
+import {
+  healPack, healPotion, herbs,
+  ore, repairPack, repairPotion,
+} from "../../../rules-text/items";
 
 import s from './table.module.css';
 

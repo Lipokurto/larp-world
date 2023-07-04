@@ -1,11 +1,9 @@
 export { Actions } from './actions/actions';
 export { Battle } from './battle/battle';
 export { General } from './general/general';
-export { Location } from './location/location';
 export { Monsters } from './monsters/monsters';
 export { Resources } from './resources/resources';
 export { Tolerance } from './tolerance/tolerance';
-export { Zones } from './zones/zones';
 export { Camp } from './camp/camp';
 export { Activity } from './activity/activity';
 export { Psycho } from './psycho/psycho';

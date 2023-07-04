@@ -2,9 +2,10 @@ import React from "react";
 
 import { Chapter, AccordionBlock, LinkButton, ItemModal } from "../../../components";
 import { Item } from "../../../rules-text/type";
+import { captain, quartermaster } from "../../../rules-text/examples/characters";
+import { Location } from "./location";
 
 import s from './camp.module.css';
-import { captain, quartermaster } from "../../../rules-text/examples/characters";
 
 export function Camp(): JSX.Element {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
@@ -18,9 +19,11 @@ export function Camp(): JSX.Element {
   return (
     <>
       <div className={s.container}>
-      <Chapter chapter='ЛАГЕРЬ' />
+      <Chapter chapter='Локация' />
 
-      <div className={s.label}>{'Общие положения'.toUpperCase()}</div>
+      <Location />
+
+      <div className={s.label}>{'ЛАГЕРЬ'.toUpperCase()}</div>
       <div className={s.label}>Требования к обороне лагеря</div>
         <div className={s.listContainer}>
           <li>Если лагерь предполагает оборону на своей территории, то должна быть расчищена площадка для битвы внутри лагеря</li>
