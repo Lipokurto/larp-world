@@ -23,6 +23,7 @@ import { Intendant } from "./pages/intendant/intendant";
 import { Tech } from "./pages/tech/tech";
 
 import s from './app.module.css';
+import { More } from "./pages/more/more";
 
 export default function App(): JSX.Element {
   return (
@@ -61,6 +62,7 @@ export default function App(): JSX.Element {
           <Route path='/player/registration' element={<PlayerRegistry />} />
 
           <Route path='/about' element={<About />} />
+          <Route path='/more' element={<More />} />
           <Route path='/intendant' element={<Intendant />} />
           <Route path='/tech' element={<Tech />} />
         </Routes>
