@@ -35,6 +35,8 @@ export function Main(): JSX.Element {
 
             <a className={s.secondButton} onClick={() => handleClick()}>Правила</a>
 
+            <NavLink className={s.secondButton} replace to='/more'>Дополнительно</NavLink>
+
             {/* Включить когда раздел будет иметь смысл */}
             {/* <NavLink className={s.secondButton} replace to='/player/map-support'>Как подготовить себя</NavLink> */}
         </div>
