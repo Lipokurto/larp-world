@@ -3,12 +3,12 @@ import React from "react";
 
 import { NavLink } from "react-router-dom";
 
-// import { Band } from "./band";
+import { Band } from "./band";
 import { Logo } from "../../components/logo";
 import staticLogo from '../../assets/logo_EMPTY_BACK_2024.png';
-import { bands } from "./bands";
 import { NavigationModal, useResize } from "../../components";
 import { rules } from "../../components/navigation/lists";
+import { videoObject } from "../../links/main-video/video-objects";
 
 import s from './main.module.css';
 
@@ -47,14 +47,23 @@ export function Main(): JSX.Element {
 
         {/* Включить когда появятся реальные заявки на отряды наемников */}
         <div className={s.bandsContainer}>
-          {bands.map((e) => {
+          {videoObject.map((e) => {
             return (
-              <div key={e.description}>
-                {/* <Band band={e} /> */}
+              <div key={e.link}>
+                <Band obj={e} />
               </div>
             )
           })}
         </div>
+        {/* <div className={s.bandsContainer}>
+          {bands.map((e) => {
+            return (
+              <div key={e.description}>
+                <Band band={e} />
+              </div>
+            )
+          })}
+        </div> */}
       </div>
 
       {isOpen && (
