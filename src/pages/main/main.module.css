@@ -7,12 +7,10 @@
 
 .container {
   display: block;
-  /* Убрать когда добавятся банды */
   overflow-y: hidden;
-  /* overflow-x: hidden; */
 }
 
-.bandsContainer {
+.subMenuContainer {
   display: flex;
   flex-direction: column;
   z-index: 15;

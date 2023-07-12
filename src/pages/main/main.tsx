@@ -3,7 +3,7 @@ import React from "react";
 
 import { NavLink } from "react-router-dom";
 
-import { Band } from "./band";
+import { SubMenu } from "./sub-menu";
 import { Logo } from "../../components/logo";
 import staticLogo from '../../assets/logo_EMPTY_BACK_2024.png';
 import { NavigationModal, useResize } from "../../components";
@@ -45,25 +45,15 @@ export function Main(): JSX.Element {
           {renderLogo}
         </div>
 
-        {/* Включить когда появятся реальные заявки на отряды наемников */}
-        <div className={s.bandsContainer}>
+        <div className={s.subMenuContainer}>
           {videoObject.map((e) => {
             return (
               <div key={e.link}>
-                <Band obj={e} />
+                <SubMenu obj={e} />
               </div>
             )
           })}
         </div>
-        {/* <div className={s.bandsContainer}>
-          {bands.map((e) => {
-            return (
-              <div key={e.description}>
-                <Band band={e} />
-              </div>
-            )
-          })}
-        </div> */}
       </div>
 
       {isOpen && (
