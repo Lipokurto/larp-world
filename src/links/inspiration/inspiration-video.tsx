@@ -4,8 +4,8 @@ import s from './inspiration.module.css';
 
 export const inspirationVideo: Link[] = [
   {
-    name: 'Первая серия старого аниме "Берсерк" в озвучке Гоблина',
-    link: 'https://vk.com/video_ext.php?oid=169252411&id=171268340&hash=6d18e937b41e0269&hd=2',
+    name: 'Первая серия старого аниме "Берсерк"',
+    link: 'https://vk.com/video_ext.php?oid=170645471&id=171372408&hash=a1593864c9c4d2fd&hd=2',
     description: 
       <>
         <div className={s.label}>Погружение в мир</div>
