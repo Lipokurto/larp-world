@@ -1,4 +1,4 @@
-.band {
+.sub {
   display: flex;
   border: 5px;
   border-style: solid;
@@ -10,45 +10,35 @@
   transition: 2s;
 }
 
-.band--zoom {
+.sub--zoom {
   opacity: 1;
   transform: scale(100%);
   transition: 2s;
 }
 
-.avatar {
-  display: block;
+.sub-text {
   color: white;
-  text-align: center;
-  height: 100px;
-  width: 20%;
-  margin: 5px 5px 5px 5px;
-  border-radius: 10px;
-}
-
-.status {
-  width: 200px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.band-text {
-  text-align: center;
-  color: white;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 3%;
   vertical-align: middle;
 }
 
+.text {
+  margin-left: 3%;
+}
+
 @media only screen and (max-width: 1024px) {
-  .band-text {
-    text-align: end;
+  .sub-text {
+    text-align: center;
     margin-right: 20px;
+  }
+
+  .sub {
+    display: block;
   }
 }
 
 @media only screen and (max-width: 600px) {
-  .band-text {
+  .sub-text {
     text-align: center;
     color: white;
     margin-left: auto;
