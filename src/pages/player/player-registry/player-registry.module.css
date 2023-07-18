@@ -7,3 +7,16 @@
   margin: 0 auto 0 auto;
   width: 75%;
 }
+
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  text-align: initial;
+  margin-left: 20%;
+}
+
+.label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
