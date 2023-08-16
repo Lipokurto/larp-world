@@ -21,7 +21,7 @@
   display: flex;
   left: 50%;
   right: 50%;
-  top: 70%;
+  top: 650px;
   margin-left: -115px;
   width: 200px;
   color: black;
@@ -36,7 +36,7 @@
   }
 
   .buttons {
-    top: 55%;
+    top: 500px;
   }
 }
 
@@ -44,10 +44,12 @@
   .logo {
     display: flex;
     align-items: start;
+    height: 500px;
+    margin-top: 20px;
   }
 
   .buttons {
-    top: 275px;
+    top: 325px;
   }
 }
 
