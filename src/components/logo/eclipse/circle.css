@@ -1,5 +1,5 @@
 :root {
-  --size: 70vh;
+  --size: 655px;
   --s: calc(var(--size) / 6);
   --bor: calc(var(--size) / 25);
   --boxShadow: calc(var(--size) / 12);

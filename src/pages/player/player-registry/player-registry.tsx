@@ -12,7 +12,7 @@ export function PlayerRegistry(): JSX.Element {
       <div className={s.label}>Регистрация</div>
       <div className={s.listContainer}>
         <div>1. Сдлайте несколько фотографий своего костюма полной или почти полной готовности</div>
-        <div>2. Заполняете форму заявки ХХХХХХ</div>
+        <div>2. Заполняете форму заявки ХХХХХХ (будет добавлена позже)</div>
         <div>
           3. Переходите в группу&nbsp;
             <a href='https://vk.com/larpdarkage' target='_blank' rel="noreferrer" style={{color: 'goldenrod'}}>
