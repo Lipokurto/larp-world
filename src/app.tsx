@@ -21,9 +21,9 @@ import { About } from "./pages/about/about";
 import { CargoVisual } from "./components";
 import { Intendant } from "./pages/intendant/intendant";
 import { Tech } from "./pages/tech/tech";
+import { More } from "./pages/more/more";
 
 import s from './app.module.css';
-import { More } from "./pages/more/more";
 
 export default function App(): JSX.Element {
   return (

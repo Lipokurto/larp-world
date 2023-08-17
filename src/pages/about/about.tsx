@@ -7,8 +7,8 @@ export function About(): JSX.Element {
     <div className={s.container}>
       <Chapter chapter='О мероприятии' />
       <div className={s.listContainer}>
-        <div>Название: <b>Темные века: ветра перемен</b></div>
-        <div>Дата: <b>--.--.2024</b></div>
+        <div>Название: <b>Темные века</b></div>
+        <div>Дата: <b>2-5 октября 2024</b></div>
         <div>Численность: <b>200+</b></div>
         <div>Полигон: <b>Крым</b></div>
         <div>Оружие: <b>мягкое</b></div>

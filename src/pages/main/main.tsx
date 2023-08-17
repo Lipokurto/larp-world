@@ -29,13 +29,13 @@ export function Main(): JSX.Element {
     <>    
       <div className={s.container}>
         <div className={s.buttons}>
-            <NavLink className={s.mainButton} replace to='/player/registration'>Регистрация на игру</NavLink>
+            <NavLink className={s.mainButton} to='/player/registration'>Регистрация на игру</NavLink>
 
-            <NavLink className={s.secondButton} replace to='/about'>О мероприятии</NavLink>
+            <NavLink className={s.secondButton} to='/about'>О мероприятии</NavLink>
 
             <a className={s.secondButton} onClick={() => handleClick()}>Правила</a>
 
-            <NavLink className={s.secondButton} replace to='/more'>Дополнительно</NavLink>
+            <NavLink className={s.secondButton} to='/more'>Дополнительно</NavLink>
 
             {/* Включить когда раздел будет иметь смысл */}
             {/* <NavLink className={s.secondButton} replace to='/player/map-support'>Как подготовить себя</NavLink> */}
