@@ -9,3 +9,4 @@ export { executor } from './executor';
 export { civil } from './civil';
 export { craftsman } from './craftsman';
 export { artist } from './artist';
+export { monk } from './monk';
