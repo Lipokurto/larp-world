@@ -7,7 +7,7 @@ import {
   artist,
   captain, civil, craftsman,
   executor, fighter, inquisitor,
-  knight, manager, owner, quartermaster,
+  knight, manager, monk, owner, quartermaster,
 } from "../../../rules-text/examples/characters";
 
 import s from './role.module.css';
@@ -34,11 +34,12 @@ export function Role(): JSX.Element {
         <div className={s.listContainer}>
           <div><b><LinkButton text='Интендант' onclick={() => handleClick(quartermaster)} /></b> Отвечает за игротехнические процессы лагеря</div>
           <div><b><LinkButton text='Капитан' onclick={() => handleClick(captain)} /></b> Глава отряда наемников</div>
+          <div><b><LinkButton text='Рыцарь' onclick={() => handleClick(knight)} /></b> Благородный воин в тяжелой броне</div>
           <div><b><LinkButton text='Боец' onclick={() => handleClick(fighter)} /></b> Базовая роль наемника</div>
           <br />
           <div><b><LinkButton text='Инквизитор' onclick={() => handleClick(inquisitor)} /></b> Представитель Святого престола на этой земле</div>
           <div><b><LinkButton text='Палач' onclick={() => handleClick(executor)} /></b> Божественная кара в руках инквизитора</div>
-          <div><b><LinkButton text='Рыцарь' onclick={() => handleClick(knight)} /></b> Воин посвятивший себя служению церкви</div>
+          <div><b><LinkButton text='Послушник' onclick={() => handleClick(monk)} /></b> Помощник инквизитора</div>
           <br />
           <div><b><LinkButton text='Обыватель' onclick={() => handleClick(civil)} /></b> Житель или гость местных земель</div>
           <div><b><LinkButton text='Хозяин' onclick={() => handleClick(owner)} /></b> Глава локации, которая предоставляет услуги</div>

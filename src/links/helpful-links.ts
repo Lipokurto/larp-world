@@ -24,6 +24,6 @@ export const helpfulLinks: Link[] = [
   {
     name: 'Схемы для лазерной резки',
     link: 'https://www.festi.info/boxes.py/index.html',
-    description: 'Поможет сгенерировать различные схемы для порезки на лагерных станках',
+    description: 'Поможет сгенерировать различные схемы для порезки на лазерных станках',
   },
 ];
