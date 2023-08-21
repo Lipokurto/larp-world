@@ -9,6 +9,7 @@ import staticLogo from '../../assets/logo_EMPTY_BACK_2024.png';
 import { NavigationModal, useResize } from "../../components";
 import { rules } from "../../components/navigation/lists";
 import { videoObject } from "../../links/main-video/video-objects";
+import vkImage from './../../assets/icons/social/vk.png';
 
 import s from './main.module.css';
 
@@ -24,6 +25,14 @@ export function Main(): JSX.Element {
   const renderLogo = React.useMemo(() => {
     return width < 800 ? <img src={staticLogo} alt='' width={200} style={{marginLeft:'-100px'}}/> : <Logo />
   }, [width]);
+
+  const renderLinks = React.useMemo(() => {
+    return (
+    <a href='https://vk.com/larpdarkage' target='_blank' rel="noreferrer" style={{color: 'goldenrod'}}>
+      <img src={vkImage} alt="" width={30} />
+    </a>
+    )
+  }, []);
 
   return (
     <>    
@@ -42,6 +51,10 @@ export function Main(): JSX.Element {
         </div>
 
         <div className={s.logo}>
+          <div className={s.social}>
+            {renderLinks}
+          </div>
+
           {renderLogo}
         </div>
 

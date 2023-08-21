@@ -25,7 +25,7 @@ export const videoObject: Link[] = [
           <div>Здесь ты найдешь обилие видео, фото и цифровых материалов, которые помогут тебе лучше понять игровые правила, разработать свой костюм и построить локацию мечты.</div>
           <br />
           <a href='https://vk.com/larpdarkage' target='_blank' rel="noreferrer" style={{color: 'goldenrod'}}>
-            <img src={vkImage} alt="" width={30} style={{marginLeft: "50%"}}/>
+            <img src={vkImage} alt="" width={30} />
           </a>
         </div>
       </>
