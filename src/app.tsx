@@ -16,7 +16,7 @@ import {
 } from "./pages/help";
 
 import { Culture, GlobalMap, Order, Politic } from "./pages/world";
-import { PlayerRegistry, MapSupport } from "./pages/player";
+import { PlayerRegistry, MapSupport, TeamRegistry, LocationRegistry } from "./pages/player";
 import { About } from "./pages/about/about";
 import { CargoVisual } from "./components";
 import { Intendant } from "./pages/intendant/intendant";
@@ -60,6 +60,8 @@ export default function App(): JSX.Element {
 
           <Route path='/player/map-support' element={<MapSupport />} />
           <Route path='/player/registration' element={<PlayerRegistry />} />
+          <Route path='/player/regband' element={<TeamRegistry />} />
+          <Route path='/player/reglocation' element={<LocationRegistry />} />
 
           <Route path='/about' element={<About />} />
           <Route path='/more' element={<More />} />
