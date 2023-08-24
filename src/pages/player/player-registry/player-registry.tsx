@@ -21,7 +21,7 @@ const registrationSteps: Steps[] = [
   {
     img: intro,
     label: 'Введение',
-    description: <div>Ознакомьтесь с правилами мероприятия</div>,
+    description: <div>Ознакомьтесь с <a href='https://larpdarkage.ru/rules/general' target='_blank' rel="noreferrer" style={{color: 'goldenrod'}}>правилами мероприятия</a></div>,
   },
   {
     img: arm,
@@ -39,11 +39,11 @@ const registrationSteps: Steps[] = [
         </div>
 
         <div>Некоторые роли могут быть заняты, поэтому не затягивайте с подачей заявки</div>
-        <div>Заявку надо отправить в сообщения <a href='https://vk.com/larpdarkage' target='_blank' rel="noreferrer" style={{color: 'goldenrod'}}>группы</a></div>
+        <div>Заявку надо отправить* в сообщения <a href='https://vk.com/larpdarkage' target='_blank' rel="noreferrer" style={{color: 'goldenrod'}}>группы</a></div>
         
         <div>Обязательно дождитесь ответа что ваша заявка принята</div>
         <br />
-        <div><i>*Отправляя форму регистрации вы соглашаетесь придерживаться правил установленных данным мероприятием</i></div>
+        <div><i>* Отправляя форму регистрации, вы соглашаетесь придерживаться правил установленных данным мероприятием</i></div>
       </div>
   },
   {

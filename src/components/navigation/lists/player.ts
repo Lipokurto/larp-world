@@ -2,8 +2,16 @@ import { ListItem } from "./type";
 
 export const player: ListItem[] = [
   {
-    label: 'Регистрация на игру',
+    label: 'Регистрация игрока',
     link: '/registration',
+  },
+  {
+    label: 'Регистрация команды',
+    link: '/regband',
+  },
+  {
+    label: 'Регистрация локации',
+    link: '/reglocation',
   },
   // {
   //   label: 'Карта подготовки игрока',
