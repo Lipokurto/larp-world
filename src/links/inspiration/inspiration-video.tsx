@@ -119,4 +119,36 @@ export const inspirationVideo: Link[] = [
         </div>
       </>
   },
+  {
+    name: 'Игра "Blasphemous"',
+    link: 'https://vk.com/video_ext.php?oid=-23712118&id=456248780&hash=b32241004c89e428',
+    description: 
+      <>
+        <div className={s.label}>Погружение в мир</div>
+        <div className={s.listContainer}>
+          <div>Стилистика кровавой инквизиции и мистического безумия</div>
+        </div>
+
+        <div className={s.label}>Дополнительно</div>
+        <div className={s.listContainer}>
+          <div>Образы инквизиторов и некоторых монстров отлично подходят на соответствующие роли</div>
+        </div>
+      </>
+  },
+  {
+    name: 'Сериал "Борджиа"',
+    link: 'https://vk.com/video_ext.php?oid=174919220&id=456240089&hash=79ccc1221de86c63',
+    description:
+      <>
+        <div className={s.label}>Погружение в мир</div>
+        <div className={s.listContainer}>
+          <div>Сераил может раскрыть подробности устройства Ватикана, что вполне совпадает с его аналогом в Святом городе</div>
+        </div>
+
+        <div className={s.label}>Дополнительно</div>
+        <div className={s.listContainer}>
+          <div>Богатство, интриги, лицемерие, святые одеяния и конечно же ничего божественного</div>
+        </div>
+      </>
+  },
 ]
