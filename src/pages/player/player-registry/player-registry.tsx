@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 import { Chapter } from "../../../components";
 
@@ -102,15 +103,40 @@ export function PlayerRegistry(): JSX.Element {
     })
   }, []);
 
+  const renderButtons = React.useMemo(() => {
+    return (
+      <div className={s.buttonsContainer}>
+        <NavLink
+          className={s.link}
+          replace
+          to='/player/regband'
+          onClick={() => document.body.style.overflowY = 'visible'}
+          style={{color: 'goldenrod'}}>
+            Регистрация команды
+        </NavLink>
+
+        <NavLink
+          className={s.link}
+          replace
+          to='/player/reglocation'
+          onClick={() => document.body.style.overflowY = 'visible'}
+          style={{color: 'goldenrod'}}>
+            Регистрация локации
+        </NavLink>
+      </div>
+    )
+  }, []);
+
   return (
     <div className={s.container}>
       <Chapter chapter='Регистрация игрока'/>
+      
+      {renderButtons}
       
       <div>Регистрация является ОБЯЗАТЕЛЬНЫМ условием участия на мероприятии</div>
 
       {renderRegSteps}
       
-      {/* <Registration /> */}
     </div>
   )
 }
