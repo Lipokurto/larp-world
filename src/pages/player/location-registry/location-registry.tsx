@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 import { Chapter } from "../../../components";
 
@@ -82,9 +83,35 @@ export function LocationRegistry(): JSX.Element {
     })
   }, []);
 
+  const renderButtons = React.useMemo(() => {
+    return (
+      <div className={s.buttonsContainer}>
+        <NavLink
+          className={s.link}
+          replace
+          to='/player/registration'
+          onClick={() => document.body.style.overflowY = 'visible'}
+          style={{color: 'goldenrod'}}>
+            Регистрация игрока
+        </NavLink>
+
+        <NavLink
+          className={s.link}
+          replace
+          to='/player/regband'
+          onClick={() => document.body.style.overflowY = 'visible'}
+          style={{color: 'goldenrod'}}>
+            Регистрация команды
+        </NavLink>
+      </div>
+    )
+  }, []);
+
   return (
     <div className={s.container}>
       <Chapter chapter='Регистрация локации'/>
+
+      {renderButtons}
 
       {renderRegSteps}
       
