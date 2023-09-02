@@ -49,7 +49,7 @@ export function More(): JSX.Element {
       <Chapter chapter='Дополнительно' />
       <div>В этом разделе размещены полезные ссылки и материалы</div>
       
-      <div className={s.label}>Материалы</div>
+      <div className={s.label}>Материалы для скачивания</div>
       <div className={s.listContainer}>
         {renderFiles}
       </div>

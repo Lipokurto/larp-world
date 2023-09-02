@@ -1,15 +1,15 @@
 import { Link } from "../types";
-import rulesPDF from './rules.pdf';
+// import rulesPDF from './rules.pdf';
 import tailorPDF from './tailor.pdf';
 import mapClear from './clear-map.png';
 
 export const downloadFiles: Link[] = [
-  {
-    name: 'Правила одним файлом',
-    link: rulesPDF,
-    description: 'Вся компиляция правил одним файлом',
-    fileName: 'Правила Темные века',
-  },
+  // {
+  //   name: 'Правила одним файлом',
+  //   link: rulesPDF,
+  //   description: 'Вся компиляция правил одним файлом',
+  //   fileName: 'Правила Темные века',
+  // },
   {
     name: 'Карта Континента',
     link: mapClear,
