@@ -31,8 +31,8 @@ const armor: ArmorItem[] = [
 ]
 
 const helmet: HelmetItem[] = [
+  {value: { type: 'hard', hasArmor: true }, label: 'Есть шлем' },
   {value: { type: 'no_helmet', hasArmor: false }, label: 'Нет шлема' },
-  {value: { type: 'hard', hasArmor: true }, label: 'Шлем' },
 ]
 
 const defaultArmor: ArmorHit[] = [
@@ -145,7 +145,7 @@ export function HitsCalc(): JSX.Element {
               {renderLabel('Шлем',
                 <CardTooltip
                   src={armorHelmet}
-                  cardName="Шлем"
+                  cardName="Голова"
                   width={300}
                 />
               )}

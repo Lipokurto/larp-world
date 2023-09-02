@@ -411,14 +411,12 @@ export function BeastCalc({ isManual }: Props): JSX.Element {
   const renderTimer = React.useMemo(() => {
     if (timer) {
       return (
-        <div>
-          <button 
-            className={s.waitButton}
-            onClick={status === 'Мертв' ? resetCharacter : handleHealWait}
-          >
-              Подождать {timer} {decimalText(timer, ['минуту', 'минуты', 'минут'])}
-          </button>
-        </div>
+        <button 
+          className={s.waitButton}
+          onClick={status === 'Мертв' ? resetCharacter : handleHealWait}
+        >
+            Подождать {timer} {decimalText(timer, ['минуту', 'минуты', 'минут'])}
+        </button>
       )
     }
   }, [handleHealWait, resetCharacter, status, timer]);
