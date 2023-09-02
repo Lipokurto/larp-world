@@ -4,7 +4,7 @@ export const helpfulLinks: Link[] = [
   {
     name: 'Определитель хитов',
     link: 'http://larpdarkage.ru/help/char-calc',
-    description: 'Поможет понять сколько хитов у вашего персонажа будет при определенном снаряжении',
+    description: 'Поможет понять сколько хитов у вашего персонажа',
   },
   {
     name: 'Визуализация урона персонажа',
@@ -14,7 +14,7 @@ export const helpfulLinks: Link[] = [
   {
     name: 'Визуализация урона чудовища',
     link: 'http://larpdarkage.ru/help/monster-calc',
-    description: 'Поможет понять как создавать одержимых, как лечится и когда умирать',
+    description: 'Поможет понять как создавать одержимых, как лечиться и когда умирать',
   },
   {
     name: 'Ролевой строяк',
