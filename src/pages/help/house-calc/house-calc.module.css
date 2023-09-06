@@ -1,0 +1,67 @@
+.container {
+  display: flex;
+  align-items: center;
+  color: white;
+  flex-direction: column;
+  text-align: center;
+  padding: 20px 20px 20px 20px;
+  margin: 0 auto 0 auto;
+}
+
+.containerBuild {
+  margin-top: 200px;
+  transform: rotate(45deg);
+}
+
+.build {
+  transform: scale(1, 0.5);
+}
+
+.square {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+/* ОБЩЕЕ */
+.leftBottomWall,
+.rightBottomWall,
+.leftTopWall,
+.rightTopWall,
+.roof {
+  position: absolute;
+  z-index: 2;
+}
+
+.roof {
+  z-index: 4;
+}
+
+.roofBack {
+  position: absolute;
+  z-index: 1;
+}
+
+.roofBar {
+  position: absolute;
+  z-index: 3;
+}
+
+/* СТЕНЫ */
+.leftBottomWall {
+  transform: skewX(45deg) translateY(-100px);
+}
+
+.rightBottomWall {
+  transform: skewX(45deg) skewY(-45deg) translateY(-50px) translateX(100px);
+}
+
+.leftTopWall {
+  z-index: 1;
+  transform: skewX(45deg) skewY(-45deg) translateY(-150px);
+}
+
+.rightTopWall {
+  z-index: 1;
+  transform: skewX(45deg) translateY(-200px) translateX(100px);
+}
