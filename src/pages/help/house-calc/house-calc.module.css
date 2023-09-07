@@ -23,6 +23,33 @@
   height: 100px;
 }
 
+.roofItem {
+  display: flex;
+  width: 95%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 5px;
+
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to bottom, wheat, #000000);
+}
+
+.itemModalContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 5px;
+
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to bottom, wheat, #000000);
+}
+
 /* ОБЩЕЕ */
 .leftBottomWall,
 .rightBottomWall,
@@ -45,6 +72,58 @@
 .roofBar {
   position: absolute;
   z-index: 3;
+}
+
+.priceContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 5px;
+
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to bottom, wheat, #000000);
+}
+
+.priceContainer input {
+  width: 200px;
+  height: 30px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.sizeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  padding: 5px 15px 5px 5px;
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to bottom, wheat, #000000);
+}
+
+.finalContainer {
+  padding: 5px;
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to bottom, wheat, #000000);
+}
+
+.resultButton {
+  background-color: #000000;
+  margin-top: 20px;
+  padding: 5px 10px 5px 10px;
+  border: 2px solid;
+  border-image-slice: 1;
+  color: wheat;
+  border-image-source:  linear-gradient(to left, wheat, #000000, wheat);
+}
+
+.resultButton:hover {
+  background-color: green;
+  transform: scale(1.1);
 }
 
 /* СТЕНЫ */

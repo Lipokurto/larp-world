@@ -8,8 +8,6 @@ import roof3Back from '../../../assets/simple/roof3Back.png';
 import stolb from '../../../assets/simple/stolb.png';
 
 import bar from '../../../assets/simple/bar.png';
-import bar2 from '../../../assets/simple/bar2.png';
-import bar3 from '../../../assets/simple/bar3.png';
 import bar2Half from '../../../assets/simple/bar2Half.png';
 import bar3Half from '../../../assets/simple/bar3Half.png';
 
