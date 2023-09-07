@@ -21,6 +21,10 @@ export const help: ListItem[] = [
     label: 'Расчет чудовищ',
     link: '/monster-calc',
   },
+  {
+    label: 'Расчет здания',
+    link: '/house-calc',
+  },
   // {
   //   label: 'Расчет финальной битвы',
   //   link: '/final-calc',

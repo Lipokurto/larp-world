@@ -1,0 +1,146 @@
+.container {
+  display: flex;
+  align-items: center;
+  color: white;
+  flex-direction: column;
+  text-align: center;
+  padding: 20px 20px 20px 20px;
+  margin: 0 auto 0 auto;
+}
+
+.containerBuild {
+  margin-top: 200px;
+  transform: rotate(45deg);
+}
+
+.build {
+  transform: scale(1, 0.5);
+}
+
+.square {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.roofItem {
+  display: flex;
+  width: 95%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 5px;
+
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to bottom, wheat, #000000);
+}
+
+.itemModalContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 5px;
+
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to bottom, wheat, #000000);
+}
+
+/* ОБЩЕЕ */
+.leftBottomWall,
+.rightBottomWall,
+.leftTopWall,
+.rightTopWall,
+.roof {
+  position: absolute;
+  z-index: 2;
+}
+
+.roof {
+  z-index: 4;
+}
+
+.roofBack {
+  position: absolute;
+  z-index: 1;
+}
+
+.roofBar {
+  position: absolute;
+  z-index: 3;
+}
+
+.priceContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 5px;
+
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to bottom, wheat, #000000);
+}
+
+.priceContainer input {
+  width: 200px;
+  height: 30px;
+  font-size: 20px;
+  text-align: center;
+}
+
+.sizeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  padding: 5px 15px 5px 5px;
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to bottom, wheat, #000000);
+}
+
+.finalContainer {
+  padding: 5px;
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to bottom, wheat, #000000);
+}
+
+.resultButton {
+  background-color: #000000;
+  margin-top: 20px;
+  padding: 5px 10px 5px 10px;
+  border: 2px solid;
+  border-image-slice: 1;
+  color: wheat;
+  border-image-source:  linear-gradient(to left, wheat, #000000, wheat);
+}
+
+.resultButton:hover {
+  background-color: green;
+  transform: scale(1.1);
+}
+
+/* СТЕНЫ */
+.leftBottomWall {
+  transform: skewX(45deg) translateY(-100px);
+}
+
+.rightBottomWall {
+  transform: skewX(45deg) skewY(-45deg) translateY(-50px) translateX(100px);
+}
+
+.leftTopWall {
+  z-index: 1;
+  transform: skewX(45deg) skewY(-45deg) translateY(-150px);
+}
+
+.rightTopWall {
+  z-index: 1;
+  transform: skewX(45deg) translateY(-200px) translateX(100px);
+}
