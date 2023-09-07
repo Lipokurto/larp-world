@@ -104,7 +104,7 @@ export function HitsCalc(): JSX.Element {
       }
 
       const totalHits = currentArmor.reduce((acc, p) => acc + p.hits, 0);
-      setHits(totalHits);
+      setHits(totalHits + 1);
     }
 
     setBack(option);
