@@ -18,6 +18,7 @@ export type ArmorItem = {
     armorClass: number,
   },
   label: string,
+  icon: string,
 };
 
 export type HelmetItem = {
@@ -26,6 +27,7 @@ export type HelmetItem = {
     hasArmor: boolean,
   },
   label: string,
+  icon: string,
 };
 
 export type ArmorHit = {
