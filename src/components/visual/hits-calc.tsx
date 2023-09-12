@@ -19,20 +19,28 @@ import armorTorso from '../../assets/armor-zone/torso.jpg';
 import armorHip from '../../assets/armor-zone/hip.jpg';
 import armorLeg from '../../assets/armor-zone/leg.jpg';
 
+import noneArmor from '../../assets/armor-material/none.jpg';
+import leatherArmor from '../../assets/armor-material/leather.jpg';
+import chainArmor from '../../assets/armor-material/chainmail.jpg';
+import brigaArmor from '../../assets/armor-material/briga.jpg';
+import lamelarArmor from '../../assets/armor-material/lamelar.jpg';
+import steelArmor from '../../assets/armor-material/steel.jpg';
+import helmetArmor from '../../assets/armor-material/helmet.png';
+
 import s from './hit-calc.module.css';
 
 const armor: ArmorItem[] = [
-  {value: { type: 'no_armor', armorClass: 0 }, label: 'Нет брони' },
-  {value: { type: 'leather', armorClass: 0.5 }, label: 'Кожанка' },
-  {value: { type: 'chain', armorClass: 0.75 }, label: 'Кольчуга' },
-  {value: { type: 'brigant', armorClass: 1 }, label: 'Бригантина' },
-  {value: { type: 'lamelar', armorClass: 1 }, label: 'Ламяляр' },
-  {value: { type: 'plate', armorClass: 1.25 }, label: 'Латы' },
+  {value: { type: 'no_armor', armorClass: 0 }, label: 'Нет брони', icon: noneArmor },
+  {value: { type: 'leather', armorClass: 0.5 }, label: 'Кожанка', icon: leatherArmor  },
+  {value: { type: 'chain', armorClass: 0.75 }, label: 'Кольчуга', icon: chainArmor  },
+  {value: { type: 'brigant', armorClass: 1 }, label: 'Бригантина', icon: brigaArmor  },
+  {value: { type: 'lamelar', armorClass: 1 }, label: 'Ламяляр', icon: lamelarArmor  },
+  {value: { type: 'plate', armorClass: 1.25 }, label: 'Латы', icon: steelArmor  },
 ]
 
 const helmet: HelmetItem[] = [
-  {value: { type: 'hard', hasArmor: true }, label: 'Есть шлем' },
-  {value: { type: 'no_helmet', hasArmor: false }, label: 'Нет шлема' },
+  {value: { type: 'hard', hasArmor: true }, label: 'Есть шлем', icon: helmetArmor   },
+  {value: { type: 'no_helmet', hasArmor: false }, label: 'Нет шлема', icon: noneArmor   },
 ]
 
 const defaultArmor: ArmorHit[] = [
@@ -152,6 +160,7 @@ export function HitsCalc(): JSX.Element {
 
               <SelectItem
                 placeholder='Нет шлема'
+                name='helmet'
                 options={helmet}
                 onChange={(option: HelmetItem) => handleHelmetArmor(option)}
               />
@@ -217,6 +226,7 @@ export function HitsCalc(): JSX.Element {
                 <div>Спина</div>
                 <SelectItem 
                   value={back}
+                  name='back'
                   options={backOptions}
                   onChange={(option: BackItem) => handleBack(option)}
                 />
