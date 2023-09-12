@@ -223,7 +223,15 @@ export function HitsCalc(): JSX.Element {
               </div>
               
               <div className={s.item}>
-                <div>Спина</div>
+                {renderLabel(
+                  'Спина',
+                  <CardTooltip
+                    src={armorTorso}
+                    cardName="Спина"
+                    width={300}
+                  />
+                )}
+
                 <SelectItem 
                   value={back}
                   name='back'
