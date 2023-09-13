@@ -206,7 +206,14 @@ export function HouseCalc(): JSX.Element {
     return (
       <div className={s.priceContainer}>
         <div>Стоимость куба леса</div>
-        <input type='number' onChange={(e) => handleCubePriceChange(e)} step={5}/>
+        
+        <input 
+          type='number'
+          style={{ backgroundColor: 'white' }}
+          onChange={(e) => handleCubePriceChange(e)}
+          step={5}
+        />
+        
       </div>
     )
   }, [handleCubePriceChange]);
