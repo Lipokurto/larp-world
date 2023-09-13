@@ -136,7 +136,10 @@ export function HouseCalc(): JSX.Element {
 
     const reNullCubePrice = cubePrice === null ? 0 : cubePrice;
 
-    const wallsFinalPrice = (wallsCount*(reNullCubePrice/stats.cubeWoodCount));
+    const wallsFinalPrice = (
+      wallsCount*
+      (reNullCubePrice/stats.cubeWoodCount)*
+      stats.countWood.wall);
 
     const roofFinalPrice = (
       (
