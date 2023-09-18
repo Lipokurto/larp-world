@@ -26,4 +26,9 @@ export const helpfulLinks: Link[] = [
     link: 'https://www.festi.info/boxes.py/index.html',
     description: 'Поможет сгенерировать различные схемы для порезки на лазерных станках',
   },
+  {
+    name: 'Наше приложение в RuStore',
+    link: 'https://apps.rustore.ru/app/com.darkapk03',
+    description: 'Поможет иметь все необходимое под рукой в офлайн режиме',
+  },
 ];

@@ -90,12 +90,18 @@
 }
 
 .social {
+  display: flex;
+  flex-direction: column;
   position: absolute;
   margin: 10px;
   right: 0%;
+}
+
+.social a {
+  margin: 10px;
   opacity: 0.5;
 }
 
-.social:hover {
+.social a:hover {
   opacity: 1;
 }
