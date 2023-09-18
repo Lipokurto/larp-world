@@ -2,6 +2,7 @@
 import React from "react";
 
 import { NavLink } from "react-router-dom";
+import Tooltip from "react-tooltip-lite";
 
 import { SubMenu } from "./sub-menu";
 import { Logo } from "../../components/logo";
@@ -10,6 +11,7 @@ import { NavigationModal, useResize } from "../../components";
 import { rules } from "../../components/navigation/lists";
 import { videoObject } from "../../links/main-video/video-objects";
 import vkImage from './../../assets/icons/social/vk.png';
+import ruStore from './../../assets/icons/social/ruStore.png';
 
 import s from './main.module.css';
 
@@ -28,9 +30,27 @@ export function Main(): JSX.Element {
 
   const renderLinks = React.useMemo(() => {
     return (
-    <a href='https://vk.com/larpdarkage' target='_blank' rel="noreferrer" style={{color: 'goldenrod'}}>
-      <img src={vkImage} alt="" width={30} />
-    </a>
+      <>
+        <Tooltip
+          content='Группа в Вконтакте'
+          background='wheat'
+          direction="left"
+        >
+          <a href='https://vk.com/larpdarkage' target='_blank' rel="noreferrer" style={{color: 'goldenrod'}}>
+            <img src={vkImage} alt="" width={30} />
+          </a>
+        </Tooltip>
+
+        <Tooltip
+          content='наше приложение в RuStore'
+          background='wheat'
+          direction="left"
+        >
+          <a href='https://apps.rustore.ru/app/com.darkapk03' target='_blank' rel="noreferrer" style={{color: 'goldenrod'}}>
+            <img src={ruStore} alt="" width={30} />
+          </a>
+        </Tooltip>
+      </>
     )
   }, []);
 
