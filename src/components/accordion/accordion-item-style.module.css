@@ -13,6 +13,7 @@
   border-top: 2px solid;
   border-image-slice: 1;
   border-image-source: repeating-linear-gradient(to right, #000000, wheat, #000000);
+  cursor: pointer;
 }
 
 .label_open {
