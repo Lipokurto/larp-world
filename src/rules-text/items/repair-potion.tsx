@@ -8,6 +8,7 @@ import s from './items.module.css';
 export const repairPotion: Item = {
   label: 'Оружейное масло',
   icon: icon,
+  weight: 0,
   element:
     <>
       <div className={s.icon}><img src={card} alt='' /></div>

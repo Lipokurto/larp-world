@@ -26,6 +26,7 @@ export { salary } from './salary';
 export { changeForm } from './change-form';
 export { healObsessed } from './heal-obsessed';
 export { createObsessed } from './create-obsessed';
+export { darkDeal } from './dark-deal';
 
 export { assWin01 } from './assault-actions/ass-win-01';
 export { assWin02 } from './assault-actions/ass-win-02';

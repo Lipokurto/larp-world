@@ -8,6 +8,7 @@ import s from './items.module.css';
 export const repairPack: Item = {
   label: 'Ремкомплект',
   icon: icon,
+  weight: 1,
   element:
     <>
       <div className={s.icon}><img src={card} alt='' /></div>
