@@ -21,6 +21,23 @@
   margin-top: 10px;
 }
 
+.resContainer {
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 5px;
+}
+
+.resItem {
+  margin: 5px;
+}
+
+.resItem :hover {
+  background-color: wheat;
+}
+
 @media only screen and (max-width: 1600px) {
   .container {
     width: 75%;

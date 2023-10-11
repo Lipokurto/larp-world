@@ -1,0 +1,15 @@
+.container {
+  width: 150px;
+  height: 150px;
+  background-color: black;
+  cursor: pointer;
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to top, wheat, #000000, wheat);
+  font-family: 'Oswald';
+}
+
+.label {
+  font-size: 22px;
+  font-weight: 600;
+}

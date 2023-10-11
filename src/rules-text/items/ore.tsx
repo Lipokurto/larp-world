@@ -8,6 +8,7 @@ import s from './items.module.css';
 export const ore: Item = {
   label: 'Железная руда',
   icon: icon,
+  weight: 1,
   element:
     <>
       <div className={s.icon}><img src={card} alt='' /></div>

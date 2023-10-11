@@ -11,6 +11,7 @@ import {
   addAltar, heal, repair,
   ropery, supply, salary,
   changeForm, healObsessed, createObsessed,
+  darkDeal,
 } from "../../../rules-text/actions";
 
 import s from './actions.module.css';
@@ -33,7 +34,7 @@ export function Actions(): JSX.Element {
 
         <AccordionBlock 
           label='Мистические действия' 
-          items={[pray, execution, tithe, exile, addAltar, eat, changeForm, ham, idol, removeAltar, healObsessed, createObsessed]} 
+          items={[darkDeal, pray, execution, tithe, exile, addAltar, eat, changeForm, ham, idol, removeAltar, healObsessed, createObsessed]} 
           />
       </div>
     </>

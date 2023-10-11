@@ -6,10 +6,6 @@ export const rules: ListItem[] = [
     link: '/general',
   },
   {
-    label: 'Допуски снаряжения',
-    link: '/tolerance',
-  },
-  {
     label: 'Боевые взаимодействия',
     link: '/battle',
   },
@@ -26,7 +22,7 @@ export const rules: ListItem[] = [
     link: '/location',
   },
   {
-    label: 'Игровые ресурсы',
+    label: 'Игровые ресурсы и карты',
     link: '/resources',
   },
   {
