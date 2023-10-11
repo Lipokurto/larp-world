@@ -16,6 +16,22 @@
   padding: 0 20px 20px 20px;
 }
 
+.zones {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.zonesText {
+  text-align: start;
+}
+
+.label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+
 @media only screen and (max-width: 1600px) {
   .container {
     width: 75%;
@@ -26,6 +42,10 @@
   .container {
     width: 95%;
     padding: 0 0 0 0;
+  }
+
+  .zones {
+    flex-direction: column;
   }
 }
 

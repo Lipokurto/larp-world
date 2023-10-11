@@ -3,11 +3,14 @@ import { AccordionBlock, Chapter } from "../../../components";
 import { 
   tithe, assault, search,
   prison, ransom, pray,
-  fire, globalPray, eat,
+  execution, eat,
   ham, loot, theft,
-  confession, rest, ground,
-  craft, autograph, performance,
-  exile, idol, removeAltar, addAltar,
+  rest, workPlan,
+  craft, quality, performance,
+  exile, idol, removeAltar,
+  addAltar, heal, repair,
+  ropery, supply, salary,
+  changeForm, healObsessed, createObsessed,
 } from "../../../rules-text/actions";
 
 import s from './actions.module.css';
@@ -20,43 +23,17 @@ export function Actions(): JSX.Element {
 
         <AccordionBlock 
           label='Общие действия' 
-          items={[prison, ransom, loot, theft, rest, ground, craft, autograph, performance]} 
+          items={[heal, repair, loot, theft, prison, ransom, ropery, rest, performance, workPlan, craft, quality ]} 
           />
 
         <AccordionBlock 
-          label='Боевые действия' 
-          items={[assault, search]} 
+          label='Действия отрядов' 
+          items={[assault, search, supply, salary]} 
           />
 
         <AccordionBlock 
-          label='Религиозные действия' 
-          items={[pray, fire, tithe, globalPray, confession, exile, addAltar]} 
-          />
-
-        <AccordionBlock 
-          label='Чудовищные действия' 
-          items={[eat, ham, idol, removeAltar]} 
-          />
-
-        <AccordionBlock
-            label="Контракты"
-            items={[
-              {
-                label: 'Прямые указания короны',
-                element:
-                  <>
-                    <div>Каждому отряду наемников будет выслано королевское задание, которое нужно выполнить</div>
-                    <div>В случае отказа или провала отряд ждут штрафы игрового порядка</div>
-                  </>
-              },
-              {
-                label: 'Финальная битва',
-                element:
-                  <>
-                    <div>Все карты будут раскрыты на финальном противостоянии</div>
-                  </>
-              },
-            ]}
+          label='Мистические действия' 
+          items={[pray, execution, tithe, exile, addAltar, eat, changeForm, ham, idol, removeAltar, healObsessed, createObsessed]} 
           />
       </div>
     </>

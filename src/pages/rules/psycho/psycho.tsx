@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Chapter, ItemModal, LinkButton } from '../../../components';
-import { autograph, confession, rest } from '../../../rules-text/actions';
+import { confession, rest } from '../../../rules-text/actions';
 import { Item } from '../../../rules-text/type';
 
 import s from './psycho.module.css';
@@ -42,9 +42,9 @@ export function Psycho(): JSX.Element {
 
         <div className={s.label}>Способы избавится от психоза</div>
         <div className={s.listContainer}>
-          <div>Известный бард может подарить вам свой <LinkButton text='автограф' onclick={() => handleClick(autograph)} /></div>
-          <div>Персонаж может <LinkButton text='отдохнуть' onclick={() => handleClick(rest)} /> в специальной локации, предоставляющей подобные услуги</div>
-          <div>Персонаж может <LinkButton text='исповедаться' onclick={() => handleClick(confession)} /> у инквизитора</div>
+          <div>Известный бард может подарить вам свой <b>"Автограф"</b></div>
+          <div>Персонаж может <b>"Отдохнуть"</b> в увеселительном заведении</div>
+          <div>Персонаж может <b>"Исповедаться"</b> у инквизитора</div>
         </div>
 
         <div className={s.label}>Список всех возможных психозов</div>

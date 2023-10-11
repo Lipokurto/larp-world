@@ -20,6 +20,12 @@
   border-image-source:  linear-gradient(to left, #000000, wheat, #000000);
 }
 
+.label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+
 @media only screen and (max-width: 1600px) {
   .container {
     width: 75%;
