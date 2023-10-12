@@ -9,6 +9,7 @@ export { Chapter } from './chapter/chapter';
 export { ItemModal } from './item-modal/item-modal';
 export { NavigationModal } from './navigation-modal/navigation-modal';
 export { ItemContainer } from './item-container/item-container';
+export { RoleContainer } from './role-container/role-container';
 
 export { AccordionBlock } from './accordion/accordion-block';
 export { AccordionItemStyle } from './accordion/accordion-item-style';

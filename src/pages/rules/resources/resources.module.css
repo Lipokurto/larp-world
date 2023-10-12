@@ -34,7 +34,24 @@
   margin: 5px;
 }
 
+.resItemDeck {
+  margin: 5px;
+}
+
+.resDeck {
+  padding: 2px;
+  margin: 5px;
+  border-bottom: 2px solid;
+  border-right: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to bottom right, #000000, #000000, wheat );
+}
+
 .resItem :hover {
+  background-color: wheat;
+}
+
+.resItemDeck :hover {
   background-color: wheat;
 }
 

@@ -11,28 +11,27 @@ const images = [owner01, owner02, owner03];
 
 export const owner: Item = {
   label: 'Хозяин',
+  player: 'Игрок',
+  desc: 'Глава увеселительного заведения',
   element: 
     <>      
       <div>      
         <ImagesAdaptive images={images} />
       </div>
 
-      <div className={s.label}>Описание</div>
+      <div className={s.label}><i>Описание</i></div>
+      <div>Может выполнять действие  <b>"Отдых"</b>, <b>"Контроль качества"</b>.</div>
+
+      <div className={s.label}><i>Требования</i></div>
       <div className={s.listContainer}>
-        <li>Глава локации, предоставляющей услуги</li>
-        <li>Может использовать: "Отдых"</li>
+        <li>Хорошо знает разделы: основы, локации, ресурсы, психозы.</li>
+        <li>Понимает строение феодального общества.</li>
+        <li>Ответственный подход к отыгрышу и организации локации.</li>
       </div>
 
-      <div className={s.label}>Требования</div>
+      <div className={s.label}><i>Рекомендации</i></div>
       <div className={s.listContainer}>
-        <li>Хорошо знает разделы: основы, локации, ресурсы, психозы</li>
-        <li>Понимает строение феодального общества</li>
-        <li>Ответственный подход к отыгрышу и организации локации</li>
-      </div>
-
-      <div className={s.label}>Рекомендации</div>
-      <div className={s.listContainer}>
-        <li>Умение понимать желания игроков и требования хронистов</li>
+        <li>Умение понимать желания игроков и требования хронистов.</li>
       </div>
     </>
 }

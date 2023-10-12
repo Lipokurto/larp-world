@@ -11,28 +11,27 @@ const images = [artist01, artist02, artist03];
 
 export const artist: Item = {
   label: 'Артист',
+  player: 'Игрок',
+  desc: 'Артист, который готов дарить свое творчество',
   element: 
     <>      
       <div>      
         <ImagesAdaptive images={images} />
       </div>
 
-      <div className={s.label}>Описание</div>
+      <div className={s.label}><i>Описание</i></div>
+      <div>Может выполнять действия: <b>"Автограф"</b>, <b>"Выступление"</b>.</div>
+
+      <div className={s.label}><b>Требования</b></div>
       <div className={s.listContainer}>
-        <li>Артист, который готов дарить свое творчество окружающим</li>
-        <li>Может использовать: "Автограф", "Выступление"</li>
+        <li>Может впечатлить своим искусством.</li>
+        <li>Техника безопасности.</li>
+        <li>Обязательный фотодопуск персонажа, инструмента и творчества.</li>
       </div>
 
-      <div className={s.label}>Требования</div>
+      <div className={s.label}><b>Рекомендации</b></div>
       <div className={s.listContainer}>
-        <li>Может впечатлить своим искусством</li>
-        <li>Техника безопасности</li>
-        <li>Обязательный фотодопуск персонажа, инструмента и творчества</li>
-      </div>
-
-      <div className={s.label}>Рекомендации</div>
-      <div className={s.listContainer}>
-        <li>Желание выступать на публике</li>
+        <li>Желание выступать на публике.</li>
       </div>
     </>
 }

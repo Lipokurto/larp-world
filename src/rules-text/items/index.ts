@@ -14,3 +14,6 @@ export { prisoner } from './cards/prisoner';
 export { rest } from './cards/rest';
 export { thief } from './cards/thief';
 export { psyh } from './cards/psyh';
+export { artistDeck } from './cards/deck/artist-deck';
+export { dungeonDeck } from './cards/deck/dungeon-deck';
+export { managerDeck } from './cards/deck/manager-deck';

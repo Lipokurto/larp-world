@@ -3,4 +3,6 @@ export type Item = {
   element: JSX.Element,
   icon?: string,
   weight?: number,
+  desc?: string,
+  player?: string,
 }
