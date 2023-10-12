@@ -10,6 +10,14 @@ export const rules: ListItem[] = [
     link: '/battle',
   },
   {
+    label: 'Игровые действия',
+    link: '/actions',
+  },
+  {
+    label: 'Игровые ресурсы и карты',
+    link: '/resources',
+  },
+  {
     label: 'Роли',
     link: '/role',
   },
@@ -20,14 +28,6 @@ export const rules: ListItem[] = [
   {
     label: 'Локация',
     link: '/location',
-  },
-  {
-    label: 'Игровые ресурсы и карты',
-    link: '/resources',
-  },
-  {
-    label: 'Игровые действия',
-    link: '/actions',
   },
   {
     label: 'Психозы',

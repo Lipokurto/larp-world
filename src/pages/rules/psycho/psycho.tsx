@@ -1,7 +1,6 @@
 import React from "react";
 
-import { Chapter, ItemModal, LinkButton } from '../../../components';
-import { confession, rest } from '../../../rules-text/actions';
+import { Chapter, ItemModal } from '../../../components';
 import { Item } from '../../../rules-text/type';
 
 import s from './psycho.module.css';

@@ -1,14 +1,9 @@
-import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 import { 
-  ItemModal, LinkButton, Chapter,
+  Chapter,
   AccordionBlock, CharStatus,
 } from '../../../components';
-
-import { healPack, healPotion, repairPack,
-  repairPotion,
-} from '../../../rules-text/items';
 
 import {
   fullArmor, heavyArmor, lightArmor,
@@ -16,7 +11,6 @@ import {
 } from '../../../rules-text/examples/armor';
 
 import { hiArmor } from '../../../rules-text/examples/armor/hi-quality';
-import { Item } from '../../../rules-text/type';
 import batZones from '../../../assets/battle-zones.png';
 import heart from '../../../assets/icons/health/heart.png';
 import shield from '../../../assets/icons/health/shield.png';
@@ -24,14 +18,6 @@ import shield from '../../../assets/icons/health/shield.png';
 import s from './battle.module.css';
 
 export function Battle(): JSX.Element {
-  const [isOpen, setIsOpen] = React.useState<boolean>(false);
-  const [item, setItem] = React.useState<Item | null>(null);
-
-  const handleClick = React.useCallback((item: Item) => {
-    setItem(item);
-    setIsOpen(true);
-  }, []);
-
   return (
     <>
       <div className={s.container}>
@@ -305,96 +291,9 @@ export function Battle(): JSX.Element {
                   </div>
                 </>
             },
-            {
-              label: 'Лечение',
-              element:
-                <>
-                  <h3>Для лечения ранения в ГОСПИТАЛЕ</h3>
-
-                  <div className={s.listContainer}>
-                    <li>Игрок крепит на себя повязку "лечение"</li>
-                    <li>Раненый игрок должен пробыть 20 минут возле госпиталя</li>
-                    <li>Количество одновременно лечащихся ограничено количеством хирургических столов</li>
-                    <li>Игроку восстанавливаются все живые хиты</li>
-                    <li>Ресурсы при этом не расходуются</li>
-                  </div>
-
-                  <h3>Для лечения ранения <LinkButton text='МЕДКОМПЛЕКТОМ' onclick={() => handleClick(healPack)}/></h3>
-
-                  <div className={s.listContainer}>
-                    <li>На карте <LinkButton text='медкомплекте' onclick={() => handleClick(healPack)}/> отрывается левы нижний угол</li>
-                    <li>Игрок повязывает повязку "лечение"</li>
-                    <li>Игрок ожидает 15 минут</li>
-                    <li>Игроку восстанавливается все живые хиты</li>
-                  </div>
-
-                  <h3>Лечение легкого ранения при помощи <LinkButton text='ЦЕЛЕБНОЙ МАЗИ' onclick={() => handleClick(healPotion)}/></h3>
-                  
-                  <div className={s.listContainer}>
-                    <li>Раненный вскрывает пузырек мазью</li>
-                    <li>Рвется бумажка которая находится внутри</li>
-                    <li>Игроку восстанавливается все живые хиты</li>
-                  </div>
-                  <div><b>ПРИМЕЧАНИЕ:</b> Нельзя использовать во время активной фазы боя и при штурмах</div>
-
-                  <h3>Условия срыва лечения</h3>
-                  <div className={s.listContainer}>
-                    <li><b>Получение урона:</b> Игрок получил урон, во время лечения, игрок переходит в состояние "тяжело ранен"</li>
-                    <li><b>Загнивание раны:</b> Игрок значительно удалился от госпиталя при лечении в нем, игрок переходит в состояние "тяжело ранен"</li>
-                  </div>
-                  <div><b>ПРИМЕЧАНИЕ:</b> После срыва лечения ресурсы ив время затраченное на него не восстанавливаются</div>
-                </>
-            },
-            {
-              label: 'Ремонт',
-              element:
-                <>
-                  <div>Ремонт восстанавливает броневые хиты, не восстанавливает живые хиты</div>
-                  <div><b>ПРИМЕЧАНИЕ:</b> Ремонт доступен для персонажа только после полного восстановления живых хитов</div>
-                  <h3>Для ремонта брони в КУЗНИЦЕ</h3>
-
-                  <div className={s.listContainer}>
-                    <li>Игрок крепит на себя повязку "ремонт"</li>
-                    <li>Поломанный игрок должен пробыть 20 минут возле кузницы</li>
-                    <li>Количество одновременно ремонтируемых ограничено количеством верстаков</li>
-                    <li>Игрок восстанавливает все броневые хиты</li>
-                    <li>Ресурсы при этом не расходуются</li>
-                  </div>
-
-                  <h3>Для ремонта брони  <LinkButton text='РЕМКОМПЛЕКТОМ' onclick={() => handleClick(repairPack)}/></h3>
-
-                  <div className={s.listContainer}>
-                    <li>На карте <LinkButton text='ремкомплекта' onclick={() => handleClick(repairPack)}/> отрывается левы нижний угол</li>
-                    <li>Игрок повязывает повязку "ремонт"</li>
-                    <li>Игрок ожидает 15 минут</li>
-                    <li>Игроку восстанавливается все броневые хиты</li>
-                  </div>
-
-                  <h3>Ремонт поврежденной брони при помощи <LinkButton text='ОРУЖЕЙНОГО МАСЛА' onclick={() => handleClick(repairPotion)}/></h3>
-                  <div className={s.listContainer}>
-                    <li>Игрок вскрывает пузырек с маслом</li>
-                    <li>Рвется бумажка которая находится внутри</li>
-                    <li>Игрок восстанавливает все броневые хиты</li>
-                  </div>
-                  
-                  <h3>Условия срыва ремонта</h3>
-                  <div className={s.listContainer}>
-                    <li><b>Трещина растет:</b> Игрок получил урон во время лечения, игроку наносится урон в хиты до применения ремонта</li>
-                    <li><b>Швы без обработки:</b> Игрок значительно удалился от кузница, игрок прерывает ремонт и ему придется начинать его сначала</li>
-                  </div>
-                  <div><b>ПРИМЕЧАНИЕ:</b>  После срыва ремонта ресурсы ив время затраченное на него не восстанавливаются</div>
-                </> 
-            },
           ]}
         />
       </div>
-
-      {isOpen && (
-        <ItemModal
-          setIsOpen={setIsOpen}
-          item={item}
-        />
-      )}
     </>
   )
 }

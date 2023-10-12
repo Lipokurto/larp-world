@@ -1,6 +1,6 @@
 import React from "react";
 
-import { CardTooltip, Chapter, ItemContainer, ItemModal, LinkButton } from "../../../components";
+import { Chapter, ItemContainer, ItemModal, LinkButton } from "../../../components";
 import { bag, barrow, cart } from "../../../rules-text/examples/cargo";
 
 import { 
@@ -8,16 +8,10 @@ import {
   repairPotion, artifact, ore, 
   herbs, money, victim,
   scull, eaten, execution,
-  prisoner, rest, thief, psyh,
+  prisoner, rest, thief,
+  psyh, artistDeck, managerDeck,
+  dungeonDeck,
 } from "../../../rules-text/items";
-
-import eatCard from '../../../assets/cards/actionsCards/eatCard.png';
-import forgivenessCard from '../../../assets/cards/actionsCards/forgivenessCard.png';
-import prisonCard from '../../../assets/cards/actionsCards/prisonCard.png';
-import restCard from '../../../assets/cards/actionsCards/restCard.png';
-import sacrificeCard from '../../../assets/cards/actionsCards/sacrificeCard.png';
-import skullCard from '../../../assets/cards/actionsCards/skullCard.png';
-import thiefCard from '../../../assets/cards/actionsCards/thiefCard.png';
 
 import { Item } from "../../../rules-text/type";
 
@@ -25,6 +19,7 @@ import s from './resources.module.css';
 
 const resources = [ money, artifact, ore, herbs, healPack, repairPack, healPotion, repairPotion ];
 const cards = [ victim, scull, eaten, execution, prisoner, rest, thief, psyh ];
+const decks = [ artistDeck, managerDeck, dungeonDeck ];
 
 export function Resources(): JSX.Element {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
@@ -71,6 +66,28 @@ export function Resources(): JSX.Element {
     )
   }, [handleClick]);
 
+  const decksList = React.useMemo(() => {
+    return (
+      <div className={s.resContainer}>
+        {decks.map((p) => {
+          return (
+            <div className={s.resDeck}>
+              <div className={s.resDeck}>
+                <div className={s.resItemDeck} onClick={() => handleClick(p)}>
+                  <ItemContainer
+                    item={p.label}
+                    weight={p.weight}
+                    icon={p.icon}    
+                  />
+                </div>
+              </div>
+            </div>
+          )
+        })}
+      </div>
+    )
+  }, [handleClick]);
+
   return (
     <>
       <div className={s.container}>
@@ -108,6 +125,9 @@ export function Resources(): JSX.Element {
         <div>Не могут передаваться от одного игрока другому, только в некоторых случаях описанных ниже</div>
 
         {cardsList} 
+
+        <div className={s.label}>Колоды некоторых ролей</div>
+        {decksList}
       </div>
 
       {isOpen && (

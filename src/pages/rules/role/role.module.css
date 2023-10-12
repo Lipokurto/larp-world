@@ -19,3 +19,20 @@
   margin-bottom: 5px;
   margin-top: 10px;
 }
+
+.roleContainer {
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 5px;
+}
+
+.roleItem {
+  margin: 5px;
+}
+
+.roleItem :hover {
+  background-color: wheat;
+}

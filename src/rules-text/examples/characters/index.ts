@@ -1,7 +1,6 @@
 export { captain } from './captain';
-export { knight } from './knight';
 export { owner } from './owner';
-export { manager } from './manager';
+export { foreman } from './foreman';
 export { quartermaster } from './quartermaster';
 export { fighter } from './fighter';
 export { inquisitor } from './inquisitor';
@@ -10,3 +9,8 @@ export { civil } from './civil';
 export { craftsman } from './craftsman';
 export { artist } from './artist';
 export { monk } from './monk';
+export { burgomaster } from './burgomaster';
+export { apostol } from './apostol';
+export { obsessed } from './obsessed';
+export { dungeonMaster } from './dungeon-master';
+export { wild } from './wild';
