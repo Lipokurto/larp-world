@@ -5,4 +5,5 @@ export type Item = {
   weight?: number,
   desc?: string,
   player?: string,
+  psyLevel?: number,
 }

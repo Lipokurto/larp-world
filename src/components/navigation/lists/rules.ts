@@ -22,7 +22,7 @@ export const rules: ListItem[] = [
     link: '/role',
   },
   {
-    label: 'Монстры',
+    label: 'Апостолы и одержимые',
     link: '/monsters',
   },
   {

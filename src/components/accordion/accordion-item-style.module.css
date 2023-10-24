@@ -6,6 +6,10 @@
   border-image-source:  linear-gradient(to top, #000000, wheat, #000000);
 }
 
+.itemHide {
+  display: none;
+}
+
 /* INSIDE ITEM */
 .label, .label_open {
   display: flex;

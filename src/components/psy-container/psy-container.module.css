@@ -1,0 +1,43 @@
+.container {
+  width: 150px;
+  height: 250px;
+  background-color: black;
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to top, wheat, #000000, wheat);
+  font-family: 'Oswald';
+  padding: 5px;
+  margin: 5px;
+}
+
+.label {
+  position: absolute;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 60px;
+  color: wheat;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  text-shadow: 1px 0 1px rgb(0, 0, 0), -1px 0 1px rgb(0, 0, 0);
+}
+
+.subContainer {
+  padding-bottom: 5px;
+  border-bottom: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to left, #000000, wheat, #000000);
+  height: 125px;
+}
+
+.subContainer img {
+  position: absolute;
+  margin-left: -75px;
+  opacity: 0.35;
+}
+
+.desc {
+  margin: 5px;
+  font-size: 15px;
+  text-align: center;
+}

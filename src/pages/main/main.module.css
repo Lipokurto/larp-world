@@ -43,7 +43,7 @@
 @media only screen and (max-width: 800px) {
   .logo {
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     height: 500px;
     margin-top: 20px;
   }
