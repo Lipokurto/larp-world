@@ -1,9 +1,41 @@
 import React from "react";
 
-import { Chapter, ItemModal } from '../../../components';
+import { AccordionBlock, Chapter, ItemModal, PsyContainer } from '../../../components';
 import { Item } from '../../../rules-text/type';
 
+import {
+  aggression,
+  apathy, bloodthirsty, cowardice, critic, delusion,
+  disgust, dreamer, egocentrism, fanatic,
+  fatalism,
+  gambler, hemophobia, joker, linguist,
+  mark01, mark02, mark03,
+  mystic, naive, neat,
+  nobility, obtrusive, paranoia,
+  shy,
+  weakness,
+  xenophobe, } from "../../../rules-text/psy";
+
 import s from './psycho.module.css';
+
+const level01 = [
+  mark01, shy, paranoia,
+  obtrusive, critic, joker,
+  naive, linguist, apathy,
+  delusion,
+];
+
+const level02 = [
+  mark02, mystic, fanatic,
+  neat, dreamer, gambler,
+  nobility, disgust,
+];
+
+const level03 = [
+  mark03, weakness, cowardice,
+  aggression, egocentrism, hemophobia,
+  fatalism, xenophobe, bloodthirsty
+]
 
 export function Psycho(): JSX.Element {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
@@ -12,6 +44,54 @@ export function Psycho(): JSX.Element {
   const handleClick = React.useCallback((item: Item) => {
     setItem(item);
     setIsOpen(true);
+  }, []);
+
+  const level01List = React.useMemo(() => {
+    return (
+      <div className={s.psyContainer}>
+        {level01.map((p) => {
+          return (
+            <PsyContainer
+              label={p.label}
+              psyLevel={p.psyLevel}
+              desc={p.element}
+            />
+          )
+        })}
+      </div>
+    )
+  }, []);
+
+  const level02List = React.useMemo(() => {
+    return (
+      <div className={s.psyContainer}>
+        {level02.map((p) => {
+          return (
+            <PsyContainer
+              label={p.label}
+              psyLevel={p.psyLevel}
+              desc={p.element}
+            />
+          )
+        })}
+      </div>
+    )
+  }, []);
+
+  const level03List = React.useMemo(() => {
+    return (
+      <div className={s.psyContainer}>
+        {level03.map((p) => {
+          return (
+            <PsyContainer
+              label={p.label}
+              psyLevel={p.psyLevel}
+              desc={p.element}
+            />
+          )
+        })}
+      </div>
+    )
   }, []);
 
   return (
@@ -46,45 +126,24 @@ export function Psycho(): JSX.Element {
           <div>Персонаж может <b>"Исповедаться"</b> у инквизитора</div>
         </div>
 
-        <div className={s.label}>Список всех возможных психозов</div>
-        <div>УРОВЕНЬ 1</div>
-        <div className={s.listContainer}>
-          <div><b>Метка жертвы</b> Немедленно замените эту карту на карту "Жертва" - у вас нет психоза, но есть метка жертвы</div>
-          <div><b>Застенчивость</b> Вы не можете выступать на публике</div>
-          <div><b>Паранойя</b> Вам кажется что за вами кто-то постоянно следит</div>
-          <div><b>Навязчивость</b> Вы не желаете оставаться в одиночестве</div>
-          <div><b>Критик</b> Не может молчать о том что все вокруг деликатны</div>
-          <div><b>Шутник</b> Вы считаете себя самым лучшим юмористом на свете, хоть это очевидно не так</div>
-          <div><b>Наивный</b> Вы считаете что все люди вокруг говорят исключительно правду</div>
-          <div><b>Лингвист</b> Вы не терпите дефектов речи или ошибок в составлении слов</div>
-          <div><b>Апатия</b> Тяжелые мысли тяготят вас - вы не можете заниматься производством</div>
-          <div><b>Наваждение</b> Вы слышите таинственные голоса, которые никто кроме вас не различает</div>
-        </div>
+        <AccordionBlock
+          label="Список всех психозов"
+          items={[
+            {
+              label: 'УРОВЕНЬ 1',
+              element: level01List,
+            },
+            {
+              label: 'УРОВЕНЬ 2',
+              element: level02List,
+            },
+            {
+              label: 'УРОВЕНЬ 3',
+              element: level03List,
+            },
+          ]}
+        />
 
-        <div>УРОВЕНЬ 2</div>
-        <div className={s.listContainer}>
-          <div><b>Метка жертвы</b> Немедленно замените эту карту на карту "Жертва" - у вас нет психоза, но есть метка жертвы</div>
-          <div><b>Творческий</b> Считает что создан творить поэзию, поэтому пытается общаться рифмами</div>
-          <div><b>Мистик</b> Вас тянет все мистическое и загадочное, и нет ничего таинственней чем сказки о чудовищах</div>
-          <div><b>Фанатизм</b> При любой возможности персонаж пытается фанатично помочь церкви, действиями или деньгами</div>
-          <div><b>Чистюля</b> Вы не можете выносить факта, что ваши бронехиты не на максимуме</div>
-          <div><b>Фантазер</b> Вы не стесняетесь приукрасить какие-либо события в свою пользу</div>
-          <div><b>Лудоман</b> При любой возможности вы будите играть в азартные игры на деньги, а если возможности нет - будите искать способ ее создать</div>
-          <div><b>Благородство</b> Вы защищаете слабых, не терпите воровства, лжи и распутства</div>
-          <div><b>Боязнь темноты</b> Вы категорически отказываетесь передвигаться в сумерки или ночью в одиночестве</div>
-        </div>
-
-        <div>УРОВЕНЬ 3</div>
-        <div className={s.listContainer}>
-          <div><b>Метка жертвы</b> Немедленно замените эту карту на карту "Жертва" - у вас нет психоза, но есть метка жертвы</div>
-          <div><b>Слабость</b> Ваша грузоподъемность упала до 1</div>
-          <div><b>Трусость</b> Отступает при виде опасного противника или чудовища</div>
-          <div><b>Агрессия</b> Видя противника с меньшим боевым потенциалом персонаж начинает уверено провоцировать его на бой</div>
-          <div><b>Эгоцентризм</b> Ваш персонаж никогда не будет сражаться в первой шеренге, пока таковая имеется</div>
-          <div><b>Гемофобия</b> Если кто-то в прямой видимости персонажа переходит в состояние "тяжело ранен", то он пытается всеми силами не воспринимать этот факт</div>
-          <div><b>Фатализм</b> При выборе из двух возможных - выбирает всегда самый дерзкий</div>
-          <div><b>Ксенофоб</b> В мире есть только одна правильная расса - ваша, другие - менее верны</div>
-        </div>
       </div>
 
       {isOpen && (

@@ -55,7 +55,7 @@ export function AccordionItemStyle(item: Item): JSX.Element {
       onExpand={() => handleExpand()}
       onClose={() => handleClose()}
     >
-      <div className={isOpen ? s.item : undefined}>
+      <div className={isOpen ? s.item : s.itemHide}>
         {item.element}
       </div>
     </AccordionItem>

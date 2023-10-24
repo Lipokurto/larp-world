@@ -19,3 +19,11 @@
   margin-bottom: 5px;
   margin-top: 10px;
 }
+
+.psyContainer {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
