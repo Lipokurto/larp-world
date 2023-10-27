@@ -4,7 +4,6 @@ import { AccordionBlock, ImagesAdaptive, ItemModal, LinkButton } from "../../../
 import { BuildTable } from "./build-table";
 import { captain, quartermaster } from "../../../rules-text/examples/characters";
 import { Item } from "../../../rules-text/type";
-import { hospital, smith } from "../../../rules-text/location/buildings";
 
 import build_01 from '../../../assets/buildings/build_01.jpg';
 import build_02 from '../../../assets/buildings/build_02.jpg';
