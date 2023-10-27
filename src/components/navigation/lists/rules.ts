@@ -26,7 +26,7 @@ export const rules: ListItem[] = [
     link: '/monsters',
   },
   {
-    label: 'Локация',
+    label: 'Лагерь и постройки',
     link: '/location',
   },
   {
