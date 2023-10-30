@@ -4,6 +4,6 @@ export { General } from './general/general';
 export { Monsters } from './monsters/monsters';
 export { Resources } from './resources/resources';
 export { Camp } from './camp/camp';
-export { Activity } from './activity/activity';
+export { FinalBattle } from './activity/final-battle';
 export { Psycho } from './psycho/psycho';
 export { Role } from './role/role';

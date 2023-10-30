@@ -1,0 +1,100 @@
+import React from "react";
+
+import { AccordionBlock, Chapter } from "../../../components";
+
+import {
+  battle, behelith, cannibal,
+  darkness, disposition, duel,
+  eclipse, falseEclipse, heavens,
+  lastStand, preparing, rebel,
+  tactical, vatican, voiceDarkness,
+} from "../../../rules-text/final-battle";
+
+import s from './final-battle.module.css';
+
+const phases = [
+  preparing, tactical, disposition,
+  battle, darkness, eclipse,
+];
+
+const addons = [
+  duel, heavens, lastStand,
+  falseEclipse, vatican, voiceDarkness,
+  rebel, cannibal, behelith,
+];
+
+export function FinalBattle(): JSX.Element {
+  const phasesList = React.useMemo(() => {
+    return (
+      <div>
+        {phases.map((p, i) => {
+          return (
+            <div className={s.phaseItemContainer}>
+              <div className={s.phaseLabel}>
+                <div>ФАЗА {i+1}</div>
+                <div><b>{p.label.toUpperCase()}</b></div>
+                <div><i>{p.marker}</i></div>
+              </div>
+              <div>{p.element}</div>
+            </div>
+          )
+        })}
+      </div>
+    )
+  }, []);
+
+  const addonsList = React.useMemo(() => {
+    return (
+      <div className={s.addonsList}>
+        {addons.map(p => {
+          return (
+            <div className={s.addonItemContainer}>
+              <div className={s.addonLabel}>{p.label}</div>
+              <div className={s.addonDesc}>{p.element}</div>
+            </div>
+            )
+        })}
+      </div>
+    )
+  }, []);
+
+  return (
+    <>
+      <div className={s.container}>
+        <Chapter chapter='Финальная битва' />
+        <div>Все мероприятие посвящено предстоящей битве между силами империи Тюдор и королевства Мидленд, параллельно подготовке к бою происходят сюжетные события, которые так же будут учитываться в одной из фаз боя.</div>
+        
+        <ol className={s.listContainer}>
+          <li>Интенданты контролируют ленты воскрешения и их использование и находятся возле своего знамени.</li>
+          <li>Вокруг знамени радиусом 10м существует зона неуязвимости, необходимая для краткой передышки и формирования будущих боевых групп.</li>
+          <li>После выхода бойца из зоны неуязвимости возврат в нее приравнивается к получению статуса <b>"Мертв"</b>.</li>
+          <li>Атаковать знамя, интенданта и всячески мешать его работе строжайше запрещено.</li>
+          <li>Интендант не является частью боевой сцены, соответственно его не нужно убивать, вызывать на дуэль для удержания победы одной из сторон.</li>
+          <li>В течении битвы не работают никакие способы лечения (за исключением дополнения <b>"Каннибализм"</b>).</li>
+          <li>В течении битвы статус <b>"Тяжело ранен"</b> приравнен к статусу <b>"Мертв"</b>.</li>
+          <li>Использовать стрелковое оружие из зоны неуязвимости строжайше запрещено.</li>
+          <li>Гибель в финальной битве не влияет на основного вашего персонажа, если это не <b>"Дуэль"</b>.</li>
+          <li>Все погибшие игроки, не получившие ленты воскрешения остаются возле знамени и дожидаются окончания боестолкновения.</li>
+          <li>Если все участники отряда мертвы и лент воскрешения не осталось – то знамя опускается.</li>
+          <li>В течении финальной битвы игроки не обязаны отыгрывать психозы.</li>
+        </ol>
+        <AccordionBlock
+              items={[
+                {
+                  label: 'Фазы битвы',
+                  element:
+                    <>
+                      <div>В центре боевой зоны будет находится мастер, который будет давать дымовые и звуковые сигналы смены фаз.</div>
+                      {phasesList}
+                    </>
+                },
+                {
+                  label: 'Список дополнений',
+                  element: addonsList,   
+                },
+              ]}
+            />
+      </div>
+    </>
+  )
+}

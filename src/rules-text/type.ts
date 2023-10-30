@@ -6,4 +6,5 @@ export type Item = {
   desc?: string,
   player?: string,
   psyLevel?: number,
+  marker?: string,
 }

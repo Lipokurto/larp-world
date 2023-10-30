@@ -9,10 +9,10 @@ export const help: ListItem[] = [
   //   label: 'Расчет грузоподъемности',
   //   link: '/cargo-calc',
   // },
-  {
-    label: 'Расчет скорости производства',
-    link: '/build-calc',
-  },
+  // {
+  //   label: 'Расчет скорости производства',
+  //   link: '/build-calc',
+  // },
   {
     label: 'Расчет лечения',
     link: '/heal-calc',
