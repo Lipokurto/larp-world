@@ -2,22 +2,32 @@ import { Link } from "./types";
 
 export const helpfulLinks: Link[] = [
   {
-    name: 'Определитель хитов',
+    name: 'Мои хиты',
     link: 'http://larpdarkage.ru/help/char-calc',
     description: 'Поможет понять сколько хитов у вашего персонажа',
   },
   {
-    name: 'Визуализация урона персонажа',
+    name: 'Моя боевка',
     link: 'http://larpdarkage.ru/help/heal-calc',
     description: 'Поможет визуально понять сколько занимает лечение, как засчитывается урон и тд',
   },
   {
-    name: 'Визуализация урона чудовища',
+    name: 'Мои чудовища',
     link: 'http://larpdarkage.ru/help/monster-calc',
     description: 'Поможет понять как создавать одержимых, как лечиться и когда умирать',
   },
   {
-    name: 'Ролевой строяк',
+    name: 'Мое производство',
+    link: 'http://larpdarkage.ru/help/build-calc',
+    description: 'Поможет понять как работает расчет производства',
+  },
+  {
+    name: 'Мои строение',
+    link: 'http://larpdarkage.ru/help/house-calc',
+    description: 'Поможет рассчитать расходы материалов на модульный домик',
+  },
+  {
+    name: 'Мое строяк',
     link: 'http://larpinfo.ru/',
     description: 'Поможет рассчитать сколько денег уйдет на различную ролевую мебель и не только',
   },

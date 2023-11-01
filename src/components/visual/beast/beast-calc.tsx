@@ -257,7 +257,7 @@ export function BeastCalc({ isManual }: Props): JSX.Element {
   const handleHeal = React.useCallback((item: UsableItems) => {
     if (item === 'Пожирание' && ( status === 'Напуган' || status === 'Голоден')) {
       setCurrentItem('Пожирание');
-      setTimer(10);
+      setTimer(15);
       return;
     }
 
