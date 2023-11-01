@@ -20,8 +20,6 @@ type BuildItem = {
   hint: JSX.Element,
 };
 
-const BUILD_DEFAULT = 10;
-
 const smithBuild: BuildItem[] = [
   {src: workPlaceSmith, level: 1, label: 'Рабочее место', hint: <div>Основное место работы главного мастерового</div>},
   {src: workToolsSmith, level: 2, label: 'Рабочий инструмент', hint: <div>Дополнительный антураж, помогающий в производстве</div>},
@@ -43,40 +41,48 @@ const workerChosenStyle = {
   color: 'wheat',
 };
 
-const workersHint = <div>Количество доступных помощников без учета главного мастерового</div>
+const workersHint = <div>Количество работников с рабочими местами</div>
 
 export function BuildLevel(): JSX.Element {
   const { width } = useResize();
   const [currentLevel, setCurrentLevel] = React.useState<number>(1);
   const [currentCountWorkers, setCurrentCountWorkers] = React.useState<number>(0);
-  const [levelBonus, setLevelBonus] = React.useState<number>(0);
-  const [time, setTime] = React.useState<number>(BUILD_DEFAULT);
 
   const handleLevelChange = React.useCallback((level: number) => {
     if (level === 1) {
       setCurrentCountWorkers(0);
       setCurrentLevel(level);
-      setLevelBonus(0);
-      setTime(BUILD_DEFAULT);
       return;
     }
     
     if (currentCountWorkers > level) {
       setCurrentCountWorkers(currentLevel - 1);
-      setTime(levelBonus - level - 1);
       setCurrentLevel(level);
       return;
     }
 
-    setLevelBonus(BUILD_DEFAULT - level);
-    setTime(BUILD_DEFAULT - level - currentCountWorkers);
     setCurrentLevel(level);
-  }, [currentCountWorkers, currentLevel, levelBonus]);
+  }, [currentCountWorkers, currentLevel]);
 
   const handleWorkersChange = React.useCallback((countWorkers: number) => {
-    setTime(levelBonus - countWorkers);
     setCurrentCountWorkers(countWorkers);
-  }, [levelBonus]);
+  }, []);
+
+  const resultCount = React.useMemo(() => {
+    return (
+      <div className={s.header}>
+        Действие <b>"Производство"</b> создаст {currentLevel} {decimalText(currentLevel, ['товар', 'товара', 'товаров'])}
+      </div>
+    )
+  }, [currentLevel]);
+
+  const resultCountHealers = React.useMemo(() => {
+    return (
+      <div className={s.header}>
+        Одновременно восстанавливать хиты могут {currentCountWorkers} {decimalText(currentCountWorkers, ['персонаж', 'персонажа', 'персонажей'])}
+      </div>
+    )
+  }, [currentCountWorkers]);
 
   const workers = React.useMemo(() => {
     const notLastWorker = currentCountWorkers !== 0 && currentCountWorkers !== 1;
@@ -88,7 +94,7 @@ export function BuildLevel(): JSX.Element {
             background='wheat'
           >
             <div className={s.workerText}>
-                Помощники:
+                Работники:
             </div>
           </Tooltip>
 
@@ -108,24 +114,11 @@ export function BuildLevel(): JSX.Element {
       )
   }, [currentCountWorkers, currentLevel, handleWorkersChange]);
 
-  const resultTime = React.useMemo(() => {
-    return (
-      <div className={s.header}>
-        Производство 1 единицы товара займет
-        
-        <Tooltip 
-          content='Это же время потребуется на ремонт или лечение без траты ресурсов'
-          background='wheat'
-        >
-          <h3>{time} {decimalText(time, ['минута', 'минуты', 'минут'])}</h3>
-        </Tooltip>
-      </div>
-    )
-  }, [time]);
-
   return (
     <div className={s.container}>
-      {resultTime}
+      {resultCount}
+
+      {resultCountHealers}
       
       {workers}
       

@@ -124,13 +124,15 @@ export function HitsCalc(): JSX.Element {
     shields[0] = heart;
 
     return (
-      <div style={{display: 'flex', justifyContent: 'center'}}>
-        Вид хитов: 
-        {hasArmor ? shields.map((p,i) => {
-          return (
-            <img src={p} key={p + i} alt='' width='20' />
-          )
-        }) : <img src={heart}  alt='' width='20' />}
+      <div style={{display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
+        Всего хитов: 
+        <div style={{display: 'flex'}}>
+          {hasArmor ? shields.map((p,i) => {
+            return (
+              <img src={p} key={p + i} alt='' width='20' />
+            )
+          }) : <img src={heart}  alt='' width='20' />}
+        </div>
       </div>
     )
   }, [hasArmor, hits]);
@@ -141,8 +143,6 @@ export function HitsCalc(): JSX.Element {
         
         <div className={s.character}>
           <LinkButton text={`${isManual ? 'Выключить' : 'Включить'} подсказки`} onclick={() => setManual(!isManual)}/>
-
-          <div style={{fontSize:18}}>Ваши хиты: { hasArmor ? Math.round(hits) : 1 }</div>
 
           {renderHealth}
         

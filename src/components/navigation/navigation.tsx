@@ -19,7 +19,7 @@ const buttons: NavigationButton[] = [
   { title: 'Главная', list: [], link: '/' },
   { title: 'Правила', list: rules, link: '/rules' },
   { title: 'Мир', list: world, link: '/world' },
-  { title: 'Помощь', list: help, link: '/help' },
+  { title: 'Материалы', list: help, link: '/help' },
   { title: 'Игроку', list: player, link: '/player' },
 ];
 

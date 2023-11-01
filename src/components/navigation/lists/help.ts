@@ -2,27 +2,27 @@ import { ListItem } from "./type";
 
 export const help: ListItem[] = [
   {
-    label: 'Расчет персонажа',
+    label: 'Мои хиты',
     link: '/char-calc',
   },
   // {
   //   label: 'Расчет грузоподъемности',
   //   link: '/cargo-calc',
   // },
-  // {
-  //   label: 'Расчет скорости производства',
-  //   link: '/build-calc',
-  // },
   {
-    label: 'Расчет лечения',
+    label: 'Моя боевка',
     link: '/heal-calc',
   },
   {
-    label: 'Расчет чудовищ',
+    label: 'Мои чудовища',
     link: '/monster-calc',
   },
   {
-    label: 'Расчет здания',
+    label: 'Мое производство',
+    link: '/build-calc',
+  },
+  {
+    label: 'Мое строение',
     link: '/house-calc',
   },
   // {
