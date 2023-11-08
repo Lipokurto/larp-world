@@ -33,7 +33,7 @@ function getCargoComponent(label: string, bonus: number): JSX.Element {
 
 const optionsCargo: OptionsCargo[] = [
   { value: 0, label: getCargoComponent('Ничего', 0)},
-  { value: 1, label: getCargoComponent('Сумка', 1)},
+  { value: 1, label: getCargoComponent('Корзина', 1)},
   { value: 2, label: getCargoComponent('Носилки', 2)},
   { value: 3, label: getCargoComponent('Тачка', 3)},
   { value: 4, label: getCargoComponent('Тележка', 4)},
