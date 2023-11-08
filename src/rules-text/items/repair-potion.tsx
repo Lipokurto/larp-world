@@ -13,7 +13,7 @@ export const repairPotion: Item = {
     <>
       <div className={s.icon}><img src={card} alt='' /></div>
       <div className={s.label}>Эффекты</div>
-      <div>В случае не полной потери брони мгновенно восстанавливает броневые хиты</div>
+      <div>В случае не полной потери брони, мгновенно восстанавливает броневые хиты</div>
       <div className={s.label}>Вес: 0</div>
       <div className={s.label}>Ограничения:</div>
       <div className={s.listContainer}>
