@@ -11,7 +11,7 @@ import {
 
 import {
   BuildCalc, CharCalc, HealCalc,
-  MonsterCalc, FinalCalc, AssaultCalc, HouseCalc,
+  MonsterCalc, HouseCalc,
 } from "./pages/help";
 
 import { Culture, GlobalMap, Order, Politic } from "./pages/world";
@@ -53,9 +53,7 @@ export default function App(): JSX.Element {
           <Route path='/help/build-calc' element={<BuildCalc />} />
           <Route path='/help/heal-calc' element={<HealCalc />} />
           <Route path='/help/monster-calc' element={<MonsterCalc />} />
-          <Route path='/help/final-calc' element={<FinalCalc />} />
           <Route path='/help/house-calc' element={<HouseCalc />} />
-          <Route path='/help/assault-calc' element={<AssaultCalc />} />
 
           <Route path='/player/map-support' element={<MapSupport />} />
           <Route path='/player/registration' element={<PlayerRegistry />} />

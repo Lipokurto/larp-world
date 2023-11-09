@@ -5,10 +5,6 @@ export const help: ListItem[] = [
     label: 'Мои хиты',
     link: '/char-calc',
   },
-  // {
-  //   label: 'Расчет грузоподъемности',
-  //   link: '/cargo-calc',
-  // },
   {
     label: 'Моя боевка',
     link: '/heal-calc',
@@ -25,12 +21,4 @@ export const help: ListItem[] = [
     label: 'Мое строение',
     link: '/house-calc',
   },
-  // {
-  //   label: 'Расчет финальной битвы',
-  //   link: '/final-calc',
-  // },
-  // {
-  //   label: 'Расчет штурма',
-  //   link: '/assault-calc',
-  // },
 ]
