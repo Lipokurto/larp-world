@@ -15,6 +15,10 @@ import batZones from '../../../assets/battle-zones.png';
 import heart from '../../../assets/icons/health/heart.png';
 import shield from '../../../assets/icons/health/shield.png';
 
+import deadStripe from '../../../assets/rules/status/dead-status.png';
+import healStripe from '../../../assets/rules/status/heal-stripe.png';
+import repairStripe from '../../../assets/rules/status/repair-stripe.png';
+
 import s from './battle.module.css';
 
 export function Battle(): JSX.Element {
@@ -125,18 +129,21 @@ export function Battle(): JSX.Element {
                     label='Мертв'
                     model='Белая повязка с черной печатью'
                     play='Этот персонаж не участвует в игровом процессе.'
+                    img={deadStripe}
                   />
 
                   <CharStatus
                     label='Лечение'
                     model='Красная повязка с зеленой печатью'
                     play='Этот персонаж лечится. В случае получения урона переходит в состояние "Тяжело ранен".'
+                    img={healStripe}
                   />
 
                   <CharStatus
                     label='Ремонт'
                     model='Серая повязка с красной печатью'
                     play='Снаряжение данного персонажа ремонтируется. В случае получения урона состояние "Ремонт" отменяется.'
+                    img={repairStripe}
                   />
                 </>
             },
