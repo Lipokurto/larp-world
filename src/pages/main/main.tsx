@@ -12,6 +12,8 @@ import { rules } from "../../components/navigation/lists";
 import { videoObject } from "../../links/main-video/video-objects";
 import vkImage from './../../assets/icons/social/vk.png';
 import ruStore from './../../assets/icons/social/ruStore.png';
+import pdfIcon from './../../assets/icons/social/pdfIcon.png';
+import pdfRules from '../../rules-text/Pravila_Temnye_veka_v_1_13.pdf';
 
 import s from './main.module.css';
 
@@ -42,12 +44,22 @@ export function Main(): JSX.Element {
         </Tooltip>
 
         <Tooltip
-          content='наше приложение в RuStore'
+          content='Наше приложение в RuStore'
           background='wheat'
           direction="left"
         >
           <a href='https://apps.rustore.ru/app/com.darkapk03' target='_blank' rel="noreferrer" style={{color: 'goldenrod'}}>
             <img src={ruStore} alt="" width={30} />
+          </a>
+        </Tooltip>
+
+        <Tooltip
+          content='Все правила одним файлом PDF'
+          background='wheat'
+          direction="left"
+        >
+          <a target='_blank' rel="noreferrer" style={{color: 'goldenrod'}} download={pdfRules}>
+            <img src={pdfIcon} alt="" width={30} />
           </a>
         </Tooltip>
       </>
