@@ -1,7 +1,7 @@
 import { Item } from "../rules-text/type";
 import chains from '../assets/orders/chains.png'; 
 
-import s from './orders.module.css';
+import s from './war-bands.module.css';
 
 export const chainsOrder: Item = {
   label: 'Рыцари Святой Железной Цепи',
@@ -21,7 +21,7 @@ export const chainsOrder: Item = {
       </div>
 
     <div className={s.block2}>
-      <h3>Краткая история</h3>
+      <h3>Описание</h3>
       <div>Орден, подчиненный Святому Престолу. Как слуги церкви, рыцари Святой Железной Цепи стоят вне национальных войн и принимают в орден воинов из разных наций.
       Только очень богатые дворяне могут отправить своих отпрысков в этот орден.</div>
     </div>

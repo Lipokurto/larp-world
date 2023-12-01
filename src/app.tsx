@@ -14,12 +14,11 @@ import {
   MonsterCalc, HouseCalc,
 } from "./pages/help";
 
-import { Culture, GlobalMap, Order, Politic } from "./pages/world";
+import { Culture, GlobalMap, Politic, WarBands } from "./pages/world";
 import { PlayerRegistry, MapSupport, TeamRegistry, LocationRegistry } from "./pages/player";
 import { About } from "./pages/about/about";
 import { CargoVisual } from "./components";
 import { Intendant } from "./pages/intendant/intendant";
-import { Tech } from "./pages/tech/tech";
 import { More } from "./pages/more/more";
 
 import s from './app.module.css';
@@ -46,7 +45,7 @@ export default function App(): JSX.Element {
           <Route path='/world/politic' element={<Politic />} />
           <Route path='/world/culture' element={<Culture />} />
           <Route path='/world/map' element={<GlobalMap />} />
-          <Route path='/world/order' element={<Order />} />
+          <Route path='/world/war-bands' element={<WarBands />} />
 
           <Route path='/help/char-calc' element={<CharCalc />} />
           <Route path='/help/cargo-calc' element={<CargoVisual />} />
@@ -63,7 +62,6 @@ export default function App(): JSX.Element {
           <Route path='/about' element={<About />} />
           <Route path='/more' element={<More />} />
           <Route path='/intendant' element={<Intendant />} />
-          <Route path='/tech' element={<Tech />} />
         </Routes>
       </div>
     </BrowserRouter>
