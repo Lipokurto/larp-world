@@ -1,10 +1,9 @@
 import { AccordionBlock, Chapter } from "../../../components";
 
 import {
-  axes,
-  blades,
-  chainsOrder,
-  holyPoor,
+  axes, bear, blades,
+  chainsOrder, dogs, holyPoor,
+  knights, outlanders,
 } from "../../../war-bands";
 
 import s from './war-bands.module.css';
@@ -19,7 +18,7 @@ export function WarBands(): JSX.Element {
       </div>
 
       <AccordionBlock
-        label='Мидленд'
+        label='Наемники королевства Мидленд'
         items={[
           {
             label: blades.label,
@@ -37,11 +36,33 @@ export function WarBands(): JSX.Element {
       />
 
       <AccordionBlock
+        label='Наемники империи Тюдор'
+        items={[
+          {
+            label: bear.label,
+            element: bear.element,
+          },
+          {
+            label: outlanders.label,
+            element: outlanders.element,
+          },
+          {
+            label: knights.label,
+            element: knights.element,
+          },
+        ]}
+      />
+
+      <AccordionBlock
         label='Нейтральные отряды'
         items={[
           {
             label: chainsOrder.label,
             element: chainsOrder.element,
+          },
+          {
+            label: dogs.label,
+            element: dogs.element,
           },
         ]}
       />
