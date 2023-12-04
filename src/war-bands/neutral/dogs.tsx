@@ -1,5 +1,7 @@
 import { Item } from "../../rules-text/type";
 
+import image from '../../assets/bands/dogs.png';
+
 import s from '../war-bands.module.css';
 
 export const dogs: Item = {
@@ -7,6 +9,10 @@ export const dogs: Item = {
   element:
     <>
       <div className={s.info}>
+        <div>
+          <img src={image} alt='' width={300}/>
+        </div>
+
         <div className={s.text}>
           <div><i>Отличительные знаки: </i> броня чёрного цвета, элементы звериной атрибутики в костюмах (звериные головы вместо шлемов и т.д.).</div>
           <div><i>Предпочтительное оружие: </i> Пики, алебарды, двуручные мечи</div>

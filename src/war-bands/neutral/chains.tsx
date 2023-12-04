@@ -1,5 +1,7 @@
 import { Item } from "../../rules-text/type";
 
+import image from '../../assets/bands/chains.png';
+
 import s from '../war-bands.module.css';
 
 export const chainsOrder: Item = {
@@ -7,6 +9,10 @@ export const chainsOrder: Item = {
   element:
     <>
       <div className={s.info}>
+        <div>
+          <img src={image} alt='' width={300}/>
+        </div>
+
         <div className={s.text}>
           <div><i>Отличительные знаки: </i> рыцари с религиозной атрибутикой.</div>
           <div><i>Визуальная стилистика: </i> украшенные доспехи с религиозной символиков.</div>
