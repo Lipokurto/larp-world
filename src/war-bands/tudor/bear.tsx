@@ -1,5 +1,7 @@
 import { Item } from '../../rules-text/type';
 
+import image from '../../assets/bands/bears.png';
+
 import s from '../war-bands.module.css';
 
 export const bear: Item = {
@@ -7,6 +9,10 @@ export const bear: Item = {
   element:
     <>
       <div className={s.info}>
+        <div>
+          <img src={image} alt='' width={300}/>
+        </div>
+
         <div className={s.text}>
           <div><i>Символ отряда: </i> рыжий медведь на черном фоне.</div>
           <div><i>Визуальная стилистика: </i> пехота позднего средневековья.</div>

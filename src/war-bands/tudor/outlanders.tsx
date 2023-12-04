@@ -1,5 +1,7 @@
 import { Item } from '../../rules-text/type';
 
+import image from '../../assets/bands/kushan.png';
+
 import s from '../war-bands.module.css';
 
 export const outlanders: Item = {
@@ -7,6 +9,10 @@ export const outlanders: Item = {
   element:
     <>
       <div className={s.info}>
+        <div>
+          <img src={image} alt='' width={300}/>
+        </div>
+
         <div className={s.text}>
           <div><i>Символ отряда: </i> сжатый кулак на жёлтом фоне.</div>
           <div><i>Визуальная стилистика: </i> арабские воины позднего средневековья. Для <b>Громил</b> - костюмы, имитирующие гиперболизированную мускулатуру, отсутствие брони на торсе.</div>
