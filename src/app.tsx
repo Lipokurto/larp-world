@@ -14,8 +14,16 @@ import {
   MonsterCalc, HouseCalc,
 } from "./pages/help";
 
-import { Culture, GlobalMap, Politic, WarBands } from "./pages/world";
-import { PlayerRegistry, MapSupport, TeamRegistry, LocationRegistry } from "./pages/player";
+import {
+  Culture, GlobalMap, Politic,
+  Solem, WarBands,
+} from "./pages/world";
+
+import {
+  PlayerRegistry, MapSupport, TeamRegistry,
+  LocationRegistry,
+} from "./pages/player";
+
 import { About } from "./pages/about/about";
 import { CargoVisual } from "./components";
 import { Intendant } from "./pages/intendant/intendant";
@@ -46,6 +54,7 @@ export default function App(): JSX.Element {
           <Route path='/world/culture' element={<Culture />} />
           <Route path='/world/map' element={<GlobalMap />} />
           <Route path='/world/war-bands' element={<WarBands />} />
+          <Route path='/world/solem' element={<Solem />} />
 
           <Route path='/help/char-calc' element={<CharCalc />} />
           <Route path='/help/cargo-calc' element={<CargoVisual />} />
