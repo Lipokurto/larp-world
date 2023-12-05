@@ -14,7 +14,7 @@ export const world: ListItem[] = [
     link: '/map',
   },
   {
-    label: 'Отряды наемников',
+    label: 'Отряды',
     link: '/war-bands',
   },
 ]
