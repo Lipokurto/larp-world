@@ -21,4 +21,8 @@ export const world: ListItem[] = [
     label: 'Город Солем',
     link: '/solem',
   },
+  {
+    label: 'Жители города',
+    link: '/people',
+  },
 ]
