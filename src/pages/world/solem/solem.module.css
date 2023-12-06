@@ -44,4 +44,15 @@
   .listContainer {
     text-align: center;
   }
+
+  .block2 {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .block img {
+    width: 300px;
+  }
 }
