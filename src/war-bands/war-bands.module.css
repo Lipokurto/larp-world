@@ -18,6 +18,49 @@
   margin-left: 10px;
 }
 
+.image {
+  margin: 10px;
+}
+
+.block {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+}
+
+.colorBlock {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.circle {
+  width: 25px;
+  height: 25px;
+  border-radius: 10px;
+  background-color: blue;
+}
+
+.textBlock {
+  margin: 10px;
+}
+
+.requirementButton {
+  background-color: #000000;
+  color: #ffffff;
+  margin-top: 20px;
+  padding: 5px 10px 5px 10px;
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to left, wheat, #000000, wheat);
+}
+
+.requirementButton:hover {
+  background-color: green;
+  transform: scale(1.1);
+}
+
 @media only screen and (max-width: 600px) {
   .info {
     display: flex;
