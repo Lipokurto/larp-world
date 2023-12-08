@@ -4,9 +4,9 @@ import { Item } from '../../rules-text/type';
 import image from '../../assets/bands/blades.png';
 import { ImagesAdaptive, ItemModal } from '../../components';
 
-import img01 from '../../assets/bands/blades/01.png'
-import img02 from '../../assets/bands/blades/02.png'
-import img03 from '../../assets/bands/blades/03.png'
+import img01 from '../../assets/bands/blades/01.png';
+import img02 from '../../assets/bands/blades/02.png';
+import img03 from '../../assets/bands/blades/03.png';
 
 import s from '../war-bands.module.css';
 
@@ -53,7 +53,7 @@ const modal: Item = {
         </div>
       </div>
     </>
-} 
+}
 
 function Blades(): JSX.Element {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
