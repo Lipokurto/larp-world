@@ -8,9 +8,9 @@ import imgMan01 from '../../assets/bands/kushan/man/01.png';
 import imgMan02 from '../../assets/bands/kushan/man/02.png';
 import imgMan03 from '../../assets/bands/kushan/man/03.png';
 
-import imgMonster01 from '../../assets/bands/holy-poor/knights/01.png';
-import imgMonster02 from '../../assets/bands/holy-poor/knights/02.png';
-import imgMonster03 from '../../assets/bands/holy-poor/knights/03.png';
+import imgMonster01 from '../../assets/bands/kushan/monsters/01.png';
+import imgMonster02 from '../../assets/bands/kushan/monsters/02.png';
+import imgMonster03 from '../../assets/bands/kushan/monsters/03.png';
 
 import s from '../war-bands.module.css';
 
@@ -57,15 +57,15 @@ function ModalPoor(): JSX.Element {
     return (
       <div>
         <div>
-          <div className={s.label}>Рыцари</div>
+          <div className={s.label}>Чудовища</div>
           <div className={s.textBlock}>
             <div><b>Костюм:</b></div>
-            <div>Cтилизация европейского костюма 14-15 в. Шоссы, камизы, туники, пурпуэны и элементы с религозным стилистическим уклоном (рясы, мантии и т.п).</div>
+            <div>Костюм должен быть согласован на фазе проектирования. Количество хитов монстра определяется качеством исполнения монстра.</div>
           </div>
 
           <div className={s.textBlock}>
-            <div><b>Доспехи:</b></div>
-            <div>Стилизация на позднесредневековые европейские доспехи. От нескольких элементов до полного латного комплекта с обязательным ярко выраженным религиозно-гротескным подтекстом. Изобилие декоративных элементов типа шипов, цепей, заклепок и т.п. Обзательное наличие отличительных символов фракции. Шлема с личинами и характерным оформлением.</div>
+            <div><b>Оружие:</b></div>
+            <div>Все Пишачи обладают "Особым оружием" Оружие должно визуально быть большим и массивным. Обязательно согласование на фазе проектирования.</div>
           </div>
         </div>
 
@@ -121,9 +121,9 @@ function Outlanders(): JSX.Element {
           <div><i>Визуальная стилистика: </i> арабские воины позднего средневековья. Для <b>Громил</b> - костюмы, имитирующие гиперболизированную мускулатуру, отсутствие брони на торсе.</div>
           <br/>
           <div>
-            <div><b>Секретные тренировки</b></div> 
+            <div><b>Иноземная магия</b></div> 
             <div>
-              Могут иметь кушанских Громил в отряде (количество дополнительных хитов определяется качество и габаритами костюма, урон особого оружия).
+              На службе у отряда есть Пишаки. Одержимые звероподобные (тигры,слоны,крокодилы) монстры на службе отряда.
             </div>
 
             <button className={s.requirementButton} onClick={() => setIsOpen(true)}>Требования к антуражу</button>

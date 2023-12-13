@@ -13,6 +13,7 @@ import { videoObject } from "../../links/main-video/video-objects";
 import vkImage from './../../assets/icons/social/vk.png';
 import ruStore from './../../assets/icons/social/ruStore.png';
 import pdfIcon from './../../assets/icons/social/pdfIcon.png';
+import excelIcon from './../../assets/icons/social/excel.png';
 import pdfRules from '../../rules-text/Pravila_Temnye_veka_v_1_13.pdf';
 
 import s from './main.module.css';
@@ -60,6 +61,16 @@ export function Main(): JSX.Element {
         >
           <a href={pdfRules} target='_blank' rel="noreferrer" style={{color: 'goldenrod'}} download={'Темные_века_правила_v1-13'}>
             <img src={pdfIcon} alt="" width={30} />
+          </a>
+        </Tooltip>
+
+        <Tooltip
+          content='Таблица всех ролей'
+          background='wheat'
+          direction="left"
+        >
+          <a href='https://docs.google.com/spreadsheets/d/1st6MW3fwOllrLfTsgnVavd_yNYjyXZuOTnXKUI5cfn8/edit?usp=sharing' target='_blank' rel="noreferrer" style={{color: 'goldenrod'}}>
+            <img src={excelIcon} alt="" width={30} />
           </a>
         </Tooltip>
       </>
