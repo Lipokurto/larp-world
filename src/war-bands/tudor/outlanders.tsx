@@ -57,7 +57,7 @@ function ModalPoor(): JSX.Element {
     return (
       <div>
         <div>
-          <div className={s.label}>Чудовища</div>
+          <div className={s.label}>Пишачи</div>
           <div className={s.textBlock}>
             <div><b>Костюм:</b></div>
             <div>Костюм должен быть согласован на фазе проектирования. Количество хитов монстра определяется качеством исполнения монстра.</div>
