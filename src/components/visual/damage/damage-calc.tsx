@@ -217,7 +217,7 @@ export function DamageCalc({ isManual }: Props): JSX.Element {
   const handleHeal = React.useCallback((item: string) => {
     if (item === 'Медкомплект' && currentHits === 0 && status === 'Тяжело ранен') {
       setCurrentItem('Медкомплект');
-      setTimer(10);
+      setTimer(15);
       return;
     }
 
@@ -230,7 +230,7 @@ export function DamageCalc({ isManual }: Props): JSX.Element {
 
     if (item === 'Ремкомплект' && currentHits >= 1 && status === 'Ранен') {
       setCurrentItem('Ремкомплект');
-      setTimer(10);
+      setTimer(15);
       return;
     }
 
