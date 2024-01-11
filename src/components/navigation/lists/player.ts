@@ -13,6 +13,10 @@ export const player: ListItem[] = [
     label: 'Регистрация локации',
     link: '/reglocation',
   },
+  {
+    label: 'Регистрация взноса',
+    link: '/regpay',
+  },
   // {
   //   label: 'Карта подготовки игрока',
   //   link: '/map-support',

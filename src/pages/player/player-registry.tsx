@@ -1,16 +1,16 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 
-import { Chapter } from "../../../components";
+import { Chapter } from "../../components";
+import { NavigationPlayer } from './navigation-player';
 
-import intro from '../../../assets/icons/registration/01_intro.png'; 
-import arm from '../../../assets/icons/registration/02_arm.png';
-import concept from '../../../assets/icons/registration/03_concept.png';
-import photo from '../../../assets/icons/registration/04_photo.png';
-import script from '../../../assets/icons/registration/04_script.png';
-import donation from '../../../assets/icons/registration/05_donation.png';
+import intro from '../../assets/icons/registration/01_intro.png'; 
+import arm from '../../assets/icons/registration/02_arm.png';
+import concept from '../../assets/icons/registration/03_concept.png';
+import photo from '../../assets/icons/registration/04_photo.png';
+import script from '../../assets/icons/registration/04_script.png';
+import donation from '../../assets/icons/registration/05_donation.png';
 
-import s from './player-registry.module.css';
+import s from './registry.module.css';
 
 type Steps = {
   img: string,
@@ -103,35 +103,11 @@ export function PlayerRegistry(): JSX.Element {
     })
   }, []);
 
-  const renderButtons = React.useMemo(() => {
-    return (
-      <div className={s.buttonsContainer}>
-        <NavLink
-          className={s.link}
-          replace
-          to='/player/regband'
-          onClick={() => document.body.style.overflowY = 'visible'}
-          style={{color: 'goldenrod'}}>
-            Регистрация команды
-        </NavLink>
-
-        <NavLink
-          className={s.link}
-          replace
-          to='/player/reglocation'
-          onClick={() => document.body.style.overflowY = 'visible'}
-          style={{color: 'goldenrod'}}>
-            Регистрация локации
-        </NavLink>
-      </div>
-    )
-  }, []);
-
   return (
     <div className={s.container}>
       <Chapter chapter='Регистрация игрока'/>
       
-      {renderButtons}
+      <NavigationPlayer selectedLink='/player/registration' />
       
       <div>Регистрация является ОБЯЗАТЕЛЬНЫМ условием участия на мероприятии</div>
 
