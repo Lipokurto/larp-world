@@ -82,7 +82,7 @@ const registrationSteps: Steps[] = [
     description:
       <div>
         <div>Для участия в мероприятии необходимо внести благотворительный взнос</div>
-        <div><i>реквизиты и стоимость будут указаны позже</i></div>
+        <div><a href='https://larpdarkage.ru/player/regpay' target='_blank' rel="noreferrer" style={{color: 'goldenrod'}}>Как сделать взнос</a></div>
       </div>
   },
 ]
