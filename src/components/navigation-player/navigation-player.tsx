@@ -1,6 +1,8 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
 
+import { useResize } from '../utils/use-resize';
+
 import s from './navigation-player.module.css';
 
 type Links = {
@@ -39,6 +41,7 @@ const links: Links[] = [
 
 export function NavigationPlayer(props: Props): JSX.Element {
   const [items, setItems] = React.useState<Links[]>(links);
+  const { width } = useResize();
 
   React.useEffect(() => {
     const newItems = items.map(p => (
@@ -66,7 +69,7 @@ export function NavigationPlayer(props: Props): JSX.Element {
   ), [items]);
 
   return (
-    <div className={s.buttonsContainer}>
+    <div className={width >= 550 ? s.buttonsContainer : s.buttonsAdaptive}>
       {renderItems}
     </div>
   )

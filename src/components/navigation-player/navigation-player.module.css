@@ -6,7 +6,15 @@
   margin: 10px auto 10px auto;
 }
 
-.buttonsContainer .link {
+.buttonsAdaptive {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  justify-content: center;
+  margin: 10px auto 10px auto;
+}
+
+.link {
   color: aliceblue;
   background-color: #000000;
   margin: 0 5px 0 5px;
