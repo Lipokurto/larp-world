@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Chapter } from '../../components';
-import { NavigationPlayer } from './navigation-player';
+import { NavigationPlayer } from '../../components';
 
 import intro from '../../assets/icons/registration/01_intro.png'; 
 import arm from '../../assets/icons/registration/02_arm.png';

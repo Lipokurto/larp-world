@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
 
-import s from './registry.module.css';
+import s from './navigation-player.module.css';
 
 type Links = {
   disabled: boolean,
