@@ -1,0 +1,68 @@
+.timeContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.activeImg {
+  opacity: 0.5;
+  animation-name: imgAnimation;
+  animation-duration: 1s;
+}
+
+@keyframes imgAnimation {
+  from {opacity: 1}
+  to {opacity: 0.5}
+}
+
+.passiveImg {
+  opacity: 1;
+}
+
+.upTimeLeft .upTimeRight .upTimeBottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.upTimeLeft {
+  min-width: 146px;
+  
+  background-color: black;
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to left, #000000, wheat);
+
+  animation-name: inOutAnimation;
+  animation-duration: 1s;
+}
+
+.upTimeRight {
+  min-width: 146px;
+  
+  background-color: black;
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to left, wheat, #000000);
+
+  animation-name: inOutAnimation;
+  animation-duration: 1s;
+}
+
+.upTimeBottom {
+  padding-top: 10px;
+  margin-top: -20px;
+  background-color: black;
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to top, wheat, #000000);
+
+  animation-name: inOutAnimation;
+  animation-duration: 1s;
+}
+
+@keyframes inOutAnimation {
+  from {opacity: 0}
+  to {opacity: 1}
+}

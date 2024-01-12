@@ -30,6 +30,7 @@ import { Intendant } from "./pages/intendant/intendant";
 import { More } from "./pages/more/more";
 
 import s from './app.module.css';
+import { PayRegistry } from "./pages/player/pay-registry";
 
 export default function App(): JSX.Element {
   return (
@@ -68,6 +69,7 @@ export default function App(): JSX.Element {
           <Route path='/player/registration' element={<PlayerRegistry />} />
           <Route path='/player/regband' element={<TeamRegistry />} />
           <Route path='/player/reglocation' element={<LocationRegistry />} />
+          <Route path='/player/regpay' element={<PayRegistry />} />
 
           <Route path='/about' element={<About />} />
           <Route path='/more' element={<More />} />

@@ -1,16 +1,15 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 
-import { Chapter } from "../../../components";
+import { Chapter } from "../../components";
+import { NavigationPlayer } from '../../components';
 
-import intro from '../../../assets/icons/registration/01_intro.png'; 
-import arm from '../../../assets/icons/registration/02_arm.png';
-import camp from '../../../assets/icons/registration/05_camp.png';
-import done from '../../../assets/icons/registration/05_done.png';
+import intro from '../../assets/icons/registration/01_intro.png'; 
+import arm from '../../assets/icons/registration/02_arm.png';
+import camp from '../../assets/icons/registration/05_camp.png';
+import done from '../../assets/icons/registration/05_done.png';
+import bannerPattern from '../../assets/pattern/banner.png';
 
-import bannerPattern from '../../../assets/pattern/banner.png';
-
-import s from './team-registry.module.css';
+import s from './registry.module.css';
 
 type Steps = {
   img: string,
@@ -119,35 +118,11 @@ export function TeamRegistry(): JSX.Element {
     })
   }, []);
 
-  const renderButtons = React.useMemo(() => {
-    return (
-      <div className={s.buttonsContainer}>
-        <NavLink
-          className={s.link}
-          replace
-          to='/player/registration'
-          onClick={() => document.body.style.overflowY = 'visible'}
-          style={{color: 'goldenrod'}}>
-            Регистрация игрока
-        </NavLink>
-
-        <NavLink
-          className={s.link}
-          replace
-          to='/player/reglocation'
-          onClick={() => document.body.style.overflowY = 'visible'}
-          style={{color: 'goldenrod'}}>
-            Регистрация локации
-        </NavLink>
-      </div>
-    )
-  }, []);
-
   return (
     <div className={s.container}>
       <Chapter chapter='Регистрация команды'/>
 
-      {renderButtons}
+      <NavigationPlayer selectedLink='/player/regband' />
 
       {renderRegSteps}
       

@@ -64,35 +64,38 @@
   box-shadow:0px 0px 0px 1px #000 inset;
 }
 
-.buttonsContainer {
+.timeContainer {
   display: flex;
   flex-direction: row;
-  width: fit-content;
   justify-content: center;
-  margin: 10px auto 10px auto;
+  align-items: center;
+};
+
+.upTime {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.buttonsContainer .link {
-  color: aliceblue;
-  background-color: #000000;
-  margin: 0 5px 0 5px;
-  padding: 5px 10px 5px 10px;
+.prices {
+  margin: 5px;
   border: 2px solid;
   border-image-slice: 1;
-  border-image-source:  linear-gradient(to left, wheat, #000000, wheat);
-  cursor: pointer;
-
-  transition: all 0.1s ease-in-out;
+  border-image-source:  linear-gradient(to right, wheat, #000000);
+  box-shadow:0px 0px 0px 1px #000 inset;
 }
 
-.link {
-  text-decoration: none;
+.priceActive {
+  color: wheat;
+  padding: 5px 0 5px 10px;
+  border-bottom: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to right, wheat, #000000);
+  box-shadow:0px 0px 0px 1px #000 inset;
 }
 
-.buttonsContainer .link:hover {
-  background-color: wheat;
-  color: #000000;
-  transform: scale(1.1);
+.price {
+  padding: 5px 0 5px 10px;
 }
 
 @media only screen and (max-width: 850px) {
