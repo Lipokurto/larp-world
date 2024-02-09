@@ -20,7 +20,7 @@ export function SubMenu(props: Props): JSX.Element {
       <Video
         src={props.obj.link}
         title={props.obj.name}
-        width={width < 720 ? 360 : undefined}
+        width={width < 720 ? 340 : undefined}
       />
 
       <div className='sub-text'>{props.obj.description}</div>
