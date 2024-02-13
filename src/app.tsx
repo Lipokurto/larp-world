@@ -28,9 +28,10 @@ import { About } from "./pages/about/about";
 import { CargoVisual } from "./components";
 import { Intendant } from "./pages/intendant/intendant";
 import { More } from "./pages/more/more";
+import { PayRegistry } from "./pages/player/pay-registry";
+import { Conf } from "./pages/conf/conf";
 
 import s from './app.module.css';
-import { PayRegistry } from "./pages/player/pay-registry";
 
 export default function App(): JSX.Element {
   return (
@@ -74,6 +75,7 @@ export default function App(): JSX.Element {
           <Route path='/about' element={<About />} />
           <Route path='/more' element={<More />} />
           <Route path='/intendant' element={<Intendant />} />
+          <Route path='/vk-policy' element={<Conf />} />
         </Routes>
       </div>
     </BrowserRouter>

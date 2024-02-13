@@ -88,6 +88,8 @@ export function Main(): JSX.Element {
             <a className={s.secondButton} onClick={() => handleClick()}>Правила</a>
 
             <NavLink className={s.secondButton} to='/more'>Дополнительно</NavLink>
+            
+            <NavLink style={{alignSelf: 'end'}} to='/vk-policy'>Политика конфиденциальности</NavLink>
 
             {/* Включить когда раздел будет иметь смысл */}
             {/* <NavLink className={s.secondButton} replace to='/player/map-support'>Как подготовить себя</NavLink> */}
