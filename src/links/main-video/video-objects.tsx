@@ -5,13 +5,26 @@ import s from './objects.module.css';
 
 export const videoObject: Link[] = [
   {
+    name: 'При Темные века: 03 Требования к внешнему виду',
+    link: 'https://vk.com/video_ext.php?oid=-221551368&id=456239024&hd=2',
+    description: 
+      <>
+        <div className={s.label}>03 Требования к внешнему виду</div>
+        <div className={s.listContainer}>
+          <div>Что такое фотодопуск</div>
+          <div>Подсказки по антуражу</div>
+          <div>Как сделать образ более интересным</div>
+        </div>
+      </>
+  },
+  {
     name: 'При Темные века: 02 Коротко о вселенной',
     link: 'https://vk.com/video_ext.php?oid=-221551368&id=456239023&hd=2',
     description: 
       <>
         <div className={s.label}>02 Коротко о вселенной</div>
         <div className={s.listContainer}>
-          <div>Что за вселенная "Берсерк" </div>
+          <div>Что за вселенная "Берсерк"</div>
           <div>Следует ли перечитывать все произведение?</div>
           <div>Могу ли я поехать Гатсом или Гриффитом?</div>
         </div>
