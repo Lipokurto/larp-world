@@ -5,6 +5,19 @@ import s from './objects.module.css';
 
 export const videoObject: Link[] = [
   {
+    name: 'При Темные века: 04 Броня и хиты',
+    link: 'https://vk.com/video_ext.php?oid=-221551368&id=456239025&hd=2',
+    description: 
+      <>
+        <div className={s.label}>04 Броня и хиты</div>
+        <div className={s.listContainer}>
+          <div>Как посчитать свои хиты?</div>
+          <div>Для чего нужен шлем?</div>
+          <div>Что за мобильное приложение?</div>
+        </div>
+      </>
+  },
+  {
     name: 'При Темные века: 03 Требования к внешнему виду',
     link: 'https://vk.com/video_ext.php?oid=-221551368&id=456239024&hd=2',
     description: 
