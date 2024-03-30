@@ -53,7 +53,7 @@ const registrationSteps: Steps[] = [
     description: 
       <div>
         <div>Обсудите внешний вид своего персонажа с мастерами по допуску антуража:</div>
-        <div><a href='https://vk.com/zomb13' target='_blank' rel="noreferrer" style={{color: 'goldenrod'}}>Мастер по общему допуску антуража</a></div>
+        <div><a href='https://vk.com/id245595011' target='_blank' rel="noreferrer" style={{color: 'goldenrod'}}>Мастер по общему допуску антуража</a></div>
         <div><a href='https://vk.com/id5847033' target='_blank' rel="noreferrer" style={{color: 'goldenrod'}}>Мастер по допуску антуража для наемников</a></div>
       </div>
   },
