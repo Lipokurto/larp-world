@@ -27,6 +27,15 @@ import healPotion from '../../../assets/icons/items/healPotion.png';
 import repairPack from '../../../assets/icons/items/repairPack.png';
 import repairPotion from '../../../assets/icons/items/repairPotion.png';
 
+import swordHitSound from '../../../assets/sounds/hits/swordHitSound.wav';
+import arrowHitSound from '../../../assets/sounds/hits/arrowHitSound.wav';
+import spetialHitSound from '../../../assets/sounds/hits/spetialHitSound.wav';
+import cannonHitSound from '../../../assets/sounds/hits/cannonHitSound.wav';
+import medkitSound from '../../../assets/sounds/items/medkitSound.wav';
+import repairkitSound from '../../../assets/sounds/items/repairkitSound.wav';
+import potionSound from '../../../assets/sounds/items/potionSound.wav';
+import timeSound from '../../../assets/sounds/timeSound.wav';
+
 import { decimalText } from '../../../components';
 
 import s from './damage-calc.module.css';
@@ -44,7 +53,8 @@ type Weapon = {
   value: {
     src: string,
     damage: number,
-    breakShields: boolean
+    breakShields: boolean,
+    sound: any,
   },
 };
 
@@ -52,10 +62,10 @@ type Status = 'Мертв' | 'Тяжело ранен' | 'Ранен' | 'Здо�
 type UsableItems = 'Медкомплект' | 'Целебная мазь' | 'Ремкомплект' | 'Оружейное масло';
 
 const weapon: Weapon[] = [
-  {label: 'Обычное оружие', value: { src: wRegular, damage: 1, breakShields: false }},
-  {label: 'Стрелковое оружие', value: { src: wDistant, damage: 2, breakShields: false }},
-  {label: 'Особое оружие', value: { src: wSpetial, damage: 5, breakShields: false }},
-  {label: 'Тяжелое оружие', value: { src: wHeavy, damage: 10, breakShields: true }},
+  {label: 'Обычное оружие', value: { src: wRegular, damage: 1, breakShields: false, sound: swordHitSound }},
+  {label: 'Стрелковое оружие', value: { src: wDistant, damage: 2, breakShields: false, sound: arrowHitSound }},
+  {label: 'Особое оружие', value: { src: wSpetial, damage: 5, breakShields: false, sound: spetialHitSound }},
+  {label: 'Тяжелое оружие', value: { src: wHeavy, damage: 10, breakShields: true, sound: cannonHitSound }},
 ];
 
 const armor: Armor[] = [
@@ -65,17 +75,18 @@ const armor: Armor[] = [
 ];
 
 const items = [
-  {label: 'Медкомплект', src: healPack },
-  {label: 'Целебная мазь', src: healPotion},
-  {label: 'Ремкомплект', src: repairPack},
-  {label: 'Оружейное масло', src: repairPotion},
+  {label: 'Медкомплект', src: healPack, sound: medkitSound },
+  {label: 'Целебная мазь', src: healPotion, sound: potionSound},
+  {label: 'Ремкомплект', src: repairPack, sound: repairkitSound},
+  {label: 'Оружейное масло', src: repairPotion, sound: potionSound},
 ];
 
 type Props = {
   isManual: boolean,
+  isSoundOn: boolean,
 }
 
-export function DamageCalc({ isManual }: Props): JSX.Element {
+export function DamageCalc({ isManual, isSoundOn }: Props): JSX.Element {
   const [maxHits, setMaxHits] = React.useState<number>(0);
   const [timer, setTimer] = React.useState<number | null>(null);
   const [status, setStatus] = React.useState<Status>('Здоров');
@@ -84,14 +95,24 @@ export function DamageCalc({ isManual }: Props): JSX.Element {
   const [currentItem, setCurrentItem] = React.useState<UsableItems | null>(null);
   const [armorImg, setArmorImg] = React.useState<string>('');
   const [weaponImg, setWeaponImg] = React.useState<string>('');
+  const [weaponSound, setWeaponSound] = React.useState();
 
   React.useEffect(() => {
     handleArmorChange(armor[0]);
     setMaxHits(armor[0].value.hits);
     handleWeaponChange(weapon[0]);
     setCurrentHits(armor[0].value.hits);
+    setWeaponSound(weapon[0].value.sound);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const playSound = React.useCallback((sound: any) => {
+    if (isSoundOn) {
+      const audio = new Audio(sound);
+      audio.volume = 0.2;
+      audio.play();
+    }
+  }, [isSoundOn]);
 
   const handleArmorChange = React.useCallback((option: Armor) => {
     setMaxHits(option.value.hits);
@@ -106,11 +127,13 @@ export function DamageCalc({ isManual }: Props): JSX.Element {
     handleArmorChange(newArmor);
     setStatus('Здоров');
     setTimer(null);
-  }, [handleArmorChange, maxHits]);
+    playSound(timeSound);
+  }, [handleArmorChange, maxHits, playSound]);
 
   const handleWeaponChange = React.useCallback((option: Weapon) => {
     setWeaponDamage(option.value.damage);
     setWeaponImg(option.value.src);
+    setWeaponSound(option.value.sound);
   }, []);
 
   const attackType = React.useMemo(() => {
@@ -142,6 +165,8 @@ export function DamageCalc({ isManual }: Props): JSX.Element {
   }, [currentItem]);
 
   const handleAttack = React.useCallback(() => {
+    playSound(weaponSound);
+
     if (status !== 'Мертв') {    
       const restHits = currentHits - weaponDamage;
   
@@ -169,7 +194,7 @@ export function DamageCalc({ isManual }: Props): JSX.Element {
         return;
       }
     }
-  }, [currentHits, maxHits, status, weaponDamage]);
+  }, [currentHits, maxHits, playSound, status, weaponDamage, weaponSound]);
 
   const color = React.useMemo(() => {
     if (status === 'Здоров') {
@@ -218,6 +243,7 @@ export function DamageCalc({ isManual }: Props): JSX.Element {
     if (item === 'Медкомплект' && currentHits === 0 && status === 'Тяжело ранен') {
       setCurrentItem('Медкомплект');
       setTimer(15);
+      playSound(items[0].sound);
       return;
     }
 
@@ -225,12 +251,14 @@ export function DamageCalc({ isManual }: Props): JSX.Element {
       setTimer(0);
       setCurrentHits(1);
       setStatus('Ранен');
+      playSound(items[1].sound);
       return;
     }
 
     if (item === 'Ремкомплект' && currentHits >= 1 && status === 'Ранен') {
       setCurrentItem('Ремкомплект');
       setTimer(15);
+      playSound(items[2].sound);
       return;
     }
 
@@ -238,10 +266,11 @@ export function DamageCalc({ isManual }: Props): JSX.Element {
       setTimer(0);
       setCurrentHits(maxHits);
       setStatus('Здоров');
+      playSound(items[3].sound);
       return;
     }
     
-  }, [currentHits, maxHits, status]);
+  }, [currentHits, maxHits, playSound, status]);
 
   const itemsList = React.useMemo(() => {
     return (
@@ -264,6 +293,7 @@ export function DamageCalc({ isManual }: Props): JSX.Element {
       setStatus('Ранен');
       setTimer(null);
       setCurrentItem(null);
+      playSound(timeSound);
       return;
     }
 
@@ -272,10 +302,11 @@ export function DamageCalc({ isManual }: Props): JSX.Element {
       setStatus('Здоров');
       setTimer(null);
       setCurrentItem(null);
+      playSound(timeSound);
       return;
     }
 
-  }, [currentHits, currentItem, maxHits, status]);
+  }, [currentHits, currentItem, maxHits, playSound, status]);
 
   const renderTimer = React.useMemo(() => {
     if (timer) {
