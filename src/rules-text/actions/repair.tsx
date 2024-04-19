@@ -6,7 +6,7 @@ export const repair: Item = {
   label: 'Ремонт',
   element:
     <>
-      <div className={s.label}>Ремонт в КУЗНИЦЕ</div>
+      <div className={s.label}>Ремонт в кузнице</div>
       <div>Кузнец производит ремонт снаряжения персонажа.</div>
       <ol className={s.listContainer}>
         <li>Игрок переходит в статус <b>"Ремонт"</b> (одевает серую повязку с красной печатью).</li>

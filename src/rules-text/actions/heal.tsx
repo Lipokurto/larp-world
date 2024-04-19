@@ -6,7 +6,7 @@ export const heal: Item = {
   label: 'Лечение',
   element:
     <>
-      <div className={s.label}>Лечение в ГОСПИТАЛЕ</div>
+      <div className={s.label}>Лечение в госпитале</div>
       <div>Персонажу оказывается профессиональная помощь в госпитале.</div>
 
       <ol className={s.listContainer}>
