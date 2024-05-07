@@ -22,6 +22,7 @@ const modal: Item = {
           <div className={s.block}>
             <div className={s.colorBlock}><div className={s.circle} style={{backgroundColor: 'blue'}} />Синий</div>
             <div className={s.colorBlock}><div className={s.circle} style={{backgroundColor: 'wheat'}} />Бежевый</div>
+            <div className={s.colorBlock}><div className={s.circle} style={{backgroundColor: 'white'}} />Белый</div>
             <div className={s.colorBlock}><div className={s.circle} style={{backgroundColor: 'gray'}} />Серый</div>
           </div>
         </div>
