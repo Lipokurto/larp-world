@@ -11,8 +11,8 @@ import {
   addAltar, heal, repair,
   ropery, supply, salary,
   changeForm, healObsessed, createObsessed,
-  darkDeal,
-  astralTouch,
+  darkDeal, astralTouch, killPerson,
+  gateRepair, gateDamage, gateResearch,
 } from "../../../rules-text/actions";
 
 import s from './actions.module.css';
@@ -25,12 +25,12 @@ export function Actions(): JSX.Element {
 
         <AccordionBlock 
           label='Общие действия' 
-          items={[heal, repair, loot, theft, prison, ransom, ropery, rest ]} 
+          items={[heal, repair, loot, theft, prison, ransom, ropery, rest, killPerson]} 
           />
 
         <AccordionBlock 
           label='Специальные действия' 
-          items={[ performance, workPlan, craft, quality, astralTouch ]} 
+          items={[performance, workPlan, craft, quality, astralTouch, gateRepair, gateDamage, gateResearch]} 
           />
 
         <AccordionBlock 

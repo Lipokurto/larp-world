@@ -57,7 +57,7 @@ function ModalPoor(): JSX.Element {
     return (
       <div>
         <div>
-          <div className={s.label}>Пишачи</div>
+          <div className={s.label}>Пишаки</div>
           <div className={s.textBlock}>
             <div><b>Костюм:</b></div>
             <div>Костюм должен быть согласован на фазе проектирования. Количество хитов монстра определяется качеством исполнения монстра.</div>
@@ -65,7 +65,7 @@ function ModalPoor(): JSX.Element {
 
           <div className={s.textBlock}>
             <div><b>Оружие:</b></div>
-            <div>Все Пишачи обладают "Особым оружием" Оружие должно визуально быть большим и массивным. Обязательно согласование на фазе проектирования.</div>
+            <div>Все Пишаки обладают "Особым оружием" Оружие должно визуально быть большим и массивным. Обязательно согласование на фазе проектирования.</div>
           </div>
         </div>
 
@@ -150,6 +150,6 @@ function Outlanders(): JSX.Element {
 }
 
 export const outlanders: Item = {
-  label: 'Отряд иноземцев',
+  label: 'Отряд Кушан',
   element: <Outlanders />
 }

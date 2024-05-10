@@ -20,10 +20,15 @@ import wall_01 from '../../../assets/buildings/wall_01.jpg';
 import wall_02 from '../../../assets/buildings/wall_02.jpg';
 import wall_03 from '../../../assets/buildings/wall_03.jpg';
 
+import gate_lvl01 from '../../../assets/buildings/gate_lvl01.jpg';
+import gate_lvl02 from '../../../assets/buildings/gate_lvl02.jpg';
+import gate_lvl03 from '../../../assets/buildings/gate_lvl03.jpg';
+
 import s from './camp.module.css';
 
 const socialBuildings = [build_01, build_02, build_03, build_04, build_05, build_06, build_07, build_08, build_09, build_10];
 const warBuildings = [wall_01, wall_02, wall_03];
+const gateBuildings = [gate_lvl01, gate_lvl02, gate_lvl03];
 
 export function Location(): JSX.Element {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
@@ -104,6 +109,32 @@ export function Location(): JSX.Element {
                   <li><b>Игровые деньги не причем:</b> продажа за игровые деньги возможна, но мастера вам ничего не обязаны возмещать.</li>
                 </div>
                 <div>Все эти условия нужны чтобы защитить игроков от не качественных товаров.</div>
+              </>
+          },
+          {
+            label: 'Ворота города',
+            element:
+              <>
+                <div>Воротам города в зависимости от их антуражность присваивается определенное количество очков прочности.</div>
+                <div className={s.lavel}>Технические требования к воротам города:</div>
+                <div className={s.listContainer}>
+                  <li>Общая ширина укреплений минимум 9 метров.</li>
+                  <li>Внешняя часть ворот и стен должна быть выполнена из твердых материалов, имитирующих укрепления (каменная кладка, частокол и т.д.).</li>
+                  <li>Во внешней части укрепления должны отсутствовать торчащие крепежные элементы (гвозди, саморезов).</li>
+                  <li>Все укрепления должны крепко держаться на земле и не «шататься»</li>
+                  <li>Проем ворот должен иметь минимальный размер 2.5м*2.5м.</li>
+                  <li>Допускаются только двухстворчатые ворота.</li>
+                  <li>В проеме ворот должны отсутствовать предметы или конструкции, мешающие проходу.</li>
+                  <li>Ворота должны быть оборудованы запирающим механизмом, который не даст их открыть легким толчком.</li>
+                  <li>Ворота должны иметь механизмы фиксации створок ворот в открытом состоянии.</li>
+                  <li>Ворота и стены должны уверено выдерживать попадания теннисного мяча из ролевой пушки.</li>
+                  <li>Концепт и размеры крепости должны обсуждать с мастерами еще на фазе проектирования.</li>
+                </div>
+
+                <ImagesAdaptive
+                  images={gateBuildings}
+                  isNoAdaptive
+                />
               </>
           },
           ]
