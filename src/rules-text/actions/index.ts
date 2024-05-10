@@ -28,3 +28,7 @@ export { healObsessed } from './heal-obsessed';
 export { createObsessed } from './create-obsessed';
 export { darkDeal } from './dark-deal';
 export { astralTouch } from './astral-touch';
+export { killPerson } from './kill-person';
+export { gateRepair } from './gate-repair';
+export { gateDamage } from './gate-damage';
+export { gateResearch } from './gate-research';

@@ -43,8 +43,8 @@ export function WarBands(): JSX.Element {
             element: bear.element,
           },
           {
-            label: outlanders.label,
-            element: outlanders.element,
+            label: dogs.label,
+            element: dogs.element,
           },
           {
             label: knights.label,
@@ -61,9 +61,10 @@ export function WarBands(): JSX.Element {
             element: chainsOrder.element,
           },
           {
-            label: dogs.label,
-            element: dogs.element,
+            label: outlanders.label,
+            element: outlanders.element,
           },
+
         ]}
       />
     </div>

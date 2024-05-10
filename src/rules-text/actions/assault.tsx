@@ -3,7 +3,7 @@ import { Item } from "../type";
 import s from './actions.module.css';
 
 export const assault: Item = {
-  label: 'Штурм лагеря',
+  label: 'Штурм лагеря/города',
   element:
     <>
       <div className={s.label}><i>Требования к лагерю</i></div>

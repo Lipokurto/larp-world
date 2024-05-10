@@ -7,7 +7,7 @@ export const rest: Item = {
   element:
     <>
       <div>Карта <b>"Отдых"</b> убирает действие одного из психозов. Получить ее можно несколькими способами:</div>
-      <div className={s.label}>Отдых в заведении</div>
+      <h1 className={s.label}>Отдых в заведении</h1>
       <div>Персонаж может посетить увеселительное заведение, с целью снять стресс и немного расслабиться.</div>
       <div className={s.label}><i>Механика</i></div>
       <ol className={s.listContainer}>
@@ -24,7 +24,7 @@ export const rest: Item = {
         <li>Для хозяев заведения было бы хорошим тоном иметь места где сданные вещи могли бы безопасно находится.</li>
       </ol>
 
-      <div className={s.label}>Автограф артиста</div>
+      <h1 className={s.label}>Автограф артиста</h1>
       <div>Артист может подарить своему поклоннику автограф, восстановив (или нет) психологическое здоровье персонажа.</div>
       <div className={s.label}><i>Механика</i></div>
       <ol className={s.listContainer}>
@@ -41,7 +41,7 @@ export const rest: Item = {
         <li>Артист в праве просить любые условия для предоставления своего автографа.</li>
       </ol>
 
-      <div className={s.label}>Исповедь</div>
+      <h1 className={s.label}>Исповедь</h1>
       <div>Инквизитор исповедует персонажа, снимая с его души груз тяжких грехов.</div>
       <div className={s.label}><i>Механика</i></div>
       <ol className={s.listContainer}>
