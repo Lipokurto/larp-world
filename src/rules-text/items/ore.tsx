@@ -13,14 +13,14 @@ export const ore: Item = {
     <>
       <div className={s.icon}><img src={card} alt='' /></div>
       <div className={s.label}>Эффекты</div>
-        <div>Руда необходима для производства ремкомплектов</div>
+        <div>Руда необходима для производства ремкомплектов и для функционирования пушек</div>
       <div className={s.label}>Вес: 1</div>
       <div className={s.label}>Ограничения:</div>
       
       <div className={s.listContainer}>
         <li>Одноразовое</li>
         <li>Игровой предмет</li>
-        <li>Используются исключительно для производства и торговли</li>
+        <li>Используются для производства, торговли и функционирования пушек</li>
       </div>
       
       <br />
