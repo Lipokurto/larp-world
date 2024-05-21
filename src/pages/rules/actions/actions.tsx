@@ -1,18 +1,18 @@
 import { AccordionBlock, Chapter } from "../../../components";
 
 import { 
-  tithe, assault, search,
+  assault, search, ancestor,
   prison, ransom, pray,
   execution, eat,
   ham, loot, theft,
   rest, workPlan,
   craft, quality, performance,
-  exile, idol, removeAltar,
-  addAltar, heal, repair,
+  heal, repair,
   ropery, supply, salary,
   changeForm, healObsessed, createObsessed,
   darkDeal, astralTouch, killPerson,
   gateRepair, gateDamage, gateResearch,
+  cannonFire,
 } from "../../../rules-text/actions";
 
 import s from './actions.module.css';
@@ -25,7 +25,7 @@ export function Actions(): JSX.Element {
 
         <AccordionBlock 
           label='Общие действия' 
-          items={[heal, repair, loot, theft, prison, ransom, ropery, rest, killPerson]} 
+          items={[heal, repair, loot, theft, prison, ransom, ropery, rest, killPerson, cannonFire]} 
           />
 
         <AccordionBlock 
@@ -40,7 +40,7 @@ export function Actions(): JSX.Element {
 
         <AccordionBlock 
           label='Мистические действия' 
-          items={[darkDeal, pray, execution, tithe, exile, addAltar, eat, changeForm, ham, idol, removeAltar, healObsessed, createObsessed]} 
+          items={[darkDeal, pray, ancestor, execution, eat, changeForm, ham, healObsessed, createObsessed]} 
           />
       </div>
     </>
