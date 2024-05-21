@@ -59,7 +59,7 @@ export function Main(): JSX.Element {
           background='wheat'
           direction="left"
         >
-          <a href={pdfRules} target='_blank' rel="noreferrer" style={{color: 'goldenrod'}} download={'Темные_века_правила_v1-17-1'}>
+          <a href={pdfRules} target='_blank' rel="noreferrer" style={{color: 'goldenrod'}} download={'Темные_века_правила_v1-18'}>
             <img src={pdfIcon} alt="" width={30} />
           </a>
         </Tooltip>
