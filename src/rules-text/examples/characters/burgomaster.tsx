@@ -11,8 +11,8 @@ const images = [artist01, artist02, artist03];
 
 export const burgomaster: Item = {
   label: 'Бургомистр',
-  player: 'Регионал',
-  desc: 'Отвечает за игротехнические процессы города',
+  player: 'Игрок',
+  desc: 'Отвечает за жизнь города',
   element: 
     <>      
       <div>      

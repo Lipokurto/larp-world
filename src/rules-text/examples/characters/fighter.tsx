@@ -10,17 +10,14 @@ import s from './char.module.css';
 const images = [fighter01, fighter02, fighter03];
 
 export const fighter: Item = {
-  label: 'Боец',
+  label: 'Член отряда',
   player: 'Игрок',
-  desc: 'Любая боевая роль',
+  desc: 'Член отряда наемников',
   element: 
     <>      
       <div>      
         <ImagesAdaptive images={images} />
       </div>
-
-      <div className={s.label}><i>Описание</i></div>
-      <div>Боевой игрок.</div>
 
       <div className={s.label}><i>Требования</i></div>
       <div className={s.listContainer}>
