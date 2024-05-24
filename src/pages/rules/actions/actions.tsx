@@ -12,7 +12,7 @@ import {
   changeForm, healObsessed, createObsessed,
   darkDeal, astralTouch, killPerson,
   gateRepair, gateDamage, gateResearch,
-  cannonFire,
+  cannonPrepare,
 } from "../../../rules-text/actions";
 
 import s from './actions.module.css';
@@ -25,7 +25,7 @@ export function Actions(): JSX.Element {
 
         <AccordionBlock 
           label='Общие действия' 
-          items={[heal, repair, loot, theft, prison, ransom, ropery, rest, killPerson, cannonFire]} 
+          items={[heal, repair, loot, theft, prison, ransom, ropery, rest, killPerson, cannonPrepare]} 
           />
 
         <AccordionBlock 

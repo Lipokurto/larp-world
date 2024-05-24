@@ -32,5 +32,5 @@ export { killPerson } from './kill-person';
 export { gateRepair } from './gate-repair';
 export { gateDamage } from './gate-damage';
 export { gateResearch } from './gate-research';
-export { cannonFire } from './cannon-fire';
+export { cannonPrepare } from './cannon-prepare';
 export { ancestor } from './ancestor';
