@@ -102,7 +102,7 @@ function ModalPoor(): JSX.Element {
 }
 
 const modal: Item = {
-  label: 'Отряд иноземцев',
+  label: 'Садху Дэвы',
   element: <ModalPoor />
 }
 
@@ -150,6 +150,6 @@ function Outlanders(): JSX.Element {
 }
 
 export const outlanders: Item = {
-  label: 'Отряд Кушан',
+  label: 'Садху Дэвы',
   element: <Outlanders />
 }
