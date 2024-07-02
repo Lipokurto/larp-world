@@ -5,7 +5,33 @@ import s from './objects.module.css';
 
 export const videoObject: Link[] = [
   {
-    name: 'При Темные века: 05 Оружие и хитосъем',
+    name: 'ПРИ Темные века: 07 Виртуальная экскурсия по полигону',
+    link: 'https://vk.com/video_ext.php?oid=-221551368&id=456239030&hd=2',
+    description: 
+      <>
+        <div className={s.label}>07 Виртуальная экскурсия по полигону</div>
+        <div className={s.listContainer}>
+          <div>Какие виды?</div>
+          <div>Есть ли удобства?</div>
+          <div>Беседки?</div>
+        </div>
+      </>
+  },
+  {
+    name: 'ПРИ Темные века: 06 Производство ремкомплектов (демонстрация)',
+    link: 'https://vk.com/video_ext.php?oid=-221551368&id=456239027&hd=2',
+    description: 
+      <>
+        <div className={s.label}>06 Производство ремкомплектов (демонстрация)</div>
+        <div className={s.listContainer}>
+          <div>Что такое физический труд для медиков?</div>
+          <div>Что предоставляют мастера, а что придется докупать самостоятельно</div>
+          <div>Как долго длиться процесс</div>
+        </div>
+      </>
+  },
+  {
+    name: 'ПРИ Темные века: 05 Оружие и хитосъем',
     link: 'https://vk.com/video_ext.php?oid=-221551368&id=456239026&hd=2',
     description: 
       <>
@@ -18,7 +44,7 @@ export const videoObject: Link[] = [
       </>
   },
   {
-    name: 'При Темные века: 04 Броня и хиты',
+    name: 'ПРИ Темные века: 04 Броня и хиты',
     link: 'https://vk.com/video_ext.php?oid=-221551368&id=456239025&hd=2',
     description: 
       <>
@@ -31,7 +57,7 @@ export const videoObject: Link[] = [
       </>
   },
   {
-    name: 'При Темные века: 03 Требования к внешнему виду',
+    name: 'ПРИ Темные века: 03 Требования к внешнему виду',
     link: 'https://vk.com/video_ext.php?oid=-221551368&id=456239024&hd=2',
     description: 
       <>
@@ -44,7 +70,7 @@ export const videoObject: Link[] = [
       </>
   },
   {
-    name: 'При Темные века: 02 Коротко о вселенной',
+    name: 'ПРИ Темные века: 02 Коротко о вселенной',
     link: 'https://vk.com/video_ext.php?oid=-221551368&id=456239023&hd=2',
     description: 
       <>
@@ -57,7 +83,7 @@ export const videoObject: Link[] = [
       </>
   },
   {
-    name: 'При Темные века: 01 Вступление',
+    name: 'ПРИ Темные века: 01 Вступление',
     link: 'https://vk.com/video_ext.php?oid=-221551368&id=456239022&hd=2',
     description: 
       <>
