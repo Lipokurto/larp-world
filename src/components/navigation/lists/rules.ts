@@ -14,7 +14,7 @@ export const rules: ListItem[] = [
     link: '/actions',
   },
   {
-    label: 'Игровые ресурсы и карты',
+    label: 'Ресурсы, предметы и карты',
     link: '/resources',
   },
   {
