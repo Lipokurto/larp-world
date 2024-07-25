@@ -16,7 +16,7 @@ export const barrow: Item = {
       <div className={s.label}>Описание</div>
       <div>Одноколесная тачка для перевоза грузов</div>
       <div className={s.label}>Эффект</div>
-      <div>Добавляет 3 слота под предметы</div>
+      <div>Добавляет 4 слота под предметы</div>
       <div className={s.label}>Требования</div>
       <div className={s.listContainer}>
         <li>Не должна казаться пустой</li>
