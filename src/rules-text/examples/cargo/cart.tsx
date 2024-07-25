@@ -21,7 +21,7 @@ export const cart: Item = {
       <div className={s.label}>Описание</div>
       <div>Многоколесная тачка для перевоза грузов</div>
       <div className={s.label}>Эффект</div>
-      <div>Добавляет 4+ слота под предметы</div>
+      <div>Добавляет 6+ слота под предметы</div>
       <div className={s.label}>Требования</div>
       <div className={s.listContainer}>
         <li>Не должна казаться пустой</li>
