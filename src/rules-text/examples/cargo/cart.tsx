@@ -12,14 +12,9 @@ export const cart: Item = {
   label: 'Телега',
   element: 
     <>
+      <ImagesAdaptive images={cartImg} />
       <h3>Описание</h3>
       <div>Тележка с двумя и более колесами</div>
-      <h3>Добавляет 4 грузоподъемности</h3>
-      <div>Бонус может быть увеличен за счет объема и качества телеги</div>
-
-      <ImagesAdaptive images={cartImg} />
-      <div className={s.label}>Описание</div>
-      <div>Многоколесная тачка для перевоза грузов</div>
       <div className={s.label}>Эффект</div>
       <div>Добавляет 6+ слота под предметы</div>
       <div className={s.label}>Требования</div>
