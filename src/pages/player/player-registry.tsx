@@ -22,7 +22,10 @@ const registrationSteps: Steps[] = [
   {
     img: intro,
     label: 'Введение',
-    description: <div>Ознакомьтесь с <a href='https://larpdarkage.ru/rules/general' target='_blank' rel="noreferrer" style={{color: 'goldenrod'}}>правилами мероприятия</a></div>,
+    description: <div>
+        <div>Ознакомьтесь с <a href='https://larpdarkage.ru/rules/general' target='_blank' rel="noreferrer" style={{color: 'goldenrod'}}>правилами мероприятия</a></div>
+        <div>Ознакомьтесь с <a href='https://docs.google.com/spreadsheets/d/1st6MW3fwOllrLfTsgnVavd_yNYjyXZuOTnXKUI5cfn8/edit?usp=sharing' target='_blank' rel="noreferrer" style={{color: 'goldenrod'}}>таблицей ролей</a></div>
+      </div>
   },
   {
     img: arm,
