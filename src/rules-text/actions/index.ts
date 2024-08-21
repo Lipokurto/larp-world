@@ -34,3 +34,5 @@ export { gateDamage } from './gate-damage';
 export { gateResearch } from './gate-research';
 export { cannonPrepare } from './cannon-prepare';
 export { ancestor } from './ancestor';
+export { experiment } from './experiment';
+export { knock } from './knock';
