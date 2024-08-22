@@ -102,7 +102,7 @@ export function Battle(): JSX.Element {
                   <CharStatus
                     label='Ранен'
                     model='Никак не маркируется'
-                    play='Игрок имеющий один живой хит'
+                    play='Игрок потерявший один или более броневых хитов'
                   />
 
                   <CharStatus
