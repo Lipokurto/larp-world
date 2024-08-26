@@ -5,6 +5,19 @@ import s from './objects.module.css';
 
 export const videoObject: Link[] = [
   {
+    name: 'ПРИ Темные века: 08 Визуализация создания ремкомплектов',
+    link: 'https://vk.com/video_ext.php?oid=-221551368&id=456239032&hd=2',
+    description: 
+      <>
+        <div className={s.label}>08 Визуализация создания ремкомплекта</div>
+        <div className={s.listContainer}>
+          <div>Что такое физический труд для кузнецов?</div>
+          <div>Что предоставляют мастера, а что придется докупать самостоятельно</div>
+          <div>Как долго длиться процесс</div>
+        </div>
+      </>
+  },
+  {
     name: 'ПРИ Темные века: 07 Виртуальная экскурсия по полигону',
     link: 'https://vk.com/video_ext.php?oid=-221551368&id=456239030&hd=2',
     description: 
