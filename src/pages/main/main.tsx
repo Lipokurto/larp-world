@@ -16,7 +16,7 @@ import pdfIcon from './../../assets/icons/social/pdfIcon.png';
 import excelIcon from './../../assets/icons/social/excel.png';
 import pdfRules from '../../rules-text/Pravila_Temnye_veka_v_1_2_1.pdf';
 
-import s from './main.module.css';
+import s from './main.module.scss';
 
 export function Main(): JSX.Element {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);

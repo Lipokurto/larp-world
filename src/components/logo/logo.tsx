@@ -17,6 +17,7 @@ export function Logo(): JSX.Element {
       <>
         <div className={s.logo}>
           <LabelText />
+          {/* <Battle02 /> */}
 
           <MouseParallaxContainer 
             globalFactorX={0.1} 
