@@ -1,20 +1,14 @@
 import React from "react";
 
-import battleClear from '../../../assets/battle-clear.svg';
+import battleClear from '../../../assets/battle_clear.svg';
 import fog from '../../../assets/fog.svg';
 
 import './battle.css';
 
 export function Battle01(): JSX.Element {
   return (
-    <>
-      <div className='battle__clear'>
-        <img src={battleClear} alt='Battle' />
-      </div>
-
-      <div className='fog__clear'>
-        <img src={fog} alt='Fog'/>
-      </div>
-    </>
+    <div className='battle__clear'>
+      <img src={battleClear} alt='Battle' />
+    </div>
   )
 }

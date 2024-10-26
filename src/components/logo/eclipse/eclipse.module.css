@@ -1,0 +1,33 @@
+.mark__container {
+  display: flex;
+  position: relative;
+  margin-top: 86px;
+}
+
+.knight {
+  z-index: 1;
+  position: absolute;
+  margin-left: 220px;
+
+  animation: moveUpDown 10s infinite;
+}
+
+.circle {
+  z-index: 0;
+  left:0%;
+  top: 0%;
+  margin-left: -93px;
+  margin-top: -100px;
+}
+
+@keyframes moveUpDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

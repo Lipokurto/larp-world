@@ -1,30 +1,19 @@
 import React from 'react';
 
-import { Mark } from './mark';
-import { Circle } from './circle';
+import tri from '../../../assets/triangle.svg';
+import knight from '../../../assets/knight.svg';
 
-import blackCircle from '../../../assets/black-circle.png';
-
-import './eclipse.css';
+import s from './eclipse.module.css';
 
 export function Eclipse(): JSX.Element {
   return (
-    <>
-      <div className='mark__container'>
-        <Mark />
-      
-        <div className='black-circle'>
-          <img 
-            src={blackCircle} 
-            alt='Mark' 
-            width={475}
-              />
+    <div className={s.mark__container}>
+      <div className={s.circle}>
+        <div className={s.knight}>
+          <img src={knight} alt='Knight' />
         </div>
-
-        <div className='circle'>
-          <Circle />
-        </div>
+        <img src={tri} alt='Triangle'/>
       </div>
-    </>
+    </div>
   )
 }
