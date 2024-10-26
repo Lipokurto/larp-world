@@ -1,0 +1,49 @@
+<svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+ width="1000.000000pt" height="400.000000pt" 
+ viewBox="0 0 1000.000000 700.000000"
+ preserveAspectRatio="xMidYMid meet">
+ <defs>
+    <radialGradient
+      id="MyGradient"
+      cx="0.6"
+      cy="0.75"
+      fx="0.61"
+      fy="1.0"
+      fr="5%"
+    >
+      <stop offset="25%" stop-color="#FF0000" />
+      <stop offset="45%" stop-color="#45BA55" />
+      <stop offset="95%" stop-color="#000000" />
+    </radialGradient>
+  </defs>
+  <filter id="displacementFilter">
+    <feTurbulence
+      type="turbulence"
+      baseFrequency="0.009"
+      numOctaves="5"
+      speed="2">
+      <animate 
+        attributeName="baseFrequency" 
+        dur="60s"
+        values="0.05; 0.2; 0.05"
+        repeatCount="indefinite" />
+    </feTurbulence>
+
+    <feDisplacementMap
+      in="SourceGraphic"
+      scale="30" 
+      xChannelSelector="R"
+      yChannelSelector="G" />
+  </filter>
+
+  <filter id="horizontalBlur">
+    <feGaussianBlur in="SourceGraphic" stdDeviation="15 0" />
+  </filter>
+
+<g transform="translate(-500.000000,900.000000) scale(5.100000, -4.100000)"
+fill="#000000" stroke="none" 
+style="filter: url(#displacementFilter) blur(5px); fill: url(#MyGradient);"
+>
+  <polygon points="100,10 40,190 160,190" filter="url(#wavy) url(#horizontalBlur)" />
+</g>
+</svg>
