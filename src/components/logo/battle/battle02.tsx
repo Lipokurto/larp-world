@@ -7,7 +7,7 @@ import './battle.css';
 export function Battle02(): JSX.Element {
   return (
     <div className='battle__effect'>
-      <img src={battleEffect} className='monster' alt='Battle' />
+      <img src={battleEffect} alt='Battle' />
     </div>
   )
 }

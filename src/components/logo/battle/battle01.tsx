@@ -1,7 +1,6 @@
 import React from "react";
 
 import battleClear from '../../../assets/battle_clear.svg';
-import fog from '../../../assets/fog.svg';
 
 import './battle.css';
 
