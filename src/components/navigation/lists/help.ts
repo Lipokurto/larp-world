@@ -13,10 +13,10 @@ export const help: ListItem[] = [
     label: 'Мои чудовища',
     link: '/monster-calc',
   },
-  {
-    label: 'Мое производство',
-    link: '/build-calc',
-  },
+  // {
+  //   label: 'Мое производство',
+  //   link: '/build-calc',
+  // },
   {
     label: 'Мое строение',
     link: '/house-calc',
