@@ -17,14 +17,14 @@ export const rules: ListItem[] = [
     label: 'Ресурсы, предметы и карты',
     link: '/resources',
   },
-  {
-    label: 'Архетипы',
-    link: '/role',
-  },
-  {
-    label: 'Апостолы и одержимые',
-    link: '/monsters',
-  },
+  // {
+  //   label: 'Архетипы',
+  //   link: '/role',
+  // },
+  // {
+  //   label: 'Апостолы и одержимые',
+  //   link: '/monsters',
+  // },
   {
     label: 'Психозы',
     link: '/psycho',
@@ -33,8 +33,8 @@ export const rules: ListItem[] = [
     label: 'Лагерь и постройки',
     link: '/location',
   },
-  {
-    label: 'Финальная битва',
-    link: '/final-battle',
-  },
+  // {
+  //   label: 'Финальная битва',
+  //   link: '/final-battle',
+  // },
 ]

@@ -13,16 +13,16 @@ export const world: ListItem[] = [
     label: 'Карта',
     link: '/map',
   },
-  {
-    label: 'Отряды',
-    link: '/war-bands',
-  },
-  {
-    label: 'Город Солем',
-    link: '/solem',
-  },
-  {
-    label: 'Жители города',
-    link: '/people',
-  },
+  // {
+  //   label: 'Отряды',
+  //   link: '/war-bands',
+  // },
+  // {
+  //   label: 'Город Солем',
+  //   link: '/solem',
+  // },
+  // {
+  //   label: 'Жители города',
+  //   link: '/people',
+  // },
 ]

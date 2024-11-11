@@ -19,7 +19,7 @@ export const standardDiff = {
   seconds: 0,
 };
 
-export const playTime = new Date('2024-10-02T00:00:00');
+export const playTime = new Date('2025-10-01T00:00:00');
 
 export const payLimits: PayLimits[] = [
   { timeLimit: new Date('2024-04-01T23:59:59'), name: 'Благородный', price: 3500, text: 'Взносы формирующие базис бюджета, очень важны для мастеров' },
