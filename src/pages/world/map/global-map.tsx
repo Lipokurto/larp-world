@@ -1,8 +1,8 @@
 import React from "react";
 
 import clearMap from '../../../assets/map/clear-map.png';
-import politicMap from '../../../assets/map/politic-map.png';
-import religionMap from '../../../assets/map/religion-map.png';
+import politicMap from '../../../assets/map/politic-map.jpg';
+import religionMap from '../../../assets/map/religion-map.jpg';
 import cultureMap from '../../../assets/map/culture-map.png';
 
 import { Chapter } from "../../../components";

@@ -6,7 +6,7 @@ import Tooltip from "react-tooltip-lite";
 
 import { SubMenu } from "./sub-menu";
 import { Logo } from "../../components/logo";
-import staticLogo from '../../assets/logo_EMPTY_BACK_2024.png';
+import staticLogo from '../../assets/LOGO_2025.png';
 import { NavigationModal, useResize } from "../../components";
 import { rules } from "../../components/navigation/lists";
 import { videoObject } from "../../links/main-video/video-objects";
