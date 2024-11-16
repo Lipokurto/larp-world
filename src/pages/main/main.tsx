@@ -54,7 +54,7 @@ export function Main(): JSX.Element {
           </a>
         </Tooltip>
 
-        <Tooltip
+        {/* <Tooltip
           content='Все правила одним файлом PDF (v1-2-1)'
           background='wheat'
           direction="left"
@@ -72,7 +72,7 @@ export function Main(): JSX.Element {
           <a href='https://docs.google.com/spreadsheets/d/1st6MW3fwOllrLfTsgnVavd_yNYjyXZuOTnXKUI5cfn8/edit?usp=sharing' target='_blank' rel="noreferrer" style={{color: 'goldenrod'}}>
             <img src={excelIcon} alt="" width={30} />
           </a>
-        </Tooltip>
+        </Tooltip> */}
       </>
     )
   }, []);

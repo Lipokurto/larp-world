@@ -5,6 +5,19 @@ import s from './objects.module.css';
 
 export const videoObject: Link[] = [
   {
+    name: 'ПРИ Темные века: Сюжетные итоги 2024',
+    link: 'https://vk.com/video_ext.php?oid=-221551368&id=456239042&hd=2',
+    description: 
+      <>
+        <div className={s.label}>09 Сюжетные итоги игры 2024</div>
+        <div className={s.listContainer}>
+          <div>Кому принадлежит город Солем?</div>
+          <div>Что случилось с апотолом?</div>
+          <div>Причем тут кушаны?</div>
+        </div>
+      </>
+  },
+  {
     name: 'ПРИ Темные века: 08 Визуализация создания ремкомплектов',
     link: 'https://vk.com/video_ext.php?oid=-221551368&id=456239032&hd=2',
     description: 
