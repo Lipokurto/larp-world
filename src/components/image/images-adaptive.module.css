@@ -1,6 +1,7 @@
 .containerlg {
   display: flex;
   padding: 10px;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
@@ -31,4 +32,18 @@
 
 .button {
   border-radius: 10px;
+}
+
+@media only screen and (max-width: 800px) {
+  .container img{
+    width: 360px;
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .container img{
+    width: 200px;
+    height: auto;
+  }
 }

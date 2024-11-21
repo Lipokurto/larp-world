@@ -11,9 +11,9 @@ type Props = {
 }
 
 export function ImagesAdaptive(props: Props): JSX.Element {
-  const { isScreenLg } = useResize();
+  const { isScreenXl } = useResize();
 
-  if (isScreenLg && !props.isNoAdaptive) {
+  if (isScreenXl && !props.isNoAdaptive) {
     return  (
       <div className={s.containerlg}>
         {props.images.map((p, i) => <img key={'lg>' + i} src={p} alt='' />)}

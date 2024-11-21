@@ -49,28 +49,28 @@ export function About(): JSX.Element {
           <div className={s.textBlock}>
             <b>Высокие требования:</b> Мы стремимся визуализировать все происходящее вокруг и хотим этого же от игроков.
           </div>
-          <ImagesAdaptive images={anturage} isNoAdaptive />
+          <ImagesAdaptive images={anturage} />
         </div>
 
         <div className={s.pick}>
           <div className={s.textBlock}>
             <b>Сюжет без остановок:</b> Любые сюжетные моменты фиксируются, никаких "мастер-стопов" или "откатов".
           </div>
-          <ImagesAdaptive images={sujet} isNoAdaptive />
+          <ImagesAdaptive images={sujet} />
         </div>
 
         <div className={s.pick}>
           <div className={s.textBlock}>
             <b>Игровая экономика:</b> Игровые ресурсы и деньги влияют на все.
           </div>
-          <ImagesAdaptive images={economy} isNoAdaptive />
+          <ImagesAdaptive images={economy} />
         </div>
 
         <div className={s.pick}>
           <div className={s.textBlock}>
             <div><b>Скрытые механики:</b> Часть игровых механик работают тайно, исследовать их - часть игрового опыта.</div>
           </div>
-          <ImagesAdaptive images={secret} isNoAdaptive />
+          <ImagesAdaptive images={secret} />
         </div>
       </div>
     </div>
