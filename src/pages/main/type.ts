@@ -12,7 +12,6 @@ export enum StatusBand {
   hired = 'Наемники',
   order = 'Орден',
   inquisitors = 'Инквизиция',
-  monsters = 'Чудовища',
   unknown = 'Неизвесно',
 }
 

@@ -9,7 +9,6 @@ import {
   disgust, dreamer, egocentrism, fanatic,
   fatalism,
   gambler, hemophobia, joker, linguist,
-  mark01, mark02, mark03,
   mystic, naive, neat,
   nobility, obtrusive, paranoia,
   shy,
@@ -19,20 +18,20 @@ import {
 import s from './psycho.module.css';
 
 const level01 = [
-  mark01, shy, paranoia,
+  shy, paranoia,
   obtrusive, critic, joker,
   naive, linguist, apathy,
   delusion,
 ];
 
 const level02 = [
-  mark02, mystic, fanatic,
+  mystic, fanatic,
   neat, dreamer, gambler,
   nobility, disgust,
 ];
 
 const level03 = [
-  mark03, weakness, cowardice,
+  weakness, cowardice,
   aggression, egocentrism, hemophobia,
   fatalism, xenophobe, bloodthirsty
 ]

@@ -5,13 +5,13 @@ import { Main } from "./pages/main/main";
 
 import { 
   Actions, Battle, Camp,
-  Monsters, Resources, General,
+  Resources, General,
   Role, Psycho, FinalBattle,
 } from "./pages/rules";
 
 import {
   BuildCalc, CharCalc, HealCalc,
-  MonsterCalc, HouseCalc,
+  HouseCalc,
 } from "./pages/help";
 
 import {
@@ -26,7 +26,6 @@ import {
 
 import { About } from "./pages/about/about";
 import { CargoVisual } from "./components";
-import { Intendant } from "./pages/intendant/intendant";
 import { More } from "./pages/more/more";
 import { PayRegistry } from "./pages/player/pay-registry";
 import { Conf } from "./pages/conf/conf";
@@ -44,7 +43,6 @@ export default function App(): JSX.Element {
           <Route path='/' element={<Main />} />
           <Route path='/rules/general' element={<General />} />
           <Route path='/rules/battle' element={<Battle />} />
-          <Route path='/rules/monsters' element={<Monsters />} />
           <Route path='/rules/location' element={<Camp />} />
           <Route path='/rules/resources' element={<Resources />} />
           <Route path='/rules/actions' element={<Actions />} />
@@ -63,7 +61,6 @@ export default function App(): JSX.Element {
           <Route path='/help/cargo-calc' element={<CargoVisual />} />
           <Route path='/help/build-calc' element={<BuildCalc />} />
           <Route path='/help/heal-calc' element={<HealCalc />} />
-          <Route path='/help/monster-calc' element={<MonsterCalc />} />
           <Route path='/help/house-calc' element={<HouseCalc />} />
 
           <Route path='/player/map-support' element={<MapSupport />} />
@@ -74,7 +71,6 @@ export default function App(): JSX.Element {
 
           <Route path='/about' element={<About />} />
           <Route path='/more' element={<More />} />
-          <Route path='/intendant' element={<Intendant />} />
           <Route path='/vk-policy' element={<Conf />} />
         </Routes>
       </div>

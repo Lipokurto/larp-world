@@ -1,7 +1,6 @@
 export { Actions } from './actions/actions';
 export { Battle } from './battle/battle';
 export { General } from './general/general';
-export { Monsters } from './monsters/monsters';
 export { Resources } from './resources/resources';
 export { Camp } from './camp/camp';
 export { FinalBattle } from './activity/final-battle';
