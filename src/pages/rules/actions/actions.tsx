@@ -1,16 +1,14 @@
 import { AccordionBlock, Chapter } from "../../../components";
 
 import { 
-  assault, search, ancestor,
-  prison, ransom, pray,
-  execution, eat,
-  ham, loot, theft,
+  assault, search,
+  prison, ransom,
+  loot, theft,
   rest, workPlan,
   craft, quality, performance,
   heal, repair,
   ropery, supply, salary,
-  changeForm, healObsessed, createObsessed,
-  darkDeal, astralTouch, killPerson,
+  astralTouch, killPerson,
   gateRepair, gateDamage, gateResearch,
   cannonPrepare, experiment, knock,
 } from "../../../rules-text/actions";
@@ -36,11 +34,6 @@ export function Actions(): JSX.Element {
         <AccordionBlock 
           label='Действия отрядов' 
           items={[assault, search, supply, salary]} 
-          />
-
-        <AccordionBlock 
-          label='Мистические действия' 
-          items={[darkDeal, pray, ancestor, execution, eat, changeForm, ham, healObsessed, createObsessed]} 
           />
       </div>
     </>

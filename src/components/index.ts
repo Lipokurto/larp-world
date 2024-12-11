@@ -24,7 +24,6 @@ export { HitsCalc } from './visual/hits-calc';
 export { SelectItem } from './visual/select-item';
 export { BuildLevel } from './visual/build-level';
 export { DamageCalc } from './visual/damage/damage-calc';
-export { BeastCalc } from './visual//beast/beast-calc';
 export { Support } from './visual/support/support';
 
 export { useResize } from './utils/use-resize';
