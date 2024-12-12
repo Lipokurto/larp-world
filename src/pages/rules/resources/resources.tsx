@@ -6,7 +6,7 @@ import { bag, barrow, cart } from "../../../rules-text/examples/cargo";
 import { 
   healPack, healPotion, repairPack,
   repairPotion, artifact, ore, 
-  herbs, money, scull,
+  herbs, money,
   prisoner, rest, thief,
   psyh, artistDeck, managerDeck,
   dungeonDeck,
@@ -17,7 +17,7 @@ import { Item } from "../../../rules-text/type";
 import s from './resources.module.css';
 
 const resources = [ money, artifact, ore, herbs, healPack, repairPack, healPotion, repairPotion ];
-const cards = [ scull, prisoner, rest, thief, psyh ];
+const cards = [ prisoner, rest, thief, psyh ];
 const decks = [ artistDeck, managerDeck, dungeonDeck ];
 
 export function Resources(): JSX.Element {

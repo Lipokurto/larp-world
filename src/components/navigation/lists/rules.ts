@@ -10,6 +10,10 @@ export const rules: ListItem[] = [
     link: '/battle',
   },
   {
+    label: 'Травмы и поломки',
+    link: '/injury',
+  },
+  {
     label: 'Игровые действия',
     link: '/actions',
   },
