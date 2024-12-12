@@ -6,18 +6,6 @@ export const experiment: Item = {
   label: 'Эксперимент',
   element:
     <>
-      <div className={s.label}><i>На каждую лабораторию алхимика выдаются:</i></div>
-      <ol className={s.listContainer}>
-        <li>Доска для рисования алхимических кругов.</li>
-        <li>Мел.</li>
-        <li>Две гипсовые шкатулки.</li>
-        <li>Одна таблетка сухого спирта.</li>
-        <li>Рецепт «Оружейное масло».</li>
-        <li>Рецепт «Целебная мазь».</li>
-        <li>Круг «Креато».</li>
-        <li>Таблетка кальций глюконат.</li>
-      </ol>
-
       <div className={s.label}><i>Механика:</i></div>
       <div className={s.listContainer}>
         <li>Алхимик рисует на доске круг.</li>

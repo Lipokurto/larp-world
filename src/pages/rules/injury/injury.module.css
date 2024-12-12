@@ -1,0 +1,49 @@
+.container {
+  display: flex;
+  width: 50%;
+  color: white;
+  flex-direction: column;
+  text-align: center;
+  padding: 20px 20px 20px 20px;
+  margin: 0 auto 0 auto;
+}
+
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  text-align: initial;
+  margin-left: 10%;
+}
+
+.label {
+  font-weight: bold;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+
+.resContainer {
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 5px;
+}
+
+.resItem {
+  margin: 20px;
+  
+}
+
+@media only screen and (max-width: 1600px) {
+  .container {
+    width: 75%;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .container {
+    width: 95%;
+    padding: 0 0 0 0;
+  }
+}

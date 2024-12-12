@@ -7,6 +7,7 @@ import {
   Actions, Battle, Camp,
   Resources, General,
   Role, Psycho, FinalBattle,
+  Injury,
 } from "./pages/rules";
 
 import {
@@ -43,6 +44,7 @@ export default function App(): JSX.Element {
           <Route path='/' element={<Main />} />
           <Route path='/rules/general' element={<General />} />
           <Route path='/rules/battle' element={<Battle />} />
+          <Route path='/rules/injury' element={<Injury />} />
           <Route path='/rules/location' element={<Camp />} />
           <Route path='/rules/resources' element={<Resources />} />
           <Route path='/rules/actions' element={<Actions />} />
