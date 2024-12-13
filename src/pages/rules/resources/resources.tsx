@@ -58,7 +58,7 @@ export function Resources(): JSX.Element {
       <div className={s.resContainer}>
         {markers.map((p) => {
           return (
-            <div className={s.resItem}>
+            <div className={s.resItem} onClick={() => handleClick(p)}>
               <ItemContainer
                 item={p.label}
                 weight={p.weight}
@@ -69,7 +69,7 @@ export function Resources(): JSX.Element {
         })}
       </div>
     )
-  }, []);
+  }, [handleClick]);
 
   const cardsList = React.useMemo(() => {
     return (
