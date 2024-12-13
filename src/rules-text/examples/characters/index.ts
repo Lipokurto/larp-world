@@ -4,7 +4,6 @@ export { foreman } from './foreman';
 export { quartermaster } from './quartermaster';
 export { fighter } from './fighter';
 export { inquisitor } from './inquisitor';
-export { executor } from './executor';
 export { civil } from './civil';
 export { craftsman } from './craftsman';
 export { artist } from './artist';

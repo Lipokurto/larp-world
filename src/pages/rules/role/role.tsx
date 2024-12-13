@@ -5,7 +5,7 @@ import { Item } from "../../../rules-text/type";
 
 import {
   artist, burgomaster, captain,
-  civil, craftsman, executor,
+  civil, craftsman,
   fighter, inquisitor, foreman,
   monk, owner, quartermaster,
   apostol, obsessed, dungeonMaster, wild,
@@ -14,7 +14,7 @@ import {
 import s from './role.module.css';
 
 const mercenaryRoles = [quartermaster, captain, fighter];
-const religionRoles = [inquisitor, executor, monk];
+const religionRoles = [inquisitor, monk];
 const socialRoles = [burgomaster, craftsman, foreman, owner, artist, civil ];
 const monsterRoles = [apostol, obsessed, dungeonMaster, wild];
 

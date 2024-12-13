@@ -17,7 +17,7 @@ import {
 
 import {
   Culture, GlobalMap, People, Politic,
-  Solem, WarBands,
+  WarBands,
 } from "./pages/world";
 
 import {
@@ -56,7 +56,6 @@ export default function App(): JSX.Element {
           <Route path='/world/culture' element={<Culture />} />
           <Route path='/world/map' element={<GlobalMap />} />
           <Route path='/world/war-bands' element={<WarBands />} />
-          <Route path='/world/solem' element={<Solem />} />
           <Route path='/world/people' element={<People />} />
 
           <Route path='/help/char-calc' element={<CharCalc />} />
