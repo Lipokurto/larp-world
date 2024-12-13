@@ -1,7 +1,7 @@
 import { Link } from "../types";
 // import rulesPDF from './rules.pdf';
 import tailorPDF from './tailor.pdf';
-import mapClear from './clear-map.png';
+import mapClear from '../../assets/map/clear-map.jpg';
 
 export const downloadFiles: Link[] = [
   // {

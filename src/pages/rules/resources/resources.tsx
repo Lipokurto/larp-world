@@ -9,7 +9,12 @@ import {
   herbs, money,
   prisoner, rest, thief,
   psyh, artistDeck, managerDeck,
-  dungeonDeck,
+  dungeonDeck, injuryDeck,
+  starMarker,
+  plagueMarker,
+  infectionMarker,
+  cureMarker,
+  deathMarker,
 } from "../../../rules-text/items";
 
 import { Item } from "../../../rules-text/type";
@@ -18,7 +23,8 @@ import s from './resources.module.css';
 
 const resources = [ money, artifact, ore, herbs, healPack, repairPack, healPotion, repairPotion ];
 const cards = [ prisoner, rest, thief, psyh ];
-const decks = [ artistDeck, managerDeck, dungeonDeck ];
+const decks = [ artistDeck, managerDeck, dungeonDeck, injuryDeck ];
+const markers = [ starMarker, plagueMarker, infectionMarker, cureMarker, deathMarker ];
 
 export function Resources(): JSX.Element {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
@@ -46,6 +52,24 @@ export function Resources(): JSX.Element {
       </div>
     )
   }, [handleClick]);
+
+  const markerList = React.useMemo(() => {
+    return (
+      <div className={s.resContainer}>
+        {markers.map((p) => {
+          return (
+            <div className={s.resItem}>
+              <ItemContainer
+                item={p.label}
+                weight={p.weight}
+                icon={p.icon}    
+              />
+            </div>
+          )
+        })}
+      </div>
+    )
+  }, []);
 
   const cardsList = React.useMemo(() => {
     return (
@@ -90,7 +114,7 @@ export function Resources(): JSX.Element {
   return (
     <>
       <div className={s.container}>
-        <Chapter chapter='РЕСУРСЫ, ПРЕДМЕТЫ И КАРТЫ' />
+        <Chapter chapter='РЕСУРСЫ, КАРТЫ И МАРКЕРЫ' />
 
         <div className={s.label}>{'Ресурсы'.toUpperCase()}</div>
           {recoursesList}
@@ -116,7 +140,7 @@ export function Resources(): JSX.Element {
         <div className={s.label}>Свойства игрового предмета</div>
         <div className={s.listContainer}>
           <li>Любой игровой предмет можно продать мастерскому торговцу или интенданту.</li>
-          <li>Все игровые предметы будут находиться в списке игровых предметов, который будет выдан на старте каждому игроку.</li>
+          <li>Все игровые предметы отмечены специальными цифрами</li>
           <li>Обладает весом 0.</li>
           <li>Игровой предмет можно своровать ФИЗИЧЕСКИ (не применяя действие <b>«Воровство»</b>).</li>
           <li>Игровой предмет отдается в случае применения действия <b>«Быстрый обыск»</b></li>
@@ -139,6 +163,9 @@ export function Resources(): JSX.Element {
 
         <div className={s.label}>Колоды некоторых ролей</div>
         {decksList}
+
+        <div className={s.label}>Игровые маркеры</div>
+        {markerList}
       </div>
 
       {isOpen && (

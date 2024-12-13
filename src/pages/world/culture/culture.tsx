@@ -8,7 +8,11 @@ import {
   south, southFasionHigh, southFasionNorm,
 } from "../../../rules-text/examples/nation";
 
-import { ancestors, politeism, throne } from "../../../rules-text/examples/religion";
+import {
+  ancestors, clearedByBlood, politeism,
+  throne,
+} from "../../../rules-text/examples/religion";
+
 import { Item } from "../../../rules-text/type";
 
 import s from './culture.module.css';
@@ -80,6 +84,10 @@ export function Culture(): JSX.Element {
             {
               label: 'Культ предков',
               element: <>{ancestors.element}</>
+            },
+            {
+              label: 'Очищенные кровью',
+              element: <>{clearedByBlood.element}</>
             },
           ]}
         />
