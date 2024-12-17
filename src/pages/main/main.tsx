@@ -14,7 +14,7 @@ import vkImage from './../../assets/icons/social/vk.png';
 import ruStore from './../../assets/icons/social/ruStore.png';
 import pdfIcon from './../../assets/icons/social/pdfIcon.png';
 import excelIcon from './../../assets/icons/social/excel.png';
-import pdfRules from '../../rules-text/Pravila_Temnye_veka_v_1_2_1.pdf';
+import pdfRules from '../../rules-text/Pravila_Temnye_veka_v_2_1_5.pdf';
 
 import s from './main.module.scss';
 
@@ -54,17 +54,17 @@ export function Main(): JSX.Element {
           </a>
         </Tooltip>
 
-        {/* <Tooltip
-          content='Все правила одним файлом PDF (v1-2-1)'
+        <Tooltip
+          content='Все правила одним файлом PDF (v2-1-5)'
           background='wheat'
           direction="left"
         >
-          <a href={pdfRules} target='_blank' rel="noreferrer" style={{color: 'goldenrod'}} download={'Темные_века_правила_v1-2-1'}>
+          <a href={pdfRules} target='_blank' rel="noreferrer" style={{color: 'goldenrod'}} download={'Темные_века_правила_v2-1-5'}>
             <img src={pdfIcon} alt="" width={30} />
           </a>
         </Tooltip>
 
-        <Tooltip
+        {/* <Tooltip
           content='Таблица всех ролей'
           background='wheat'
           direction="left"

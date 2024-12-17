@@ -20,3 +20,5 @@ export { gateResearch } from './gate-research';
 export { cannonPrepare } from './cannon-prepare';
 export { experiment } from './experiment';
 export { knock } from './knock';
+export { buildRepair } from './build-repair';
+export { lockPick } from './lock-pick';

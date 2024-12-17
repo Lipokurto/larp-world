@@ -1,15 +1,14 @@
 import { AccordionBlock, Chapter } from "../../../components";
 
 import { 
-  assault, search,
-  prison, ransom,
-  loot, theft,
-  rest, workPlan,
-  craft, quality, performance,
-  heal, repair,
-  supply, salary, killPerson,
-  gateRepair, gateDamage, gateResearch,
-  cannonPrepare, experiment, knock,
+  assault, search, prison,
+  ransom, loot, theft,
+  rest, workPlan, craft,
+  quality, performance, heal,
+  repair, supply, salary,
+  killPerson, gateRepair, gateDamage,
+  gateResearch, cannonPrepare, experiment,
+  knock, buildRepair, lockPick,
 } from "../../../rules-text/actions";
 
 import s from './actions.module.css';
@@ -22,12 +21,12 @@ export function Actions(): JSX.Element {
 
         <AccordionBlock 
           label='Общие действия' 
-          items={[heal, repair, knock, loot, theft, prison, ransom, rest, killPerson, cannonPrepare]} 
+          items={[heal, repair, knock, loot, theft, prison, ransom, rest, killPerson, lockPick ,cannonPrepare]} 
           />
 
         <AccordionBlock 
           label='Специальные действия' 
-          items={[performance, workPlan, craft, quality, gateRepair, gateDamage, gateResearch, experiment]} 
+          items={[performance, workPlan, craft, quality, experiment, buildRepair, gateRepair, gateDamage, gateResearch]} 
           />
 
         <AccordionBlock 
