@@ -1,9 +1,8 @@
 import { AccordionBlock, Chapter } from "../../../components";
 
 import {
-  axes, bear, blades,
-  chainsOrder, dogs, holyPoor,
-  knights, outlanders,
+  bear, chainsOrder, holyPoor,
+  outlanders,
 } from "../../../war-bands";
 
 import s from './war-bands.module.css';
@@ -21,14 +20,6 @@ export function WarBands(): JSX.Element {
         label='Наемники королевства Мидленд'
         items={[
           {
-            label: blades.label,
-            element: blades.element,
-          },
-          {
-            label: axes.label,
-            element: axes.element,
-          },
-          {
             label: holyPoor.label,
             element: holyPoor.element,
           },
@@ -41,14 +32,6 @@ export function WarBands(): JSX.Element {
           {
             label: bear.label,
             element: bear.element,
-          },
-          {
-            label: dogs.label,
-            element: dogs.element,
-          },
-          {
-            label: knights.label,
-            element: knights.element,
           },
         ]}
       />
