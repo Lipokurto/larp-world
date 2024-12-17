@@ -7,3 +7,4 @@ export { FinalBattle } from './activity/final-battle';
 export { Psycho } from './psycho/psycho';
 export { Role } from './role/role';
 export { Injury } from './injury/injury';
+export { Plague } from './plague/plague';
