@@ -5,6 +5,14 @@ import s from './objects.module.css';
 
 export const videoObject: Link[] = [
   {
+    name: 'ПРИ Темные века 2025: Цена свободы - Анонс',
+    link: 'https://vk.com/video_ext.php?oid=-221551368&id=456239043&hd=2',
+    description: 
+      <>
+        <div className={s.label}>10 Коротко о планах на октябрь 2025 года</div>
+      </>
+  },
+  {
     name: 'ПРИ Темные века: Сюжетные итоги 2024',
     link: 'https://vk.com/video_ext.php?oid=-221551368&id=456239042&hd=2',
     description: 
