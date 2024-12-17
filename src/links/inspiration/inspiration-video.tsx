@@ -27,17 +27,6 @@ export const inspirationVideo: Link[] = [
       </>
   },
   {
-    name: 'Фильм "Плоть и кровь" (1985)',
-    link: 'https://vk.com/video_ext.php?oid=-162947134&id=456242799&hash=7153f48ca1ed60e3&hd=2',
-    description: 
-      <>
-        <div className={s.label}>Погружение в мир</div>
-        <div className={s.listContainer}>
-          <div>В этом фильме вы наглядно можете увидеть что из себя представляет жизнь наемника (осторожно фильм суровый)</div>
-        </div>
-      </>
-  },
-  {
     name: 'Фильм "Ведьма" (2015)',
     link: 'https://vk.com/video_ext.php?oid=-29154202&id=456239727&hash=a8f3ff067c3fbadd&hd=2',
     description: 
@@ -62,28 +51,6 @@ export const inspirationVideo: Link[] = [
         <div className={s.listContainer}>
           <div>Фильм демонстрирует уже пороховую эпоху, что не вписывается в концепцию мероприятия.</div>
           <div>Но если смотреть на фильм с точки зрения трагедии одного человека - он может дать бесценные подсказки в создании своего персонажа.</div>
-        </div>
-      </>
-  },
-  {
-    name: 'Фильм "Черная смерть" (2010)',
-    link: 'https://vk.com/video_ext.php?oid=-36455846&id=456242710&hash=fdd2c25daad154ae&hd=2',
-    description: 
-      <>
-        <div className={s.label}>Погружение в мир</div>
-        <div className={s.listContainer}>
-          <div>Фильм демонстрирует работу представителей церкви, которые не всегда ходят в блестящих доспехах</div>
-        </div>
-      </>
-  },
-  {
-    name: 'Фильм "Соломон Кейн" (2009)',
-    link: 'https://vk.com/video_ext.php?oid=-219683471&id=456239045&hash=f31128c7889a70ac&hd=2',
-    description: 
-      <>
-        <div className={s.label}>Погружение в мир</div>
-        <div className={s.listContainer}>
-          <div>Одержимость, фамильные ценности, бандиты, мистика, и фамильные ценности</div>
         </div>
       </>
   },
