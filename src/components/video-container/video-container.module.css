@@ -1,0 +1,23 @@
+.container {
+  width: 300px;
+  height: 230px;
+  background-color: black;
+  cursor: pointer;
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to top, wheat, #000000, wheat);
+  font-family: 'Oswald';
+}
+
+.container div {
+  margin: 10px;
+}
+
+.label {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.text {
+  margin: 10px;
+}

@@ -19,3 +19,22 @@
   margin-bottom: 5px;
   margin-top: 10px;
 }
+
+.resContainer {
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 5px;
+}
+
+.videoItemDeck {
+  margin: 5px;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to bottom right, #000000, #000000, wheat );
+}
+
+.videoItemDeck :hover {
+  background-color: wheat;
+}

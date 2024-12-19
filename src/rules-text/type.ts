@@ -8,4 +8,9 @@ export type Item = {
   psyLevel?: number,
   marker?: string,
   count?: number,
+};
+
+export type VideoItem = {
+  name: string,
+  link: string,
 }

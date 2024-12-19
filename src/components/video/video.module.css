@@ -1,0 +1,5 @@
+.container {
+  text-align: 'center';
+  background: url(./../../assets/icons/loader-2.gif) center center no-repeat;
+  background-size: 100px;
+}
