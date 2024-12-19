@@ -44,7 +44,6 @@ export function ItemModal({ title, item, setIsOpen }: Props) {
       
       <div className={s.modal} >
         <div className={s.modalHeader}>
-          {/* TODO: Выпилить нахрен title */}
           <h5 className={s.heading}>{title}</h5> 
         </div>
         

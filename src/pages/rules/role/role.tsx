@@ -20,7 +20,6 @@ const monsterRoles = [apostol, obsessed, dungeonMaster, wild];
 
 export function Role(): JSX.Element {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
-
   const [item, setItem] = React.useState<Item | null>(null);
 
   const handleClick = React.useCallback((item: Item) => {
