@@ -3,9 +3,9 @@ import React from 'react';
 import { AccordionBlock, Chapter, Video, useResize } from '../../components';
 import { helpfulLinks } from '../../links/helpful-links';
 import { downloadFiles } from '../../links/files/download-files';
-import { inspirationVideo } from '../../links/inspiration/inspiration-video';
 
 import s from './more.module.css';
+import { videoObject } from '../../links/main-video/video-objects';
 
 export function More(): JSX.Element {
   const { width } = useResize();
@@ -27,7 +27,7 @@ export function More(): JSX.Element {
   }, []);
 
   const linkToItems = React.useMemo(() => {
-    return inspirationVideo.map(p => {
+    return videoObject.map(p => {
       return {
         label: p.name,
         element: 
@@ -60,7 +60,7 @@ export function More(): JSX.Element {
       </div>
 
       <AccordionBlock
-        label='Видео материалы для погружения в атмосферу мероприятия'
+        label='Видео материалы'
         items={linkToItems}
       />
     </div>
