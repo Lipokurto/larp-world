@@ -12,11 +12,6 @@ export const helpfulLinks: Link[] = [
     description: 'Поможет визуально понять сколько занимает лечение, как засчитывается урон и тд',
   },
   {
-    name: 'Мое производство',
-    link: 'http://larpdarkage.ru/help/build-calc',
-    description: 'Поможет понять как работает расчет производства',
-  },
-  {
     name: 'Мои строение',
     link: 'http://larpdarkage.ru/help/house-calc',
     description: 'Поможет рассчитать расходы материалов на модульный домик',

@@ -1,0 +1,21 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": {
+    "linebreak-style": [ "error", "windows" ],
+    "no-param-reassign": [ "error", { "props": false } ],
+    "arrow-body-style": "off",
+    // "padding-line-between-statements":["error",
+      // { "blankLine": "always", "prev": "block-like", "next": "*"},    
+      // { "blankLine": "always", "prev": ["multiline-let", "multiline-const"], "next": ["let", "const"]}
+    // ],
+    "operator-linebreak": ["error", "after", {
+      "overrides": { "?" : "before", ":": "before" }
+      }
+    ]
+  }
+}

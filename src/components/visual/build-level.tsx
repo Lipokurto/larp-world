@@ -98,17 +98,16 @@ export function BuildLevel(): JSX.Element {
             </div>
           </Tooltip>
 
-          {currentLevel === 1 ?           
-            <div className={s.noWorkers}>
-              Нет возможности помогать
-            </div>
-          :
-            <div className={s.workers}>
-              <div className={s.workerItem}>{currentLevel >= 2 ? (currentCountWorkers >= 1 ? <BsFillPersonCheckFill style={workerChosenStyle} onClick={() => handleWorkersChange(notLastWorker ? 1 : 0)} /> : <BsFillPersonPlusFill style={workerStyle} onClick={() => handleWorkersChange(1)} />) : null}</div>
-              <div className={s.workerItem}>{currentLevel >= 3 ? (currentCountWorkers >= 2 ? <BsFillPersonCheckFill style={workerChosenStyle} onClick={() => handleWorkersChange(2)} /> : <BsFillPersonPlusFill style={workerStyle} onClick={() => handleWorkersChange(2)} />) : null}</div>
-              <div className={s.workerItem}>{currentLevel >= 4 ? (currentCountWorkers >= 3 ? <BsFillPersonCheckFill style={workerChosenStyle} onClick={() => handleWorkersChange(3)} /> : <BsFillPersonPlusFill style={workerStyle} onClick={() => handleWorkersChange(3)} />) : null}</div>
-              <div className={s.workerItem}>{currentLevel >= 5 ? (currentCountWorkers >= 4 ? <BsFillPersonCheckFill style={workerChosenStyle} onClick={() => handleWorkersChange(4)} /> : <BsFillPersonPlusFill style={workerStyle} onClick={() => handleWorkersChange(4)} />) : null}</div>
-            </div>
+          {currentLevel === 1           
+            ? <div className={s.noWorkers}>
+                Нет возможности помогать
+              </div>
+            : <div className={s.workers}>
+                <div className={s.workerItem}>{currentLevel >= 2 ? (currentCountWorkers >= 1 ? <BsFillPersonCheckFill style={workerChosenStyle} onClick={() => handleWorkersChange(notLastWorker ? 1 : 0)} /> : <BsFillPersonPlusFill style={workerStyle} onClick={() => handleWorkersChange(1)} />) : null}</div>
+                <div className={s.workerItem}>{currentLevel >= 3 ? (currentCountWorkers >= 2 ? <BsFillPersonCheckFill style={workerChosenStyle} onClick={() => handleWorkersChange(2)} /> : <BsFillPersonPlusFill style={workerStyle} onClick={() => handleWorkersChange(2)} />) : null}</div>
+                <div className={s.workerItem}>{currentLevel >= 4 ? (currentCountWorkers >= 3 ? <BsFillPersonCheckFill style={workerChosenStyle} onClick={() => handleWorkersChange(3)} /> : <BsFillPersonPlusFill style={workerStyle} onClick={() => handleWorkersChange(3)} />) : null}</div>
+                <div className={s.workerItem}>{currentLevel >= 5 ? (currentCountWorkers >= 4 ? <BsFillPersonCheckFill style={workerChosenStyle} onClick={() => handleWorkersChange(4)} /> : <BsFillPersonPlusFill style={workerStyle} onClick={() => handleWorkersChange(4)} />) : null}</div>
+              </div>
             }
         </div>
       )

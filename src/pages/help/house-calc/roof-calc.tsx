@@ -42,7 +42,7 @@ function calcBar(buildX: number, buildY: number): JSX.Element {
         style={{transform: `skewX(45deg) translateY(-550px) translateX(150px)`}}/>
       )
     }
-  };
+  }
 
   if (buildX === 3) {
     if (buildY === 2 || buildY === 3) {
@@ -65,7 +65,7 @@ function calcBar(buildX: number, buildY: number): JSX.Element {
         style={{transform: `skewX(45deg) translateY(-550px) translateX(50px)`}}/>
       )
     }
-  };
+  }
 
   if (buildX === 4) {
     if (buildY === 2 || buildY === 3) {
@@ -103,7 +103,7 @@ function calcBar(buildX: number, buildY: number): JSX.Element {
         </>
       )
     }
-  };
+  }
 
   if (buildX === 5) {
     if (buildY === 2 || buildY === 3) {
@@ -141,7 +141,7 @@ function calcBar(buildX: number, buildY: number): JSX.Element {
         </>
       )
     }
-  };
+  }
 
   if (buildX === 6) {
     if (buildY === 2 || buildY === 3) {
@@ -179,7 +179,7 @@ function calcBar(buildX: number, buildY: number): JSX.Element {
         </>
       )
     }
-  };
+  }
 
   return <></>
 }
