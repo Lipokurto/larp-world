@@ -74,7 +74,7 @@ export function HitsCalc(): JSX.Element {
   const [hits, setHits] = React.useState<number>(1);
   const [currentArmor, setCurrentArmor] = React.useState<ArmorHit[]>(defaultArmor);
   const [back, setBack] = React.useState<BackItem>({ value: false, label: 'Нет' });
-  const [isManual, setManual] = React.useState<Boolean>(true);
+  const [isManual, setManual] = React.useState<boolean>(true);
   
   const handleHelmetArmor = React.useCallback((option: HelmetItem) => {
     setHasArmor(option.value.hasArmor);

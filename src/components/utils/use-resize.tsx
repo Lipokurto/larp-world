@@ -43,4 +43,4 @@ export function useResize(): Size {
     isScreenXl: width >= SCREEN_XL,
     isScreenXxl: width >= SCREEN_XXL,
   };
-};
+}

@@ -103,7 +103,6 @@ export function DamageCalc({ isManual, isSoundOn }: Props): JSX.Element {
     handleWeaponChange(weapon[0]);
     setCurrentHits(armor[0].value.hits);
     setWeaponSound(weapon[0].value.sound);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const playSound = React.useCallback((sound: any) => {

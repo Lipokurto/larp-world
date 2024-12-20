@@ -1,19 +1,17 @@
 import React from "react";
 
-import { AccordionBlock, Chapter, ItemModal, PsyContainer } from '../../../components';
-import { Item } from '../../../rules-text/type';
+import { AccordionBlock, Chapter, PsyContainer } from '../../../components';
 
 import {
-  aggression,
-  apathy, bloodthirsty, cowardice, critic, delusion,
-  disgust, dreamer, egocentrism, fanatic,
-  fatalism,
-  gambler, hemophobia, joker, linguist,
+  aggression, apathy, bloodthirsty,
+  cowardice, critic, delusion,
+  disgust, dreamer, egocentrism,
+  fanatic, fatalism, gambler,
+  hemophobia, joker, linguist,
   mystic, naive, neat,
   nobility, obtrusive, paranoia,
-  shy,
-  weakness,
-  xenophobe, } from "../../../rules-text/psy";
+  shy, weakness, xenophobe,
+} from "../../../rules-text/psy";
 
 import s from './psycho.module.css';
 
@@ -37,20 +35,13 @@ const level03 = [
 ]
 
 export function Psycho(): JSX.Element {
-  const [isOpen, setIsOpen] = React.useState<boolean>(false);
-  const [item, setItem] = React.useState<Item | null>(null);
-
-  const handleClick = React.useCallback((item: Item) => {
-    setItem(item);
-    setIsOpen(true);
-  }, []);
-
   const level01List = React.useMemo(() => {
     return (
       <div className={s.psyContainer}>
         {level01.map((p) => {
           return (
             <PsyContainer
+              key={p.label}
               label={p.label}
               psyLevel={p.psyLevel}
               desc={p.element}
@@ -67,6 +58,7 @@ export function Psycho(): JSX.Element {
         {level02.map((p) => {
           return (
             <PsyContainer
+              key={p.label}
               label={p.label}
               psyLevel={p.psyLevel}
               desc={p.element}
@@ -83,6 +75,7 @@ export function Psycho(): JSX.Element {
         {level03.map((p) => {
           return (
             <PsyContainer
+              key={p.label}
               label={p.label}
               psyLevel={p.psyLevel}
               desc={p.element}
@@ -144,13 +137,6 @@ export function Psycho(): JSX.Element {
         />
 
       </div>
-
-      {isOpen && (
-        <ItemModal
-          setIsOpen={setIsOpen}
-          item={item}
-        />
-      )}
     </>
   )
 }
