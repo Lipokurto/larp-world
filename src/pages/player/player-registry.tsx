@@ -1,9 +1,8 @@
 import React from 'react';
 
-import { Chapter } from "../../components";
-import { NavigationPlayer } from '../../components';
+import { Chapter, NavigationPlayer } from '../../components';
 
-import intro from '../../assets/icons/registration/01_intro.png'; 
+import intro from '../../assets/icons/registration/01_intro.png';
 import arm from '../../assets/icons/registration/02_arm.png';
 import concept from '../../assets/icons/registration/03_concept.png';
 import photo from '../../assets/icons/registration/04_photo.png';
@@ -22,71 +21,78 @@ const registrationSteps: Steps[] = [
   {
     img: intro,
     label: 'Введение',
-    description: <div>
-        <div>Ознакомьтесь с <a href='https://larpdarkage.ru/rules/general' target='_blank' rel="noreferrer" style={{color: 'goldenrod'}}>правилами мероприятия</a></div>
-        <div>Ознакомьтесь с <a href='https://docs.google.com/spreadsheets/d/1st6MW3fwOllrLfTsgnVavd_yNYjyXZuOTnXKUI5cfn8/edit?usp=sharing' target='_blank' rel="noreferrer" style={{color: 'goldenrod'}}>таблицей ролей</a></div>
+    description: (
+      <div>
+        <div>Ознакомьтесь с <a href='https://larpdarkage.ru/rules/general' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>правилами мероприятия</a></div>
+        <div>Ознакомьтесь с <a href='https://docs.google.com/spreadsheets/d/1st6MW3fwOllrLfTsgnVavd_yNYjyXZuOTnXKUI5cfn8/edit?usp=sharing' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>таблицей ролей</a></div>
       </div>
+    ),
   },
   {
     img: arm,
     label: 'Бронь',
-    description: 
+    description: (
       <div>
         <div>Заполните свою заявку согласно шаблону:</div>
-        
+
         <div className={s.request}>
           <div><b>ФИО: </b><i>Свое реальное ФИО</i></div>
           <div><b>Имя персонажа: </b><i>Имя своего игрового персонажа</i></div>
           <div><b>Профиль в соц сетях: </b><i>Ссылка на ваш профиль в соц сетях для обратной связи</i></div>
-          <div><b>Роль: </b><i><a href='https://larpdarkage.ru/rules/role' target='_blank' rel="noreferrer" style={{color: 'goldenrod'}}>Роль</a> вашего персонажа</i></div>
+          <div><b>Роль: </b><i><a href='https://larpdarkage.ru/rules/role' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>Роль</a> вашего персонажа</i></div>
           <div><b>Локация: </b><i>Название отряда наемников или название локации в городе</i></div>
         </div>
 
         <div>Некоторые роли могут быть заняты, поэтому не затягивайте с подачей заявки</div>
-        <div>Заявку надо отправить* в сообщения <a href='https://vk.com/larpdarkage' target='_blank' rel="noreferrer" style={{color: 'goldenrod'}}>группы</a></div>
-        
+        <div>Заявку надо отправить* в сообщения <a href='https://vk.com/larpdarkage' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>группы</a></div>
+
         <div>Обязательно дождитесь ответа что ваша заявка принята</div>
         <br />
         <div><i>* Отправляя форму регистрации, вы соглашаетесь придерживаться правил установленных данным мероприятием</i></div>
       </div>
+    ),
   },
   {
     img: concept,
     label: 'Концепт',
-    description: 
+    description: (
       <div>
         <div>Обсудите внешний вид своего персонажа с мастерами по допуску антуража:</div>
-        <div><a href='https://vk.com/id245595011' target='_blank' rel="noreferrer" style={{color: 'goldenrod'}}>Мастер по общему допуску антуража</a></div>
-        <div><a href='https://vk.com/id5847033' target='_blank' rel="noreferrer" style={{color: 'goldenrod'}}>Мастер по допуску антуража для наемников</a></div>
+        <div><a href='https://vk.com/id245595011' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>Мастер по общему допуску антуража</a></div>
+        <div><a href='https://vk.com/id5847033' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>Мастер по допуску антуража для наемников</a></div>
       </div>
+    ),
   },
   {
     img: script,
     label: 'Сюжет',
-    description:
+    description: (
       <div>
         <div>Исходя из вашей роли вас можно будет вписать в общий сюжет (это необязательный пункт)</div>
-        <div><a href='https://vk.com/ho3gp9i' target='_blank' rel="noreferrer" style={{color: 'goldenrod'}}>Мастер по сюжету</a></div>
+        <div><a href='https://vk.com/ho3gp9i' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>Мастер по сюжету</a></div>
       </div>
+    ),
   },
   {
     img: photo,
     label: 'Фотодопуск',
-    description:
+    description: (
       <div>
         <div>Для окончательного подтверждения вашей заявки вам требуется пройти обязательный фотодопуск</div>
         <div>Отправьте фото своего полного костюма в "Сообщения группы" с указанием своего ФИО</div>
         <div>Дождитесь подтверждения или комментария о возможных доработках</div>
       </div>
+    ),
   },
   {
     img: donation,
     label: 'Взнос',
-    description:
+    description: (
       <div>
         <div>Для участия в мероприятии необходимо внести благотворительный взнос</div>
-        <div><a href='https://larpdarkage.ru/player/regpay' target='_blank' rel="noreferrer" style={{color: 'goldenrod'}}>Как сделать взнос</a></div>
+        <div><a href='https://larpdarkage.ru/player/regpay' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>Как сделать взнос</a></div>
       </div>
+    ),
   },
 ]
 
@@ -109,13 +115,13 @@ export function PlayerRegistry(): JSX.Element {
   return (
     <div className={s.container}>
       <Chapter chapter='Регистрация игрока'/>
-      
+
       <NavigationPlayer selectedLink='/player/registration' />
-      
+
       <div>Регистрация является ОБЯЗАТЕЛЬНЫМ условием участия на мероприятии</div>
 
       {renderRegSteps}
-      
+
     </div>
   )
 }

@@ -6,9 +6,9 @@ import s from './religion.module.css';
 
 export const ancestors: Item = {
   label: 'Культ предков',
-  element:
-    <>      
-      <div>      
+  element: (
+    <>
+      <div>
         <div className={s.container_first}>
           <img src={symbol} alt='Religion' />
         </div>
@@ -21,4 +21,5 @@ export const ancestors: Item = {
       <div><b>Цвета:</b> Черный, зеленый, синий</div>
       <div><b>Распространение:</b> Северные земли</div>
     </>
+  ),
 }

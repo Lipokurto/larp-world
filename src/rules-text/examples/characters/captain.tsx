@@ -13,8 +13,8 @@ export const captain: Item = {
   label: 'Капитан',
   player: 'Игрок',
   desc: 'Глава отряда наемников',
-  element: 
-    <>      
+  element: (
+    <>
       <div>
         <ImagesAdaptive images={images} />
       </div>
@@ -38,4 +38,5 @@ export const captain: Item = {
         <li>Умение спланировать выезд команды</li>
       </div>
     </>
+  ),
 }

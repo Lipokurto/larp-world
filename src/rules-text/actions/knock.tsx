@@ -1,10 +1,10 @@
-import { Item } from "../type";
+import { Item } from '../type';
 
 import s from './actions.module.css';
 
 export const knock: Item = {
   label: 'Оглушение',
-  element:
+  element: (
     <>
       <div>Защиту от оглушения дает только надетый шлем твердотельного корпуса.</div>
       <div className={s.label}><i>Механика:</i></div>
@@ -23,4 +23,5 @@ export const knock: Item = {
         <li>Оглушение распространяется только на людей.</li>
       </ol>
     </>
+  ),
 }

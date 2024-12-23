@@ -6,7 +6,7 @@ import s from './buildings.module.css';
 
 export const smith: Item = {
   label: 'Кузница',
-  element:
+  element: (
     <>
       <div className={s.container}>
         <img src={smithImg} alt='Blacksmith' />
@@ -20,4 +20,5 @@ export const smith: Item = {
         <li>Наличие мехов.</li>
       </ol>
     </>
+  ),
 }

@@ -1,10 +1,10 @@
-import { Item } from "../type";
+import { Item } from '../type';
 
 import s from './actions.module.css';
 
 export const supply: Item = {
   label: 'Снабжение',
-  element:
+  element: (
     <>
       <div>Командующий лагерем запрашивает снабжение у своей основной ставки.</div>
       <div className={s.label}><i>Механика</i></div>
@@ -25,4 +25,5 @@ export const supply: Item = {
       </ol>
       <div>Пример: Если цена вашего снабжения 2 золотых, и вы хотите сократить время ожидания на час, то вам нужно доплатить 50% от суммы общего снабжения: 2 золотых + 50% (1 золотой) = 3 золотых.</div>
     </>
+  ),
 }

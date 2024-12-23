@@ -5,8 +5,7 @@ import { Item } from '../../../type';
 export const dyspnea: Item = {
   label: 'Отдышка',
   icon: icon,
-  element:
-    <>
-      <div>Вы не можете бегать, но можете быстро шагать.</div>
-    </>
+  element: (
+    <div>Вы не можете бегать, но можете быстро шагать.</div>
+  ),
 }

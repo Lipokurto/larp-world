@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 import { AccordionBlock, Chapter, PsyContainer } from '../../../components';
 
@@ -11,7 +11,7 @@ import {
   mystic, naive, neat,
   nobility, obtrusive, paranoia,
   shy, weakness, xenophobe,
-} from "../../../rules-text/psy";
+} from '../../../rules-text/psy';
 
 import s from './psycho.module.css';
 
@@ -31,7 +31,7 @@ const level02 = [
 const level03 = [
   weakness, cowardice,
   aggression, egocentrism, hemophobia,
-  fatalism, xenophobe, bloodthirsty
+  fatalism, xenophobe, bloodthirsty,
 ]
 
 export function Psycho(): JSX.Element {

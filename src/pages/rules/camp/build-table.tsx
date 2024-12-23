@@ -1,18 +1,18 @@
-import React from "react";
+import React from 'react';
 
-import { Item } from "../../../rules-text/type";
-import { ItemModal, LinkButton } from "../../../components";
-
-import { alchemist, gather, hospital,
-  plague,
-  smith,
-} from "../../../rules-text/location/buildings";
+import { Item } from '../../../rules-text/type';
+import { ItemModal, LinkButton } from '../../../components';
 
 import {
-  cureMarker,
-  healPack, healPotion, herbs,
-  ore, plagueMarker, repairPack, repairPotion,
-} from "../../../rules-text/items";
+  alchemist, gather, hospital,
+  plague, smith,
+} from '../../../rules-text/location/buildings';
+
+import {
+  cureMarker, healPack, healPotion,
+  herbs, ore, plagueMarker,
+  repairPack, repairPotion,
+} from '../../../rules-text/items';
 
 import s from './table.module.css';
 

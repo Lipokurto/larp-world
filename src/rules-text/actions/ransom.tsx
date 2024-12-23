@@ -1,10 +1,10 @@
-import { Item } from "../type";
+import { Item } from '../type';
 
 import s from './actions.module.css';
 
 export const ransom: Item = {
   label: 'Награда за пленника',
-  element:
+  element: (
     <>
       <div>Пленного персонажа можно продать в своем лагере интенданту, получив за него награду.</div>
       <div className={s.label}><i>Механика</i></div>
@@ -22,10 +22,11 @@ export const ransom: Item = {
         <li>Пленник переходит в состояние <b>"Тяжело ранен"</b>. Все нанесенные травмы и поломки в плену сохраняются.</li>
         <li>Персонаж остается тем же.</li>
       </ol>
-      
+
       <div className={s.label}><i>Дополнительно</i></div>
       <ol className={s.listContainer}>
         <li>Мастер торговец или регионал всегда может отказать в покупке пленника если видит это не целесообразным</li>
       </ol>
     </>
+  ),
 }

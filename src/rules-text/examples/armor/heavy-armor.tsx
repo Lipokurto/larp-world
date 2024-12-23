@@ -9,9 +9,10 @@ const armor = [heAr01, heAr02, heAr03];
 
 export const heavyArmor: Item = {
   label: 'Примеры тяжелой брони',
-  element: 
+  element: (
     <div>
       <ImagesAdaptive images={armor} />
       <div>В примерах не учитывается наличие шлема</div>
     </div>
+  ),
 }

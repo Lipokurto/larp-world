@@ -1,15 +1,15 @@
 // eslint-disable jsx-a11y/anchor-is-valid
-import React from "react";
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import Tooltip from 'react-tooltip-lite';
 
-import { NavLink } from "react-router-dom";
-import Tooltip from "react-tooltip-lite";
+import { SubMenu } from './sub-menu';
+import { Logo } from '../../components/logo';
+import { NavigationModal, useResize } from '../../components';
+import { rules } from '../../components/navigation/lists';
+import { videoObject } from '../../links/main-video/video-objects';
 
-import { SubMenu } from "./sub-menu";
-import { Logo } from "../../components/logo";
 import staticLogo from '../../assets/LOGO_2025.png';
-import { NavigationModal, useResize } from "../../components";
-import { rules } from "../../components/navigation/lists";
-import { videoObject } from "../../links/main-video/video-objects";
 import vkImage from './../../assets/icons/social/vk.png';
 import ruStore from './../../assets/icons/social/ruStore.png';
 import pdfIcon from './../../assets/icons/social/pdfIcon.png';
@@ -28,7 +28,7 @@ export function Main(): JSX.Element {
   }, []);
 
   const renderLogo = React.useMemo(() => {
-    return width < 800 ? <img src={staticLogo} alt='' width={200} style={{marginLeft:'-100px'}}/> : <Logo />
+    return width < 800 ? <img src={staticLogo} alt='' width={200} style={{ marginLeft:'-100px' }}/> : <Logo />
   }, [width]);
 
   const renderLinks = React.useMemo(() => {
@@ -39,7 +39,7 @@ export function Main(): JSX.Element {
           background='wheat'
           direction="left"
         >
-          <a href='https://vk.com/larpdarkage' target='_blank' rel="noreferrer" style={{color: 'goldenrod'}}>
+          <a href='https://vk.com/larpdarkage' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>
             <img src={vkImage} alt="" width={30} />
           </a>
         </Tooltip>
@@ -49,7 +49,7 @@ export function Main(): JSX.Element {
           background='wheat'
           direction="left"
         >
-          <a href='https://apps.rustore.ru/app/com.darkapk03' target='_blank' rel="noreferrer" style={{color: 'goldenrod'}}>
+          <a href='https://apps.rustore.ru/app/com.darkapk03' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>
             <img src={ruStore} alt="" width={30} />
           </a>
         </Tooltip>
@@ -59,7 +59,7 @@ export function Main(): JSX.Element {
           background='wheat'
           direction="left"
         >
-          <a href={pdfRules} target='_blank' rel="noreferrer" style={{color: 'goldenrod'}} download={'Темные_века_правила_v2-1-6'}>
+          <a href={pdfRules} target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }} download={'Темные_века_правила_v2-1-6'}>
             <img src={pdfIcon} alt="" width={30} />
           </a>
         </Tooltip>
@@ -78,7 +78,7 @@ export function Main(): JSX.Element {
   }, []);
 
   return (
-    <>    
+    <>
       <div className={s.container}>
         <div className={s.buttons}>
             <NavLink className={s.mainButton} to='/player/registration'>Регистрация на игру</NavLink>
@@ -88,11 +88,8 @@ export function Main(): JSX.Element {
             <a className={s.secondButton} onClick={() => handleClick()}>Правила</a>
 
             <NavLink className={s.secondButton} to='/more'>Дополнительно</NavLink>
-            
-            <NavLink style={{alignSelf: 'end'}} to='/vk-policy'>Политика конфиденциальности</NavLink>
 
-            {/* Включить когда раздел будет иметь смысл */}
-            {/* <NavLink className={s.secondButton} replace to='/player/map-support'>Как подготовить себя</NavLink> */}
+            <NavLink style={{ alignSelf: 'end' }} to='/vk-policy'>Политика конфиденциальности</NavLink>
         </div>
 
         <div className={s.logo}>
@@ -116,8 +113,8 @@ export function Main(): JSX.Element {
 
       {isOpen && (
         <NavigationModal
-          setIsOpen={setIsOpen} 
-          list={rules} 
+          setIsOpen={setIsOpen}
+          list={rules}
           title='Правила'
           link='/rules'
         />

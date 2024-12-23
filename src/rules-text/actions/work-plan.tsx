@@ -1,10 +1,10 @@
-import { Item } from "../type";
+import { Item } from '../type';
 
 import s from './actions.module.css';
 
 export const workPlan: Item = {
   label: 'План работ',
-  element:
+  element: (
     <>
       <div>Бригадир закладывает определенное количество финансов для предстоящих работ. Исходя из заложенных финансов и качества локации, локация получает ресурсы.</div>
       <div className={s.label}><i>Механика</i></div>
@@ -28,4 +28,5 @@ export const workPlan: Item = {
         <li>Уровень качества локации может меняться из-за ее состояния, на текущий момент.</li>
       </div>
     </>
+  ),
 }

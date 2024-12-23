@@ -1,10 +1,10 @@
-import { Item } from "../type";
+import { Item } from '../type';
 
 import s from './actions.module.css';
 
 export const heal: Item = {
   label: 'Лечение',
-  element:
+  element: (
     <>
       <div className={s.label}>Лечение в госпитале</div>
       <div>Персонажу оказывается профессиональная помощь в госпитале.</div>
@@ -48,4 +48,5 @@ export const heal: Item = {
       </div>
       <div><b>ПРИМЕЧАНИЕ:</b> После срыва лечения ресурсы и время затраченное на него не восстанавливаются</div>
     </>
+  ),
 }

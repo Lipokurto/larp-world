@@ -9,13 +9,35 @@
     "linebreak-style": [ "error", "windows" ],
     "no-param-reassign": [ "error", { "props": false } ],
     "arrow-body-style": "off",
-    // "padding-line-between-statements":["error",
-      // { "blankLine": "always", "prev": "block-like", "next": "*"},    
-      // { "blankLine": "always", "prev": ["multiline-let", "multiline-const"], "next": ["let", "const"]}
-    // ],
     "operator-linebreak": ["error", "after", {
       "overrides": { "?" : "before", ":": "before" }
       }
-    ]
+    ],
+    "no-mixed-spaces-and-tabs": "error",
+    "no-multiple-empty-lines": ["error", { "max": 1 }],
+    "no-trailing-spaces": "error",
+    "no-multi-spaces": "error",
+    "quotes": [2, "single"],
+    "object-curly-spacing": ["error", "always", { "arraysInObjects": true }],
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/comma-dangle": ["error", {
+      "arrays": "always-multiline",
+      "objects": "always-multiline",
+      "imports": "always-multiline",
+      "exports": "always-multiline",
+      "functions": "always-multiline",
+      "enums": "always-multiline"
+    }],
+    "@typescript-eslint/member-delimiter-style": ["error", {
+      "multiline": { "delimiter": "comma" }
+    }],
+    "@typescript-eslint/member-ordering": ["error", {
+      "default": [
+        "public-static-method",
+        "public-static-method",
+        "public-instance-method",
+        "private-static-method"
+      ]
+    }]
   }
 }

@@ -1,10 +1,9 @@
 import React from 'react';
 
-import { Chapter } from "../../components";
-import { NavigationPlayer } from '../../components';
+import { Chapter, NavigationPlayer } from '../../components';
 import { PayTimer } from './pay-timer';
 
-import time from '../../assets/icons/registration/0201_time.png'; 
+import time from '../../assets/icons/registration/0201_time.png';
 import coin from '../../assets/icons/registration/0202_coin.png';
 import message from '../../assets/icons/registration/0203_message.png';
 import check from '../../assets/icons/registration/0204_checkList.png';
@@ -21,32 +20,33 @@ const registrationSteps: Steps[] = [
   {
     img: time,
     label: 'Периоды',
-    description: <PayTimer />
+    description: <PayTimer />,
   },
   {
     img: coin,
     label: 'Оплата',
-    description: 
+    description: (
       <div>
         <div>Оплата благотворительного взноса осуществляется по номеру телефона</div>
-        
+
         <div className={s.request}>
-          <div style={{fontSize: 20, color: 'wheat'}}>+79787917870</div>
+          <div style={{ fontSize: 20, color: 'wheat' }}>+79787917870</div>
           <div>Синицкий Александр Анатольевич</div>
           <div>РНКБ / СберБАНК</div>
         </div>
 
         <div>Взносы не возвращаются</div>
-        <div>Взносы можно передавать лично <a href='https://vk.com/id245595011' target='_blank' rel="noreferrer" style={{color: 'goldenrod'}}>координатору</a></div>
+        <div>Взносы можно передавать лично <a href='https://vk.com/id245595011' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>координатору</a></div>
       </div>
+    ),
   },
   {
     img: message,
     label: 'Данные',
-    description: 
+    description: (
       <div>
-        <div>В личном сообщении написать <a href='https://vk.com/id245595011' target='_blank' rel="noreferrer" style={{color: 'goldenrod'}}>координатору</a></div>
-        
+        <div>В личном сообщении написать <a href='https://vk.com/id245595011' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>координатору</a></div>
+
         <div>В сообщении указать:</div>
         <div className={s.request}>
           <div>ФИО отправителя платежа</div>
@@ -55,15 +55,17 @@ const registrationSteps: Steps[] = [
           <div>Скрин платежа</div>
         </div>
       </div>
+    ),
   },
   {
     img: check,
     label: 'Списки',
-    description: 
+    description: (
       <div>
-        <div><a href='https://vk.com/topic-221551368_49748461' target='_blank' rel="noreferrer" style={{color: 'goldenrod'}}>Список всех сдавших</a></div>
+        <div><a href='https://vk.com/topic-221551368_49748461' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>Список всех сдавших</a></div>
         <i>Списки обновляются не моментально</i>
       </div>
+    ),
   },
 ]
 
@@ -90,7 +92,7 @@ export function PayRegistry(): JSX.Element {
       <NavigationPlayer selectedLink='/player/regpay' />
 
       {renderRegSteps}
-      
+
     </div>
   )
 }

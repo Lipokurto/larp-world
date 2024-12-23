@@ -16,14 +16,15 @@ export function More(): JSX.Element {
   const handleClick = React.useCallback((item: VideoItem) => {
     const getVideoItem = {
       label: item.name,
-      element:
-      <div style={{ margin: 10 }}>
-        <Video
-          src={item.link}
-          title={item.name}
-          width={width < 720 ? 340 : undefined}
-        /> 
-      </div> 
+      element: (
+        <div style={{ margin: 10 }}>
+          <Video
+            src={item.link}
+            title={item.name}
+            width={width < 720 ? 340 : undefined}
+          />
+        </div>
+      ),
     };
 
     setItem(getVideoItem);
@@ -33,7 +34,7 @@ export function More(): JSX.Element {
   const renderHelpfulLinks = React.useMemo(() => {
     return helpfulLinks.map(p => {
       return (
-        <div key={p.name}><a href={p.link} target='_blank' rel="noreferrer">{p.name}</a>{` ${p.description}`}</div> 
+        <div key={p.name}><a href={p.link} target='_blank' rel="noreferrer">{p.name}</a>{` ${p.description}`}</div>
       )
     })
   }, []);
@@ -53,8 +54,8 @@ export function More(): JSX.Element {
           return (
             <div className={s.videoItemDeck} onClick={() => handleClick(p)}>
               <VideoContainer
-                name={p.name} 
-                link={p.link} 
+                name={p.name}
+                link={p.link}
               />
             </div>
           )
@@ -68,7 +69,7 @@ export function More(): JSX.Element {
       <div className={s.container}>
         <Chapter chapter='Дополнительно' />
         <div>В этом разделе размещены полезные ссылки и материалы</div>
-        
+
         <div className={s.label}>Материалы для скачивания</div>
         <div className={s.listContainer}>
           {renderFiles}

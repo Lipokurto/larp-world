@@ -1,8 +1,8 @@
 import barrow01 from '../../../assets/cargo/barrow/barrow-01.png';
 import barrow02 from '../../../assets/cargo/barrow/barrow-02.png';
 
-import { Item } from "../../type";
-import { ImagesAdaptive } from "../../../components";
+import { Item } from '../../type';
+import { ImagesAdaptive } from '../../../components';
 
 import s from './cargo.module.css';
 
@@ -10,7 +10,7 @@ const barrowImg = [barrow01, barrow02];
 
 export const barrow: Item = {
   label: 'Тачка',
-  element: 
+  element: (
     <>
       <ImagesAdaptive images={barrowImg} />
       <div className={s.label}>Описание</div>
@@ -32,4 +32,5 @@ export const barrow: Item = {
         <li>Не отчуждаемый предмет</li>
       </div>
     </>
+  ),
 }

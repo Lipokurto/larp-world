@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 import battleClear from '../../../assets/battle_clear.svg';
 

@@ -9,22 +9,23 @@ export const ore: Item = {
   label: 'Железная руда',
   icon: icon,
   weight: 1,
-  element:
+  element: (
     <>
       <div className={s.icon}><img src={card} alt='' /></div>
       <div className={s.label}>Эффекты</div>
         <div>Руда необходима для производства ремкомплектов</div>
       <div className={s.label}>Вес: 1</div>
       <div className={s.label}>Ограничения:</div>
-      
+
       <div className={s.listContainer}>
         <li>Одноразовое</li>
         <li>Игровой предмет</li>
         <li>Используются для производства, торговли и функционирования пушек</li>
       </div>
-      
+
       <br />
       <div>Использованную руду можно продать главному торговцу</div>
       <div>Может покупаться у главного торговца, или добываться крестьянами</div>
     </>
+  ),
 }

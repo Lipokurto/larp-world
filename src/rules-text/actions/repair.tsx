@@ -1,10 +1,10 @@
-import { Item } from "../type";
+import { Item } from '../type';
 
 import s from './actions.module.css';
 
 export const repair: Item = {
   label: 'Ремонт',
-  element:
+  element: (
     <>
       <div className={s.label}>Ремонт в кузнице</div>
       <div>Кузнец производит ремонт снаряжения персонажа.</div>
@@ -45,4 +45,5 @@ export const repair: Item = {
       </div>
       <div><b>ПРИМЕЧАНИЕ:</b> После срыва ремонта ресурсы ив время затраченное на него не восстанавливаются</div>
     </>
+  ),
 }

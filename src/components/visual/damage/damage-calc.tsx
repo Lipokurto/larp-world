@@ -62,23 +62,23 @@ type Status = 'Мертв' | 'Тяжело ранен' | 'Ранен' | 'Здо�
 type UsableItems = 'Медкомплект' | 'Целебная мазь' | 'Ремкомплект' | 'Оружейное масло';
 
 const weapon: Weapon[] = [
-  {label: 'Обычное оружие', value: { src: wRegular, damage: 1, breakShields: false, sound: swordHitSound }},
-  {label: 'Стрелковое оружие', value: { src: wDistant, damage: 2, breakShields: false, sound: arrowHitSound }},
-  {label: 'Особое оружие', value: { src: wSpetial, damage: 5, breakShields: false, sound: spetialHitSound }},
-  {label: 'Тяжелое оружие', value: { src: wHeavy, damage: 10, breakShields: true, sound: cannonHitSound }},
+  { label: 'Обычное оружие', value: { src: wRegular, damage: 1, breakShields: false, sound: swordHitSound } },
+  { label: 'Стрелковое оружие', value: { src: wDistant, damage: 2, breakShields: false, sound: arrowHitSound } },
+  { label: 'Особое оружие', value: { src: wSpetial, damage: 5, breakShields: false, sound: spetialHitSound } },
+  { label: 'Тяжелое оружие', value: { src: wHeavy, damage: 10, breakShields: true, sound: cannonHitSound } },
 ];
 
 const armor: Armor[] = [
-  {label: 'Средний доспех', value: { src: medium, hits: 3 }},
-  {label: 'Тяжелый доспех', value: { src: heavy, hits: 4 }},
-  {label: 'Полный доспех', value: { src: full, hits: 5 }},
+  { label: 'Средний доспех', value: { src: medium, hits: 3 } },
+  { label: 'Тяжелый доспех', value: { src: heavy, hits: 4 } },
+  { label: 'Полный доспех', value: { src: full, hits: 5 } },
 ];
 
 const items = [
-  {label: 'Медкомплект', src: healPack, sound: medkitSound },
-  {label: 'Целебная мазь', src: healPotion, sound: potionSound},
-  {label: 'Ремкомплект', src: repairPack, sound: repairkitSound},
-  {label: 'Оружейное масло', src: repairPotion, sound: potionSound},
+  { label: 'Медкомплект', src: healPack, sound: medkitSound },
+  { label: 'Целебная мазь', src: healPotion, sound: potionSound },
+  { label: 'Ремкомплект', src: repairPack, sound: repairkitSound },
+  { label: 'Оружейное масло', src: repairPotion, sound: potionSound },
 ];
 
 type Props = {
@@ -166,9 +166,9 @@ export function DamageCalc({ isManual, isSoundOn }: Props): JSX.Element {
   const handleAttack = React.useCallback(() => {
     playSound(weaponSound);
 
-    if (status !== 'Мертв') {    
+    if (status !== 'Мертв') {
       const restHits = currentHits - weaponDamage;
-  
+
       if (restHits >= 1 && restHits <= maxHits) {
         setStatus('Ранен');
         setCurrentHits(restHits);
@@ -176,7 +176,7 @@ export function DamageCalc({ isManual, isSoundOn }: Props): JSX.Element {
         setTimer(0);
         return;
       }
-  
+
       if (status === 'Тяжело ранен') {
         setStatus('Мертв');
         setTimer(120)
@@ -184,7 +184,7 @@ export function DamageCalc({ isManual, isSoundOn }: Props): JSX.Element {
         setCurrentItem(null);
         return;
       }
-  
+
       if (restHits <= 0) {
         setStatus('Тяжело ранен');
         setCurrentHits(0);
@@ -221,14 +221,14 @@ export function DamageCalc({ isManual, isSoundOn }: Props): JSX.Element {
 
   const renderHealth = React.useMemo(() => {
     const shields = Array(currentHits).fill(shield);
-    
+
     if (currentHits !== 0 ) {
       shields[0] = heart;
     }
 
     return (
       <div className={s.health}>
-        Вид хитов: 
+        Вид хитов:
         {shields.map((p,i) => {
           return (
             <img src={p} key={p+i} alt='' width='20' />
@@ -268,7 +268,6 @@ export function DamageCalc({ isManual, isSoundOn }: Props): JSX.Element {
       playSound(items[3].sound);
       return;
     }
-    
   }, [currentHits, maxHits, playSound, status]);
 
   const itemsList = React.useMemo(() => {
@@ -277,8 +276,8 @@ export function DamageCalc({ isManual, isSoundOn }: Props): JSX.Element {
         {items.map(p => {
           return (
             <div className={s.usableItem} key={p.label} onClick={() => handleHeal(p.label)}>
-              <img  src={p.src} alt='' width='65' />
-              <div style={{height: '48px'}}>{p.label}</div>
+              <img src={p.src} alt='' width='65' />
+              <div style={{ height: '48px' }}>{p.label}</div>
             </div>
           )
         })}
@@ -310,7 +309,7 @@ export function DamageCalc({ isManual, isSoundOn }: Props): JSX.Element {
   const renderTimer = React.useMemo(() => {
     if (timer) {
       return (
-        <button 
+        <button
           className={s.waitButton}
           onClick={status === 'Мертв' ? resetCharacter : handleHealWait}
         >
@@ -366,31 +365,31 @@ export function DamageCalc({ isManual, isSoundOn }: Props): JSX.Element {
         {isManual ? <div className={s.charManual}>1 шаг: Выберете шаблон брони персонажа</div> : null}
 
         <ReactSelect
-          className={s.select} 
+          className={s.select}
           options={armor}
           defaultValue={armor[0]}
           onChange={(option) => handleArmorChange(option as Armor)}
           styles={{
-            menu: (provided: any) => ({...provided, zIndex: 5})
+            menu: (provided: any) => ({ ...provided, zIndex: 5 }),
           }}
         />
 
         <div className={s.charItem}>
           {isManual ? <div className={s.charItemManual}>Тут отображаются текущие показатели персонажа</div> : null}
-          
+
           {renderStatus}
-    
+
           {renderHealth}
-          
+
           <div> Осталось хитов: <b>{currentHits}</b></div>
 
           {isManual ? <div className={s.fullCharManual}>3 шаг: Кликните на персонажа чтоб нанести урон выбранным оружием</div> : null}
           <div onClick={handleAttack} className={s.attack}>
             <div className={s.attackType}>{currentItem ? healType : attackType}</div>
-            <img 
-              src={status === 'Мертв' ? tomb : armorImg} 
+            <img
+              src={status === 'Мертв' ? tomb : armorImg}
               alt='' height='500'
-              style={{position: 'relative', marginTop: '-90px'}}
+              style={{ position: 'relative', marginTop: '-90px' }}
             />
           </div>
         </div>
@@ -402,12 +401,12 @@ export function DamageCalc({ isManual, isSoundOn }: Props): JSX.Element {
           {isManual ? <div className={s.itemContainerManual}>2 шаг: Выберете оружие из арсенала</div> : null}
 
           <ReactSelect
-            className={s.select} 
+            className={s.select}
             options={weapon}
             defaultValue={weapon[0]}
             onChange={(option) => handleWeaponChange(option as Weapon)}
             styles={{
-              menu: (provided: any) => ({...provided, zIndex: 5})
+              menu: (provided: any) => ({ ...provided, zIndex: 5 }),
             }}
           />
 
@@ -416,7 +415,7 @@ export function DamageCalc({ isManual, isSoundOn }: Props): JSX.Element {
           <div> Урон оружия: <b>{weaponDamage} {decimalText(weaponDamage, ['хит', 'хита', 'хитов'])}</b></div>
 
           <div style={{ margin: 'auto 0 auto 0' }}>
-            <img  src={weaponImg} alt='' width='300 '/>
+            <img src={weaponImg} alt='' width='300 '/>
           </div>
         </div>
 

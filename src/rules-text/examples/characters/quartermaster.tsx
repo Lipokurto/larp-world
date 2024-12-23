@@ -13,9 +13,9 @@ export const quartermaster: Item = {
   label: 'Интендант',
   player: 'Регионал',
   desc: 'Отвечает за игротехнические процессы лагеря',
-  element: 
-    <>      
-      <div>      
+  element: (
+    <>
+      <div>
         <ImagesAdaptive images={images} />
       </div>
 
@@ -36,4 +36,5 @@ export const quartermaster: Item = {
         <li>Стремление к справедливому противостоянию.</li>
       </div>
     </>
+  ),
 }

@@ -1,9 +1,9 @@
-import React from "react";
-import { AccordionItem } from "react-sanfona";
+import React from 'react';
+import { AccordionItem } from 'react-sanfona';
 
 import arrowDown from '../../assets/icons/icon-arrow-down.svg';
 import arrowUp from '../../assets/icons/icon-arrow-up.svg';
-import { Item } from "../../rules-text/type";
+import { Item } from '../../rules-text/type';
 
 import s from './accordion-item-style.module.css';
 
@@ -29,7 +29,7 @@ export function AccordionItemStyle(item: Item): JSX.Element {
   const handleExpand = React.useCallback(() => {
     return setIsOpen(true);
   }, []);
-  
+
   const handleClose = React.useCallback(() => {
     if (isOpen) return setIsOpen(false);
   }, [isOpen]);

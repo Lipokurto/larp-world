@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 import s from './injury-container.module.css';
 
@@ -8,7 +8,7 @@ type Props = {
   icon?: string,
 }
 
-export function InjuryContainer({ label, icon, text }: Props) {
+export function InjuryContainer({ label, icon, text }: Props): JSX.Element {
   return (
     <div className={s.container}>
       <div className={s.label}>{label}</div>

@@ -1,4 +1,4 @@
-import { ListItem } from "./type";
+import { ListItem } from './type';
 
 export const player: ListItem[] = [
   {
@@ -17,8 +17,4 @@ export const player: ListItem[] = [
     label: 'Регистрация взноса',
     link: '/regpay',
   },
-  // {
-  //   label: 'Карта подготовки игрока',
-  //   link: '/map-support',
-  // },
 ]

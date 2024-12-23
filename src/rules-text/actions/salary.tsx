@@ -1,10 +1,10 @@
-import { Item } from "../type";
+import { Item } from '../type';
 
 import s from './actions.module.css';
 
 export const salary: Item = {
   label: 'Жалованье',
-  element:
+  element: (
     <>
       <div>Королевский контракт вашего отряда обеспечен деньгами короны.</div>
       <div className={s.label}><i>Механика</i></div>
@@ -27,4 +27,5 @@ export const salary: Item = {
         <li>Основным параметром для определения лагеря будет служить количество и качество шатров в лагере.</li>
       </ol>
     </>
+  ),
 }

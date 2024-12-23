@@ -6,18 +6,17 @@
   overflow: visible;
 }
 
-.labelTextsm {
-
+.labelTextSm {
 }
 
 @media only screen and (max-width: 1024px) {
-  .labelTextsm {
+  .labelTextSm {
     margin-top: -125px;
   }
 }
 
 @media only screen and (max-width: 800px) {
-  .labelTextsm {
+  .labelTextSm {
     margin-top: -340px;
   }
 }

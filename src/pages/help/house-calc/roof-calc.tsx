@@ -24,22 +24,22 @@ function calcBar(buildX: number, buildY: number): JSX.Element {
   if (buildX === 2) {
     if (buildY === 2 || buildY === 3) {
       return (
-        <img src={bar2Half} alt='' className={s.roofBar} 
-        style={{transform: `skewX(45deg) translateY(-350px) translateX(-50px)`}}/>
+        <img src={bar2Half} alt='' className={s.roofBar}
+        style={{ transform: 'skewX(45deg) translateY(-350px) translateX(-50px)' }}/>
       )
     }
 
     if (buildY === 4 || buildY === 5) {
       return (
-        <img src={bar2Half} alt='' className={s.roofBar} 
-        style={{transform: `skewX(45deg) translateY(-450px) translateX(50px)`}}/>
+        <img src={bar2Half} alt='' className={s.roofBar}
+        style={{ transform: 'skewX(45deg) translateY(-450px) translateX(50px)' }}/>
       )
     }
 
     if (buildY === 6) {
       return (
-        <img src={bar2Half} alt='' className={s.roofBar} 
-        style={{transform: `skewX(45deg) translateY(-550px) translateX(150px)`}}/>
+        <img src={bar2Half} alt='' className={s.roofBar}
+        style={{ transform: 'skewX(45deg) translateY(-550px) translateX(150px)' }}/>
       )
     }
   }
@@ -47,22 +47,22 @@ function calcBar(buildX: number, buildY: number): JSX.Element {
   if (buildX === 3) {
     if (buildY === 2 || buildY === 3) {
       return (
-        <img src={bar3Half} alt='' className={s.roofBar} 
-        style={{transform: `skewX(45deg) translateY(-350px) translateX(-150px)`}}/>
+        <img src={bar3Half} alt='' className={s.roofBar}
+        style={{ transform: 'skewX(45deg) translateY(-350px) translateX(-150px)' }}/>
       )
     }
 
     if (buildY === 4 || buildY === 5) {
       return (
-        <img src={bar3Half} alt='' className={s.roofBar} 
-        style={{transform: `skewX(45deg) translateY(-450px) translateX(-50px)`}}/>
+        <img src={bar3Half} alt='' className={s.roofBar}
+        style={{ transform: 'skewX(45deg) translateY(-450px) translateX(-50px)' }}/>
       )
     }
 
     if (buildY === 6) {
       return (
-        <img src={bar3Half} alt='' className={s.roofBar} 
-        style={{transform: `skewX(45deg) translateY(-550px) translateX(50px)`}}/>
+        <img src={bar3Half} alt='' className={s.roofBar}
+        style={{ transform: 'skewX(45deg) translateY(-550px) translateX(50px)' }}/>
       )
     }
   }
@@ -71,11 +71,11 @@ function calcBar(buildX: number, buildY: number): JSX.Element {
     if (buildY === 2 || buildY === 3) {
       return (
         <>
-          <img src={bar2Half} alt='' className={s.roofBar} 
-            style={{transform: `skewX(45deg) translateY(-350px) translateX(-250px)`}}/>
-            
-          <img src={bar2Half} alt='' className={s.roofBar} 
-            style={{transform: `skewX(45deg) translateY(-350px) translateX(-50px)`}}/>
+          <img src={bar2Half} alt='' className={s.roofBar}
+            style={{ transform: 'skewX(45deg) translateY(-350px) translateX(-250px)' }}/>
+
+          <img src={bar2Half} alt='' className={s.roofBar}
+            style={{ transform: 'skewX(45deg) translateY(-350px) translateX(-50px)' }}/>
         </>
       )
     }
@@ -83,11 +83,11 @@ function calcBar(buildX: number, buildY: number): JSX.Element {
     if (buildY === 4 || buildY === 5) {
       return (
         <>
-          <img src={bar2Half} alt='' className={s.roofBar} 
-            style={{transform: `skewX(45deg) translateY(-450px) translateX(50px)`}}/>
-            
-          <img src={bar2Half} alt='' className={s.roofBar} 
-            style={{transform: `skewX(45deg) translateY(-450px) translateX(-150px)`}}/>
+          <img src={bar2Half} alt='' className={s.roofBar}
+            style={{ transform: 'skewX(45deg) translateY(-450px) translateX(50px)' }}/>
+
+          <img src={bar2Half} alt='' className={s.roofBar}
+            style={{ transform: 'skewX(45deg) translateY(-450px) translateX(-150px)' }}/>
         </>
       )
     }
@@ -95,11 +95,11 @@ function calcBar(buildX: number, buildY: number): JSX.Element {
     if (buildY === 6) {
       return (
         <>
-          <img src={bar2Half} alt='' className={s.roofBar} 
-            style={{transform: `skewX(45deg) translateY(-550px) translateX(150px)`}}/>
-            
-          <img src={bar2Half} alt='' className={s.roofBar} 
-            style={{transform: `skewX(45deg) translateY(-550px) translateX(-50px)`}}/>
+          <img src={bar2Half} alt='' className={s.roofBar}
+            style={{ transform: 'skewX(45deg) translateY(-550px) translateX(150px)' }}/>
+
+          <img src={bar2Half} alt='' className={s.roofBar}
+            style={{ transform: 'skewX(45deg) translateY(-550px) translateX(-50px)' }}/>
         </>
       )
     }
@@ -109,11 +109,11 @@ function calcBar(buildX: number, buildY: number): JSX.Element {
     if (buildY === 2 || buildY === 3) {
       return (
         <>
-          <img src={bar3Half} alt='' className={s.roofBar} 
-            style={{transform: `skewX(45deg) translateY(-350px) translateX(-150px)`}}/>
-            
-          <img src={bar2Half} alt='' className={s.roofBar} 
-            style={{transform: `skewX(45deg) translateY(-350px) translateX(-350px)`}}/>
+          <img src={bar3Half} alt='' className={s.roofBar}
+            style={{ transform: 'skewX(45deg) translateY(-350px) translateX(-150px)' }}/>
+
+          <img src={bar2Half} alt='' className={s.roofBar}
+            style={{ transform: 'skewX(45deg) translateY(-350px) translateX(-350px)' }}/>
         </>
       )
     }
@@ -121,11 +121,11 @@ function calcBar(buildX: number, buildY: number): JSX.Element {
     if (buildY === 4 || buildY === 5) {
       return (
         <>
-          <img src={bar3Half} alt='' className={s.roofBar} 
-            style={{transform: `skewX(45deg) translateY(-450px) translateX(-50px)`}}/>
-            
-          <img src={bar2Half} alt='' className={s.roofBar} 
-            style={{transform: `skewX(45deg) translateY(-450px) translateX(-250px)`}}/>
+          <img src={bar3Half} alt='' className={s.roofBar}
+            style={{ transform: 'skewX(45deg) translateY(-450px) translateX(-50px)' }}/>
+
+          <img src={bar2Half} alt='' className={s.roofBar}
+            style={{ transform: 'skewX(45deg) translateY(-450px) translateX(-250px)' }}/>
         </>
       )
     }
@@ -133,11 +133,11 @@ function calcBar(buildX: number, buildY: number): JSX.Element {
     if (buildY === 6) {
       return (
         <>
-          <img src={bar3Half} alt='' className={s.roofBar} 
-            style={{transform: `skewX(45deg) translateY(-550px) translateX(50px)`}}/>
-            
-          <img src={bar2Half} alt='' className={s.roofBar} 
-            style={{transform: `skewX(45deg) translateY(-550px) translateX(-150px)`}}/>
+          <img src={bar3Half} alt='' className={s.roofBar}
+            style={{ transform: 'skewX(45deg) translateY(-550px) translateX(50px)' }}/>
+
+          <img src={bar2Half} alt='' className={s.roofBar}
+            style={{ transform: 'skewX(45deg) translateY(-550px) translateX(-150px)' }}/>
         </>
       )
     }
@@ -147,11 +147,11 @@ function calcBar(buildX: number, buildY: number): JSX.Element {
     if (buildY === 2 || buildY === 3) {
       return (
         <>
-          <img src={bar3Half} alt='' className={s.roofBar} 
-            style={{transform: `skewX(45deg) translateY(-350px) translateX(-150px)`}}/>
-            
-          <img src={bar3Half} alt='' className={s.roofBar} 
-            style={{transform: `skewX(45deg) translateY(-350px) translateX(-450px)`}}/>
+          <img src={bar3Half} alt='' className={s.roofBar}
+            style={{ transform: 'skewX(45deg) translateY(-350px) translateX(-150px)' }}/>
+
+          <img src={bar3Half} alt='' className={s.roofBar}
+            style={{ transform: 'skewX(45deg) translateY(-350px) translateX(-450px)' }}/>
         </>
       )
     }
@@ -159,11 +159,11 @@ function calcBar(buildX: number, buildY: number): JSX.Element {
     if (buildY === 4 || buildY === 5) {
       return (
         <>
-          <img src={bar3Half} alt='' className={s.roofBar} 
-            style={{transform: `skewX(45deg) translateY(-450px) translateX(-50px)`}}/>
-            
-          <img src={bar3Half} alt='' className={s.roofBar} 
-            style={{transform: `skewX(45deg) translateY(-450px) translateX(-350px)`}}/>
+          <img src={bar3Half} alt='' className={s.roofBar}
+            style={{ transform: 'skewX(45deg) translateY(-450px) translateX(-50px)' }}/>
+
+          <img src={bar3Half} alt='' className={s.roofBar}
+            style={{ transform: 'skewX(45deg) translateY(-450px) translateX(-350px)' }}/>
         </>
       )
     }
@@ -171,11 +171,11 @@ function calcBar(buildX: number, buildY: number): JSX.Element {
     if (buildY === 6) {
       return (
         <>
-          <img src={bar3Half} alt='' className={s.roofBar} 
-            style={{transform: `skewX(45deg) translateY(-550px) translateX(50px)`}}/>
-            
-          <img src={bar3Half} alt='' className={s.roofBar} 
-            style={{transform: `skewX(45deg) translateY(-550px) translateX(-250px)`}}/>
+          <img src={bar3Half} alt='' className={s.roofBar}
+            style={{ transform: 'skewX(45deg) translateY(-550px) translateX(50px)' }}/>
+
+          <img src={bar3Half} alt='' className={s.roofBar}
+            style={{ transform: 'skewX(45deg) translateY(-550px) translateX(-250px)' }}/>
         </>
       )
     }
@@ -189,7 +189,7 @@ export function RoofCalc(props: Props): JSX.Element | null {
 
   const baseStyleRight = 'rotateY(180deg) rotateZ(90deg) skewX(45deg)';
   const baseStyleLeft = 'skewY(45deg) rotateZ(270deg)';
-  
+
   const isOnly = x+1 === buildX && x === 0;
   const isLast = x+1 === buildX;
   const isFirstOrMiddleOnFive = (x === 0 || x+1 === 3) && buildX % 2 !== 0;
@@ -201,20 +201,20 @@ export function RoofCalc(props: Props): JSX.Element | null {
     if (isOnly) {
       return (
         <>
-          <img src={bar} alt='' className={s.roofBar} 
-            style={{transform: `skewX(45deg) translateY(-350px) translateX(50px)`}}/>
+          <img src={bar} alt='' className={s.roofBar}
+            style={{ transform: 'skewX(45deg) translateY(-350px) translateX(50px)' }}/>
 
-          <img src={roof1} alt='' className={s.roof} 
-            style={{transform: `${baseStyleRight} translateY(-200px) translateX(-150px)`}}/>
+          <img src={roof1} alt='' className={s.roof}
+            style={{ transform: `${baseStyleRight} translateY(-200px) translateX(-150px)` }}/>
 
-          <img src={roof1} alt='' className={s.roof} 
-            style={{transform: `${baseStyleLeft} translateY(-200px) translateX(50px)`}}/>
+          <img src={roof1} alt='' className={s.roof}
+            style={{ transform: `${baseStyleLeft} translateY(-200px) translateX(50px)` }}/>
 
-          <img src={roof1Back} alt='' className={s.roofBack} 
-            style={{transform: `${baseStyleRight} translateY(-300px) translateX(-50px)`}}/>
+          <img src={roof1Back} alt='' className={s.roofBack}
+            style={{ transform: `${baseStyleRight} translateY(-300px) translateX(-50px)` }}/>
 
-          <img src={roof1Back} alt='' className={s.roofBack} 
-            style={{transform: `${baseStyleLeft} translateY(-300px) translateX(-50px)`}}/>
+          <img src={roof1Back} alt='' className={s.roofBack}
+            style={{ transform: `${baseStyleLeft} translateY(-300px) translateX(-50px)` }}/>
         </>
       )
     }
@@ -224,23 +224,23 @@ export function RoofCalc(props: Props): JSX.Element | null {
         <>
           {calcBar(buildX, buildY)}
 
-          <img src={roof1} alt='' className={s.roof} 
-            style={{transform: `${baseStyleRight} translateY(-200px) translateX(-150px)`}}/>
+          <img src={roof1} alt='' className={s.roof}
+            style={{ transform: `${baseStyleRight} translateY(-200px) translateX(-150px)` }}/>
 
-          <img src={roof1} alt='' className={s.roof} 
-            style={{transform: `${baseStyleLeft} translateY(-200px) translateX(50px)`}}/>
+          <img src={roof1} alt='' className={s.roof}
+            style={{ transform: `${baseStyleLeft} translateY(-200px) translateX(50px)` }}/>
         </>
       )
     }
-    
+
     if (isFirstOrMiddle || isFirstOrMiddleOnFive) {
       return (
         <>
-          <img src={roof1Back} alt='' className={s.roofBack} 
-            style={{transform: `${baseStyleRight} translateY(-300px) translateX(-50px)`}}/>
+          <img src={roof1Back} alt='' className={s.roofBack}
+            style={{ transform: `${baseStyleRight} translateY(-300px) translateX(-50px)` }}/>
 
-          <img src={roof1Back} alt='' className={s.roofBack} 
-            style={{transform: `${baseStyleLeft} translateY(-300px) translateX(-50px)`}}/>
+          <img src={roof1Back} alt='' className={s.roofBack}
+            style={{ transform: `${baseStyleLeft} translateY(-300px) translateX(-50px)` }}/>
         </>
       )
     }
@@ -250,20 +250,20 @@ export function RoofCalc(props: Props): JSX.Element | null {
     if (isOnly) {
       return (
         <>
-          <img src={bar} alt='' className={s.roofBar} 
-            style={{transform: `skewX(45deg) translateY(-350px) translateX(50px)`}}/>
+          <img src={bar} alt='' className={s.roofBar}
+            style={{ transform: 'skewX(45deg) translateY(-350px) translateX(50px)' }}/>
 
           <img src={roof2} alt='' className={s.roof}
-            style={{transform: `${baseStyleRight} translateY(-250px) translateX(-150px)`}}/>
+            style={{ transform: `${baseStyleRight} translateY(-250px) translateX(-150px)` }}/>
 
-          <img src={roof1} alt='' className={s.roof} 
-            style={{transform: `${baseStyleLeft} translateY(-200px) translateX(50px)`}}/>
+          <img src={roof1} alt='' className={s.roof}
+            style={{ transform: `${baseStyleLeft} translateY(-200px) translateX(50px)` }}/>
 
-          <img src={roof2Back} alt='' className={s.roofBack} 
-            style={{transform: `${baseStyleRight} translateY(-350px) translateX(-50px)`}}/>
+          <img src={roof2Back} alt='' className={s.roofBack}
+            style={{ transform: `${baseStyleRight} translateY(-350px) translateX(-50px)` }}/>
 
-          <img src={roof1Back} alt='' className={s.roofBack} 
-            style={{transform: `${baseStyleLeft} translateY(-300px) translateX(-50px)`}}/>
+          <img src={roof1Back} alt='' className={s.roofBack}
+            style={{ transform: `${baseStyleLeft} translateY(-300px) translateX(-50px)` }}/>
         </>
       )
     }
@@ -274,10 +274,10 @@ export function RoofCalc(props: Props): JSX.Element | null {
           {calcBar(buildX, buildY)}
 
           <img src={roof2} alt='' className={s.roof}
-            style={{transform: `${baseStyleRight} translateY(-250px) translateX(-150px)`}}/>
+            style={{ transform: `${baseStyleRight} translateY(-250px) translateX(-150px)` }}/>
 
-          <img src={roof1} alt='' className={s.roof} 
-            style={{transform: `${baseStyleLeft} translateY(-200px) translateX(50px)`}}/>
+          <img src={roof1} alt='' className={s.roof}
+            style={{ transform: `${baseStyleLeft} translateY(-200px) translateX(50px)` }}/>
         </>
       )
     }
@@ -285,11 +285,11 @@ export function RoofCalc(props: Props): JSX.Element | null {
     if (isFirstOrMiddle || isFirstOrMiddleOnFive) {
       return (
         <>
-          <img src={roof2Back} alt='' className={s.roofBack} 
-            style={{transform: `${baseStyleRight} translateY(-350px) translateX(-50px)`}}/>
+          <img src={roof2Back} alt='' className={s.roofBack}
+            style={{ transform: `${baseStyleRight} translateY(-350px) translateX(-50px)` }}/>
 
-          <img src={roof1Back} alt='' className={s.roofBack} 
-            style={{transform: `${baseStyleLeft} translateY(-300px) translateX(-50px)`}}/>
+          <img src={roof1Back} alt='' className={s.roofBack}
+            style={{ transform: `${baseStyleLeft} translateY(-300px) translateX(-50px)` }}/>
         </>
       )
     }
@@ -299,20 +299,20 @@ export function RoofCalc(props: Props): JSX.Element | null {
     if (isOnly) {
       return (
         <>
-          <img src={bar} alt='' className={s.roofBar} 
-            style={{transform: `skewX(45deg) translateY(-450px) translateX(150px)`}}/>
+          <img src={bar} alt='' className={s.roofBar}
+            style={{ transform: 'skewX(45deg) translateY(-450px) translateX(150px)' }}/>
 
           <img src={roof2} alt='' className={s.roof}
-            style={{transform: `${baseStyleRight} translateY(-250px) translateX(-250px)`}}/>
-          
-          <img src={roof2} alt='' className={s.roof} 
-            style={{transform: `${baseStyleLeft} translateY(-250px) translateX(50px)`}}/>
+            style={{ transform: `${baseStyleRight} translateY(-250px) translateX(-250px)` }}/>
 
-          <img src={roof2Back} alt='' className={s.roofBack} 
-            style={{transform: `${baseStyleRight} translateY(-350px) translateX(-150px)`}}/>
+          <img src={roof2} alt='' className={s.roof}
+            style={{ transform: `${baseStyleLeft} translateY(-250px) translateX(50px)` }}/>
 
-          <img src={roof2Back} alt='' className={s.roofBack} 
-            style={{transform: `${baseStyleLeft} translateY(-350px) translateX(-50px)`}}/>
+          <img src={roof2Back} alt='' className={s.roofBack}
+            style={{ transform: `${baseStyleRight} translateY(-350px) translateX(-150px)` }}/>
+
+          <img src={roof2Back} alt='' className={s.roofBack}
+            style={{ transform: `${baseStyleLeft} translateY(-350px) translateX(-50px)` }}/>
         </>
       )
     }
@@ -323,25 +323,25 @@ export function RoofCalc(props: Props): JSX.Element | null {
           {calcBar(buildX, buildY)}
 
           <img src={roof2} alt='' className={s.roof}
-            style={{transform: `${baseStyleRight} translateY(-250px) translateX(-250px)`}}/>
-          
-          <img src={roof2} alt='' className={s.roof} 
-            style={{transform: `${baseStyleLeft} translateY(-250px) translateX(50px)`}}/>
+            style={{ transform: `${baseStyleRight} translateY(-250px) translateX(-250px)` }}/>
+
+          <img src={roof2} alt='' className={s.roof}
+            style={{ transform: `${baseStyleLeft} translateY(-250px) translateX(50px)` }}/>
         </>
       )
     }
 
-    if (isFirstOrMiddle || isFirstOrMiddleOnFive) { 
+    if (isFirstOrMiddle || isFirstOrMiddleOnFive) {
       return (
         <>
-          <img src={roof2Back} alt='' className={s.roofBack} 
-            style={{transform: `${baseStyleRight} translateY(-350px) translateX(-150px)`}}/>
+          <img src={roof2Back} alt='' className={s.roofBack}
+            style={{ transform: `${baseStyleRight} translateY(-350px) translateX(-150px)` }}/>
 
-          {isMiddle && <img src={stolb} alt='' className={s.roof} 
-            style={{transform: `${baseStyleLeft} translateY(-150px) translateX(${2*100}px`}}/>}
+          {isMiddle && <img src={stolb} alt='' className={s.roof}
+            style={{ transform: `${baseStyleLeft} translateY(-150px) translateX(${2*100}px` }}/>}
 
-          <img src={roof2Back} alt='' className={s.roofBack} 
-            style={{transform: `${baseStyleLeft} translateY(-350px) translateX(-50px)`}}/>
+          <img src={roof2Back} alt='' className={s.roofBack}
+            style={{ transform: `${baseStyleLeft} translateY(-350px) translateX(-50px)` }}/>
         </>
       )
     }
@@ -350,21 +350,21 @@ export function RoofCalc(props: Props): JSX.Element | null {
   if (buildY === 5 && y+1 === buildY) {
     if (isOnly) {
       return (
-        <>        
-          <img src={bar} alt='' className={s.roofBar} 
-            style={{transform: `skewX(45deg) translateY(-450px) translateX(150px)`}}/>
+        <>
+          <img src={bar} alt='' className={s.roofBar}
+            style={{ transform: 'skewX(45deg) translateY(-450px) translateX(150px)' }}/>
 
           <img src={roof3} alt='' className={s.roof}
-            style={{transform: `${baseStyleRight} translateY(-300px) translateX(-250px)`}}/>
+            style={{ transform: `${baseStyleRight} translateY(-300px) translateX(-250px)` }}/>
 
-          <img src={roof2} alt='' className={s.roof} 
-            style={{transform: `${baseStyleLeft} translateY(-250px) translateX(50px)`}}/>
-          
-          <img src={roof3Back} alt='' className={s.roofBack} 
-            style={{transform: `${baseStyleRight} translateY(-400px) translateX(-150px)`}}/>
+          <img src={roof2} alt='' className={s.roof}
+            style={{ transform: `${baseStyleLeft} translateY(-250px) translateX(50px)` }}/>
 
-          <img src={roof2Back} alt='' className={s.roofBack} 
-            style={{transform: `${baseStyleLeft} translateY(-350px) translateX(-50px)`}}/>
+          <img src={roof3Back} alt='' className={s.roofBack}
+            style={{ transform: `${baseStyleRight} translateY(-400px) translateX(-150px)` }}/>
+
+          <img src={roof2Back} alt='' className={s.roofBack}
+            style={{ transform: `${baseStyleLeft} translateY(-350px) translateX(-50px)` }}/>
         </>
       )
     }
@@ -375,50 +375,48 @@ export function RoofCalc(props: Props): JSX.Element | null {
           {calcBar(buildX, buildY)}
 
           <img src={roof3} alt='' className={s.roof}
-            style={{transform: `${baseStyleRight} translateY(-300px) translateX(-250px)`}}/>
+            style={{ transform: `${baseStyleRight} translateY(-300px) translateX(-250px)` }}/>
 
-          <img src={roof2} alt='' className={s.roof} 
-            style={{transform: `${baseStyleLeft} translateY(-250px) translateX(50px)`}}/>
+          <img src={roof2} alt='' className={s.roof}
+            style={{ transform: `${baseStyleLeft} translateY(-250px) translateX(50px)` }}/>
         </>
       )
     }
 
     if (isFirstOrMiddle || isFirstOrMiddleOnFive) {
       return (
-        <>        
-          <img src={roof3Back} alt='' className={s.roofBack} 
-            style={{transform: `${baseStyleRight} translateY(-400px) translateX(-150px)`}}/>
+        <>
+          <img src={roof3Back} alt='' className={s.roofBack}
+            style={{ transform: `${baseStyleRight} translateY(-400px) translateX(-150px)` }}/>
 
-          {isMiddle && <img src={stolb} alt='' className={s.roof} 
-            style={{transform: `${baseStyleLeft} translateY(-150px) translateX(${2*100}px`}}/>}
+          {isMiddle && <img src={stolb} alt='' className={s.roof}
+            style={{ transform: `${baseStyleLeft} translateY(-150px) translateX(${2*100}px` }}/>}
 
-          <img src={roof2Back} alt='' className={s.roofBack} 
-            style={{transform: `${baseStyleLeft} translateY(-350px) translateX(-50px)`}}/>
+          <img src={roof2Back} alt='' className={s.roofBack}
+            style={{ transform: `${baseStyleLeft} translateY(-350px) translateX(-50px)` }}/>
         </>
       )
     }
-
-
   }
 
   if (buildY === 6 && y+1 === buildY) {
     if (isOnly) {
       return (
         <>
-          <img src={bar} alt='' className={s.roofBar} 
-            style={{transform: `skewX(45deg) translateY(-550px) translateX(250px)`}}/>
+          <img src={bar} alt='' className={s.roofBar}
+            style={{ transform: 'skewX(45deg) translateY(-550px) translateX(250px)' }}/>
 
           <img src={roof3} alt='' className={s.roof}
-            style={{transform: `${baseStyleRight} translateY(-300px) translateX(-350px)`}}/>
+            style={{ transform: `${baseStyleRight} translateY(-300px) translateX(-350px)` }}/>
 
-          <img src={roof3} alt='' className={s.roof} 
-            style={{transform: `${baseStyleLeft} translateY(-300px) translateX(50px)`}}/>
+          <img src={roof3} alt='' className={s.roof}
+            style={{ transform: `${baseStyleLeft} translateY(-300px) translateX(50px)` }}/>
 
-          <img src={roof3Back} alt='' className={s.roofBack} 
-            style={{transform: `${baseStyleRight} translateY(-400px) translateX(-250px)`}}/>
+          <img src={roof3Back} alt='' className={s.roofBack}
+            style={{ transform: `${baseStyleRight} translateY(-400px) translateX(-250px)` }}/>
 
-          <img src={roof3Back} alt='' className={s.roofBack} 
-            style={{transform: `${baseStyleLeft} translateY(-400px) translateX(-50px)`}}/>
+          <img src={roof3Back} alt='' className={s.roofBack}
+            style={{ transform: `${baseStyleLeft} translateY(-400px) translateX(-50px)` }}/>
         </>
       )
     }
@@ -429,10 +427,10 @@ export function RoofCalc(props: Props): JSX.Element | null {
           {calcBar(buildX, buildY)}
 
           <img src={roof3} alt='' className={s.roof}
-            style={{transform: `${baseStyleRight} translateY(-300px) translateX(-350px)`}}/>
+            style={{ transform: `${baseStyleRight} translateY(-300px) translateX(-350px)` }}/>
 
-          <img src={roof3} alt='' className={s.roof} 
-            style={{transform: `${baseStyleLeft} translateY(-300px) translateX(50px)`}}/>
+          <img src={roof3} alt='' className={s.roof}
+            style={{ transform: `${baseStyleLeft} translateY(-300px) translateX(50px)` }}/>
         </>
       )
     }
@@ -440,14 +438,14 @@ export function RoofCalc(props: Props): JSX.Element | null {
     if (isFirstOrMiddle || isFirstOrMiddleOnFive) {
       return (
         <>
-          <img src={roof3Back} alt='' className={s.roofBack} 
-            style={{transform: `${baseStyleRight} translateY(-400px) translateX(-250px)`}}/>
+          <img src={roof3Back} alt='' className={s.roofBack}
+            style={{ transform: `${baseStyleRight} translateY(-400px) translateX(-250px)` }}/>
 
-          {isMiddle && <img src={stolb} alt='' className={s.roof} 
-            style={{transform: `${baseStyleLeft} translateY(-150px) translateX(${3*100}px`}}/>}
+          {isMiddle && <img src={stolb} alt='' className={s.roof}
+            style={{ transform: `${baseStyleLeft} translateY(-150px) translateX(${3*100}px` }}/>}
 
-          <img src={roof3Back} alt='' className={s.roofBack} 
-            style={{transform: `${baseStyleLeft} translateY(-400px) translateX(-50px)`}}/>
+          <img src={roof3Back} alt='' className={s.roofBack}
+            style={{ transform: `${baseStyleLeft} translateY(-400px) translateX(-50px)` }}/>
         </>
       )
     }

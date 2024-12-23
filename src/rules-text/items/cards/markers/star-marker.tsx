@@ -7,7 +7,7 @@ import s from '../../items.module.css';
 export const starMarker: Item = {
   label: 'Маркер "Звезда"',
   icon: icon,
-  element:
+  element: (
     <>
       <div className={s.icon}><img src={icon} alt='' /></div>
       <div>Данный маркер крепится на вывеске заведения. Количество маркеров «Звезда» равно уровню качества заведения.</div>
@@ -19,4 +19,5 @@ export const starMarker: Item = {
         <li>Качество может быть повышено на одну единицу выше стартового за счет фактического улучшения локации в течении мероприятия.</li>
       </ol>
     </>
+  ),
 }

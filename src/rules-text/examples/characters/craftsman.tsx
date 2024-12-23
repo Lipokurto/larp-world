@@ -13,9 +13,9 @@ export const craftsman: Item = {
   label: 'Ремесленник',
   player: 'Игрок',
   desc: 'Глава локации: "Госпиталь", "Кузница" или "Лаборатория"',
-  element: 
-    <>      
-      <div>      
+  element: (
+    <>
+      <div>
         <ImagesAdaptive images={images} />
       </div>
 
@@ -37,4 +37,5 @@ export const craftsman: Item = {
         <li>Умение активно торговаться с игроками за оказания услуг.</li>
       </div>
     </>
+  ),
 }

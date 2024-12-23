@@ -9,14 +9,14 @@ export const healPack: Item = {
   label: 'Медкомплект',
   icon: icon,
   weight: 1,
-  element:
+  element: (
     <>
       <div className={s.icon}><img src={card} alt='' /></div>
       <div className={s.label}>Эффекты</div>
       <div>Восстанавливает все живые хиты у людей</div>
       <div className={s.label}>Вес: 1</div>
       <div className={s.label}>Ограничения:</div>
-      
+
       <div className={s.listContainer}>
         <li>Требуется подождать 15 минут</li>
         <li>Одноразовое</li>
@@ -25,4 +25,5 @@ export const healPack: Item = {
       <br />
       <div>Производится в госпитале, потребляет лечебные травы</div>
     </>
+  ),
 }

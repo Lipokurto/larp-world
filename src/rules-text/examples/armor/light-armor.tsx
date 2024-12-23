@@ -9,9 +9,10 @@ const armor = [liAr01, liAr02, liAr03];
 
 export const lightArmor: Item = {
   label: 'Примеры легкой брони',
-  element: 
-    <div>      
+  element: (
+    <div>
       <ImagesAdaptive images={armor} />
       <div>В примерах не учитывается наличие шлема</div>
     </div>
+  ),
 }

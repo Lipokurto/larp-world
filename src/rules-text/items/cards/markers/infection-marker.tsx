@@ -7,7 +7,7 @@ import s from '../../items.module.css';
 export const infectionMarker: Item = {
   label: 'Маркер "Заражен"',
   icon: icon,
-  element:
+  element: (
     <>
       <div className={s.icon}><img src={icon} alt='' /></div>
       <div>Маркер, обозначающий что персонаж заражен чумой. После присвоения игрок случайным образом выбирает для себя травму из 6 доступных, кроме тех, которые у него уже есть. При снятии заражения эта травмы так же пропадет.</div>
@@ -19,4 +19,5 @@ export const infectionMarker: Item = {
         <li>Никак не меняет живые хиты персонажа.</li>
       </ol>
     </>
+  ),
 }

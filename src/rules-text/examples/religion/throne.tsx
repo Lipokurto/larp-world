@@ -6,9 +6,9 @@ import s from './religion.module.css';
 
 export const throne: Item = {
   label: 'Святой престол',
-  element:
-    <>      
-      <div>      
+  element: (
+    <>
+      <div>
         <div className={s.container_first}>
           <img src={symbol} alt='Religion' />
         </div>
@@ -23,4 +23,5 @@ export const throne: Item = {
       <div><b>Действия во время затмения:</b> Все грешники должны быть покараны, если не докажут что способны искупить свою вину</div>
       <div><b>Распространение:</b> Королевство Мидленд, Тюдорская империя</div>
     </>
+  ),
 }

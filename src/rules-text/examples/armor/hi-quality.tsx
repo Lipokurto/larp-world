@@ -9,10 +9,9 @@ const armor = [hiAr01, hiAr02, hiAr03];
 
 export const hiArmor: Item = {
   label: 'Примеры доспехов хорошего качества',
-  element: 
-    <>
-      <div>
-        <ImagesAdaptive images={armor} />
-      </div>
-    </>
+  element: (
+    <div>
+      <ImagesAdaptive images={armor} />
+    </div>
+  ),
 }

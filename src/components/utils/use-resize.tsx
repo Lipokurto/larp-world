@@ -27,7 +27,6 @@ export function useResize(): Size {
       setWidth(event.target.innerWidth);
       setHeight(event.target.innerHeight);
     };
-    
     window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('resize', handleResize);

@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react';
 
-import { 
+import {
   ArmorHit, ArmorItem, BackItem,
   HandleArmor, HelmetItem,
-} from "./type";
+} from './type';
 
-import { SelectItem } from "./select-item";
-import { CardTooltip } from "../card-tooltip/card-tooltip";
-import { LinkButton } from "../link/link-button";
+import { SelectItem } from './select-item';
+import { CardTooltip } from '../card-tooltip/card-tooltip';
+import { LinkButton } from '../link/link-button';
 
 import man from '../../assets/armor-zone/man.png';
 import heart from '../../assets/icons/health/heart.png';
@@ -30,17 +30,17 @@ import helmetArmor from '../../assets/armor-material/helmet.png';
 import s from './hit-calc.module.css';
 
 const armor: ArmorItem[] = [
-  {value: { type: 'no_armor', armorClass: 0 }, label: 'Нет брони', icon: noneArmor },
-  {value: { type: 'leather', armorClass: 0.5 }, label: 'Кожанка', icon: leatherArmor  },
-  {value: { type: 'chain', armorClass: 0.75 }, label: 'Кольчуга', icon: chainArmor  },
-  {value: { type: 'brigant', armorClass: 1 }, label: 'Бригантина', icon: brigaArmor  },
-  {value: { type: 'lamelar', armorClass: 1 }, label: 'Ламяляр', icon: lamelarArmor  },
-  {value: { type: 'plate', armorClass: 1.25 }, label: 'Латы', icon: steelArmor  },
+  { value: { type: 'no_armor', armorClass: 0 }, label: 'Нет брони', icon: noneArmor },
+  { value: { type: 'leather', armorClass: 0.5 }, label: 'Кожанка', icon: leatherArmor },
+  { value: { type: 'chain', armorClass: 0.75 }, label: 'Кольчуга', icon: chainArmor },
+  { value: { type: 'brigant', armorClass: 1 }, label: 'Бригантина', icon: brigaArmor },
+  { value: { type: 'lamelar', armorClass: 1 }, label: 'Ламяляр', icon: lamelarArmor },
+  { value: { type: 'plate', armorClass: 1.25 }, label: 'Латы', icon: steelArmor },
 ]
 
 const helmet: HelmetItem[] = [
-  {value: { type: 'hard', hasArmor: true }, label: 'Есть шлем', icon: helmetArmor   },
-  {value: { type: 'no_helmet', hasArmor: false }, label: 'Нет шлема', icon: noneArmor   },
+  { value: { type: 'hard', hasArmor: true }, label: 'Есть шлем', icon: helmetArmor },
+  { value: { type: 'no_helmet', hasArmor: false }, label: 'Нет шлема', icon: noneArmor },
 ]
 
 const defaultArmor: ArmorHit[] = [
@@ -75,14 +75,14 @@ export function HitsCalc(): JSX.Element {
   const [currentArmor, setCurrentArmor] = React.useState<ArmorHit[]>(defaultArmor);
   const [back, setBack] = React.useState<BackItem>({ value: false, label: 'Нет' });
   const [isManual, setManual] = React.useState<boolean>(true);
-  
+
   const handleHelmetArmor = React.useCallback((option: HelmetItem) => {
     setHasArmor(option.value.hasArmor);
   }, []);
 
   const handleArmor = React.useCallback(({ name, option }: HandleArmor) => {
     const findIndex = currentArmor.findIndex(p => p.limb === name);
-    
+
     currentArmor.splice(findIndex, 1, {
       limb: name,
       hits: getHits(name, option.value.armorClass, back.value),
@@ -101,13 +101,12 @@ export function HitsCalc(): JSX.Element {
   const handleBack = React.useCallback((option: BackItem) => {
     if (option.value !== back.value) {
       const torsoArmor = currentArmor.find(p => p.limb === 'torso');
-      
+
       if (torsoArmor) {
         currentArmor.splice(0, 1, {
           limb: 'torso',
           hits:  option.value ? torsoArmor.hits * 2 : torsoArmor.hits / 2,
         });
-  
         setCurrentArmor(currentArmor);
       }
 
@@ -120,18 +119,18 @@ export function HitsCalc(): JSX.Element {
 
   const renderHealth = React.useMemo(() => {
     const shields = Array(Math.round(hits)).fill(shield);
-    
+
     shields[0] = heart;
 
     return (
-      <div style={{display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
-        Всего хитов: 
-        <div style={{display: 'flex'}}>
+      <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
+        Всего хитов:
+        <div style={{ display: 'flex' }}>
           {hasArmor ? shields.map((p,i) => {
             return (
               <img src={p} key={p + i} alt='' width='20' />
             )
-          }) : <img src={heart}  alt='' width='20' />}
+          }) : <img src={heart} alt='' width='20' />}
         </div>
       </div>
     )
@@ -140,12 +139,12 @@ export function HitsCalc(): JSX.Element {
   return (
     <>
       <div className={s.container}>
-        
+
         <div className={s.character}>
           <LinkButton text={`${isManual ? 'Выключить' : 'Включить'} подсказки`} onclick={() => setManual(!isManual)}/>
 
           {renderHealth}
-        
+
           {!hasArmor ? <div style={{ color: 'red' }}>Нет шлема - нет брони</div> : <br />}
 
           <div className={s.row}>
@@ -155,7 +154,7 @@ export function HitsCalc(): JSX.Element {
                   src={armorHelmet}
                   cardName="Голова"
                   width={300}
-                />
+                />,
               )}
 
               <SelectItem
@@ -176,7 +175,7 @@ export function HitsCalc(): JSX.Element {
                     src={armorShoulder}
                     cardName="Л.Плечо"
                     width={300}
-                  />
+                  />,
                 )}
 
                 <SelectItem
@@ -193,13 +192,13 @@ export function HitsCalc(): JSX.Element {
                     src={armorArm}
                     cardName="Л.Рука"
                     width={300}
-                  />
+                  />,
                 )}
 
                 <SelectItem
                   placeholder='Нет брони'
                   options={armor}
-                  onChange={(option: ArmorItem) => handleArmor({ name: 'leftArm', option })} 
+                  onChange={(option: ArmorItem) => handleArmor({ name: 'leftArm', option })}
                 />
               </div>
             </div>
@@ -212,16 +211,16 @@ export function HitsCalc(): JSX.Element {
                     src={armorTorso}
                     cardName="Торс"
                     width={300}
-                  />
+                  />,
                 )}
 
-                <SelectItem 
+                <SelectItem
                   placeholder='Нет брони'
                   options={armor}
-                  onChange={(option: ArmorItem) => handleArmor({name: 'torso', option})}
+                  onChange={(option: ArmorItem) => handleArmor({ name: 'torso', option })}
                 />
               </div>
-              
+
               <div className={s.item}>
                 {renderLabel(
                   'Спина',
@@ -229,10 +228,10 @@ export function HitsCalc(): JSX.Element {
                     src={armorTorso}
                     cardName="Спина"
                     width={300}
-                  />
+                  />,
                 )}
 
-                <SelectItem 
+                <SelectItem
                   value={back}
                   name='back'
                   options={backOptions}
@@ -249,13 +248,13 @@ export function HitsCalc(): JSX.Element {
                     src={armorShoulder}
                     cardName="П.Плечо"
                     width={300}
-                  />
+                  />,
                 )}
 
                 <SelectItem
                   placeholder='Нет брони'
                   options={armor}
-                  onChange={(option: ArmorItem) => handleArmor({name: 'rightShoulder', option})}
+                  onChange={(option: ArmorItem) => handleArmor({ name: 'rightShoulder', option })}
                 />
               </div>
 
@@ -266,13 +265,13 @@ export function HitsCalc(): JSX.Element {
                     src={armorArm}
                     cardName="П.Рука"
                     width={300}
-                  />
+                  />,
                 )}
 
                 <SelectItem
                   placeholder='Нет брони'
                   options={armor}
-                  onChange={(option: ArmorItem) => handleArmor({name: 'rightArm', option})}
+                  onChange={(option: ArmorItem) => handleArmor({ name: 'rightArm', option })}
                 />
               </div>
             </div>
@@ -287,14 +286,14 @@ export function HitsCalc(): JSX.Element {
                     src={armorHip}
                     cardName="Л.Бедро"
                     width={300}
-                  />
+                  />,
                 )}
 
                 <SelectItem
                   name='legs'
                   placeholder='Нет брони'
                   options={armor}
-                  onChange={(option: ArmorItem) => handleArmor({name: 'leftHip', option})}
+                  onChange={(option: ArmorItem) => handleArmor({ name: 'leftHip', option })}
                 />
               </div>
 
@@ -305,14 +304,14 @@ export function HitsCalc(): JSX.Element {
                     src={armorLeg}
                     cardName="Л.Нога"
                     width={300}
-                  />
+                  />,
                 )}
 
                 <SelectItem
                   name='legs'
                   placeholder='Нет брони'
                   options={armor}
-                  onChange={(option: ArmorItem) => handleArmor({name: 'leftLeg', option})}
+                  onChange={(option: ArmorItem) => handleArmor({ name: 'leftLeg', option })}
                 />
               </div>
             </div>
@@ -325,14 +324,14 @@ export function HitsCalc(): JSX.Element {
                     src={armorHip}
                     cardName="П.Бедро"
                     width={300}
-                  />
+                  />,
                 )}
 
                 <SelectItem
                   name='legs'
                   placeholder='Нет брони'
                   options={armor}
-                  onChange={(option: ArmorItem) => handleArmor({name: 'rightHip', option})}
+                  onChange={(option: ArmorItem) => handleArmor({ name: 'rightHip', option })}
                 />
               </div>
 
@@ -343,14 +342,14 @@ export function HitsCalc(): JSX.Element {
                     src={armorLeg}
                     cardName="П.Нога"
                     width={300}
-                  />
+                  />,
                 )}
 
                 <SelectItem
                   name='legs'
                   placeholder='Нет брони'
                   options={armor}
-                  onChange={(option: ArmorItem) => handleArmor({name: 'rightLeg', option})}
+                  onChange={(option: ArmorItem) => handleArmor({ name: 'rightLeg', option })}
                 />
               </div>
             </div>

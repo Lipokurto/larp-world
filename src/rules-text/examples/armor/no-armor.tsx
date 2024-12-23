@@ -9,9 +9,10 @@ const armor = [noAr01, noAr02, noAr03];
 
 export const noArmor: Item = {
   label: 'Примеры отсутствия брони',
-  element: 
-    <div>      
+  element: (
+    <div>
       <ImagesAdaptive images={armor} />
       <div>В примерах не учитывается наличие шлема</div>
     </div>
+  ),
 }

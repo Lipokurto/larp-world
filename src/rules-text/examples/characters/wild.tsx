@@ -11,9 +11,9 @@ export const wild: Item = {
   label: 'Дикое чудовище',
   player: 'Игротех',
   desc: 'Неудержимая мощь астрала в нашем мире',
-  element: 
-    <>      
-      <div>      
+  element: (
+    <>
+      <div>
         <ImagesAdaptive images={images} />
       </div>
 
@@ -34,4 +34,5 @@ export const wild: Item = {
         <li>Подготовить себя физически и морально.</li>
       </div>
     </>
+  ),
 }

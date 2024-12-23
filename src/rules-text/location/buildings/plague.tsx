@@ -5,7 +5,7 @@ import s from './buildings.module.css';
 
 export const plague: Item = {
   label: 'Чумная лаборатория',
-  element:
+  element: (
     <>
       <div className={s.container}>
         <img src={img} alt='Plague' />
@@ -18,6 +18,6 @@ export const plague: Item = {
         <li>Наличие подопытных экземпляров (крысы, птицы, пиявки все не настоящие).</li>
         <li>Наличие книги записей сведений о болезни.</li>
       </ol>
-
     </>
+  ),
 }

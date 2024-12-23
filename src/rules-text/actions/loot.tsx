@@ -1,10 +1,10 @@
-import { Item } from "../type";
+import { Item } from '../type';
 
 import s from './actions.module.css';
 
 export const loot: Item = {
   label: 'Обыск',
-  element:
+  element: (
     <>
       <div className={s.label}>Быстрый обыск</div>
       <ol className={s.listContainer}>
@@ -19,4 +19,5 @@ export const loot: Item = {
         <li>Обысканный игрок должен немедленно выдать ВСЕ игровые предметы и деньги, которые находятся у него в данный момент.</li>
       </ol>
     </>
+  ),
 }

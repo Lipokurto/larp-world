@@ -13,9 +13,9 @@ export const apostol: Item = {
   label: 'Апостол',
   player: 'Игрок',
   desc: 'Чудовище с непреодолимым голодом',
-  element: 
-    <>      
-      <div>      
+  element: (
+    <>
+      <div>
         <ImagesAdaptive images={images} />
       </div>
 
@@ -39,4 +39,5 @@ export const apostol: Item = {
         <li>Уметь организовать достаточно "неординарный" опыт своей команде.</li>
       </div>
     </>
+  ),
 }

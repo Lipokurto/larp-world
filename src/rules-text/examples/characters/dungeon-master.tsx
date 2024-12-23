@@ -13,9 +13,9 @@ export const dungeonMaster: Item = {
   label: 'Хранитель подземелья',
   player: 'Регионал',
   desc: 'Отвечает за игротехнические процессы подземелья',
-  element: 
-    <>      
-      <div>      
+  element: (
+    <>
+      <div>
         <ImagesAdaptive images={images} />
       </div>
 
@@ -37,4 +37,5 @@ export const dungeonMaster: Item = {
         <li>Должен досконально знать правила.</li>
       </div>
     </>
+  ),
 }

@@ -9,7 +9,7 @@ export const repairPotion: Item = {
   label: 'Оружейное масло',
   icon: icon,
   weight: 0,
-  element:
+  element: (
     <>
       <div className={s.icon}><img src={card} alt='' /></div>
       <div className={s.label}>Эффекты</div>
@@ -27,5 +27,5 @@ export const repairPotion: Item = {
       <br />
       <div>Производится у алхимиков, потребляет ремкомплект и руду</div>
     </>
-  
+  ),
 }

@@ -1,4 +1,4 @@
-import { ListItem } from "./type";
+import { ListItem } from './type';
 
 export const rules: ListItem[] = [
   {

@@ -1,19 +1,19 @@
-import React from "react";
+import React from 'react';
 
-import { Chapter, AccordionBlock, LinkButton, ItemModal } from "../../../components";
+import { Chapter, AccordionBlock, LinkButton, ItemModal } from '../../../components';
 
-import { 
+import {
   midens, midensFasionHigh, midensFasionNorm,
   north, northFasionHigh, northFasionNorm,
   south, southFasionHigh, southFasionNorm,
-} from "../../../rules-text/examples/nation";
+} from '../../../rules-text/examples/nation';
 
 import {
   ancestors, clearedByBlood, politeism,
   throne,
-} from "../../../rules-text/examples/religion";
+} from '../../../rules-text/examples/religion';
 
-import { Item } from "../../../rules-text/type";
+import { Item } from '../../../rules-text/type';
 
 import s from './culture.module.css';
 
@@ -36,7 +36,7 @@ export function Culture(): JSX.Element {
           items={[
             {
               label: 'Мединцы',
-              element:
+              element: (
                 <>
                   {midens.element}
                   <div className={s.fasion_container}>
@@ -44,10 +44,11 @@ export function Culture(): JSX.Element {
                     <h3><LinkButton text={midensFasionHigh.label} onclick={() => handleClick(midensFasionHigh)} /></h3>
                   </div>
                 </>
+              ),
             },
             {
               label: 'Южане',
-              element:
+              element: (
                 <>
                   {south.element}
                   <div className={s.fasion_container}>
@@ -55,10 +56,11 @@ export function Culture(): JSX.Element {
                     <h3><LinkButton text={southFasionHigh.label} onclick={() => handleClick(southFasionHigh)} /></h3>
                   </div>
                 </>
+              ),
             },
             {
               label: 'Северяне',
-              element:
+              element: (
                 <>
                   {north.element}
                   <div className={s.fasion_container}>
@@ -66,6 +68,7 @@ export function Culture(): JSX.Element {
                     <h3><LinkButton text={northFasionHigh.label} onclick={() => handleClick(northFasionHigh)} /></h3>
                   </div>
                 </>
+              ),
             },
           ]}
         />
@@ -75,19 +78,19 @@ export function Culture(): JSX.Element {
           items={[
             {
               label: 'Святой престол',
-              element: <>{throne.element}</>
+              element: <>{throne.element}</>,
             },
             {
               label: 'Политеизм',
-              element: <>{politeism.element}</>
+              element: <>{politeism.element}</>,
             },
             {
               label: 'Культ предков',
-              element: <>{ancestors.element}</>
+              element: <>{ancestors.element}</>,
             },
             {
               label: 'Очищенные кровью',
-              element: <>{clearedByBlood.element}</>
+              element: <>{clearedByBlood.element}</>,
             },
           ]}
         />

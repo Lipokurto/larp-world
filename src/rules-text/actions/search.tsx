@@ -1,10 +1,10 @@
-import { Item } from "../type";
+import { Item } from '../type';
 
 import s from './actions.module.css';
 
 export const search: Item = {
   label: 'Обыск лагеря',
-  element:
+  element: (
     <>
       <div>После удачного штурма атакующая сторона может осмотреть лагерь под присмотром интенданта.</div>
       <div className={s.label}><i>Механика</i></div>
@@ -20,4 +20,5 @@ export const search: Item = {
         <li>Время и формат обыска определяется интендантом.</li>
       </ol>
     </>
+  ),
 }

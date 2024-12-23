@@ -7,7 +7,7 @@ import s from '../../items.module.css';
 export const deathMarker: Item = {
   label: 'Маркер "Смерть"',
   icon: icon,
-  element:
+  element: (
     <>
       <div className={s.icon}><img src={icon} alt='' /></div>
       <div>Срыв этого маркера в паспорте игрока обозначает смерть его персонажа.</div>
@@ -17,4 +17,5 @@ export const deathMarker: Item = {
         <li>если маркер не был сорван - персонаж не мертв, проверить корректность срыва этого маркера - задача убийц.</li>
       </ol>
     </>
+  ),
 }

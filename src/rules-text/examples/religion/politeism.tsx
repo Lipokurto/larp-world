@@ -6,9 +6,9 @@ import s from './religion.module.css';
 
 export const politeism: Item = {
   label: 'Политеизм',
-  element:
-    <>      
-      <div>      
+  element: (
+    <>
+      <div>
         <div className={s.container_first}>
           <img src={symbol} alt='Religion' />
         </div>
@@ -21,4 +21,5 @@ export const politeism: Item = {
       <div><b>Цвета:</b> Фиолетовый, золотой, красный</div>
       <div><b>Распространение:</b> Кушаанская империя</div>
     </>
+  ),
 }

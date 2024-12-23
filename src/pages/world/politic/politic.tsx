@@ -1,9 +1,9 @@
-import { AccordionBlock, Chapter } from "../../../components";
+import { AccordionBlock, Chapter } from '../../../components';
 
 import {
-  baldenHistory, grantHistory, holyHistory, isKingdomHistory,
-  kushanHistory,
-  midlendHistory, morgarHistory, paneriaHistory, randelHistory,
+  baldenHistory, grantHistory, holyHistory,
+  isKingdomHistory, kushanHistory, midlendHistory,
+  morgarHistory, paneriaHistory, randelHistory,
   tudorHistory, vallatoriaHistory,
 } from '../../../history';
 
@@ -13,7 +13,7 @@ export function Politic(): JSX.Element {
   return (
     <div className={s.container}>
       <Chapter chapter='ПОЛИТИКА' />
-      
+
       <div>
         <i>Все мероприятие строится вокруг подготовки лагерей к битве. По факту вся игра - это несколько дней до начала битвы в которой каждая из стороны пытается занять более выгодные позиции на политической и тактической карте, в то время как простые крестьяне пытаются просто выжить</i>
         <br />

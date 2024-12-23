@@ -5,7 +5,7 @@ import s from './buildings.module.css';
 
 export const alchemist: Item = {
   label: 'Лаборатория алхимика',
-  element:
+  element: (
     <>
       <div className={s.container}>
         <img src={img} alt='Alchemist' />
@@ -19,4 +19,5 @@ export const alchemist: Item = {
         <li>Наличие коллекции ингредиентов (полки с колбами, образцы жидкостей и минералов, редкие ингредиенты).</li>
       </ol>
     </>
+  ),
 }

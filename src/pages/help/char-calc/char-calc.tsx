@@ -1,4 +1,4 @@
-import { HitsCalc } from "../../../components";
+import { HitsCalc } from '../../../components';
 
 import s from './char-calc.module.css';
 

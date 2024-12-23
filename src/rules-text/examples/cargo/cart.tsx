@@ -1,8 +1,8 @@
 import cart01 from '../../../assets/cargo/cart/cart-01.png';
 import cart02 from '../../../assets/cargo/cart/cart-02.png';
 
-import { Item } from "../../type";
-import { ImagesAdaptive } from "../../../components";
+import { Item } from '../../type';
+import { ImagesAdaptive } from '../../../components';
 
 import s from './cargo.module.css';
 
@@ -10,7 +10,7 @@ const cartImg = [cart01, cart02];
 
 export const cart: Item = {
   label: 'Телега',
-  element: 
+  element: (
     <>
       <ImagesAdaptive images={cartImg} />
       <h3>Описание</h3>
@@ -32,4 +32,5 @@ export const cart: Item = {
         <li>Не отчуждаемый предмет</li>
       </div>
     </>
+  ),
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import RangeSlider from 'react-bootstrap-range-slider';
 
 import rec from '../../../assets/simple/rec.png';
@@ -15,11 +15,11 @@ import bar1Size from '../../../assets/simple/bar1Size.png';
 import bar2Size from '../../../assets/simple/bar2Size.png';
 import bar3Size from '../../../assets/simple/bar3Size.png';
 
-import { RoofCalc } from "./roof-calc";
-import { calcRoofCounts } from "./roof-counts";
-import { ItemModal } from "../../../components";
-import { RoofCounts } from "./types";
-import { CalcCountImage } from "./calc-count-image";
+import { RoofCalc } from './roof-calc';
+import { calcRoofCounts } from './roof-counts';
+import { ItemModal } from '../../../components';
+import { RoofCounts } from './types';
+import { CalcCountImage } from './calc-count-image';
 
 import s from './house-calc.module.css';
 
@@ -56,7 +56,7 @@ export function HouseCalc(): JSX.Element {
   const [buildY, setBuildY] = React.useState<number>(1);
   const [cubePrice, setCubePrice] = React.useState<number | null>(null);
   const [globalPrice, setGlobalPrice] = React.useState<string>('0');
-  
+
   const [wallsCount, setWallsCount] = React.useState<number>(4);
 
   const [roofCounts, setRoofCounts] = React.useState<RoofCounts>(startRoofCounts);
@@ -71,7 +71,7 @@ export function HouseCalc(): JSX.Element {
     setIsOpen(true);
   }, []);
 
-  const handleSizeChange = React.useCallback((event: { target: { value: any; }; }, isX: boolean) => {
+  const handleSizeChange = React.useCallback((event: { target: { value: any } }, isX: boolean) => {
     const current = Number(event.target.value);
     if (current <= MAX_SIZE && current > 0) {
       isX ? setBuildX(current) : setBuildY(current);
@@ -79,7 +79,7 @@ export function HouseCalc(): JSX.Element {
     return null;
   }, []);
 
-  const handleCubePriceChange = React.useCallback((event: { target: { value: any; }; }) => {
+  const handleCubePriceChange = React.useCallback((event: { target: { value: any } }) => {
     const current = Number(event.target.value);
     if (current > 0) {
       setCubePrice(current);
@@ -102,9 +102,8 @@ export function HouseCalc(): JSX.Element {
     const rowsEmpty = Array(buildX).fill(renderEmpty);
     const columnsWalls = Array(buildY).fill(rowsEmpty);
 
-
     const table = columnsWalls.map((py, iy) => {
-      return <div style={{display: 'flex', flexDirection: 'row'}} key={iy+'aa'}>
+      return <div style={{ display: 'flex', flexDirection: 'row' }} key={iy+'aa'}>
         {py.map((px: any, ix: number) => {
           return (
             <div className={s.square} key={ix+iy}>
@@ -114,7 +113,7 @@ export function HouseCalc(): JSX.Element {
               {iy === 0 ? <img src={wallBack} alt='' className={s.rightTopWall}/> : null}
               {iy+1 === buildY ? <img src={wall} alt='' className={s.leftBottomWall}/> : null}
               {ix+1 === buildX ? <img src={wall} alt='' className={s.rightBottomWall}/> : null}
-              
+
               <img src={rec} alt='' />
             </div>
           )
@@ -143,37 +142,37 @@ export function HouseCalc(): JSX.Element {
 
     const roofFinalPrice = (
       (
-        roofCounts.roof1*stats.countWood.roof1 + 
-        roofCounts.roof2*stats.countWood.roof2 + 
-        roofCounts.roof3*stats.countWood.roof3 + 
+        roofCounts.roof1*stats.countWood.roof1 +
+        roofCounts.roof2*stats.countWood.roof2 +
+        roofCounts.roof3*stats.countWood.roof3 +
         roofCounts.stolb*stats.countWood.stolb +
         roofCounts.bar1*stats.countWood.bar1 +
         roofCounts.bar2*stats.countWood.bar2 +
         roofCounts.bar3*stats.countWood.bar3
         )*(reNullCubePrice/stats.cubeWoodCount));
-      
+
         setGlobalPrice((roofFinalPrice + wallsFinalPrice).toFixed(2));
 
     const woodCount = (
       wallsCount*stats.countWood.wall +
-      roofCounts.roof1*stats.countWood.roof1 + 
-      roofCounts.roof2*stats.countWood.roof2 + 
-      roofCounts.roof3*stats.countWood.roof3 + 
+      roofCounts.roof1*stats.countWood.roof1 +
+      roofCounts.roof2*stats.countWood.roof2 +
+      roofCounts.roof3*stats.countWood.roof3 +
       roofCounts.stolb*stats.countWood.stolb +
       roofCounts.bar1*stats.countWood.bar1 +
       roofCounts.bar2*stats.countWood.bar2 +
       roofCounts.bar3*stats.countWood.bar3
     );
-        
+
     return (
       <div>
         <div className={s.itemModalContainer}>
           <div>Всего понадобится бруса</div>
           <div>{`50*50*6000 : ${woodCount} шт.`}</div>
         </div>
-        
+
         <div className={s.itemModalContainer}>
-          <div style={{fontSize: '20px', fontWeight: 'bold', color: 'wheat', margin: '10px'}}>Стены</div>
+          <div style={{ fontSize: '20px', fontWeight: 'bold', color: 'wheat', margin: '10px' }}>Стены</div>
           <img src={wallSize} alt='' />
           <div>{`Количество: ${wallsCount}`}</div>
           <div>{`Стоимость стен: ${wallsFinalPrice.toFixed(2)}`}</div>
@@ -182,9 +181,9 @@ export function HouseCalc(): JSX.Element {
         {hasRoof && (
           <>
             <div className={s.itemModalContainer}>
-              <div style={{fontSize: '20px', fontWeight: 'bold', color: 'wheat', margin: '10px'}}>Крыша</div>
+              <div style={{ fontSize: '20px', fontWeight: 'bold', color: 'wheat', margin: '10px' }}>Крыша</div>
                 <CalcCountImage sourceImg={roof1Size} count={roofCounts.roof1} />
-    
+
                 <CalcCountImage sourceImg={roof2Size} count={roofCounts.roof2} />
 
                 <CalcCountImage sourceImg={roof3Size} count={roofCounts.roof3} />
@@ -209,14 +208,14 @@ export function HouseCalc(): JSX.Element {
     return (
       <div className={s.priceContainer}>
         <div>Стоимость куба леса</div>
-        
-        <input 
+
+        <input
           type='number'
           style={{ backgroundColor: 'white' }}
           onChange={(e) => handleCubePriceChange(e)}
           step={5}
         />
-        
+
       </div>
     )
   }, [handleCubePriceChange]);
@@ -242,8 +241,8 @@ export function HouseCalc(): JSX.Element {
   const renderFinalPrice = React.useMemo(() => {
     return (
       <div className={s.finalContainer}>
-        <div style={{fontSize: '15px', fontWeight: 'bold'}}>Общая стоимость леса</div>
-        <div style={{fontSize: '20px', color: 'wheat', fontWeight: 'bold', marginTop: '10px'}}>{globalPrice}</div>
+        <div style={{ fontSize: '15px', fontWeight: 'bold' }}>Общая стоимость леса</div>
+        <div style={{ fontSize: '20px', color: 'wheat', fontWeight: 'bold', marginTop: '10px' }}>{globalPrice}</div>
         <button className={s.resultButton} onClick={handleClick}>Показать расчеты</button>
       </div>
     )
@@ -252,8 +251,8 @@ export function HouseCalc(): JSX.Element {
   return (
     <>
       <div className={s.container}>
-        
-        <div style={{display: 'flex', flexDirection: 'column'}}>
+
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
           {renderGlobalPrice}
 
           {renderBuildingSize}
@@ -266,7 +265,7 @@ export function HouseCalc(): JSX.Element {
       {isOpen && (
         <ItemModal
           setIsOpen={setIsOpen}
-          item={{label: 'Расчеты', element: renderPrices}}
+          item={{ label: 'Расчеты', element: renderPrices }}
         />
       )}
     </>

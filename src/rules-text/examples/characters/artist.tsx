@@ -13,9 +13,9 @@ export const artist: Item = {
   label: 'Артист',
   player: 'Игрок',
   desc: 'Артист, который готов дарить свое творчество',
-  element: 
-    <>      
-      <div>      
+  element: (
+    <>
+      <div>
         <ImagesAdaptive images={images} />
       </div>
 
@@ -34,4 +34,5 @@ export const artist: Item = {
         <li>Желание выступать на публике.</li>
       </div>
     </>
+  ),
 }

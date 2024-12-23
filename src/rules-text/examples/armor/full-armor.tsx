@@ -9,9 +9,10 @@ const armor = [fuAr01, fuAr02, fuAr03];
 
 export const fullArmor: Item = {
   label: 'Примеры полной брони',
-  element: 
-    <div>      
+  element: (
+    <div>
       <ImagesAdaptive images={armor} />
       <div>В примерах не учитывается наличие шлема</div>
     </div>
+  ),
 }

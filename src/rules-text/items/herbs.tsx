@@ -9,7 +9,7 @@ export const herbs: Item = {
   label: 'Лечебные травы',
   icon: icon,
   weight: 1,
-  element:
+  element: (
     <>
       <div className={s.icon}><img src={card} alt='' /></div>
       <div className={s.label}>Эффекты</div>
@@ -25,4 +25,5 @@ export const herbs: Item = {
       <br />
       <div>Может покупаться у мастерского торговца, или добываться крестьянами</div>
     </>
+  ),
 }

@@ -21,17 +21,17 @@ type BuildItem = {
 };
 
 const smithBuild: BuildItem[] = [
-  {src: workPlaceSmith, level: 1, label: 'Рабочее место', hint: <div>Основное место работы главного мастерового</div>},
-  {src: workToolsSmith, level: 2, label: 'Рабочий инструмент', hint: <div>Дополнительный антураж, помогающий в производстве</div>},
-  {src: tent01Smith, level: 3, label: 'Тент', hint: <div>Крыша над мастерской</div>},
-  {src: tent02Smith, level: 4, label: 'Шатер', hint: <div>Крыша с стенами, огораживающими мастерскую</div>},
-  {src: tent03Smith, level: 5, label: 'Большой шатер', hint: <div>Большая мастерская с крышей и стенами</div>},
+  { src: workPlaceSmith, level: 1, label: 'Рабочее место', hint: <div>Основное место работы главного мастерового</div> },
+  { src: workToolsSmith, level: 2, label: 'Рабочий инструмент', hint: <div>Дополнительный антураж, помогающий в производстве</div> },
+  { src: tent01Smith, level: 3, label: 'Тент', hint: <div>Крыша над мастерской</div> },
+  { src: tent02Smith, level: 4, label: 'Шатер', hint: <div>Крыша с стенами, огораживающими мастерскую</div> },
+  { src: tent03Smith, level: 5, label: 'Большой шатер', hint: <div>Большая мастерская с крышей и стенами</div> },
 ];
 
 const workerStyle = {
   width: 30,
   height: 30,
-  opacity: 0.7
+  opacity: 0.7,
 };
 
 const workerChosenStyle = {
@@ -54,7 +54,7 @@ export function BuildLevel(): JSX.Element {
       setCurrentLevel(level);
       return;
     }
-    
+
     if (currentCountWorkers > level) {
       setCurrentCountWorkers(currentLevel - 1);
       setCurrentLevel(level);
@@ -89,8 +89,8 @@ export function BuildLevel(): JSX.Element {
 
       return (
         <div className={s.workersContainer}>
-          <Tooltip 
-            content={workersHint} 
+          <Tooltip
+            content={workersHint}
             background='wheat'
           >
             <div className={s.workerText}>
@@ -98,7 +98,7 @@ export function BuildLevel(): JSX.Element {
             </div>
           </Tooltip>
 
-          {currentLevel === 1           
+          {currentLevel === 1
             ? <div className={s.noWorkers}>
                 Нет возможности помогать
               </div>
@@ -118,10 +118,10 @@ export function BuildLevel(): JSX.Element {
       {resultCount}
 
       {resultCountHealers}
-      
+
       {workers}
-      
-      <div>      
+
+      <div>
         {smithBuild.map(p => {
           return (
             <div className={s.item} key={p.src} onClick={() => handleLevelChange(p.level)}>
@@ -137,9 +137,9 @@ export function BuildLevel(): JSX.Element {
                     <div className={s.icon}>
                       <img src={arrow} alt='' style={{ height: 50, transform: 'rotate(90deg)' }} />
                     </div>
-              
-                    <Tooltip 
-                      content={p.hint} 
+
+                    <Tooltip
+                      content={p.hint}
                       background='wheat'
                       className={s.text}
                     >

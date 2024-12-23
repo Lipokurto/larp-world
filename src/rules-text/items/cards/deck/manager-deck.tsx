@@ -7,7 +7,7 @@ import s from '../../items.module.css';
 export const managerDeck: Item = {
   label: 'Колода Хозяина',
   icon: icon,
-  element:
+  element: (
     <>
       <div className={s.icon}><img src={icon} alt='' /></div>
       <div>Может находится только у хозяина увеселительного заведения.</div>
@@ -21,4 +21,5 @@ export const managerDeck: Item = {
         <li>Тратится на снятие психозов посетителей.</li>
       </ol>
     </>
+  ),
 }

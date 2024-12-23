@@ -11,4 +11,4 @@ export function NavButton({ text, onclick }: Props): JSX.Element {
   return (
     <button className='btn effect' onClick={onclick}><span>{text}</span></button>
   )
-} 
+}

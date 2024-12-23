@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 import s from './hit-zone.module.css';
 
@@ -6,7 +6,7 @@ type Props = {
   src: string,
 }
 
-export function HitZone({src}: Props): JSX.Element {
+export function HitZone({ src }: Props): JSX.Element {
   return (
     <div>
       <b>Обязательные зоны защиты</b>

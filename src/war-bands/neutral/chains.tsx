@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import { Item } from "../../rules-text/type";
+import { Item } from '../../rules-text/type';
 import { ImagesAdaptive, ItemModal } from '../../components';
 import image from '../../assets/bands/chains.png';
 
@@ -14,15 +14,16 @@ const images = [img01, img02, img03];
 
 const modal: Item = {
   label: 'Рыцари Святой Железной Цепи',
-  element: <>
+  element: (
+    <>
       <div>
         <div>
           <div><b>Фракционный цвет:</b></div>
           <div>Костюм персонажа должен быть выполнен в цветах фракции и отряда, за который он выступает.</div>
           <div className={s.block}>
-            <div className={s.colorBlock}><div className={s.circle} style={{backgroundColor: '#00bfff'}} />Голубой</div>
-            <div className={s.colorBlock}><div className={s.circle} style={{backgroundColor: 'gray'}} />Серый</div>
-            <div className={s.colorBlock}><div className={s.circle} style={{backgroundColor: '#ffffff'}} />Белый</div>
+            <div className={s.colorBlock}><div className={s.circle} style={{ backgroundColor: '#00bfff' }} />Голубой</div>
+            <div className={s.colorBlock}><div className={s.circle} style={{ backgroundColor: 'gray' }} />Серый</div>
+            <div className={s.colorBlock}><div className={s.circle} style={{ backgroundColor: '#ffffff' }} />Белый</div>
           </div>
         </div>
 
@@ -53,6 +54,7 @@ const modal: Item = {
         </div>
       </div>
     </>
+  ),
 }
 
 function Chains(): JSX.Element {
@@ -70,14 +72,14 @@ function Chains(): JSX.Element {
           <div><i>Визуальная стилистика: </i> украшенные доспехи с религиозной символиков.</div>
           <br/>
           <div>
-            <div><b>Церковное снабжение</b></div> 
+            <div><b>Церковное снабжение</b></div>
             <div>
               При выходе из мертвятника получают подёмные деньги.
             </div>
           </div>
           <br/>
           <div>
-            <div><b>Строгая доктрина</b></div> 
+            <div><b>Строгая доктрина</b></div>
             <div>
               Должны следовать кодексу ордена (согласуется с капитаном команды).
             </div>
@@ -107,6 +109,6 @@ function Chains(): JSX.Element {
 
 export const chainsOrder: Item = {
   label: 'Рыцари Святой Железной Цепи',
-  element: <Chains />
-   
+  element: <Chains />,
+
 }

@@ -1,23 +1,19 @@
-import React from "react";
+import React from 'react';
 
-import { Chapter, ItemContainer, ItemModal, LinkButton } from "../../../components";
-import { bag, barrow, cart } from "../../../rules-text/examples/cargo";
+import { Chapter, ItemContainer, ItemModal, LinkButton } from '../../../components';
+import { bag, barrow, cart } from '../../../rules-text/examples/cargo';
 
-import { 
+import {
   healPack, healPotion, repairPack,
-  repairPotion, artifact, ore, 
-  herbs, money,
-  prisoner, rest, thief,
-  psyh, artistDeck, managerDeck,
-  dungeonDeck, injuryDeck,
-  starMarker,
-  plagueMarker,
-  infectionMarker,
-  cureMarker,
-  deathMarker,
-} from "../../../rules-text/items";
+  repairPotion, artifact, ore,
+  herbs, money, prisoner,
+  rest, thief, psyh,
+  artistDeck, managerDeck, dungeonDeck,
+  injuryDeck, starMarker, plagueMarker,
+  infectionMarker, cureMarker, deathMarker,
+} from '../../../rules-text/items';
 
-import { Item } from "../../../rules-text/type";
+import { Item } from '../../../rules-text/type';
 
 import s from './resources.module.css';
 
@@ -44,7 +40,7 @@ export function Resources(): JSX.Element {
               <ItemContainer
                 item={p.label}
                 weight={p.weight}
-                icon={p.icon}    
+                icon={p.icon}
               />
             </div>
           )
@@ -62,7 +58,7 @@ export function Resources(): JSX.Element {
               <ItemContainer
                 item={p.label}
                 weight={p.weight}
-                icon={p.icon}    
+                icon={p.icon}
               />
             </div>
           )
@@ -80,7 +76,7 @@ export function Resources(): JSX.Element {
               <ItemContainer
                 item={p.label}
                 weight={p.weight}
-                icon={p.icon}    
+                icon={p.icon}
               />
             </div>
           )
@@ -100,7 +96,7 @@ export function Resources(): JSX.Element {
                   <ItemContainer
                     item={p.label}
                     weight={p.weight}
-                    icon={p.icon}    
+                    icon={p.icon}
                   />
                 </div>
               </div>
@@ -159,7 +155,7 @@ export function Resources(): JSX.Element {
         <div>Карты нужны как проверка правомерности некоторых игровых действий</div>
         <div>Не могут передаваться от одного игрока другому, только в некоторых случаях описанных ниже</div>
 
-        {cardsList} 
+        {cardsList}
 
         <div className={s.label}>Колоды некоторых ролей</div>
         {decksList}

@@ -9,7 +9,7 @@ export const repairPack: Item = {
   label: 'Ремкомплект',
   icon: icon,
   weight: 1,
-  element:
+  element: (
     <>
       <div className={s.icon}><img src={card} alt='' /></div>
       <div className={s.label}>Эффекты</div>
@@ -24,5 +24,5 @@ export const repairPack: Item = {
       <br />
       <div>Производится в кузнице, потребляет руду</div>
     </>
-  
+  ),
 }

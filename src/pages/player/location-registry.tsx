@@ -1,9 +1,8 @@
 import React from 'react';
 
-import { Chapter } from '../../components';
-import { NavigationPlayer } from '../../components';
+import { Chapter, NavigationPlayer } from '../../components';
 
-import intro from '../../assets/icons/registration/01_intro.png'; 
+import intro from '../../assets/icons/registration/01_intro.png';
 import arm from '../../assets/icons/registration/02_arm.png';
 import done from '../../assets/icons/registration/05_done.png';
 
@@ -19,19 +18,20 @@ const registrationSteps: Steps[] = [
   {
     img: intro,
     label: 'Введение',
-    description: 
+    description: (
       <div>
-        <div>Ознакомьтесь с <a href='https://larpdarkage.ru/rules/general' target='_blank' rel="noreferrer" style={{color: 'goldenrod'}}>правилами мероприятия</a></div>
-        <div>Ознакомьтесь с <a href='https://larpdarkage.ru/rules/location' target='_blank' rel="noreferrer" style={{color: 'goldenrod'}}>правилами локации</a></div>
-      </div>,
+        <div>Ознакомьтесь с <a href='https://larpdarkage.ru/rules/general' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>правилами мероприятия</a></div>
+        <div>Ознакомьтесь с <a href='https://larpdarkage.ru/rules/location' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>правилами локации</a></div>
+      </div>
+    ),
   },
   {
     img: arm,
     label: 'Бронь',
-    description: 
+    description: (
       <div>
         <div>Заполните свою заявку согласно шаблону:</div>
-        
+
         <div className={s.request}>
           <div><b>Тип локации: </b><i>Экономическая постройка, постройка для отдыха, коммерческая постройка</i></div>
           <div><b>Название локации: </b><i>Принимаются только русскоязычные названия</i></div>
@@ -42,28 +42,30 @@ const registrationSteps: Steps[] = [
           <div><b>Работники: </b><i>Общее количество работников</i></div>
         </div>
 
-        <div>Заявку надо отправить* в сообщения <a href='https://vk.com/larpdarkage' target='_blank' rel="noreferrer" style={{color: 'goldenrod'}}>группы</a></div>
-        
+        <div>Заявку надо отправить* в сообщения <a href='https://vk.com/larpdarkage' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>группы</a></div>
+
         <div>Обязательно дождитесь ответа что ваша заявка принята</div>
         <br />
         <div>
           <div>По всем вопросам допуска:</div>
-          <div><a href='https://vk.com/k.le_fay' target='_blank' rel="noreferrer" style={{color: 'goldenrod'}}>Мастер по мистике и игровым предметам</a></div>
+          <div><a href='https://vk.com/k.le_fay' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>Мастер по мистике и игровым предметам</a></div>
         </div>
 
         <br />
         <div><i>* Отправляя форму регистрации, вы соглашаетесь придерживаться правил установленных данным мероприятием</i></div>
       </div>
+    ),
   },
   {
     img: done,
     label: 'Готово',
-    description: 
+    description: (
       <div>
         <div>Ваша локация является полностью подтвержденной если:</div>
         <li>Хозяин локации прошел фотодопуск и оплатил благотворительный взноса</li>
         <li>Есть фото готовой вывески</li>
       </div>
+    ),
   },
 ]
 
@@ -90,7 +92,7 @@ export function LocationRegistry(): JSX.Element {
       <NavigationPlayer selectedLink='/player/reglocation' />
 
       {renderRegSteps}
-      
+
     </div>
   )
 }

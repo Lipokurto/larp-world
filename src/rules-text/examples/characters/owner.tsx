@@ -13,9 +13,9 @@ export const owner: Item = {
   label: 'Хозяин',
   player: 'Игрок',
   desc: 'Глава увеселительного заведения',
-  element: 
-    <>      
-      <div>      
+  element: (
+    <>
+      <div>
         <ImagesAdaptive images={images} />
       </div>
 
@@ -34,4 +34,5 @@ export const owner: Item = {
         <li>Умение понимать желания игроков и требования хронистов.</li>
       </div>
     </>
+  ),
 }

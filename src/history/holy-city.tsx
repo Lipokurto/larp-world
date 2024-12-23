@@ -1,12 +1,12 @@
-import { Item } from "../rules-text/type";
+import { Item } from '../rules-text/type';
 
-import holyCoat from '../assets/coats/holy.png'; 
+import holyCoat from '../assets/coats/holy.png';
 
 import s from './history.module.css';
 
 export const holyHistory: Item = {
   label: 'Святой Город',
-  element:
+  element: (
     <>
       <div className={s.info}>
         <div className={s.coat}>
@@ -21,12 +21,13 @@ export const holyHistory: Item = {
         </div>
       </div>
 
-    <div className={s.block2}>
-      <h3>Краткая история</h3>
-      <div>Теократический город-государство, который ведет борьбу за распространение престольной веры</div>
-      <div>Активно противостоит политеизму Кушан</div>
-      <div>Обладает минимальным количеством войск, живет за счет церковной десятины, которую собирает почти со всей территории континента</div>
-      <div>Политические придерживается нейтралитета</div>
-    </div>
-  </>
+      <div className={s.block2}>
+        <h3>Краткая история</h3>
+        <div>Теократический город-государство, который ведет борьбу за распространение престольной веры</div>
+        <div>Активно противостоит политеизму Кушан</div>
+        <div>Обладает минимальным количеством войск, живет за счет церковной десятины, которую собирает почти со всей территории континента</div>
+        <div>Политические придерживается нейтралитета</div>
+      </div>
+    </>
+  ),
 }
