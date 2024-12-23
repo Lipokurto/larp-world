@@ -7,7 +7,7 @@ import s from '../../items.module.css';
 export const plagueMarker: Item = {
   label: 'Маркер "Чума"',
   icon: icon,
-  element:
+  element: (
     <>
       <div className={s.icon}><img src={icon} alt='' /></div>
       <div>Маркер вешается исключительно на строения, обозначает уровень заражения строения. Снимает одну звезду качества. После излечения не восстанавливает потраченную звезду качества.</div>
@@ -18,4 +18,5 @@ export const plagueMarker: Item = {
         <li>Каждый маркер чума повышает уровень заражения района.</li>
       </ol>
     </>
+  ),
 }

@@ -1,9 +1,9 @@
-import React from "react";
-import { RiCloseLine } from "react-icons/ri";
+import React from 'react';
+import { RiCloseLine } from 'react-icons/ri';
 
-import { NavButton } from "../button/nav-button";
-import { List } from "../list/list";
-import { ListItem } from "../navigation/lists/type";
+import { NavButton } from '../button/nav-button';
+import { List } from '../list/list';
+import { ListItem } from '../navigation/lists/type';
 
 import s from './navigation-modal.module.css';
 
@@ -33,16 +33,16 @@ export function NavigationModal({ title, list, setIsOpen, link }: Props): JSX.El
           <div className={s.modalHeader}>
             <h5 className={s.heading}>{title}</h5>
           </div>
-          
+
           <button className={s.closeBtn} onClick={handleClose}>
-            <RiCloseLine style={{ marginBottom: "-3px" }} />
+            <RiCloseLine style={{ marginBottom: '-3px' }} />
           </button>
 
           <div className={s.modalContent}>
             <List
-              setIsOpen={setIsOpen} 
+              setIsOpen={setIsOpen}
               list={list}
-              link={link} 
+              link={link}
             />
           </div>
 

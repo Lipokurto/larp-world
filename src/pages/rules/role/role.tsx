@@ -1,21 +1,21 @@
-import React from "react";
+import React from 'react';
 
 import { Chapter, ItemModal, RoleContainer } from '../../../components';
-import { Item } from "../../../rules-text/type";
+import { Item } from '../../../rules-text/type';
 
 import {
   artist, burgomaster, captain,
-  civil, craftsman,
-  fighter, inquisitor, foreman,
-  monk, owner, quartermaster,
-  apostol, obsessed, dungeonMaster, wild,
-} from "../../../rules-text/examples/characters";
+  civil, craftsman, fighter,
+  inquisitor, foreman, monk,
+  owner, quartermaster, apostol,
+  obsessed, dungeonMaster, wild,
+} from '../../../rules-text/examples/characters';
 
 import s from './role.module.css';
 
 const mercenaryRoles = [quartermaster, captain, fighter];
 const religionRoles = [inquisitor, monk];
-const socialRoles = [burgomaster, craftsman, foreman, owner, artist, civil ];
+const socialRoles = [burgomaster, craftsman, foreman, owner, artist, civil];
 const monsterRoles = [apostol, obsessed, dungeonMaster, wild];
 
 export function Role(): JSX.Element {
@@ -36,7 +36,7 @@ export function Role(): JSX.Element {
               <RoleContainer
                 item={p.label}
                 player={p.player}
-                desc={p.desc}   
+                desc={p.desc}
               />
             </div>
           )
@@ -54,7 +54,7 @@ export function Role(): JSX.Element {
               <RoleContainer
                 item={p.label}
                 player={p.player}
-                desc={p.desc}   
+                desc={p.desc}
               />
             </div>
           )
@@ -72,7 +72,7 @@ export function Role(): JSX.Element {
               <RoleContainer
                 item={p.label}
                 player={p.player}
-                desc={p.desc}   
+                desc={p.desc}
               />
             </div>
           )
@@ -90,7 +90,7 @@ export function Role(): JSX.Element {
               <RoleContainer
                 item={p.label}
                 player={p.player}
-                desc={p.desc}   
+                desc={p.desc}
               />
             </div>
           )

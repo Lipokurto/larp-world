@@ -1,10 +1,10 @@
-import { Item } from "../type";
+import { Item } from '../type';
 
 import s from './actions.module.css';
 
 export const performance: Item = {
   label: 'Выступление',
-  element:
+  element: (
     <>
       <div>Артист может публично выступить в центральном кабаке или на площади, или в лагере в присутствии интенданта.</div>
       <div>Качество его выступления оценивается громкостью аплодисментов или иным очевидным.</div>
@@ -17,4 +17,5 @@ export const performance: Item = {
       </ol>
       <div>ПРИМЕЧАНИЕ: Публичные выступление – единственный способ пополнить колоду артиста.</div>
     </>
+  ),
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 
 import { useResize } from '../utils/use-resize';
 
@@ -19,25 +19,24 @@ const links: Links[] = [
   {
     disabled: false,
     to: '/player/registration',
-    text: 'Регистрация игрока'
+    text: 'Регистрация игрока',
   },
   {
     disabled: false,
     to: '/player/regband',
-    text: 'Регистрация команды'
+    text: 'Регистрация команды',
   },
   {
     disabled: false,
     to: '/player/reglocation',
-    text: 'Регистрация локации'
+    text: 'Регистрация локации',
   },
   {
     disabled: false,
     to: '/player/regpay',
-    text: 'Регистрация взноса'
+    text: 'Регистрация взноса',
   },
 ];
-
 
 export function NavigationPlayer(props: Props): JSX.Element {
   const [items, setItems] = React.useState<Links[]>(links);
@@ -62,7 +61,7 @@ export function NavigationPlayer(props: Props): JSX.Element {
           to={p.to}
           aria-disabled={p.disabled}
           onClick={() => document.body.style.overflowY = 'visible'}
-          style={{color: 'goldenrod', opacity: p.disabled ? 0.5 : 1}}>
+          style={{ color: 'goldenrod', opacity: p.disabled ? 0.5 : 1 }}>
             {p.text}
         </NavLink>
       ))

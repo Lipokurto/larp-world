@@ -15,30 +15,32 @@ const high = [midens03, midens04];
 
 export const midensFasionNorm: Item = {
   label: 'Повседневная мода',
-  element: 
+  element: (
     <div className={s.container}>
       <ImagesAdaptive images={casual} />
       <div>Простолюдины старались формировать свою одежду из практичных соображений</div>
       <div>Одежда должна быть удобной, теплой, и уже потом красивой</div>
     </div>
+  ),
 }
 
 export const midensFasionHigh: Item = {
   label: 'Высокая мода',
-  element: 
+  element: (
     <div className={s.container}>
       <ImagesAdaptive images={high} />
       <div>Аристократия всегда стремилась отделить себя от простолюдин, и одежда один из способов этого добиться</div>
       <div>Яркие цвета, вышивка, редкие ткани, все это должно говорить о том, что хозяин одежды может себе это позволить</div>
       <div>Различные аксессуары в виде цепей, фибул, перьев позволяли подчеркнуть статус своего хозяина</div>
     </div>
+  ),
 }
 
 export const midens: Item = {
   label: 'Мода мединцев',
-  element:
-    <>      
-      <div>      
+  element: (
+    <>
+      <div>
         <div className={s.container_first}>
           <img src={male} alt='Fasion' />
           <img src={female} alt='Fasion' />
@@ -54,4 +56,5 @@ export const midens: Item = {
         <div><b>Речь:</b> Чистая</div>
       </div>
     </>
+  ),
 }

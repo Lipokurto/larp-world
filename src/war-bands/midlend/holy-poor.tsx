@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 import { Item } from '../../rules-text/type';
 import image from '../../assets/bands/wings.png';
@@ -73,15 +73,15 @@ function ModalPoor(): JSX.Element {
           <div><b>Фракционный цвет:</b></div>
           <div>Костюм персонажа должен быть выполнен в цветах фракции и отряда, за который он выступает.</div>
           <div className={s.block}>
-            <div className={s.colorBlock}><div className={s.circle} style={{backgroundColor: 'red'}} />Красный</div>
-            <div className={s.colorBlock}><div className={s.circle} style={{backgroundColor: 'brown'}} />Коричневый</div>
-            <div className={s.colorBlock}><div className={s.circle} style={{backgroundColor: 'wheat'}} />Бежевый</div>
-            <div className={s.colorBlock}><div className={s.circle} style={{backgroundColor: 'gray'}} />Серый</div>
+            <div className={s.colorBlock}><div className={s.circle} style={{ backgroundColor: 'red' }} />Красный</div>
+            <div className={s.colorBlock}><div className={s.circle} style={{ backgroundColor: 'brown' }} />Коричневый</div>
+            <div className={s.colorBlock}><div className={s.circle} style={{ backgroundColor: 'wheat' }} />Бежевый</div>
+            <div className={s.colorBlock}><div className={s.circle} style={{ backgroundColor: 'gray' }} />Серый</div>
           </div>
         </div>
 
         <div>
-          <button className={!isPoor ? s.requirementButton : s.requirementButtonOff} style={{ margin: 10 }}  onClick={() => setIsPoor(true)}>Простолюдины</button>
+          <button className={!isPoor ? s.requirementButton : s.requirementButtonOff} style={{ margin: 10 }} onClick={() => setIsPoor(true)}>Простолюдины</button>
           <button className={isPoor ? s.requirementButton : s.requirementButtonOff} style={{ margin: 10 }} onClick={() => setIsPoor(false)}>Рыцари</button>
         </div>
 
@@ -93,7 +93,7 @@ function ModalPoor(): JSX.Element {
 
 const modal: Item = {
   label: 'Очищенные кровью',
-  element: <ModalPoor />
+  element: <ModalPoor />,
 }
 
 function HolyPoor(): JSX.Element {
@@ -105,13 +105,13 @@ function HolyPoor(): JSX.Element {
         <div>
           <img src={image} alt='' width={300}/>
         </div>
-        
+
         <div className={s.text}>
           <div><i>Символ отряда: </i> белые крылья на красном фоне.</div>
           <div><i>Визуальная стилистика: </i> <b>для рыцарей</b> - доспехи и религиозная атрибутика. <b>Для бедняков</b> - рваньё, ржавые оружие и доспехи, сельхоз инструмент в качестве оружия.</div>
           <br/>
           <div>
-            <div><b>Воля к жизни</b></div> 
+            <div><b>Воля к жизни</b></div>
             <div>
               Могут действовать в состоянии <b>"Тяжело ранен"</b>, но другие ограничения этого состояния остаются.
             </div>
@@ -125,7 +125,7 @@ function HolyPoor(): JSX.Element {
         <h3>Описание</h3>
         <div>
           Отряд фанатично настроенных наёмников, состоящий по большей части из бедняков и маргиналов, что решили очистить свою душу, воюя с именем Всевышнего на устах.
-          Непреклонно верят в то, что император Гейзерих был Божьим избранником, а императорская династия Мидленда - его наследники, что несут кровь Всевышнего в своих венах. 
+          Непреклонно верят в то, что император Гейзерих был Божьим избранником, а императорская династия Мидленда - его наследники, что несут кровь Всевышнего в своих венах.
           Цель любого из них - умереть в бою, защищая земли наследников Гейзериха, ибо тогда после смерти их души станут ангелами-хранителями.
           Верхушка отряда состоит из крайне набожных рыцарей, что собрали обездоленных простолюдинов под своими знаменами и повели в бой.
         </div>
@@ -143,6 +143,5 @@ function HolyPoor(): JSX.Element {
 
 export const holyPoor: Item = {
   label: 'Очищенные кровью',
-  element: <HolyPoor />
-   
+  element: <HolyPoor />,
 }

@@ -1,12 +1,12 @@
-import { AccordionBlock, Chapter } from "../../../components";
+import { AccordionBlock, Chapter } from '../../../components';
 
 import {
   burgomaster, office, traders,
   science, smiths, fishers,
   miners, hospital, show,
   church, militia, esoteric,
-  gravamens, peasants, workers, 
-} from "../../../rules-text/roles";
+  gravamens, peasants, workers,
+} from '../../../rules-text/roles';
 
 import s from './people.module.css';
 
@@ -92,7 +92,6 @@ export function People(): JSX.Element {
           },
         ]}
       />
-      
     </div>
   )
 }

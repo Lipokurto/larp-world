@@ -1,10 +1,10 @@
-import { Item } from "../type";
+import { Item } from '../type';
 
 import s from './actions.module.css';
 
 export const gateRepair: Item = {
   label: 'Ремонт городских ворот',
-  element:
+  element: (
     <>
       <div>Чтобы повысить прочность ворот, необходимо использовать ресурсы <b>«Железная руда»</b> и <b>«Ремкомплект»</b>.</div>
       <div className={s.label}><i>Формула</i></div>
@@ -27,7 +27,7 @@ export const gateRepair: Item = {
         <div>Желаемая прочность минус текущая прочность = 8-5 = 3</div>
         <div>Итого для поднятия желаемой прочности требуется 3 ресурса <b>«Железная руда»</b> и 3 ресурса <b>«Ремкомплект»</b>.</div>
       </i>
-      
+
       <div className={s.label}>Механика</div>
       <ol className={s.listContainer}>
         <li>Игроки находят мастера.</li>
@@ -37,4 +37,5 @@ export const gateRepair: Item = {
         <li>Если городские ворота получили урон из осадной техники в течении ремонта, то ремонт обнуляется.</li>
       </ol>
     </>
+  ),
 }

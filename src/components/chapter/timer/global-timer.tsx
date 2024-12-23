@@ -48,22 +48,22 @@ export function GlobalTimer(props: Props): JSX.Element {
 
   const renderDate = React.useMemo(() => (
     <div className={s.upTimeLeft}>
-      <div style={{color: 'wheat'}}>Сегодня</div>
-      <div style={{fontSize: 20, fontWeight: 'bold'}}>{formattedDate}</div>
+      <div style={{ color: 'wheat' }}>Сегодня</div>
+      <div style={{ fontSize: 20, fontWeight: 'bold' }}>{formattedDate}</div>
     </div>
   ), [formattedDate]);
 
   const renderTime = React.useMemo(() => (
     <div className={s.upTimeRight}>
-      <div style={{color: 'wheat'}}>Время</div>
-      <div style={{fontSize: 20, fontWeight: 'bold'}}>{formattedTime}</div>
+      <div style={{ color: 'wheat' }}>Время</div>
+      <div style={{ fontSize: 20, fontWeight: 'bold' }}>{formattedTime}</div>
     </div>
   ), [formattedTime]);
 
   const renderDiff = React.useMemo(() => (
     <div className={s.upTimeBottom}>
-      <div style={{color: 'wheat'}}>До мероприятия осталось</div>
-      <div style={{fontSize: 20, fontWeight: 'bold'}}>{`${diffTime.days}д. ${diffTime.hours}ч. ${diffTime.minutes}м. ${diffTime.seconds}с.`}</div>
+      <div style={{ color: 'wheat' }}>До мероприятия осталось</div>
+      <div style={{ fontSize: 20, fontWeight: 'bold' }}>{`${diffTime.days}д. ${diffTime.hours}ч. ${diffTime.minutes}м. ${diffTime.seconds}с.`}</div>
     </div>
   ), [diffTime.days, diffTime.hours, diffTime.minutes, diffTime.seconds]);
 

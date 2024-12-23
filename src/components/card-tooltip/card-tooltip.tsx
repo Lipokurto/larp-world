@@ -1,5 +1,5 @@
 import React from 'react';
-import Tooltip from "react-tooltip-lite";
+import Tooltip from 'react-tooltip-lite';
 
 type Props = {
   cardName: string,

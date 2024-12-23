@@ -12,10 +12,10 @@ export const monk: Item = {
   label: 'Послушник',
   player: 'Игрок',
   desc: 'Помощник инквизитора',
-  element: 
-    <>      
-      <div>     
-        <ImagesAdaptive images={images} /> 
+  element: (
+    <>
+      <div>
+        <ImagesAdaptive images={images} />
       </div>
 
       <div className={s.label}><i>Описание</i></div>
@@ -40,4 +40,5 @@ export const monk: Item = {
         <li>Умение выполнять поручения инквизитора.</li>
       </div>
     </>
+  ),
 }

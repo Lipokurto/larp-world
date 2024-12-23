@@ -4,11 +4,10 @@ import { Item } from '../../../type';
 
 import s from '../../items.module.css';
 
-export const 
-artistDeck: Item = {
+export const artistDeck: Item = {
   label: 'Колода Артиста',
   icon: icon,
-  element:
+  element: (
     <>
       <div className={s.icon}><img src={icon} alt='' /></div>
       <div>Может находится только у артиста, прошедшего все фотодопуски (в паспорте игрока делается соответствующая пометка).</div>
@@ -22,4 +21,5 @@ artistDeck: Item = {
         <li>тратится на действие <b>"Автограф"</b>.</li>
       </ol>
     </>
+  ),
 }

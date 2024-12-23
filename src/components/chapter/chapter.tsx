@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
 import { GlobalTimer } from './timer';
-import { useResize } from "../utils/use-resize";
+import { useResize } from '../utils/use-resize';
 
 import dividerLeft from '../../assets/icons/divider-left.svg';
 import dividerRight from '../../assets/icons/divider-right.svg';
@@ -21,14 +21,14 @@ export function Chapter(props: Props): JSX.Element {
       {width >= 1024 && (
         <div
           className={s.timer}
-          style={{marginLeft: isActive ? '-200px' : '-50px' }}
+          style={{ marginLeft: isActive ? '-200px' : '-50px' }}
           onMouseOver={() => setIsActive(true)}
-          onMouseLeave={() => setIsActive(false)}  
+          onMouseLeave={() => setIsActive(false)}
         >
           <GlobalTimer isActive={isActive} />
         </div>
       )}
-      
+
       <div className={s.divider}>
         <img src={dividerLeft} alt='Divider' width='150'/>
       </div>

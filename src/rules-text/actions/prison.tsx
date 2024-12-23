@@ -1,10 +1,10 @@
-import { Item } from "../type";
+import { Item } from '../type';
 
 import s from './actions.module.css';
 
 export const prison: Item = {
   label: 'Плен',
-  element:
+  element: (
     <>
       <div>Вас могут взять в плен, будьте готовы к этому.</div>
       <div className={s.label}><i>Механика</i></div>
@@ -25,7 +25,7 @@ export const prison: Item = {
       </div>
 
       <div className={s.label}>Игровые путы</div>
-      <div className={s.listContainer}>        
+      <div className={s.listContainer}>
         <li>Пленитель может использовать ограничивающие путы на руках пленника.</li>
         <li>Путы должны позволить игроку самостоятельно освободиться.</li>
         <li>Путы не должны создавать физические неудобства пленнику.</li>
@@ -35,4 +35,5 @@ export const prison: Item = {
         <li>Если у пленника появляется "Ремкомплект", он может применить его чтоб сбросить цепи, кандалы, веревки, карточка предмета при этом рвется.</li>
       </div>
     </>
+  ),
 }

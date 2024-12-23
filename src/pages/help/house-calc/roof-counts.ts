@@ -1,4 +1,4 @@
-import { RoofCounts } from "./types"
+import { RoofCounts } from './types'
 
 function calcBar1(buildX: number): number {
   if (buildX === 1) {

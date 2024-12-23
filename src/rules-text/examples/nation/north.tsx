@@ -15,31 +15,32 @@ const high = [north03, north04];
 
 export const northFasionNorm: Item = {
   label: 'Повседневная мода',
-  element:
+  element: (
     <div className={s.container}>
       <ImagesAdaptive images={casual} />
       <div>Суровые северные земли, не богаты обильными урожаями, что толкнуло северян к осваиванию ремесла скотоводства, активным морским рейдами и наемничеству</div>
       <div>Одежда должна быть удобной, теплой и крепкой</div>
       <div>Обязательным явлением среди северян считается оружие, даже у женщин,</div>
     </div>
+  ),
 }
 
 export const northFasionHigh: Item = {
   label: 'Высокая мода',
-  element:
+  element: (
     <div className={s.container}>
       <ImagesAdaptive images={high} />
       <div>Чем больше у тебя трофеев и чем грознее твой вид - тем более ты опытный воин, а значит успешный северянин</div>
       <div>Красота постигается в воинском вооружении, без него богатство не сохранить, и тем более не приумножить</div>
     </div>
+  ),
 }
-
 
 export const north: Item = {
   label: 'Северяне',
-  element:
-    <>      
-      <div>      
+  element: (
+    <>
+      <div>
         <div className={s.container_first}>
           <img src={male} alt='Fasion' />
           <img src={female} alt='Fasion' />
@@ -55,4 +56,5 @@ export const north: Item = {
         <div><b>Речь:</b>  Грубый германский акцент</div>
       </div>
     </>
+  ),
 }

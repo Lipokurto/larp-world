@@ -1,10 +1,10 @@
-import { Item } from "../type";
+import { Item } from '../type';
 
 import s from './actions.module.css';
 
 export const theft: Item = {
   label: 'Воровство',
-  element:
+  element: (
     <>
       <div>Воровство - отличный способ разбогатеть за счет других.</div>
       <div className={s.label}>Карта <b>"Воровство"</b></div>
@@ -35,4 +35,5 @@ export const theft: Item = {
         <li>Воровство – грех.</li>
       </div>
     </>
+  ),
 }

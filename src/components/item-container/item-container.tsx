@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 import s from './item-container.module.css';
 
@@ -8,7 +8,7 @@ type Props = {
   icon?: string,
 }
 
-export function ItemContainer({ item, weight, icon }: Props) {
+export function ItemContainer({ item, weight, icon }: Props): JSX.Element {
   return (
     <div className={s.container}>
       <div className={s.label}>{item}</div>

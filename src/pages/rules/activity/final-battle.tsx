@@ -1,26 +1,17 @@
-import React from "react";
+import React from 'react';
 
-import { AccordionBlock, Chapter } from "../../../components";
+import { AccordionBlock, Chapter } from '../../../components';
 
 import {
-  battle, behelith, cannibal,
-  darkness, disposition, duel,
-  eclipse, falseEclipse, heavens,
-  lastStand, preparing, rebel,
-  tactical, vatican, voiceDarkness,
-} from "../../../rules-text/final-battle";
+  battle, darkness, disposition,
+  eclipse, preparing, tactical,
+} from '../../../rules-text/final-battle';
 
 import s from './final-battle.module.css';
 
 const phases = [
   preparing, tactical, disposition,
   battle, darkness, eclipse,
-];
-
-const addons = [
-  duel, heavens, lastStand,
-  falseEclipse, vatican, voiceDarkness,
-  rebel, cannibal, behelith,
 ];
 
 export function FinalBattle(): JSX.Element {
@@ -43,27 +34,12 @@ export function FinalBattle(): JSX.Element {
     )
   }, []);
 
-  const addonsList = React.useMemo(() => {
-    return (
-      <div className={s.addonsList}>
-        {addons.map(p => {
-          return (
-            <div className={s.addonItemContainer}>
-              <div className={s.addonLabel}>{p.label}</div>
-              <div className={s.addonDesc}>{p.element}</div>
-            </div>
-            )
-        })}
-      </div>
-    )
-  }, []);
-
   return (
     <>
       <div className={s.container}>
         <Chapter chapter='Финальная битва' />
         <div>Всё мероприятие, посвящено предстоящей битве между силами империи Тюдор и королевства Мидленд. Параллельно подготовке к бою, происходят сюжетные события, которые так же будут учитываться в одной из фаз боя.</div>
-        
+
         <ol className={s.listContainer}>
           <li>Интенданты, находятся возле своего знамени, контролируя ленты воскрешения и их использование.</li>
           <li> В радиусе 10м от знамени существует зона неуязвимости, необходимая для краткой передышки и формирования боевых групп.</li>
@@ -78,22 +54,17 @@ export function FinalBattle(): JSX.Element {
           <li>Если все участники отряда мертвы и лент воскрешения не осталось – то знамя опускается.</li>
           <li>В течении финальной битвы игроки не обязаны отыгрывать психозы.</li>
         </ol>
+
         <AccordionBlock
               items={[
                 {
                   label: 'Фазы битвы',
-                  element:
+                  element: (
                     <>
                       <div>В центре боевой зоны будет находится мастер, который будет давать дымовые и звуковые сигналы смены фаз.</div>
                       {phasesList}
                     </>
-                },
-                {
-                  label: 'Список дополнений',
-                  element: <>
-                    <div style={{margin: 10}}>Эти дополнения модифицируют фазу <b>"Затмение"</b>. Приобретаются они за счет карт <b>"Сожран"</b> и <b>"Прощение"</b>, примененных в течении игры.</div>
-                    {addonsList}   
-                  </>
+                  ),
                 },
               ]}
             />

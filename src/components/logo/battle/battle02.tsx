@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 import battleEffect from '../../../assets/battle_clear_back.svg';
 

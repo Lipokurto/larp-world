@@ -9,7 +9,7 @@ export const healPotion: Item = {
   label: 'Целебная мазь',
   icon: icon,
   weight: 0,
-  element:
+  element: (
     <>
       <div className={s.icon}><img src={card} alt='' /></div>
       <div className={s.label}>Эффекты</div>
@@ -21,11 +21,11 @@ export const healPotion: Item = {
         <li>Одноразовое</li>
         <li>Игровой предмет</li>
       </div>
-      
+
       <div className={s.label}>Моделируется:</div>
         <div>Прозрачная колба внутри которой находится карточка зелья</div>
       <br />
       <div>Производится у алхимиков, потребляет медокмплект и лечебные травы</div>
     </>
-  
+  ),
 }

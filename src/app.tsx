@@ -1,36 +1,33 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import { Navigation } from "./components/navigation";
-import { Main } from "./pages/main/main";
+import { Navigation } from './components/navigation';
+import { Main } from './pages/main/main';
 
-import { 
+import {
   Actions, Battle, Camp,
-  Resources, General,
-  Role, Psycho, FinalBattle,
-  Injury,
-  Plague,
-} from "./pages/rules";
+  Resources, General, Psycho,
+  FinalBattle, Injury, Plague,
+} from './pages/rules';
 
 import {
   BuildCalc, CharCalc, HealCalc,
   HouseCalc,
-} from "./pages/help";
+} from './pages/help';
 
 import {
-  Culture, GlobalMap, People, Politic,
-  WarBands,
-} from "./pages/world";
+  Culture, GlobalMap, People,
+  Politic, WarBands,
+} from './pages/world';
 
 import {
-  PlayerRegistry, MapSupport, TeamRegistry,
-  LocationRegistry,
-} from "./pages/player";
+  PlayerRegistry, TeamRegistry, LocationRegistry,
+} from './pages/player';
 
-import { About } from "./pages/about/about";
-import { CargoVisual } from "./components";
-import { More } from "./pages/more/more";
-import { PayRegistry } from "./pages/player/pay-registry";
-import { Conf } from "./pages/conf/conf";
+import { About } from './pages/about/about';
+import { CargoVisual } from './components';
+import { More } from './pages/more/more';
+import { PayRegistry } from './pages/player/pay-registry';
+import { Conf } from './pages/conf/conf';
 
 import s from './app.module.css';
 
@@ -52,7 +49,6 @@ export default function App(): JSX.Element {
           <Route path='/rules/final-battle' element={<FinalBattle />} />
           <Route path='/rules/psycho' element={<Psycho />} />
           <Route path='/rules/plague' element={<Plague />} />
-          {/* <Route path='/rules/role' element={<Role />} /> */}
 
           <Route path='/world/politic' element={<Politic />} />
           <Route path='/world/culture' element={<Culture />} />
@@ -66,7 +62,6 @@ export default function App(): JSX.Element {
           <Route path='/help/heal-calc' element={<HealCalc />} />
           <Route path='/help/house-calc' element={<HouseCalc />} />
 
-          <Route path='/player/map-support' element={<MapSupport />} />
           <Route path='/player/registration' element={<PlayerRegistry />} />
           <Route path='/player/regband' element={<TeamRegistry />} />
           <Route path='/player/reglocation' element={<LocationRegistry />} />

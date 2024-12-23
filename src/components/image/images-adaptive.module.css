@@ -1,11 +1,11 @@
-.containerlg {
+.containerLg {
   display: flex;
   padding: 10px;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.containerlg img {
+.containerLg img {
   height: 300px;
   margin: 10px;
   transition: all 0.2s ease-in-out;
@@ -14,7 +14,7 @@
 }
 
 
-.containerlg img:hover {
+.containerLg img:hover {
   transform: scale(1.2);
   box-shadow: 0 10px 10px #FF0000;
   z-index: 15;

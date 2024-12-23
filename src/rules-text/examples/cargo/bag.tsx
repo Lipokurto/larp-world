@@ -2,8 +2,8 @@ import bag01 from '../../../assets/cargo/bag/bag-01.png';
 import bag02 from '../../../assets/cargo/bag/bag-02.png';
 import bag03 from '../../../assets/cargo/bag/bag-03.png';
 
-import { ImagesAdaptive } from "../../../components";
-import { Item } from "../../type";
+import { ImagesAdaptive } from '../../../components';
+import { Item } from '../../type';
 
 import s from './cargo.module.css';
 
@@ -11,7 +11,7 @@ const bags = [bag01, bag02, bag03];
 
 export const bag: Item = {
   label: 'Корзина',
-  element: 
+  element: (
     <>
       <ImagesAdaptive images={bags} />
       <div className={s.label}>Описание</div>
@@ -34,4 +34,5 @@ export const bag: Item = {
         <li>Не отчуждаемый предмет</li>
       </div>
     </>
+  ),
 }

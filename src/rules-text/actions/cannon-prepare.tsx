@@ -1,10 +1,10 @@
-import { Item } from "../type";
+import { Item } from '../type';
 
 import s from './actions.module.css';
 
 export const cannonPrepare: Item = {
   label: 'Подготовка пушки',
-  element:
+  element: (
     <>
       <div>Перед выездом пушка должна быть подготовлена к этому выезду.</div>
       <div className={s.label}><i>Механика</i></div>
@@ -18,4 +18,5 @@ export const cannonPrepare: Item = {
       <div className={s.label}><i>Дополнительно</i></div>
       <div>При обороне лагеря пушка не имеет ограничения на боезапас и не должна оплачивать «Выезд пушки»</div>
     </>
+  ),
 }

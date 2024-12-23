@@ -1,5 +1,5 @@
 import React from 'react';
-import { AiFillSound, AiOutlineSound } from "react-icons/ai";
+import { AiFillSound, AiOutlineSound } from 'react-icons/ai';
 
 import { DamageCalc } from '../../../components';
 
@@ -12,7 +12,7 @@ export function HealCalc(): JSX.Element {
   const manualButton = React.useMemo(() => {
     const buttonText = isManual ? 'Спрятать подсказки' : 'Показать подсказки';
 
-    return <button style={{margin: '10px 10px 10px 10px'}} onClick={() =>setIsManual(!isManual)}>{buttonText}</button>
+    return <button style={{ margin: '10px 10px 10px 10px' }} onClick={() =>setIsManual(!isManual)}>{buttonText}</button>
   }, [isManual]);
 
   const soundIcon = React.useMemo(() => {
@@ -24,7 +24,7 @@ export function HealCalc(): JSX.Element {
   }, [isSoundOn]);
 
   const soundButton = React.useMemo(() => {
-    return <button style={{margin: '10px 10px 10px 10px'}} onClick={() =>setIsSoundOn(!isSoundOn)}>{soundIcon}</button>
+    return <button style={{ margin: '10px 10px 10px 10px' }} onClick={() =>setIsSoundOn(!isSoundOn)}>{soundIcon}</button>
   }, [isSoundOn, soundIcon]);
 
   return (

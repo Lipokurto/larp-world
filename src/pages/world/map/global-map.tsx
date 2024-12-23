@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
 import clearMap from '../../../assets/map/clear-map.jpg';
 import politicMap from '../../../assets/map/politic-map.jpg';
 import religionMap from '../../../assets/map/religion-map.jpg';
 import cultureMap from '../../../assets/map/culture-map.png';
 
-import { Chapter } from "../../../components";
+import { Chapter } from '../../../components';
 
 import s from './global-map.module.css';
 
@@ -77,7 +77,7 @@ export function GlobalMap(): JSX.Element {
         <button onClick={() => setMap('Религия')}>Карта религий</button>
         <button onClick={() => setMap('Культура')}>Карта этносов</button>
       </div>
-      
+
       {map === 'География' && <img src={clearMap} alt='' />}
       {map === 'Политика' && <img src={politicMap} alt='' />}
       {map === 'Религия' && <img src={religionMap} alt='' />}

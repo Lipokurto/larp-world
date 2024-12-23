@@ -5,8 +5,8 @@ import s from './buildings.module.css';
 
 export const hospital: Item = {
   label: 'Госпиталь',
-  element:
-    <>      
+  element: (
+    <>
       <div className={s.container}>
         <img src={img} alt='Hospital' />
       </div>
@@ -19,4 +19,5 @@ export const hospital: Item = {
         <li>Наличие полок с различными медицинскими препаратами.</li>
       </ol>
     </>
+  ),
 }

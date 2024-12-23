@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
-import { Chapter, AccordionBlock } from "../../../components";
-import { Location } from "./location";
+import { Chapter } from '../../../components';
+import { Location } from './location';
 
 import s from './camp.module.css';
 

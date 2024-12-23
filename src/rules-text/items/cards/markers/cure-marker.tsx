@@ -7,7 +7,7 @@ import s from '../../items.module.css';
 export const cureMarker: Item = {
   label: 'Маркер "Исцелен"',
   icon: icon,
-  element:
+  element: (
     <>
       <div className={s.icon}><img src={icon} alt='' /></div>
       <div>Маркер обозначающий, что зараженный игрок был исцелен.</div>
@@ -18,4 +18,5 @@ export const cureMarker: Item = {
         <li>Не восстанавливает живые хиты, не лечит травмы.</li>
       </ol>
     </>
+  ),
 }

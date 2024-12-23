@@ -1,8 +1,8 @@
-import React from "react";
-import { RiCloseLine } from "react-icons/ri";
-import { Item } from "../../rules-text/type";
+import React from 'react';
+import { RiCloseLine } from 'react-icons/ri';
 
-import { NavButton } from "../button/nav-button";
+import { Item } from '../../rules-text/type';
+import { NavButton } from '../button/nav-button';
 
 import s from './item-modal.module.css';
 
@@ -12,7 +12,7 @@ type Props = {
   title?: string,
 }
 
-export function ItemModal({ title, item, setIsOpen }: Props) {
+export function ItemModal({ title, item, setIsOpen }: Props): JSX.Element {
   React.useEffect(() => {
     document.body.style.overflowY = 'hidden';
   }, []);
@@ -41,18 +41,18 @@ export function ItemModal({ title, item, setIsOpen }: Props) {
   return (
     <>
       <div className={s.darkBG} onClick={handleClose} />
-      
+
       <div className={s.modal} >
         <div className={s.modalHeader}>
-          <h5 className={s.heading}>{title}</h5> 
+          <h5 className={s.heading}>{title}</h5>
         </div>
-        
+
         <button className={s.closeBtn} onClick={handleClose}>
-          <RiCloseLine style={{ marginBottom: "-3px" }} />
+          <RiCloseLine style={{ marginBottom: '-3px' }} />
         </button>
 
         {content}
-        
+
         <div className={s.actionsContainer}>
           <NavButton text='Закрыть' onclick={handleClose} />
         </div>

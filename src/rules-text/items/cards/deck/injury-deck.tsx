@@ -7,7 +7,7 @@ import s from '../../items.module.css';
 export const injuryDeck: Item = {
   label: 'Колода Травм',
   icon: icon,
-  element:
+  element: (
     <>
       <div className={s.icon}><img src={icon} alt='' /></div>
       <div>Есть у каждого игрока на старте игры.</div>
@@ -19,4 +19,5 @@ export const injuryDeck: Item = {
         <li>Колода храниться вверх рубашкой, все примененные травмы переворачиваются и носятся в колоде до их излечения.</li>
       </ol>
     </>
+  ),
 }

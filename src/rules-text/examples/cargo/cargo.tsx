@@ -1,12 +1,10 @@
-import React from "react";
+import React from 'react';
 
-import { CargoVisual } from "../../../components";
-import { Item } from "../../type";
+import { CargoVisual } from '../../../components';
+import { Item } from '../../type';
 
 export const cargo: Item = {
   label: 'Примеры грузоподъемности',
-  element: 
-    <>
-      <CargoVisual />
-    </>
+  element: <CargoVisual />,
+
 }

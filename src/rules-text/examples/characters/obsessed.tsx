@@ -13,9 +13,9 @@ export const obsessed: Item = {
   label: 'Одержимый',
   player: 'Игрок',
   desc: 'Верный слуга апостола',
-  element: 
-    <>      
-      <div>      
+  element: (
+    <>
+      <div>
         <ImagesAdaptive images={images} />
       </div>
 
@@ -41,4 +41,5 @@ export const obsessed: Item = {
         <li>Уметь играть в команде.</li>
       </div>
     </>
+  ),
 }

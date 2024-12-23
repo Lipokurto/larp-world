@@ -13,9 +13,9 @@ export const foreman: Item = {
   label: 'Бригадир',
   player: 'Игрок',
   desc: 'Глава локации, производящей "Целебные травы" или "Железную руду"',
-  element: 
-    <>      
-      <div>      
+  element: (
+    <>
+      <div>
         <ImagesAdaptive images={images} />
       </div>
 
@@ -36,4 +36,5 @@ export const foreman: Item = {
         <li>Желание играть в экономику и рабочий класс.</li>
       </div>
     </>
+  ),
 }

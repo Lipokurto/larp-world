@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 import { Item } from '../../rules-text/type';
 import { ImagesAdaptive, ItemModal } from '../../components';
@@ -83,15 +83,15 @@ function ModalPoor(): JSX.Element {
           <div><b>Фракционный цвет:</b></div>
           <div>Костюм персонажа должен быть выполнен в цветах фракции и отряда, за который он выступает.</div>
           <div className={s.block}>
-            <div className={s.colorBlock}><div className={s.circle} style={{backgroundColor: 'yellow'}} />Желтый</div>
-            <div className={s.colorBlock}><div className={s.circle} style={{backgroundColor: 'brown'}} />Коричневый</div>
-            <div className={s.colorBlock}><div className={s.circle} style={{backgroundColor: '#151515'}} />Черный</div>
-            <div className={s.colorBlock}><div className={s.circle} style={{backgroundColor: '#6900C6'}} />Фиолетовый</div>
+            <div className={s.colorBlock}><div className={s.circle} style={{ backgroundColor: 'yellow' }} />Желтый</div>
+            <div className={s.colorBlock}><div className={s.circle} style={{ backgroundColor: 'brown' }} />Коричневый</div>
+            <div className={s.colorBlock}><div className={s.circle} style={{ backgroundColor: '#151515' }} />Черный</div>
+            <div className={s.colorBlock}><div className={s.circle} style={{ backgroundColor: '#6900C6' }} />Фиолетовый</div>
           </div>
         </div>
 
         <div>
-          <button className={!isMan ? s.requirementButton : s.requirementButtonOff} style={{ margin: 10 }}  onClick={() => setIsMan(true)}>Люди</button>
+          <button className={!isMan ? s.requirementButton : s.requirementButtonOff} style={{ margin: 10 }} onClick={() => setIsMan(true)}>Люди</button>
           <button className={isMan ? s.requirementButton : s.requirementButtonOff} style={{ margin: 10 }} onClick={() => setIsMan(false)}>Чудовища</button>
         </div>
 
@@ -103,7 +103,7 @@ function ModalPoor(): JSX.Element {
 
 const modal: Item = {
   label: 'Садху Дэвы',
-  element: <ModalPoor />
+  element: <ModalPoor />,
 }
 
 function Outlanders(): JSX.Element {
@@ -121,7 +121,7 @@ function Outlanders(): JSX.Element {
           <div><i>Визуальная стилистика: </i> арабские воины позднего средневековья. Для <b>Громил</b> - костюмы, имитирующие гиперболизированную мускулатуру, отсутствие брони на торсе.</div>
           <br/>
           <div>
-            <div><b>Иноземная магия</b></div> 
+            <div><b>Иноземная магия</b></div>
             <div>
               На службе у отряда есть Пишаки. Одержимые звероподобные (тигры,слоны,крокодилы) монстры на службе отряда.
             </div>
@@ -134,7 +134,7 @@ function Outlanders(): JSX.Element {
       <div className={s.block2}>
         <h3>Описание</h3>
         <div>
-          Лагерь наемных кушан, ищущие богатство и славу в бою. Мастера разведки и шпионажа, представляющие серьезную угрозу как на поле боя, так и вне его. 
+          Лагерь наемных кушан, ищущие богатство и славу в бою. Мастера разведки и шпионажа, представляющие серьезную угрозу как на поле боя, так и вне его.
           При помощи жёстких тренировок и пугающих экспериментов над людьми создают Громил - сверхсильных и крепких воинов, превосходящих обычных людей в размерах и силе.
         </div>
       </div>
@@ -151,5 +151,5 @@ function Outlanders(): JSX.Element {
 
 export const outlanders: Item = {
   label: 'Садху Дэвы',
-  element: <Outlanders />
+  element: <Outlanders />,
 }

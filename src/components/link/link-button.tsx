@@ -7,13 +7,13 @@ type Props = {
   onclick: () => void,
 }
 
-export function LinkButton({ text, onclick }: Props) {
+export function LinkButton({ text, onclick }: Props): JSX.Element {
   return (
-    <a 
+    <a
       onClick={onclick}
       className={s.link}
     >
       {text}
     </a>
   )
-} 
+}

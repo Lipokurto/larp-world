@@ -13,9 +13,9 @@ export const burgomaster: Item = {
   label: 'Бургомистр',
   player: 'Игрок',
   desc: 'Отвечает за жизнь города',
-  element: 
-    <>      
-      <div>      
+  element: (
+    <>
+      <div>
         <ImagesAdaptive images={images} />
       </div>
 
@@ -37,4 +37,5 @@ export const burgomaster: Item = {
         <li>Умение принимать не популярные решения.</li>
       </div>
     </>
+  ),
 }

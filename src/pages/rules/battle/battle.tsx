@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 
-import { 
+import {
   Chapter,
   AccordionBlock, CharStatus,
 } from '../../../components';
@@ -27,29 +27,30 @@ export function Battle(): JSX.Element {
       <div className={s.container}>
         <Chapter chapter='БОЕВЫЕ ВЗАИМОДЕЙСТВИЯ' />
         <div>На игре представлен классический средневековый арсенал вооружения, кроме ручного огнестрельного оружия.</div>
-        
+
         <AccordionBlock
           label='Общие положения'
           items={[
             {
               label: 'Боевые зоны игрока',
-              element:
+              element: (
                 <div className={s.zones}>
                   <img src={batZones} alt='' height={300} width={150}/>
 
                   <div className={s.zonesText}>
-                    <div><b style={{color: 'green'}}>Зеленые зоны</b> - поражаемые зоны. Попадание в эти зоны протектированного оружия снимает хиты персонажа.</div>
-                    <div><b style={{color: 'red'}}>Красные зоны</b> - запрещённые к поражению зоны. Намеренное попадание оружием в эти зоны строжайше запрещено.</div>
+                    <div><b style={{ color: 'green' }}>Зеленые зоны</b> - поражаемые зоны. Попадание в эти зоны протектированного оружия снимает хиты персонажа.</div>
+                    <div><b style={{ color: 'red' }}>Красные зоны</b> - запрещённые к поражению зоны. Намеренное попадание оружием в эти зоны строжайше запрещено.</div>
                     <br />
                     <div>
                       Поражаемой зоной чудовищ считается вся передняя плоскость костюма, кроме части костюма, где располагается голова оператора. При этом костюмы должны быть выполнены таким образом, чтобы защитить все запрещенные к поражению зоны оператора с какой бы стороны не наносился урон.
                     </div>
                   </div>
                 </div>
+              ),
             },
             {
               label: 'Ограничения в бою',
-              element:
+              element: (
                 <>
                   <div className={s.label}><i>Ближний бой</i></div>
                   <ol className={s.listContainer}>
@@ -61,7 +62,7 @@ export function Battle(): JSX.Element {
                     <li>Запрещается пытаться опрокинуть противника или сбить его с ног любым образом.</li>
                     <li>Запрещено наносить акцентированные удары по противнику, который сдался/умер/сел.</li>
                   </ol>
-                  
+
                   <div className={s.label}><i>Дистанционный бой</i></div>
                   <ol className={s.listContainer}>
                     <li>Запрещается стрелять вслепую: всегда выбирайте конкретную цель.</li>
@@ -70,10 +71,11 @@ export function Battle(): JSX.Element {
                     <li>Запрещается стрелять, если видны в основном запрещенные к поражению зоны (голова, кисти, стопы).</li>
                   </ol>
                 </>
+              ),
             },
             {
               label: 'Боевая ситуация',
-              element:
+              element: (
                 <>
                   <div>Боевой ситуаций считается взаимодействие двух или более игроков посредством обмена ударами протектированным оружием или/и атака разрешенным метательным оружием. Боевая ситуация считается завершенной, когда одна из сторон одержала очевидную победу над другой, или было достигнуто соглашение о прекращении боевых взаимодействий.</div>
                   <div>Боевая ситуация считается оконченной, когда в радиусе 10 метров не ведётся боевых взаимодействий.</div>
@@ -85,14 +87,15 @@ export function Battle(): JSX.Element {
                     <li>Запрещается любым способом мешать игрокам продолжать боевое столкновение..</li>
                   </div>
                 </>
+              ),
             },
             {
               label: 'Статус персонажа',
-              element:
+              element: (
                 <>
                   <div>Переходы между статусами и снятие урона различным оружием можно проверить на нашей визуализации:</div>
                   <NavLink replace to='/help/heal-calc'>Проверить как работает боевая система</NavLink>
-                  
+
                   <CharStatus
                     label='Здоров'
                     model='Никак не маркируется'
@@ -132,16 +135,17 @@ export function Battle(): JSX.Element {
                     img={repairStripe}
                   />
                 </>
+              ),
             },
           ]}
         />
-        
+
         <AccordionBlock
           label='Хиты и хитосъем'
           items={[
             {
               label: 'Хиты персонажа',
-              element:
+              element: (
                 <>
                   <div>Люди обладают 1 живым хитом, остальные хиты считаются броневыми.</div>
                   <div>Все хиты чудовища считаются живыми.</div>
@@ -151,7 +155,7 @@ export function Battle(): JSX.Element {
                     <h3>{'Без доспеха'.toUpperCase()}</h3>
                     <div><img src={heart} alt='' width={30} /></div>
 
-                    <div style={{fontWeight: 'bold', marginTop: '10px'}}>Примеры отсутствия брони</div>
+                    <div style={{ fontWeight: 'bold', marginTop: '10px' }}>Примеры отсутствия брони</div>
                     {noArmor.element}
                   </div>
 
@@ -165,10 +169,10 @@ export function Battle(): JSX.Element {
 
                     <div className={s.listContainer}>
                       <li>Короткая (ниже талии, но не ниже колена) кольчуга</li>
-                      <li>или бригантина, кожаный панцирь (из кожи толщиной не менее 3мм), латный, чешуйчатый или ламинарный нагрудник</li> 
+                      <li>или бригантина, кожаный панцирь (из кожи толщиной не менее 3мм), латный, чешуйчатый или ламинарный нагрудник</li>
                     </div>
 
-                    <div style={{fontWeight: 'bold', marginTop: '10px'}}>Примеры легкой брони</div>
+                    <div style={{ fontWeight: 'bold', marginTop: '10px' }}>Примеры легкой брони</div>
                     {lightArmor.element}
                   </div>
 
@@ -183,10 +187,10 @@ export function Battle(): JSX.Element {
 
                     <div className={s.listContainer}>
                       <li>Полная защита груди.</li>
-                      <li>Несколько не парных элементов доспеха на конечностях.</li> 
+                      <li>Несколько не парных элементов доспеха на конечностях.</li>
                     </div>
 
-                    <div style={{fontWeight: 'bold', marginTop: '10px'}}>Примеры легкой брони</div>
+                    <div style={{ fontWeight: 'bold', marginTop: '10px' }}>Примеры легкой брони</div>
                     {midArmor.element}
                   </div>
 
@@ -208,7 +212,7 @@ export function Battle(): JSX.Element {
                     </div>
                   </div>
 
-                  <div style={{fontWeight: 'bold', marginTop: '10px'}}>Примеры тяжелой брони</div>
+                  <div style={{ fontWeight: 'bold', marginTop: '10px' }}>Примеры тяжелой брони</div>
                   {heavyArmor.element}
 
                   <div className={s.sub_container}>
@@ -230,7 +234,7 @@ export function Battle(): JSX.Element {
                   </div>
                   <div><i>ПРИМЕЧАНИЕ: Чтоб ваши броневые хиты учитывались ОБЯЗАТЕЛЬНЫМ элементом любого комплекта считается шлем</i></div>
 
-                  <div style={{fontWeight: 'bold', marginTop: '10px'}}>Примеры полной брони</div>
+                  <div style={{ fontWeight: 'bold', marginTop: '10px' }}>Примеры полной брони</div>
                   {fullArmor.element}
 
                 <br/>
@@ -246,22 +250,24 @@ export function Battle(): JSX.Element {
                       <li>Начисляется только в полном снаряжении.</li>
                     </div>
                     {hiArmor.element}
-                  </div> 
+                  </div>
                 </>
+              ),
             },
             {
               label: 'Урон оружия',
-              element:
+              element: (
                 <>
                   <div>Оружие <b>ближнего</b> боя снимает 1 хит, не пробивает щиты.</div>
                   <div>Оружие <b>дальнего</b> боя снимает 2 хита, не пробивает щиты.</div>
                   <div><b>Особое</b> оружие снимает 5 хитов, не пробивает щиты.</div>
                   <div><b>Пушка</b> снимает 10 хитов, пробивает щиты, может снимать очки прочности ворот.</div>Любой игровой предмет
                 </>
+              ),
             },
             {
               label: 'Особое оружие',
-              element:
+              element: (
                 <>
                   <div>Данный вид оружия выдается строго определенному кругу персонажей, которых можно однозначно распознать внешне.</div>
                   <div>На самом оружии будет соответствующая метка. Особое оружие монстров не маркируется.</div>
@@ -277,10 +283,11 @@ export function Battle(): JSX.Element {
                     <i>Чудовища - полумифические создания, обладающие нечеловеческой силой</i>
                   </div>
                 </>
+              ),
             },
             {
               label: 'Пушки',
-              element:
+              element: (
                 <>
                   <div>Каждая пушка имеет 1 очко прочности (т.е. в бою ее можно уничтожить только прямым попаданием другой пушки).</div>
                   <div>
@@ -302,6 +309,7 @@ export function Battle(): JSX.Element {
                     </ol>
                   </div>
                 </>
+              ),
             },
           ]}
         />

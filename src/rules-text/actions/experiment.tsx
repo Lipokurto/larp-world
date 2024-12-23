@@ -1,10 +1,10 @@
-import { Item } from "../type";
+import { Item } from '../type';
 
 import s from './actions.module.css';
 
 export const experiment: Item = {
   label: 'Эксперимент',
-  element:
+  element: (
     <>
       <div className={s.label}><i>Механика:</i></div>
       <div className={s.listContainer}>
@@ -18,7 +18,7 @@ export const experiment: Item = {
       </div>
 
       <div className={s.label}>Дополнительно:</div>
-      <div className={s.listContainer}>        
+      <div className={s.listContainer}>
         <li>До того, как заждётся змея шкатулку можно вскрыть и проверить содержимое.</li>
         <li>Если змея была подожжена, то считается что все содержимое шкатулки испорчено, и не годится для проверки или пере использования.</li>
         <li>Все ресурсы кроме кругов в алхимии – одноразовые.</li>
@@ -27,4 +27,5 @@ export const experiment: Item = {
         <li>Доказательством свершения опыта считается пепел от полностью выгоревшей змеи.</li>
       </div>
     </>
+  ),
 }

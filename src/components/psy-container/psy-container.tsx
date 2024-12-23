@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+
 import icon from '../../assets/rules/psy/psy.png'
 
 import s from './psy-container.module.css';
@@ -9,7 +10,7 @@ type Props = {
   desc: JSX.Element,
 }
 
-export function PsyContainer({ label, psyLevel, desc }: Props) {
+export function PsyContainer({ label, psyLevel, desc }: Props): JSX.Element {
   return (
     <div className={s.container}>
       <div className={s.subContainer}>

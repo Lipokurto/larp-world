@@ -13,9 +13,9 @@ export const civil: Item = {
   label: 'Обыватель',
   player: 'Игрок',
   desc: 'Гости или жители местных земель',
-  element: 
-    <>      
-      <div>      
+  element: (
+    <>
+      <div>
         <ImagesAdaptive images={images} />
       </div>
 
@@ -33,4 +33,5 @@ export const civil: Item = {
         <li>Умение наслаждаться игрой</li>
       </div>
     </>
+  ),
 }

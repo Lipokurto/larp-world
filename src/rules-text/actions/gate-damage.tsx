@@ -1,13 +1,13 @@
-import { Item } from "../type";
+import { Item } from '../type';
 
 import s from './actions.module.css';
 
 export const gateDamage: Item = {
   label: 'Разрушение ворот',
-  element:
+  element: (
     <>
       <div>Разрушение ворот может быть, как сюжетным, так и целенаправленным. Отличить одно от другого является одним из игровых моментов.</div>
-      
+
       <div className={s.label}>Механика</div>
       <ol className={s.listContainer}>
         <li>Мастер фиксирует уменьшение прочности ворот.</li>
@@ -39,4 +39,5 @@ export const gateDamage: Item = {
         </tbody>
       </table>
     </>
+  ),
 }

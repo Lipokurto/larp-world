@@ -1,10 +1,10 @@
-import { Item } from "../type";
+import { Item } from '../type';
 
 import s from './actions.module.css';
 
 export const assault: Item = {
   label: 'Штурм лагеря/города',
-  element:
+  element: (
     <>
       <div className={s.label}><i>Требования к лагерю</i></div>
       <ol className={s.listContainer}>
@@ -13,7 +13,7 @@ export const assault: Item = {
       </ol>
 
       <div className={s.label}><i>Условия проведения</i></div>
-      <ol className={s.listContainer}>      
+      <ol className={s.listContainer}>
         <li>Имеется командующий штурмом.</li>
         <li>В лагере должен находится интендант, без интенданта штурм лагеря строжайше запрещен.</li>
       </ol>
@@ -29,7 +29,9 @@ export const assault: Item = {
         <li>Стрелять или наносить удары из неподготовленных к штурму зон запрещено.</li>
         <li>Намеренно ломать реквизит запрещено.</li>
       </ol>
+
       <div className={s.label}><i>Победа</i></div>
-        <div>Победа в штурме присуждается той стороне, которая уверено удерживает область входа в лагерь (5 метров перед "воротами" и 5 метров за ними) в течении <b>10 минут</b>.</div>
+      <div>Победа в штурме присуждается той стороне, которая уверено удерживает область входа в лагерь (5 метров перед "воротами" и 5 метров за ними) в течении <b>10 минут</b>.</div>
     </>
+  ),
 }

@@ -1,13 +1,13 @@
-import { Item } from "../type";
+import { Item } from '../type';
 
 import s from './actions.module.css';
 
 export const lockPick: Item = {
   label: 'Вскрытие сундука',
-  element:
+  element: (
     <>
       <div>Игрок может вскрыть игровой сундук с целью получения содержимого.</div>
-      
+
       <div className={s.label}><i>Механика</i></div>
       <ol className={s.listContainer}>
         <li>Игрок находит сундук.</li>
@@ -17,7 +17,7 @@ export const lockPick: Item = {
         <li>В случае успеха игрок может забрать все содержимое.</li>
         <li>В случае провала игрок может повторить попытку за еще один <b>«Ремкомплект»</b>.</li>
       </ol>
-      
+
       <div className={s.label}><i>Запрещается</i></div>
       <ol className={s.listContainer}>
         <li>Использовать свои отмычки.</li>
@@ -26,4 +26,5 @@ export const lockPick: Item = {
         <li>Вскрывать не игровые сундуки.</li>
       </ol>
     </>
+  ),
 }

@@ -12,7 +12,7 @@ import s from './navigation.module.css';
 type NavigationButton ={
   title: string,
   list: ListItem[] | null,
-  link: string, 
+  link: string,
 }
 
 const buttons: NavigationButton[] = [
@@ -55,7 +55,7 @@ export function Navigation(): JSX.Element {
 
   const renderSmallMenu = React.useMemo(() => {
     return (
-      <>      
+      <>
         <div className={s.containerSmall}>
           <NavButton onclick={() => setIsMenuOpen(!isMenuOpen)} text='Меню' />
         </div>
@@ -64,11 +64,10 @@ export function Navigation(): JSX.Element {
           <div className={s.smallMenu}>
             {buttons.map((p) => <NavButton
               key={p.title}
-              text={p.title} 
+              text={p.title}
               onclick={() => handleClick(p.title, p.list, p.link)}
             /> )}
           </div>
- 
         )}
       </>
     )
@@ -79,22 +78,22 @@ export function Navigation(): JSX.Element {
       <div className={s.container}>
         {buttons.map((p) => <NavButton
           key={p.title}
-          text={p.title} 
+          text={p.title}
           onclick={() => handleClick(p.title, p.list, p.link)}
           /> )}
       </div>
     )
   }, [handleClick]);
-  
+
   return (
     <>
 
       {width > 850 ? renderNormMenu : renderSmallMenu}
 
       {isOpen && (
-        <NavigationModal 
-          setIsOpen={setIsOpen} 
-          list={list} 
+        <NavigationModal
+          setIsOpen={setIsOpen}
+          list={list}
           title={title}
           link={link}
         />

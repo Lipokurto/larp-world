@@ -1,4 +1,4 @@
-import { Link } from "../types";
+import { Link } from '../types';
 // import rulesPDF from './rules.pdf';
 import tailorPDF from './tailor.pdf';
 import mapClear from '../../assets/map/clear-map.jpg';
@@ -22,4 +22,4 @@ export const downloadFiles: Link[] = [
     description: 'Много выкроек, много деталей одежды, много тонкостей пошива, рекомендуем всем кто хочет погрузится в тематику',
     fileName: 'Подмастерье средневекового портного',
   },
-] 
+]

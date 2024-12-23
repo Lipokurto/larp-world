@@ -6,9 +6,9 @@ import s from './religion.module.css';
 
 export const clearedByBlood: Item = {
   label: 'Очищенные кровью',
-  element:
-    <>      
-      <div>      
+  element: (
+    <>
+      <div>
         <div className={s.container_first}>
           <img src={symbol} alt='Religion' />
         </div>
@@ -20,4 +20,5 @@ export const clearedByBlood: Item = {
       <div><b>Цвета:</b> Черный, красный, белый</div>
       <div><b>Распространение:</b> Горы севера Альянса Панерия</div>
     </>
+  ),
 }

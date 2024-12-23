@@ -9,9 +9,10 @@ const armor = [miAr01, miAr02, miAr03];
 
 export const midArmor: Item = {
   label: 'Примеры легкой брони',
-  element: 
-    <div>      
+  element: (
+    <div>
       <ImagesAdaptive images={armor} />
       <div>В примерах не учитывается наличие шлема</div>
     </div>
+  ),
 }

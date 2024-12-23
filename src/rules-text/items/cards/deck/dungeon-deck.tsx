@@ -7,7 +7,7 @@ import s from '../../items.module.css';
 export const dungeonDeck: Item = {
   label: 'Колода Подземелья',
   icon: icon,
-  element:
+  element: (
     <>
       <div className={s.icon}><img src={icon} alt='' /></div>
       <div>Может находится только у хранителя подземелья.</div>
@@ -21,4 +21,5 @@ export const dungeonDeck: Item = {
         <li>тратится на посетителей подземелья.</li>
       </ol>
     </>
+  ),
 }

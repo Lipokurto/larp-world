@@ -1,10 +1,10 @@
-import { Item } from "../type";
+import { Item } from '../type';
 
 import s from './actions.module.css';
 
 export const rest: Item = {
   label: 'Отдых',
-  element:
+  element: (
     <>
       <div>Карта <b>"Отдых"</b> убирает действие одного из психозов. Получить ее можно несколькими способами:</div>
       <h1 className={s.label}>Отдых в заведении</h1>
@@ -57,4 +57,5 @@ export const rest: Item = {
         <li>Инквизитор вправе сократить или увеличить общее время исповеди, отталкиваясь от качества отыгрыша.</li>
       </ol>
     </>
+  ),
 }

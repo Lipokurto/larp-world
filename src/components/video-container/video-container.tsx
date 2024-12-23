@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-import { Video } from "../video/video";
+import { Video } from '../video/video';
 
 import s from './video-container.module.css';
 
@@ -9,7 +9,7 @@ type Props = {
   name: string,
 }
 
-export function VideoContainer(props: Props) {
+export function VideoContainer(props: Props): JSX.Element {
   return (
     <div className={s.container}>
       <Video

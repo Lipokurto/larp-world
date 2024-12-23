@@ -26,7 +26,6 @@ export { HitsCalc } from './visual/hits-calc';
 export { SelectItem } from './visual/select-item';
 export { BuildLevel } from './visual/build-level';
 export { DamageCalc } from './visual/damage/damage-calc';
-export { Support } from './visual/support/support';
 
 export { useResize } from './utils/use-resize';
 export { decimalText } from './utils/decimal-text';

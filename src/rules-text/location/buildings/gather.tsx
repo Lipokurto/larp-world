@@ -3,10 +3,9 @@ import { Item } from '../../type';
 
 import s from './buildings.module.css';
 
-
 export const gather: Item = {
   label: 'Ресурсная постройка',
-  element:
+  element: (
     <>
       <div className={s.container}>
         <img src={img} alt='Gather' />
@@ -19,4 +18,5 @@ export const gather: Item = {
         <li>Крытое место для хранения ресурсов.</li>
       </ol>
     </>
+  ),
 }

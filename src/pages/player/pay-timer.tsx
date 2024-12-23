@@ -2,8 +2,6 @@ import React from 'react';
 
 import { DiffTime, PayLimits, payLimits, standardDiff } from '../../components/chapter/timer/timer';
 
-import s from './registry.module.css';
-
 export function PayTimer(): JSX.Element {
   const [currentTime, setCurrentTime] = React.useState(new Date());
   const [diffTime, setDiff] = React.useState<DiffTime>(standardDiff);
@@ -18,7 +16,7 @@ export function PayTimer(): JSX.Element {
       setCurrentTimeInterval(currentTimeInterval);
     }, 1000);
 
-    return () => { 
+    return () => {
       clearInterval(intervalId);
       clearInterval(timeItemId);
      };
@@ -27,7 +25,7 @@ export function PayTimer(): JSX.Element {
   React.useEffect(() => {
     const currentInterval = payLimits.find(item => {
       const timeDifference = item.timeLimit.getTime() - currentTime.getTime();
-  
+
       const remainingTime = {
         days: Math.floor(timeDifference / (1000 * 60 * 60 * 24)),
         hours: Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
@@ -62,14 +60,14 @@ export function PayTimer(): JSX.Element {
 
   return (
     <div>
-      <div style={{padding: 10}}>
-        <div style={{color: 'wheat'}}>Текущий взнос действителен еще:</div>
-        <div style={{fontSize: 20, fontWeight: 'bold'}}> {`${diffTime.days} д. ${diffTime.hours} ч. ${diffTime.minutes} м.`}</div>
+      <div style={{ padding: 10 }}>
+        <div style={{ color: 'wheat' }}>Текущий взнос действителен еще:</div>
+        <div style={{ fontSize: 20, fontWeight: 'bold' }}> {`${diffTime.days} д. ${diffTime.hours} ч. ${diffTime.minutes} м.`}</div>
       </div>
 
     {renderPrice}
 
-    <div style={{paddingTop: 10}}>
+    <div style={{ paddingTop: 10 }}>
       <div>Игротехи сдают 50% взноса.</div>
     </div>
   </div>

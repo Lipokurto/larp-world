@@ -8,7 +8,7 @@ export const artifact: Item = {
   label: 'Артефакт',
   icon: icon,
   weight: 0,
-  element:
+  element: (
     <>
       <div className={s.icon}><img src={icon} alt='' /></div>
       <div className={s.label}>Эффекты</div>
@@ -20,11 +20,12 @@ export const artifact: Item = {
         <li>Любой артефакт имеет лишь сюжетное назначение</li>
         <li>Игровой предмет</li>
       </div>
-      
+
       <h2>Моделируется:</h2>
         <div>Игровой предмет с печатью мастеров</div>
       <br />
       <div>Любой артефакт можно продать мастерам за игровые деньги</div>
       <div>На игре не предусмотрено наличие артефактов дающих игротехнические преимущества</div>
     </>
+  ),
 }

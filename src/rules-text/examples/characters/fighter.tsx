@@ -13,9 +13,9 @@ export const fighter: Item = {
   label: 'Член отряда',
   player: 'Игрок',
   desc: 'Член отряда наемников',
-  element: 
-    <>      
-      <div>      
+  element: (
+    <>
+      <div>
         <ImagesAdaptive images={images} />
       </div>
 
@@ -32,4 +32,5 @@ export const fighter: Item = {
         <li>Быть готовым победить или проиграть.</li>
       </div>
     </>
+  ),
 }

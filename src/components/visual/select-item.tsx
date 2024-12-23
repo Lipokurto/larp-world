@@ -74,7 +74,7 @@ const singleSelectStyle = (name: string) => {
       borderImageSource: 'repeating-linear-gradient(to right, wheat, #000000, #000000, wheat)',
       margin: '2px 0 2px 0',
       display:  'flex',
-      justifyContent: name === 'back' ? 'center' : 'auto'
+      justifyContent: name === 'back' ? 'center' : 'auto',
     }),
 
     menu: (provided: any) => ({
@@ -91,29 +91,29 @@ function Option(props: any) {
   const isNotBack = props.selectProps.name !== 'back';
   return (
     <components.Option {...props}>
-      <div style={{display: 'flex', flexDirection: 'row'}}>
-        
+      <div style={{ display: 'flex', flexDirection: 'row' }}>
+
         {isNotBack && (
-          <img src={props.data.icon} alt='' width={50} height={30} style={{borderRadius: '10px'}}/>
+          <img src={props.data.icon} alt='' width={50} height={30} style={{ borderRadius: '10px' }}/>
         )}
 
-        <div style={{fontSize: '20px', marginLeft: '5px'}}>{props.data.label}</div>
+        <div style={{ fontSize: '20px', marginLeft: '5px' }}>{props.data.label}</div>
       </div>
     </components.Option>
   )
 }
 
-function SingleValue({ children, ...props}: any) {
+function SingleValue({ children, ...props }: any) {
   return (
     <components.SingleValue {...props}>
-      <img src={props.data.icon} alt='' style={{borderRadius: '10px'}}/>
+      <img src={props.data.icon} alt='' style={{ borderRadius: '10px' }}/>
       {children}
     </components.SingleValue>
   )
 
 }
 
-export function SelectItem({ ...props }) {
+export function SelectItem({ ...props }): JSX.Element {
   return (
     <ReactSelect
       {...props}

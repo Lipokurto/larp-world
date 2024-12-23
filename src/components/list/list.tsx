@@ -22,10 +22,10 @@ export function List(props: Props): JSX.Element {
       return (
         props.list.map((p) => {
           return (
-            <Link 
-              to={`${props.link}${p.link}`} 
-              key={p.label} 
-              className={s.item} 
+            <Link
+              to={`${props.link}${p.link}`}
+              key={p.label}
+              className={s.item}
               onClick={handleClose}
             >
               <span className={s.label}>{p.label}</span>

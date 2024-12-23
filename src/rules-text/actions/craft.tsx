@@ -1,10 +1,10 @@
-import { Item } from "../type";
+import { Item } from '../type';
 
 import s from './actions.module.css';
 
 export const craft: Item = {
   label: 'Производство',
-  element:
+  element: (
     <>
       <div>Ремесленник использует ресурсы для производства <b>"Медкомплекта"</b>, <b>"Ремокомплекта"</b>, <b>"Целебной мази"</b> или <b>"Оружейного масла"</b>.</div>
       <div className={s.label}><i>Механика</i></div>
@@ -18,4 +18,5 @@ export const craft: Item = {
         <li>мастерский торговец или интендант выдает готовую продукцию в «непобираемом конверте».</li>
       </ol>
     </>
+  ),
 }

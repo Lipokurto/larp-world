@@ -15,10 +15,10 @@ export const inquisitor: Item = {
   label: 'Инквизитор',
   player: 'Игрок',
   desc: 'Представитель Святого престола на этой земле',
-  element: 
-    <>      
-      <div>     
-        <ImagesAdaptive images={images} /> 
+  element: (
+    <>
+      <div>
+        <ImagesAdaptive images={images} />
       </div>
 
       <div className={s.label}><i>Описание</i></div>
@@ -39,4 +39,5 @@ export const inquisitor: Item = {
         <li>Умение спланировать выезд команды.</li>
       </div>
     </>
+  ),
 }
