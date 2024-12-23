@@ -2,6 +2,7 @@ import React from 'react';
 import Carousel from 'better-react-carousel';
 
 import { useResize } from '../utils/use-resize';
+import loader from '../../assets/icons/loader-2.gif';
 
 import s from './images-adaptive.module.css';
 
@@ -12,11 +13,19 @@ type Props = {
 
 export function ImagesAdaptive(props: Props): JSX.Element {
   const { isScreenXl } = useResize();
+  const [isLoaded, setIsLoaded] = React.useState<boolean>(false);
 
   if (isScreenXl && !props.isNoAdaptive) {
     return (
       <div className={s.containerLg}>
-        {props.images.map((p, i) => <img key={'lg>' + i} src={p} alt='' />)}
+        {props.images.map((p, i) => {
+          return (
+            <div key={'lg>' + i}>
+              <img src={p} alt='' style={isLoaded ? {} : { display: 'none' }} onLoad={() => setIsLoaded(true)} />
+               {isLoaded ? null : <img src={loader} alt='' />}
+            </div>
+          )
+        })}
     </div>
     )
   }
@@ -43,7 +52,8 @@ export function ImagesAdaptive(props: Props): JSX.Element {
         {props.images.map((p, i) => {
           return (
             <Carousel.Item key={'lg<' + i}>
-              <img src={p} alt='' />
+              <img src={p} alt='' style={isLoaded ? {} : { display: 'none' }} onLoad={() => setIsLoaded(true)} />
+              {isLoaded ? null : <img src={loader} alt='' />}
             </Carousel.Item>
           )
         })}
