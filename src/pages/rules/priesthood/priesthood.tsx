@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { AccordionBlock, Chapter, Video } from '../../../components';
+import { AccordionBlock, Chapter } from '../../../components';
 
 import s from './priesthood.module.css';
 
