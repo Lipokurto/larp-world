@@ -30,6 +30,10 @@ export const rules: ListItem[] = [
     link: '/plague',
   },
   {
+    label: 'Жречество',
+    link: '/priesthood',
+  },
+  {
     label: 'Лагерь и постройки',
     link: '/location',
   },
