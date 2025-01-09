@@ -7,6 +7,7 @@ import {
   Actions, Battle, Camp,
   Resources, General, Psycho,
   FinalBattle, Injury, Plague,
+  Priesthood,
 } from './pages/rules';
 
 import {
@@ -49,6 +50,7 @@ export default function App(): JSX.Element {
           <Route path='/rules/final-battle' element={<FinalBattle />} />
           <Route path='/rules/psycho' element={<Psycho />} />
           <Route path='/rules/plague' element={<Plague />} />
+          <Route path='/rules/priesthood' element={<Priesthood />} />
 
           <Route path='/world/politic' element={<Politic />} />
           <Route path='/world/culture' element={<Culture />} />
