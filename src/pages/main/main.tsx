@@ -13,7 +13,7 @@ import staticLogo from '../../assets/LOGO_2025.png';
 import vkImage from './../../assets/icons/social/vk.png';
 import ruStore from './../../assets/icons/social/ruStore.png';
 import pdfIcon from './../../assets/icons/social/pdfIcon.png';
-// import excelIcon from './../../assets/icons/social/excel.png';
+import excelIcon from './../../assets/icons/social/excel.png';
 import pdfRules from '../../rules-text/Pravila_Temnye_veka_v_2_2_1.pdf';
 
 import s from './main.module.scss';
@@ -64,15 +64,15 @@ export function Main(): JSX.Element {
           </a>
         </Tooltip>
 
-        {/* <Tooltip
+        <Tooltip
           content='Таблица всех ролей'
           background='wheat'
           direction="left"
         >
-          <a href='https://docs.google.com/spreadsheets/d/1st6MW3fwOllrLfTsgnVavd_yNYjyXZuOTnXKUI5cfn8/edit?usp=sharing' target='_blank' rel="noreferrer" style={{color: 'goldenrod'}}>
+          <a href='https://docs.google.com/spreadsheets/d/1l5G5-vJ56_ibip1hng414RTNg3HXjJtS7RmQ0ACPdvE/edit?usp=sharing' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>
             <img src={excelIcon} alt="" width={30} />
           </a>
-        </Tooltip> */}
+        </Tooltip>
       </>
     )
   }, []);
