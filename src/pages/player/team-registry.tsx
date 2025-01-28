@@ -86,7 +86,6 @@ const registrationSteps: Steps[] = [
         <div>
           <div>По всем вопросам допуска:</div>
           <div><a href='https://vk.com/id245595011' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>Мастер по общему допуску антуража</a></div>
-          <div><a href='https://vk.com/id5847033' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>Мастер по допуску антуража для наемников</a></div>
         </div>
       </div>
     ),

@@ -36,7 +36,6 @@ const registrationSteps: Steps[] = [
         </div>
 
         <div>Взносы не возвращаются</div>
-        <div>Взносы можно передавать лично <a href='https://vk.com/id245595011' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>координатору</a></div>
       </div>
     ),
   },
