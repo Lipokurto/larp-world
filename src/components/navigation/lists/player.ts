@@ -6,10 +6,6 @@ export const player: ListItem[] = [
     link: '/registration',
   },
   {
-    label: 'Регистрация команды',
-    link: '/regband',
-  },
-  {
     label: 'Регистрация локации',
     link: '/reglocation',
   },

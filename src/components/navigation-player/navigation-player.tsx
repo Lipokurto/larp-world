@@ -23,11 +23,6 @@ const links: Links[] = [
   },
   {
     disabled: false,
-    to: '/player/regband',
-    text: 'Регистрация команды',
-  },
-  {
-    disabled: false,
     to: '/player/reglocation',
     text: 'Регистрация локации',
   },

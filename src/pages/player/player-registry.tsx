@@ -39,7 +39,7 @@ const registrationSteps: Steps[] = [
           <div><b>ФИО: </b><i>Свое реальное ФИО</i></div>
           <div><b>Имя персонажа: </b><i>Имя своего игрового персонажа</i></div>
           <div><b>Профиль в соц сетях: </b><i>Ссылка на ваш профиль в соц сетях для обратной связи</i></div>
-          <div><b>Роль: </b><i><a href='https://larpdarkage.ru/rules/role' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>Роль</a> вашего персонажа</i></div>
+          <div><b>Роль: </b><i>Роль вашего персонажа</i></div>
           <div><b>Локация: </b><i>Название отряда наемников или название локации в городе</i></div>
         </div>
 
@@ -57,9 +57,8 @@ const registrationSteps: Steps[] = [
     label: 'Концепт',
     description: (
       <div>
-        <div>Обсудите внешний вид своего персонажа с мастерами по допуску антуража:</div>
-        <div><a href='https://vk.com/id245595011' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>Мастер по общему допуску антуража</a></div>
-        <div><a href='https://vk.com/id5847033' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>Мастер по допуску антуража для наемников</a></div>
+        <div>Обсудите внешний вид своего персонажа с <a href='https://vk.com/id245595011' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>мастером по допуску антуража</a></div>
+        <div></div>
       </div>
     ),
   },
