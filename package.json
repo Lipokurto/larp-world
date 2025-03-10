@@ -7,8 +7,10 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "axios": "^1.3.4",
+    "axios": "^1.8.2",
     "better-react-carousel": "^1.1.1",
+    "dotenv": "^16.4.7",
+    "env-cmd": "^10.1.0",
     "eslint-plugin-react": "^7.37.2",
     "globals": "^15.14.0",
     "html-react-parser": "^3.0.8",
@@ -28,11 +30,13 @@
     "react-simple-captcha": "^9.0.2",
     "react-tooltip-lite": "^1.12.0",
     "sass": "^1.80.1",
-    "typescript-eslint": "^8.18.1"
+    "typescript-eslint": "^8.18.1",
+    "vk-openapi": "^0.1.2"
   },
   "scripts": {
-    "start": "react-scripts --openssl-legacy-provider start",
-    "build": "react-scripts --openssl-legacy-provider build",
+    "start:dev": "env-cmd -f .env.dev react-scripts --openssl-legacy-provider start",
+    "start:prod": "env-cmd -f .env.prod react-scripts --openssl-legacy-provider start",
+    "build": "env-cmd -f .env.prod react-scripts --openssl-legacy-provider build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

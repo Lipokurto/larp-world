@@ -30,6 +30,8 @@ import { More } from './pages/more/more';
 import { PayRegistry } from './pages/player/pay-registry';
 import { Conf } from './pages/conf/conf';
 
+import { VKAuth } from './pages/user/user-vk-reg';
+
 import s from './app.module.css';
 
 export default function App(): JSX.Element {
@@ -72,6 +74,7 @@ export default function App(): JSX.Element {
           <Route path='/about' element={<About />} />
           <Route path='/more' element={<More />} />
           <Route path='/vk-policy' element={<Conf />} />
+          <Route path='/user-vk-test' element={<VKAuth />} />
         </Routes>
       </div>
     </BrowserRouter>
