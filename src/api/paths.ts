@@ -1,0 +1,1 @@
+export const vkRegistry = `${process.env.REACT_APP_HOST}/api/vk-register`;
