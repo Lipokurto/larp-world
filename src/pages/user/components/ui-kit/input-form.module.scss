@@ -1,0 +1,29 @@
+.container {
+  width: fit-content;
+  margin: 10px;
+  padding: 5px;
+}
+
+.label {
+  color: wheat;
+  font-size: 15px;
+  opacity: 75%;
+}
+
+.inputOff {
+  color: white;
+  width: 200px;
+  font-size: 20px;
+  font-family: 'Oswald';
+}
+
+.inputOn {
+  color: white;
+  background-color: #000000;
+  width: 200px;
+  font-size: 20px;
+  font-family: 'Oswald';
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to top, rgba(245, 222, 179, 0.527), #000000);
+}

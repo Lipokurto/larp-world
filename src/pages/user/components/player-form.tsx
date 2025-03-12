@@ -1,13 +1,23 @@
-import axios from 'axios';
 import React from 'react';
+import toast, { Toaster } from 'react-hot-toast';
+import axios from 'axios';
 
 import { editPlayer, infoPlayer } from '../../../api/paths';
+import { InputForm } from './ui-kit/input-form';
+import { dateValidation, nameValidation } from './form-validation';
+
+import s from './player-form.module.scss';
+
+type Item = {
+  value: string,
+  error?: string,
+}
 
 type UserData = {
-  lastName: string,
-  firstName: string,
-  middleName: string,
-  birthDate: string,
+  lastName: Item,
+  firstName: Item,
+  middleName: Item,
+  birthDate: Item,
 }
 
 type Props = {
@@ -16,29 +26,32 @@ type Props = {
 
 export function PlayerForm(props: Props): JSX.Element {
   const [isEditing, setIsEditing] = React.useState<boolean>(false);
-  const [message, setMessage] = React.useState<string | undefined>(undefined);
+  const [isTouched, setIsTouched] = React.useState<boolean>(false);
+  const [isLoading, setIsLoading] = React.useState<boolean>(true);
   const [userData, setUserData] = React.useState<UserData>({
-    lastName: '',
-    firstName: '',
-    middleName: '',
-    birthDate: '',
+    lastName: { value: '', error: undefined },
+    firstName: { value: '', error: undefined },
+    middleName: { value: '', error: undefined },
+    birthDate: { value: '', error: undefined },
   });
 
   React.useEffect(() => {
     const fetchPlayerInfo = async () => {
       try {
+        setIsLoading(true);
         const response = await axios.get(infoPlayer, {
           params: { vk_id: props.vkId },
         });
         const validResponse = {
-          lastName: response.data.last_name,
-          firstName: response.data.first_name,
-          middleName: response.data.middle_name,
-          birthDate: response.data.birth_date,
+          lastName: { value: response.data.last_name, error: undefined },
+          firstName: { value: response.data.first_name, error: undefined },
+          middleName: { value: response.data.middle_name, error: undefined },
+          birthDate: { value: response.data.birth_date, error: undefined },
         }
         setUserData(validResponse);
+        setIsLoading(false);
       } catch (err) {
-        setMessage('Ошибка при получении данных');
+        toast.error('Ошибка при получении данных');
       }
   }
 
@@ -49,23 +62,59 @@ export function PlayerForm(props: Props): JSX.Element {
     const { name, value } = e.target;
     setUserData((prevData) => ({
       ...prevData,
-      [name]: value,
+      [name]: {
+        value: value,
+        error: undefined,
+      },
     }));
+    setIsTouched(true);
   }, [userData]);
 
   const handleSubmit = React.useCallback(async () => {
+    if (!isTouched) {
+      setIsEditing(false);
+
+      return undefined;
+    }
+
+    const validateUserData = {
+      lastName: {
+        value: userData.lastName.value,
+        error: nameValidation(userData.lastName.value, true),
+      },
+      firstName: {
+        value: userData.firstName.value,
+        error: nameValidation(userData.firstName.value, true),
+      },
+      middleName: {
+        value: userData.middleName.value,
+        error: nameValidation(userData.middleName.value, false),
+      },
+      birthDate: {
+        value: userData.birthDate.value,
+        error: dateValidation(userData.birthDate.value),
+      },
+    };
+
+    const checkValidation = Object.values(validateUserData).some(e => e.error);
+    if (checkValidation) {
+      setUserData(validateUserData);
+
+      return;
+    }
+
     try {
       await axios.post(editPlayer, {
-        last_name: userData.lastName,
-        first_name: userData.firstName,
-        middle_name: userData.middleName,
-        birth_date: userData.birthDate,
+        last_name: validateUserData.lastName.value,
+        first_name: validateUserData.firstName.value,
+        middle_name: validateUserData.middleName.value,
+        birth_date: validateUserData.birthDate.value,
         vk_id: props.vkId,
       });
 
-      setMessage('Данные успешно обновлены');
+      toast.success('Данные успешно обновлены');
     } catch (error) {
-        setMessage('Что-то пошло не так');
+      toast.error('Что-то пошло не так');
       }
 
     setIsEditing(false);
@@ -74,66 +123,66 @@ export function PlayerForm(props: Props): JSX.Element {
   }, [userData]);
 
   const renderButton = React.useMemo(() => {
-    return isEditing ? <button onClick={handleSubmit}>Сохранить</button> : <button onClick={() => setIsEditing(true)}>Редактировать</button>;
+    return isEditing
+      ? <div onClick={handleSubmit} className={s.button}>Сохранить</div>
+      : <div onClick={() => setIsEditing(true)} className={s.button}>Редактировать</div>;
   }, [isEditing, userData]);
 
   return (
-    <div>
-      <div>
-        <label>
-          Фамилия:
-          <input
-            type="text"
-            name="lastName"
-            value={userData.lastName}
-            onChange={handleChange}
-            disabled={!isEditing}
-          />
-        </label>
+    <div className={s.container}>
+      <div className={s.labelContainer}>
+        <div className={s.label}>Игрок</div>
+        <div>{renderButton}</div>
       </div>
 
-      <div>
-        <label>
-          Имя:
-          <input
-            type="text"
-            name="firstName"
-            value={userData.firstName}
-            onChange={handleChange}
-            disabled={!isEditing}
-          />
-        </label>
-      </div>
+      <InputForm
+        label='Фамилия'
+        type="text"
+        name="lastName"
+        value={userData.lastName.value}
+        onChange={handleChange}
+        disabled={!isEditing}
+        error={userData.lastName.error}
+        isLoading={isLoading}
+      />
 
-      <div>
-        <label>
-          Отчество:
-          <input
-            type="text"
-            name="middleName"
-            value={userData.middleName}
-            onChange={handleChange}
-            disabled={!isEditing}
-          />
-        </label>
-      </div>
+      <InputForm
+        label='Имя'
+        type="text"
+        name="firstName"
+        value={userData.firstName.value}
+        onChange={handleChange}
+        disabled={!isEditing}
+        error={userData.firstName.error}
+        isLoading={isLoading}
+      />
 
-      <div>
-        <label>
-          Дата рождения:
-          <input
-            type="date"
-            name="birthDate"
-            value={userData.birthDate}
-            onChange={handleChange}
-            disabled={!isEditing}
-          />
-        </label>
-      </div>
+      <InputForm
+        label='Отчество (необязательно)'
+        type="text"
+        name="middleName"
+        value={userData.middleName.value}
+        onChange={handleChange}
+        disabled={!isEditing}
+        error={userData.middleName.error}
+        isLoading={isLoading}
+      />
 
-      {message}
+      <InputForm
+        label='Дата рождения'
+        type="date"
+        name="birthDate"
+        value={userData.birthDate.value}
+        onChange={handleChange}
+        disabled={!isEditing}
+        error={userData.birthDate.error}
+        isLoading={isLoading}
+      />
 
-      {renderButton}
+      <Toaster
+        position="bottom-left"
+        reverseOrder={false}
+      />
     </div>
   );
 }

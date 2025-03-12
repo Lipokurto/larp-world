@@ -190,6 +190,7 @@
   animation-name: healing;
   animation-iteration-count: infinite;
   animation-direction: alternate;
+  animation-fill-mode: both;
 }
 
 .repair {
