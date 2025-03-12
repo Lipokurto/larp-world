@@ -170,7 +170,7 @@ export function PlayerForm(props: Props): JSX.Element {
 
       <InputForm
         label='Дата рождения'
-        type="date"
+        type="text"
         name="birthDate"
         value={userData.birthDate.value}
         onChange={handleChange}

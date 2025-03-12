@@ -1,6 +1,6 @@
 import React from 'react';
-import dayjs from 'dayjs';
 import ContentLoader from 'react-content-loader'
+import Tooltip from 'react-tooltip-lite';
 
 import s from './input-form.module.scss'
 
@@ -16,32 +16,33 @@ type Props = {
 }
 
 export function InputForm(props: Props): JSX.Element {
-  // TODO Прикрутить tooltip на ошибку
   const renderElement = React.useMemo(() => {
     if (props.disabled) {
       return(
         <div className={s.inputOff}>
-          {props.name === 'birthDate' ? dayjs(props.value).format('DD.MM.YYYY') : props.value}
+          {props.value}
         </div>
       )
     }
 
-    return (
+  return (
+    <Tooltip
+      isOpen={Boolean(props.error)}
+      content={props.error}
+      background='pink'
+      direction='left'
+    >
       <input
         className={s.inputOn}
         type={props.type}
         name={props.name}
+        placeholder={props.name === 'birthDate' ? 'ДД.ММ.ГГГГ' : undefined}
         value={props.value}
         onChange={props.onChange}
         disabled={props.disabled}
       />
+    </Tooltip>
     )
-  }, [props]);
-
-  const renderError = React.useMemo(() => {
-    if (props.error) {
-      return <div style={{ color: 'red' }}>{props.error}</div>
-    }
   }, [props]);
 
   const renderContent = React.useMemo(() => {
@@ -62,7 +63,6 @@ export function InputForm(props: Props): JSX.Element {
     return (
       <>
         {renderElement}
-        {renderError}
       </>
     )
   }, [props]);
