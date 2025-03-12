@@ -4,6 +4,7 @@ import axios from 'axios';
 import VK from './vk';
 import { vkRegistry } from '../../api/paths';
 import { testResponse } from './test';
+import { PlayerForm } from './components/player-form';
 
 type User = {
   domain: string,
@@ -107,6 +108,10 @@ export function VKAuth(): JSX.Element {
     <div>
       {renderButtons}
       {statusText}
+
+      {user && (
+        <PlayerForm vkId={user.id}/>
+      )}
     </div>
   );
 }
