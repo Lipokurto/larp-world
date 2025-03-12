@@ -1,0 +1,36 @@
+.container {
+  width: fit-content;
+  margin: 10px;
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to top, wheat, #000000);
+}
+
+.labelContainer {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 20px 5px 20px;
+  align-items: center;
+}
+
+.label {
+  font-size: 30px;
+  color: wheat;
+}
+
+.button {
+  cursor: pointer;
+  color: #9694e3;
+  font-size: 15px;
+}
+
+.button:hover {
+  animation-name: imgAnimation;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes imgAnimation {
+  from {color: #9694e3;}
+  to {color: white;}
+}
