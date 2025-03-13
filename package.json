@@ -9,7 +9,6 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.8.2",
     "better-react-carousel": "^1.1.1",
-    "dayjs": "^1.11.13",
     "dotenv": "^16.4.7",
     "env-cmd": "^10.1.0",
     "eslint-plugin-react": "^7.37.2",

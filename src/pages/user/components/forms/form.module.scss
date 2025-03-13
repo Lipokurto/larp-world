@@ -13,6 +13,13 @@
   align-items: center;
 }
 
+.labelStatusContainer {
+  display: flex;
+  justify-content: center;
+  margin: 5px 20px 5px 20px;
+  align-items: center;
+}
+
 .label {
   font-size: 30px;
   color: wheat;
@@ -30,7 +37,27 @@
   animation-fill-mode: forwards;
 }
 
+.statusContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 210px;
+  padding: 10px;
+}
+
+.inputContainer {
+  width: 500px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
 @keyframes imgAnimation {
   from {color: #9694e3;}
   to {color: white;}
+}
+
+@media only screen and (max-width: 600px) {
+  .inputContainer {
+    width: auto;
+    display: block;
+  }
 }
