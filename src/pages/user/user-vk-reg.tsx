@@ -2,9 +2,9 @@ import React from 'react';
 import axios from 'axios';
 
 import VK from './vk';
-import { vkRegistry } from '../../api/paths';
+import { vkRegistry, vkRegistryChar } from './api/paths';
 import { testResponse } from './test';
-import { PlayerForm } from './components/player-form';
+import { PlayerForm, CharForm } from './components/forms';
 
 type User = {
   domain: string,
@@ -31,6 +31,7 @@ type Session = {
 async function checkUserHttp(vkId: string, vkLink: string): Promise<string | undefined> {
   try {
     await axios.post(vkRegistry, { vk_id: vkId, vk_link: vkLink });
+    await axios.post(vkRegistryChar, { vk_id: vkId });
 
     return 'NEW';
   } catch (error) {
@@ -110,7 +111,10 @@ export function VKAuth(): JSX.Element {
       {statusText}
 
       {user && (
-        <PlayerForm vkId={user.id}/>
+        <div>
+          <PlayerForm vkId={user.id}/>
+          <CharForm vkId={user.id}/>
+        </div>
       )}
     </div>
   );

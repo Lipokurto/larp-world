@@ -2,11 +2,11 @@ import React from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import axios from 'axios';
 
-import { editPlayer, infoPlayer } from '../../../api/paths';
-import { InputForm } from './ui-kit/input-form';
+import { editPlayer, infoPlayer } from '../../api/paths';
+import { InputForm } from '../ui-kit/input-form';
 import { dateValidation, nameValidation } from './form-validation';
 
-import s from './player-form.module.scss';
+import s from './form.module.scss';
 
 type Item = {
   value: string,
