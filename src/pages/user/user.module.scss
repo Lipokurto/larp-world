@@ -15,11 +15,14 @@
   display: contents;
 }
 
-.loginContainer img {
-  opacity: 80%;
+.loginContainer img:hover {
+  animation-name: imgAnimation;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
   cursor: pointer;
 }
 
-.loginContainer img:hover {
-  opacity: 100%;
+@keyframes imgAnimation {
+  from {transform: scale(1);};
+  to {transform: scale(1.1);}
 }
