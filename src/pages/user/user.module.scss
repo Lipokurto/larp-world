@@ -1,0 +1,25 @@
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  align-items: center;
+}
+
+.formContainer {
+  display: contents;
+}
+
+.loginContainer img {
+  opacity: 80%;
+  cursor: pointer;
+}
+
+.loginContainer img:hover {
+  opacity: 100%;
+}

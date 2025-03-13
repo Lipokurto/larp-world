@@ -3,9 +3,8 @@ import toast, { Toaster } from 'react-hot-toast';
 import axios from 'axios';
 
 import { editPlayerChar, infoChar } from '../../api/paths';
-import { InputForm } from '../ui-kit/input-form';
-import { nameValidation } from './form-validation';
-import { SelectForm } from '../ui-kit/select-form';
+import { InputForm, SelectForm } from '../ui-kit';
+import { charNameValidation } from './form-validation';
 
 import s from './form.module.scss';
 
@@ -35,7 +34,7 @@ export function CharForm(props: Props): JSX.Element {
   });
 
   React.useEffect(() => {
-    const fetchPlayerInfo = async () => {
+    const fetchCharInfo = async () => {
       try {
         setIsLoading(true);
         const response = await axios.get(infoChar, {
@@ -53,7 +52,7 @@ export function CharForm(props: Props): JSX.Element {
       }
   }
 
-  fetchPlayerInfo();
+  fetchCharInfo();
 }, [props]);
 
   const handleChange = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
@@ -78,11 +77,11 @@ export function CharForm(props: Props): JSX.Element {
     const validateCharData = {
       charName: {
         value: charData.charName.value,
-        error: nameValidation(charData.charName.value, true),
+        error: charNameValidation(charData.charName.value, true),
       },
       role: {
         value: charData.role.value,
-        error: nameValidation(charData.role.value, false),
+        error: charNameValidation(charData.role.value, false),
       },
       location: {
         value: charData.location.value,
@@ -128,37 +127,39 @@ export function CharForm(props: Props): JSX.Element {
         <div>{renderButton}</div>
       </div>
 
-      <InputForm
-        label='Имя'
-        type="text"
-        name="charName"
-        value={charData.charName.value}
-        onChange={handleChange}
-        disabled={!isEditing}
-        error={charData.charName.error}
-        isLoading={isLoading}
-      />
+      <div className={s.inputContainer}>
+        <InputForm
+          label='Имя'
+          type="text"
+          name="charName"
+          value={charData.charName.value}
+          onChange={handleChange}
+          disabled={!isEditing}
+          error={charData.charName.error}
+          isLoading={isLoading}
+        />
 
-      <InputForm
-        label='Роль'
-        type="text"
-        name="role"
-        value={charData.role.value}
-        onChange={handleChange}
-        disabled={!isEditing}
-        error={charData.role.error}
-        isLoading={isLoading}
-      />
+        <InputForm
+          label='Роль'
+          type="text"
+          name="role"
+          value={charData.role.value}
+          onChange={handleChange}
+          disabled={!isEditing}
+          error={charData.role.error}
+          isLoading={isLoading}
+        />
 
-      <SelectForm
-        label='Локация'
-        name='location'
-        value={charData.location.value}
-        onSelectChange={handleChange}
-        disabled={!isEditing}
-        error={charData.location.error}
-        isLoading={isLoading}
-      />
+        <SelectForm
+          label='Локация'
+          name='location'
+          value={charData.location.value}
+          onSelectChange={handleChange}
+          disabled={!isEditing}
+          error={charData.location.error}
+          isLoading={isLoading}
+        />
+      </div>
 
       <Toaster
         position="bottom-left"

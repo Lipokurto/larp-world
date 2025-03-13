@@ -3,7 +3,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import axios from 'axios';
 
 import { editPlayer, infoPlayer } from '../../api/paths';
-import { InputForm } from '../ui-kit/input-form';
+import { InputForm } from '../ui-kit';
 import { dateValidation, nameValidation } from './form-validation';
 
 import s from './form.module.scss';
@@ -135,6 +135,7 @@ export function PlayerForm(props: Props): JSX.Element {
         <div>{renderButton}</div>
       </div>
 
+    <div className={s.inputContainer}>
       <InputForm
         label='Фамилия'
         type="text"
@@ -178,6 +179,7 @@ export function PlayerForm(props: Props): JSX.Element {
         error={userData.birthDate.error}
         isLoading={isLoading}
       />
+    </div>
 
       <Toaster
         position="bottom-left"

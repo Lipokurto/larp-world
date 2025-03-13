@@ -4,7 +4,11 @@ import axios from 'axios';
 import VK from './vk';
 import { vkRegistry, vkRegistryChar } from './api/paths';
 import { testResponse } from './test';
-import { PlayerForm, CharForm } from './components/forms';
+import { PlayerForm, CharForm, StatusTable } from './components/forms';
+import vkImage from '../../assets/icons/social/vk.png';
+import exitImage from '../../assets/icons/social/exit.png';
+
+import s from './user.module.scss';
 
 type User = {
   domain: string,
@@ -99,21 +103,24 @@ export function VKAuth(): JSX.Element {
 
   const renderButtons = React.useMemo(() => {
     if (!session) {
-      return <button onClick={handleLogin}>Войти через ВКонтакте</button>
+      return <img src={vkImage} width={50} onClick={handleLogin} />
     }
 
-    return <button onClick={handleLogOut}>Выйти</button>
+    return <img src={exitImage} width={50} onClick={handleLogOut} />
   }, [session]);
 
   return (
-    <div>
-      {renderButtons}
-      {statusText}
+    <div className={s.container}>
+      <div className={s.loginContainer}>
+        {renderButtons}
+        {statusText}
+      </div>
 
       {user && (
-        <div>
-          <PlayerForm vkId={user.id}/>
-          <CharForm vkId={user.id}/>
+        <div className={s.formContainer}>
+          <PlayerForm vkId={user.id} />
+          <CharForm vkId={user.id} />
+          <StatusTable vkId={user.id} />
         </div>
       )}
     </div>
