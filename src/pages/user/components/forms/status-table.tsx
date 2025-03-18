@@ -58,9 +58,11 @@ const renderTable = React.useMemo(() => {
 
   return (
     <div className={s.container}>
-      <div className={s.labelStatusContainer}>
-        <div className={s.label}>Статус</div>
-      </div>
+      {!props.isAdmin && (
+        <div className={s.labelStatusContainer}>
+          <div className={s.label}>Статус</div>
+        </div>
+      )}
 
       {renderTable}
 
