@@ -30,7 +30,7 @@ import { More } from './pages/more/more';
 import { PayRegistry } from './pages/player/pay-registry';
 import { Conf } from './pages/conf/conf';
 
-import { VKAuth } from './pages/user/user-vk-reg';
+import { VKAuth } from './pages/user/user-auth';
 
 import s from './app.module.css';
 

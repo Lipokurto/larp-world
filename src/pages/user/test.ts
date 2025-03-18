@@ -1,4 +1,4 @@
-import { VKResponse } from './user-vk-reg';
+import { VKResponse } from './user-auth';
 
 export const testResponse: VKResponse = {
   session: {

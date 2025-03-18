@@ -2,7 +2,7 @@ import React from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import axios from 'axios';
 
-import { editPlayer, infoPlayer } from '../../api/paths';
+import { editPlayer } from '../../api/paths';
 import { InputForm } from '../ui-kit';
 import { dateValidation, nameValidation } from './form-validation';
 
@@ -20,43 +20,20 @@ type UserData = {
   birthDate: Item,
 }
 
-type Props = {
+type Props = UserData & {
   vkId: string,
+  isLoading: boolean,
 }
 
 export function PlayerForm(props: Props): JSX.Element {
   const [isEditing, setIsEditing] = React.useState<boolean>(false);
   const [isTouched, setIsTouched] = React.useState<boolean>(false);
-  const [isLoading, setIsLoading] = React.useState<boolean>(true);
   const [userData, setUserData] = React.useState<UserData>({
-    lastName: { value: '', error: undefined },
-    firstName: { value: '', error: undefined },
-    middleName: { value: '', error: undefined },
-    birthDate: { value: '', error: undefined },
+    lastName: { value: props.lastName.value, error: props.lastName.error },
+    firstName: { value: props.firstName.value, error: props.firstName.error },
+    middleName: { value: props.middleName.value, error: props.middleName.error },
+    birthDate: { value: props.birthDate.value, error: props.birthDate.error },
   });
-
-  React.useEffect(() => {
-    const fetchPlayerInfo = async () => {
-      try {
-        setIsLoading(true);
-        const response = await axios.get(infoPlayer, {
-          params: { vk_id: props.vkId },
-        });
-        const validResponse = {
-          lastName: { value: response.data.last_name, error: undefined },
-          firstName: { value: response.data.first_name, error: undefined },
-          middleName: { value: response.data.middle_name, error: undefined },
-          birthDate: { value: response.data.birth_date, error: undefined },
-        }
-        setUserData(validResponse);
-        setIsLoading(false);
-      } catch (err) {
-        toast.error('Ошибка при получении данных');
-      }
-  }
-
-  fetchPlayerInfo();
-}, [props]);
 
   const handleChange = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -120,7 +97,7 @@ export function PlayerForm(props: Props): JSX.Element {
     setIsEditing(false);
 
     return undefined;
-  }, [userData]);
+  }, [userData, props]);
 
   const renderButton = React.useMemo(() => {
     return isEditing
@@ -144,7 +121,7 @@ export function PlayerForm(props: Props): JSX.Element {
         onChange={handleChange}
         disabled={!isEditing}
         error={userData.lastName.error}
-        isLoading={isLoading}
+        isLoading={props.isLoading}
       />
 
       <InputForm
@@ -155,7 +132,7 @@ export function PlayerForm(props: Props): JSX.Element {
         onChange={handleChange}
         disabled={!isEditing}
         error={userData.firstName.error}
-        isLoading={isLoading}
+        isLoading={props.isLoading}
       />
 
       <InputForm
@@ -166,7 +143,7 @@ export function PlayerForm(props: Props): JSX.Element {
         onChange={handleChange}
         disabled={!isEditing}
         error={userData.middleName.error}
-        isLoading={isLoading}
+        isLoading={props.isLoading}
       />
 
       <InputForm
@@ -177,7 +154,7 @@ export function PlayerForm(props: Props): JSX.Element {
         onChange={handleChange}
         disabled={!isEditing}
         error={userData.birthDate.error}
-        isLoading={isLoading}
+        isLoading={props.isLoading}
       />
     </div>
 
