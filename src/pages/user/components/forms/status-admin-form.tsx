@@ -94,7 +94,7 @@ export function StatusAdminForm(props: Props): JSX.Element {
   return (
     <div className={s.container}>
       <div className={s.labelContainer}>
-        <div className={s.label}>Персонаж</div>
+        <div className={s.label}>Статус</div>
         <div>{renderButton}</div>
       </div>
 
