@@ -2,40 +2,40 @@ import React from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import axios from 'axios';
 
-import { editPlayerChar } from '../../api/paths';
-import { InputForm, SelectForm } from '../ui-kit';
-import { charNameValidation } from './form-validation';
+import { editPlayerStatus } from '../../api/paths';
+import { InputForm } from '../ui-kit';
 
 import s from './form.module.scss';
+import { SelectStatusForm } from '../ui-kit/select-status-form';
 
 type Item = {
   value: string,
   error?: string,
 }
 
-type CharData = {
-  charName: Item,
-  role: Item,
-  location: Item,
+type statusData = {
+  playerRequest: Item,
+  payment: Item,
+  photoCheck: Item,
 }
 
-type Props = CharData & {
+type Props = statusData & {
   vkId: string,
   isLoading: boolean,
 }
 
-export function CharForm(props: Props): JSX.Element {
+export function StatusAdminForm(props: Props): JSX.Element {
   const [isEditing, setIsEditing] = React.useState<boolean>(false);
   const [isTouched, setIsTouched] = React.useState<boolean>(false);
-  const [charData, setCharData] = React.useState<CharData>({
-    charName: { value: props.charName.value, error: props.charName.error },
-    role: { value: props.role.value, error: props.role.error },
-    location: { value: props.location.value, error: props.location.error },
+  const [statusData, setStatusData] = React.useState<statusData>({
+    playerRequest: { value: props.playerRequest.value, error: props.playerRequest.error },
+    payment: { value: props.payment.value, error: props.payment.error },
+    photoCheck: { value: props.photoCheck.value, error: props.photoCheck.error },
   });
 
   const handleChange = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setCharData((prevData) => ({
+    setStatusData((prevData) => ({
       ...prevData,
       [name]: {
         value: value,
@@ -43,7 +43,7 @@ export function CharForm(props: Props): JSX.Element {
       },
     }));
     setIsTouched(true);
-  }, [charData]);
+  }, [statusData]);
 
   const handleSubmit = React.useCallback(async () => {
     if (!isTouched) {
@@ -53,32 +53,25 @@ export function CharForm(props: Props): JSX.Element {
     }
 
     const validateCharData = {
-      charName: {
-        value: charData.charName.value,
-        error: charNameValidation(charData.charName.value, true),
+      playerRequest: {
+        value: statusData.playerRequest.value,
+        error: '',
       },
-      role: {
-        value: charData.role.value,
-        error: charNameValidation(charData.role.value, false),
+      payment: {
+        value: statusData.payment.value,
+        error: '',
       },
-      location: {
-        value: charData.location.value,
+      photoCheck: {
+        value: statusData.photoCheck.value,
         error: '',
       },
     };
 
-    const checkValidation = Object.values(validateCharData).some(e => e.error);
-    if (checkValidation) {
-      setCharData(validateCharData);
-
-      return;
-    }
-
     try {
-      await axios.post(editPlayerChar, {
-        char_name: validateCharData.charName.value,
-        role: validateCharData.role.value,
-        location: validateCharData.location.value,
+      await axios.post(editPlayerStatus, {
+        player_request: validateCharData.playerRequest.value,
+        payment: validateCharData.payment.value,
+        photo_check: validateCharData.photoCheck.value,
         vk_id: props.vkId,
       });
 
@@ -90,13 +83,13 @@ export function CharForm(props: Props): JSX.Element {
     setIsEditing(false);
 
     return undefined;
-  }, [charData]);
+  }, [statusData]);
 
   const renderButton = React.useMemo(() => {
     return isEditing
       ? <div onClick={handleSubmit} className={s.button}>Сохранить</div>
       : <div onClick={() => setIsEditing(true)} className={s.button}>Редактировать</div>;
-  }, [isEditing, charData]);
+  }, [isEditing, statusData]);
 
   return (
     <div className={s.container}>
@@ -106,35 +99,34 @@ export function CharForm(props: Props): JSX.Element {
       </div>
 
       <div className={s.inputContainer}>
-        <InputForm
-          label='Имя'
-          type="text"
-          name="charName"
-          value={charData.charName.value}
-          onChange={handleChange}
-          disabled={!isEditing}
-          error={charData.charName.error}
-          isLoading={props.isLoading}
-        />
-
-        <InputForm
-          label='Роль'
-          type="text"
-          name="role"
-          value={charData.role.value}
-          onChange={handleChange}
-          disabled={!isEditing}
-          error={charData.role.error}
-          isLoading={props.isLoading}
-        />
-
-        <SelectForm
-          label='Локация'
-          name='location'
-          value={charData.location.value}
+        <SelectStatusForm
+          label='Заявка'
+          name="playerRequest"
+          value={statusData.playerRequest.value}
           onSelectChange={handleChange}
           disabled={!isEditing}
-          error={charData.location.error}
+          error={statusData.playerRequest.error}
+          isLoading={props.isLoading}
+        />
+
+        <InputForm
+          label='Взнос'
+          type="number"
+          name="payment"
+          value={statusData.payment.value}
+          onChange={handleChange}
+          disabled={!isEditing}
+          error={statusData.payment.error}
+          isLoading={props.isLoading}
+        />
+
+        <SelectStatusForm
+          label='Фотодопуск'
+          name='photoCheck'
+          value={statusData.photoCheck.value}
+          onSelectChange={handleChange}
+          disabled={!isEditing}
+          error={statusData.photoCheck.error}
           isLoading={props.isLoading}
         />
       </div>

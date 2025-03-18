@@ -4,9 +4,9 @@ import axios from 'axios';
 import VK from './vk';
 import { vkRegistry, vkRegistryChar } from './api/paths';
 import { testResponse } from './test';
-import { PlayerForm, CharForm, StatusTable } from './components/forms';
 import vkImage from '../../assets/icons/social/vk.png';
 import exitImage from '../../assets/icons/social/exit.png';
+import { UserPage } from './user-page';
 
 import s from './user.module.scss';
 
@@ -117,11 +117,7 @@ export function VKAuth(): JSX.Element {
       </div>
 
       {user && (
-        <div className={s.formContainer}>
-          <PlayerForm vkId={user.id} />
-          <CharForm vkId={user.id} />
-          <StatusTable vkId={user.id} />
-        </div>
+        <UserPage vkId={user.id} />
       )}
     </div>
   );
