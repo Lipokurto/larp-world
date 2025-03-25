@@ -1,12 +1,12 @@
 import React from 'react';
+import axios from 'axios';
+import toast, { Toaster } from 'react-hot-toast';
 
 import VK from './vk';
 import { testResponse } from './test';
-import { CharForm, PlayerForm, StatusTable } from './components/forms';
-import toast, { Toaster } from 'react-hot-toast';
+import { CharForm, PlayerForm, PlayersTable, StatusTable } from './components/forms';
 import { UserData } from './type';
 import { info } from './api/paths';
-import axios from 'axios';
 
 function extractUsernameFromVkLink(link:string): string {
   const match = link.match(/https:\/\/vk\.com\/([a-zA-Z0-9_.]+)/);
@@ -22,6 +22,7 @@ export function AdminPage(): JSX.Element {
   const [userId, setUserId] = React.useState<string>('');
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [userData, setUserData] = React.useState<UserData | undefined>(undefined);
+  const [isShowData, setIsShowData] = React.useState<boolean>(false);
 
   const handleChange = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setUserLink(e.target.value);
@@ -69,6 +70,7 @@ const fetchUserInfo = React.useCallback((innerUserId: string) => {
       }
       setUserData(validResponse);
       setIsLoading(false);
+      setIsShowData(true);
     } catch (err) {
       toast.error('Ошибка при получении данных');
     }
@@ -77,43 +79,59 @@ const fetchUserInfo = React.useCallback((innerUserId: string) => {
   fetchPlayerInfo();
 }, [userId]);
 
+const handleHideData = React.useCallback(() => {
+  setIsShowData(false);
+}, [userId]);
+
+const renderData = React.useMemo(() => {
+  if (userData && isShowData) {
+    return (
+      <>
+        <StatusTable
+          vkId={userId}
+          playerRequest={userData.playerRequest}
+          payment={userData.payment}
+          photoCheck={userData.photoCheck}
+          isLoading={isLoading}
+          isAdmin={userData.isAdmin}
+        />
+
+        <PlayerForm
+          vkId={userId}
+          lastName={userData.lastName}
+          firstName={userData.firstName}
+          middleName={userData.middleName}
+          birthDate={userData.birthDate}
+          isLoading={isLoading}
+        />
+
+        <CharForm
+          vkId={userId}
+          charName={userData.charName}
+          role={userData.role}
+          location={userData.location}
+          isLoading={isLoading}
+        />
+      </>
+    )
+  }
+}, []);
+
   return (
     <>
       <div>
         <label style={{ color: 'white' }}>Ссылка на страницу ВК</label>
         <input type='text' onChange={handleChange} />
-        <button onClick={handleSubmit}>Проверить</button>
+        <button onClick={handleSubmit}>Показать</button><button onClick={handleHideData}>Спрятать</button>
+      </div>
+      <div>
+
+      <div>
+        <PlayersTable />
+        </div>
       </div>
 
-      {userData && (
-        <>
-          <StatusTable
-            vkId={userId}
-            playerRequest={userData.playerRequest}
-            payment={userData.payment}
-            photoCheck={userData.photoCheck}
-            isLoading={isLoading}
-            isAdmin={userData.isAdmin}
-          />
-
-          <PlayerForm
-            vkId={userId}
-            lastName={userData.lastName}
-            firstName={userData.firstName}
-            middleName={userData.middleName}
-            birthDate={userData.birthDate}
-            isLoading={isLoading}
-          />
-
-          <CharForm
-            vkId={userId}
-            charName={userData.charName}
-            role={userData.role}
-            location={userData.location}
-            isLoading={isLoading}
-          />
-        </>
-      )}
+      {renderData}
 
       <Toaster
         position="bottom-left"
