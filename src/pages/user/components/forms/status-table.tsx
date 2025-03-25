@@ -3,9 +3,9 @@ import ContentLoader from 'react-content-loader';
 import { Toaster } from 'react-hot-toast';
 
 import { StatusBar } from '../ui-kit';
+import { StatusAdminForm } from './status-admin-form';
 
 import s from './form.module.scss';
-import { StatusAdminForm } from './status-admin-form';
 
 type StatusData = {
   playerRequest: boolean,

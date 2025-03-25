@@ -50,7 +50,7 @@ export function UserPage(props: Props): JSX.Element {
 
   return (
   <>
-    {userData &&userData.isAdmin && (
+    {userData && userData.isAdmin && (
       <AdminPage />
     )}
 
