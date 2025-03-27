@@ -45,6 +45,7 @@ const helmet: HelmetItem[] = [
 
 const defaultArmor: ArmorHit[] = [
     { limb: 'torso', hits: 0 },
+    { limb: 'back', hits: 0 },
     { limb: 'leftShoulder', hits: 0 },
     { limb: 'rightShoulder', hits: 0 },
     { limb: 'leftArm', hits: 0 },
@@ -55,15 +56,9 @@ const defaultArmor: ArmorHit[] = [
     { limb: 'rightLeg', hits: 0 },
   ];
 
-const backOptions: BackItem[] = [{ value: true, label: 'Да' }, { value: false, label: 'Нет' }];
-
-function getHits(name: string, armorClass: number, hasBack: boolean): number {
-  if (name === 'torso') {
-    if (hasBack) {
-      return armorClass
-    } else {
-      return armorClass / 2;
-    }
+function getHits(name: string, armorClass: number): number {
+  if (name === 'torso' || name === 'back') {
+    return armorClass / 2;
   }
 
   return armorClass / 4;
@@ -73,7 +68,6 @@ export function HitsCalc(): JSX.Element {
   const [hasArmor, setHasArmor] = React.useState<boolean>(false);
   const [hits, setHits] = React.useState<number>(1);
   const [currentArmor, setCurrentArmor] = React.useState<ArmorHit[]>(defaultArmor);
-  const [back, setBack] = React.useState<BackItem>({ value: false, label: 'Нет' });
   const [isManual, setManual] = React.useState<boolean>(true);
 
   const handleHelmetArmor = React.useCallback((option: HelmetItem) => {
@@ -85,37 +79,18 @@ export function HitsCalc(): JSX.Element {
 
     currentArmor.splice(findIndex, 1, {
       limb: name,
-      hits: getHits(name, option.value.armorClass, back.value),
+      hits: getHits(name, option.value.armorClass),
     });
 
     setCurrentArmor(currentArmor);
 
     const totalHits = currentArmor.reduce((acc, p) => acc + p.hits, 0);
     setHits(totalHits + 1);
-  }, [back.value, currentArmor]);
+  }, [currentArmor]);
 
   const renderLabel = React.useCallback((text: string, element: JSX.Element) => {
     return isManual ? element : text;
   }, [isManual])
-
-  const handleBack = React.useCallback((option: BackItem) => {
-    if (option.value !== back.value) {
-      const torsoArmor = currentArmor.find(p => p.limb === 'torso');
-
-      if (torsoArmor) {
-        currentArmor.splice(0, 1, {
-          limb: 'torso',
-          hits:  option.value ? torsoArmor.hits * 2 : torsoArmor.hits / 2,
-        });
-        setCurrentArmor(currentArmor);
-      }
-
-      const totalHits = currentArmor.reduce((acc, p) => acc + p.hits, 0);
-      setHits(totalHits + 1);
-    }
-
-    setBack(option);
-  }, [back.value, currentArmor]);
 
   const renderHealth = React.useMemo(() => {
     const shields = Array(Math.round(hits)).fill(shield);
@@ -232,10 +207,9 @@ export function HitsCalc(): JSX.Element {
                 )}
 
                 <SelectItem
-                  value={back}
-                  name='back'
-                  options={backOptions}
-                  onChange={(option: BackItem) => handleBack(option)}
+                  placeholder='Нет брони'
+                  options={armor}
+                  onChange={(option: ArmorItem) => handleArmor({ name: 'back', option })}
                 />
               </div>
             </div>
