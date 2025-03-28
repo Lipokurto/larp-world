@@ -2,7 +2,7 @@ import React from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import axios from 'axios';
 
-import { editPlayerStatus } from '../../api/paths';
+import { editPlayerStatus } from '../../../../api/user';
 import { InputForm } from '../ui-kit';
 
 import s from './form.module.scss';

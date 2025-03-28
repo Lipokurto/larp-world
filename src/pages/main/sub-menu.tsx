@@ -22,8 +22,6 @@ export function SubMenu(props: Props): JSX.Element {
         title={props.obj.name}
         width={width < 720 ? 340 : undefined}
       />
-
-      <div className='sub-text'>{props.obj.description}</div>
     </div>
   )
 }

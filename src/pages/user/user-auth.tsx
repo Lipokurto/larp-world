@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 
 import VK from './vk';
-import { vkRegistry, vkRegistryChar } from './api/paths';
+import { vkRegistry, vkRegistryChar } from '../../api/user';
 import { testResponse } from './test';
 import vkImage from '../../assets/icons/social/vk.png';
 import exitImage from '../../assets/icons/social/exit.png';

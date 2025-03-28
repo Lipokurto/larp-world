@@ -2,7 +2,7 @@ import React from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import axios from 'axios';
 
-import { editPlayerChar } from '../../api/paths';
+import { editPlayerChar } from '../../../../api/user';
 import { InputForm, SelectForm } from '../ui-kit';
 import { charNameValidation } from './form-validation';
 

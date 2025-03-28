@@ -3,7 +3,7 @@ import React from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import DataTable, { TableColumn } from 'react-data-table-component';
 
-import { playersTable } from '../../api/paths';
+import { playersTable } from '../../../../api/user';
 
 type PlayersData = {
   id: number,
