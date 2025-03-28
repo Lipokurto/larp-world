@@ -2,12 +2,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Tooltip from 'react-tooltip-lite';
+import axios from 'axios';
+import toast, { Toaster } from 'react-hot-toast';
 
 import { SubMenu } from './sub-menu';
 import { Logo } from '../../components/logo';
 import { NavigationModal, useResize } from '../../components';
 import { rules } from '../../components/navigation/lists';
-import { videoObject } from '../../links/main-video/video-objects';
 
 import staticLogo from '../../assets/LOGO_2025.png';
 import vkImage from './../../assets/icons/social/vk.png';
@@ -15,13 +16,47 @@ import ruStore from './../../assets/icons/social/ruStore.png';
 import pdfIcon from './../../assets/icons/social/pdfIcon.png';
 import excelIcon from './../../assets/icons/social/excel.png';
 import pdfRules from '../../rules-text/Pravila_Temnye_veka_v_2_3_1.pdf';
+import { mainVideos } from '../../api/materials';
 
 import s from './main.module.scss';
 
+type Link = {
+  id: number,
+  name: string,
+  link: string,
+  page: string,
+}
+
 export function Main(): JSX.Element {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
+  const [videoObject, setVideoObject] = React.useState<Link[]>([]);
+  const [isVideoLoading, setIsVideoLoading] = React.useState<boolean>(false);
 
   const { width } = useResize();
+
+    React.useEffect(() => {
+      const fetchPlayerInfo = async () => {
+        setIsVideoLoading(true);
+        try {
+          const response = await axios.get(mainVideos, { params: { page: 'main' } });
+          const videoItems: Link[] = response.data.map((item: Link) => {
+            if (item.page === 'main') {
+              return ({
+                id: item.id,
+                link: item.link,
+              });
+            }
+          });
+
+          setVideoObject(videoItems);
+        } catch (err) {
+          toast.error('Ошибка при получении данных');
+        }
+        setIsVideoLoading(false);
+      }
+
+    fetchPlayerInfo();
+  }, []);
 
   const handleClick = React.useCallback(() => {
     setIsOpen(true);
@@ -77,6 +112,26 @@ export function Main(): JSX.Element {
     )
   }, []);
 
+  const renderVideos = React.useMemo(() => {
+    if (isVideoLoading) {
+      return null;
+    }
+
+    return (
+      <div className={s.subMenuContainer}>
+        {videoObject.map((e) => {
+          return (
+            <div key={e.id}>
+              <SubMenu
+                obj={e}
+              />
+            </div>
+          )
+        })}
+      </div>
+    )
+  }, [videoObject, isVideoLoading]);
+
   return (
     <>
       <div className={s.container}>
@@ -100,15 +155,7 @@ export function Main(): JSX.Element {
           {renderLogo}
         </div>
 
-        <div className={s.subMenuContainer}>
-          {videoObject.map((e) => {
-            return (
-              <div key={e.link}>
-                <SubMenu obj={e} />
-              </div>
-            )
-          })}
-        </div>
+        {renderVideos}
       </div>
 
       {isOpen && (
@@ -119,6 +166,11 @@ export function Main(): JSX.Element {
           link='/rules'
         />
       )}
+
+      <Toaster
+        position="bottom-left"
+        reverseOrder={false}
+      />
     </>
   )
 }

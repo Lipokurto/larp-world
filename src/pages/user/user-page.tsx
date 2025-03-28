@@ -3,11 +3,12 @@ import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
 
 import { CharForm, PlayerForm, StatusTable } from './components/forms';
-import { info } from './api/paths';
-import { AdminPage } from './admin-page';
+import { info } from '../../api/user';
+import { AdminUserPage } from './admin-user-page';
 import { UserData } from './type';
 
 import s from './user.module.scss';
+import { AdminContentPage } from './admin-content-page';
 
 type Props = {
   vkId: string,
@@ -51,7 +52,10 @@ export function UserPage(props: Props): JSX.Element {
   return (
   <>
     {userData && userData.isAdmin && (
-      <AdminPage />
+      <>
+        <AdminContentPage />
+        <AdminUserPage />
+      </>
     )}
 
     {userData && !userData.isAdmin && (

@@ -6,7 +6,7 @@ import VK from './vk';
 import { testResponse } from './test';
 import { CharForm, PlayerForm, PlayersTable, StatusTable } from './components/forms';
 import { UserData } from './type';
-import { info } from './api/paths';
+import { info } from '../../api/user';
 
 function extractUsernameFromVkLink(link:string): string {
   const match = link.match(/https:\/\/vk\.com\/([a-zA-Z0-9_.]+)/);
@@ -17,7 +17,7 @@ function extractUsernameFromVkLink(link:string): string {
   return '';
 }
 
-export function AdminPage(): JSX.Element {
+export function AdminUserPage(): JSX.Element {
   const [userLink, setUserLink] = React.useState<string>('');
   const [userId, setUserId] = React.useState<string>('');
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
