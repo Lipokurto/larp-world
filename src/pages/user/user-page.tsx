@@ -4,11 +4,10 @@ import toast, { Toaster } from 'react-hot-toast';
 
 import { CharForm, PlayerForm, StatusTable } from './components/forms';
 import { info } from '../../api/user';
-import { AdminUserPage } from './admin-user-page';
 import { UserData } from './type';
+import { AdminSelector } from './admin';
 
 import s from './user.module.scss';
-import { AdminContentPage } from './admin-content-page';
 
 type Props = {
   vkId: string,
@@ -52,10 +51,7 @@ export function UserPage(props: Props): JSX.Element {
   return (
   <>
     {userData && userData.isAdmin && (
-      <>
-        <AdminContentPage />
-        <AdminUserPage />
-      </>
+      <AdminSelector />
     )}
 
     {userData && !userData.isAdmin && (

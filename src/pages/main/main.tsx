@@ -1,7 +1,6 @@
 // eslint-disable jsx-a11y/anchor-is-valid
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import Tooltip from 'react-tooltip-lite';
 import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
 
@@ -11,12 +10,8 @@ import { NavigationModal, useResize } from '../../components';
 import { rules } from '../../components/navigation/lists';
 
 import staticLogo from '../../assets/LOGO_2025.png';
-import vkImage from './../../assets/icons/social/vk.png';
-import ruStore from './../../assets/icons/social/ruStore.png';
-import pdfIcon from './../../assets/icons/social/pdfIcon.png';
-import excelIcon from './../../assets/icons/social/excel.png';
-import pdfRules from '../../rules-text/Pravila_Temnye_veka_v_2_3_1.pdf';
-import { mainVideos } from '../../api/materials';
+import { getVideos } from '../../api/materials';
+import { SidePanel } from './side-panel';
 
 import s from './main.module.scss';
 
@@ -38,7 +33,7 @@ export function Main(): JSX.Element {
       const fetchPlayerInfo = async () => {
         setIsVideoLoading(true);
         try {
-          const response = await axios.get(mainVideos, { params: { page: 'main' } });
+          const response = await axios.get(getVideos, { params: { page: 'main' } });
           const videoItems: Link[] = response.data.map((item: Link) => {
             if (item.page === 'main') {
               return ({
@@ -65,52 +60,6 @@ export function Main(): JSX.Element {
   const renderLogo = React.useMemo(() => {
     return width < 800 ? <img src={staticLogo} alt='' width={200} style={{ marginLeft:'-100px' }}/> : <Logo />
   }, [width]);
-
-  const renderLinks = React.useMemo(() => {
-    return (
-      <>
-        <Tooltip
-          content='Группа в Вконтакте'
-          background='wheat'
-          direction="left"
-        >
-          <a href='https://vk.com/larpdarkage' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>
-            <img src={vkImage} alt="" width={30} />
-          </a>
-        </Tooltip>
-
-        <Tooltip
-          content='Наше приложение в RuStore'
-          background='wheat'
-          direction="left"
-        >
-          <a href='https://apps.rustore.ru/app/com.darkapk03' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>
-            <img src={ruStore} alt="" width={30} />
-          </a>
-        </Tooltip>
-
-        <Tooltip
-          content='Все правила одним файлом PDF (v2-3-1)'
-          background='wheat'
-          direction="left"
-        >
-          <a href={pdfRules} target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }} download={'Темные_века_правила_v2-3-1'}>
-            <img src={pdfIcon} alt="" width={30} />
-          </a>
-        </Tooltip>
-
-        <Tooltip
-          content='Таблица всех ролей'
-          background='wheat'
-          direction="left"
-        >
-          <a href='https://docs.google.com/spreadsheets/d/1l5G5-vJ56_ibip1hng414RTNg3HXjJtS7RmQ0ACPdvE/edit?usp=sharing' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>
-            <img src={excelIcon} alt="" width={30} />
-          </a>
-        </Tooltip>
-      </>
-    )
-  }, []);
 
   const renderVideos = React.useMemo(() => {
     if (isVideoLoading) {
@@ -149,7 +98,7 @@ export function Main(): JSX.Element {
 
         <div className={s.logo}>
           <div className={s.social}>
-            {renderLinks}
+            <SidePanel />
           </div>
 
           {renderLogo}
