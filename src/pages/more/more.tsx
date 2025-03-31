@@ -6,7 +6,7 @@ import { Chapter, ItemModal, Video, VideoContainer, useResize } from '../../comp
 import { helpfulLinks } from '../../links/helpful-links';
 import { downloadFiles } from '../../links/files/download-files';
 import { Item, VideoItem } from '../../rules-text/type';
-import { mainVideos } from '../../api/materials';
+import { getVideos } from '../../api/materials';
 
 import s from './more.module.css';
 
@@ -26,7 +26,7 @@ export function More(): JSX.Element {
   React.useEffect(() => {
     const fetchPlayerInfo = async () => {
       try {
-        const response = await axios.get(mainVideos, { params: { page: 'main' } });
+        const response = await axios.get(getVideos, { params: { page: 'main' } });
         const videoItems: Link[] = response.data.map((item: Link) => {
           if (item.page === 'main') {
             return ({

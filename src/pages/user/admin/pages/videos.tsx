@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
-import { addVideo } from '../../api/materials';
+
+import { addVideo } from '../../../../api/materials';
 
 type Video = {
   name: string,
@@ -9,7 +10,7 @@ type Video = {
   page: string,
 }
 
-export function AdminContentPage(): JSX.Element {
+export function Videos(): JSX.Element {
   const [videoObject, setVideoObject] = React.useState<Video>({
     name: '',
     link: '',
