@@ -19,7 +19,7 @@ export function UserEdit(): JSX.Element {
   }, []);
 
   const handleSubmit = React.useCallback( async () => {
-    const userId = getIdWithLink(userLink);
+    const userId = await getIdWithLink(userLink);
     setUserId(userId);
     fetchUserInfo(userId);
   }, [userLink]);
