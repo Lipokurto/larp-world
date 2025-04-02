@@ -5,6 +5,28 @@ import DataTable, { TableColumn } from 'react-data-table-component';
 
 import { playersTable } from '../../../../../api/user';
 
+const darkTheme = {
+  headCells: {
+    style: {
+      paddingLeft: '8px',
+      paddingRight: '8px',
+      fontSize: '15px',
+      fontWeight: 'bold',
+      backgroundColor: '#1a1a1a',
+      color: '#ffffff',
+    },
+  },
+  cells: {
+    style: {
+      paddingLeft: '8px',
+      paddingRight: '8px',
+      fontSize: '0.875rem',
+      color: '#f8f8f8',
+      backgroundColor: '#2d2d2d',
+    },
+  },
+};
+
 type PlayersData = {
   id: number,
   fullName: string,
@@ -67,7 +89,7 @@ export function UsersTable(): JSX.Element {
     }))
 
     if (playersData.length > 0) {
-      return <DataTable columns={columns} data={data} pagination />
+      return <DataTable columns={columns} data={data} theme='dark' customStyles={darkTheme}/>
     }
 
     return null;
