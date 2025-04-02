@@ -75,7 +75,7 @@ export function UserCreate(): JSX.Element {
   return (
     <>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <h3>Создать пользователя</h3>
+        <h3 style={{ color: 'white' }}>Создать пользователя</h3>
         <InputForm
           label='ФИО'
           type='text'

@@ -45,7 +45,7 @@ export function Videos(): JSX.Element {
   return (
     <>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <h3>Добавить видео</h3>
+        <h3 style={{ color: 'white' }}>Добавить видео</h3>
 
         <InputForm
           label='Название видео'

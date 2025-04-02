@@ -76,7 +76,7 @@ export function UsersTable(): JSX.Element {
   return (
     <>
       <div style={{ marginTop: 10, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <h3>Список всех заявок</h3>
+      <h3 style={{ color: 'white' }}>Список всех заявок</h3>
         {isTableShown && renderTable}
       </div>
 
