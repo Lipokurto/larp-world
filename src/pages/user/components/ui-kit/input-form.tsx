@@ -9,8 +9,8 @@ type Props = {
   type: string,
   value: string,
   name: string,
-  disabled: boolean,
-  isLoading: boolean,
+  disabled?: boolean,
+  isLoading?: boolean,
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void,
   error?: string,
 }

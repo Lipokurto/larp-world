@@ -1,5 +1,6 @@
 import React from 'react';
-import { Rules, Users, Videos } from './pages';
+
+import { Rules, Videos, UsersSelector } from './pages';
 
 export function AdminSelector(): JSX.Element {
   const [page, setPage] = React.useState<string>('users');
@@ -17,15 +18,15 @@ export function AdminSelector(): JSX.Element {
       )
     }
 
-    return <Users />
+    return <UsersSelector />
   }, [page]);
 
   return (
     <div>
-      <div>
-        <button onClick={() => setPage('users')}>Игроки</button>
-        <button onClick={() => setPage('rules')}>Правила</button>
-        <button onClick={() => setPage('videos')}>Видео</button>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <button onClick={() => setPage('users')} disabled={page === 'users'}>Игроки</button>
+        <button onClick={() => setPage('rules')} disabled={page === 'rules'}>Правила</button>
+        <button onClick={() => setPage('videos')} disabled={page === 'videos'}>Видео</button>
       </div>
 
       {renderPage}

@@ -3,14 +3,33 @@ import ContentLoader from 'react-content-loader'
 
 import s from './input-form.module.scss'
 
+function DefaultOptions(): JSX.Element {
+  return (
+    <>
+      <optgroup label="Военные лагеря">
+        <option value="" disabled selected hidden>Выберите локацию</option>
+        <option value='Престольский лагерь'>Престольский лагерь</option>
+        <option value='Кушанский лагерь'>Кушанский лагерь</option>
+      </optgroup>
+      <optgroup label="город Камельн">
+        <option value='Верхний квартал'>Верхний квартал</option>
+        <option value='Торговый квартал'>Торговый квартал</option>
+        <option value='Восточный квартал'>Восточный квартал</option>
+        <option value='Церковный квартал'>Церковный квартал</option>
+      </optgroup>
+    </>
+  )
+}
+
 type Props = {
   label: string,
   name: string,
   value: string,
-  disabled: boolean,
-  isLoading: boolean,
+  isLoading?: boolean,
+  disabled?: boolean,
   onSelectChange?: (item: any) => void,
   error?: string,
+  options?: JSX.Element,
 }
 
 export function SelectForm(props: Props): JSX.Element {
@@ -32,17 +51,7 @@ export function SelectForm(props: Props): JSX.Element {
       disabled={props.disabled}
       placeholder='Выберите локацию'
     >
-      <optgroup label="Военные лагеря">
-        <option value="" disabled selected hidden>Выберите локацию</option>
-        <option value='Престольский лагерь'>Престольский лагерь</option>
-        <option value='Кушанский лагерь'>Кушанский лагерь</option>
-      </optgroup>
-      <optgroup label="город Камельн">
-        <option value='Верхний квартал'>Верхний квартал</option>
-        <option value='Торговый квартал'>Торговый квартал</option>
-        <option value='Восточный квартал'>Восточный квартал</option>
-        <option value='Церковный квартал'>Церковный квартал</option>
-      </optgroup>
+      {props.options || <DefaultOptions />}
     </select>
     )
   }, [props]);

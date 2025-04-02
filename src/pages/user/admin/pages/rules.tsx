@@ -3,6 +3,7 @@ import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
 
 import { addRules } from '../../../../api/materials';
+import { InputForm, SelectForm } from '../../components/ui-kit';
 
 type Rules = {
   type: string,
@@ -43,25 +44,37 @@ export function Rules(): JSX.Element {
 
   return (
     <>
-      <div>
-        <div>
-          <label style={{ color: 'white' }}>Тип правил</label>
-          <select name='type' onChange={handleChange}>
-            <option value='common'>Общие правила</option>
-            <option value='battle'>Боевые ивенты</option>
-            <option value='vote'>Голосование</option>
-          </select>
-        </div>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <h3>Добавить версию правил</h3>
+          <SelectForm
+            label='Тип правил'
+            value={rules.type}
+            name='type'
+            onSelectChange={handleChange}
+            options={
+              <>
+                <option value='common'>Общие правила</option>
+                <option value='battle'>Боевые ивенты</option>
+                <option value='vote'>Голосование</option>
+              </>
+            }
+            />
 
-        <div>
-          <label style={{ color: 'white' }}>Введите версию правил</label>
-          <input type='text' name='version' onChange={handleChange} />
-        </div>
+          <InputForm
+            label='Версия правил'
+            name='version'
+            type='text'
+            onChange={handleChange}
+            value={rules.version}
+          />
 
-        <div>
-          <label style={{ color: 'white' }}>Ссылка на файл правил в ВК</label>
-          <input type='text' name='link'onChange={handleChange} />
-        </div>
+          <InputForm
+            label='Ссылка на файл правил в ВК'
+            name='link'
+            type='text'
+            onChange={handleChange}
+            value={rules.link}
+          />
 
         <button onClick={handleSubmit} disabled={!rules.type || !rules.link || !rules.version}>Добавить правила</button>
       </div>

@@ -3,6 +3,7 @@ import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
 
 import { addVideo } from '../../../../api/materials';
+import { InputForm } from '../../components/ui-kit';
 
 type Video = {
   name: string,
@@ -43,16 +44,24 @@ export function Videos(): JSX.Element {
 
   return (
     <>
-      <div>
-        <div>
-          <label style={{ color: 'white' }}>Название видео</label>
-          <input type='text' name='name' onChange={handleChange} />
-        </div>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <h3>Добавить видео</h3>
 
-        <div>
-          <label style={{ color: 'white' }}>Ссылка на видео в ВК</label>
-          <input type='text' name='link'onChange={handleChange} />
-        </div>
+        <InputForm
+          label='Название видео'
+          name='name'
+          type='text'
+          onChange={handleChange}
+          value={videoObject.name}
+        />
+
+        <InputForm
+          label='Ссылка на видео в ВК'
+          name='link'
+          type='text'
+          onChange={handleChange}
+          value={videoObject.link}
+        />
 
         <button onClick={handleSubmit} disabled={!videoObject.name || !videoObject.link}>Добавить видео</button>
       </div>
