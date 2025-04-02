@@ -10,25 +10,29 @@ function extractUsernameFromVkLink(link:string): string {
   return '';
 }
 
-export function getIdWithLink(link: string, isCreateDev?: boolean): string {
-  let userId = '';
+export function getIdWithLink(link: string, isCreateDev?: boolean): Promise<string> {
   if (process.env.REACT_APP_NEW === 'prod') {
-    try {
-      const userName = extractUsernameFromVkLink(link);
-      VK.Api.call('users.get', { user_ids: userName, v:'5.81' }, (r: any) => {
-        userId = r.response[0].id;
-      });
-    } catch (error) {
-      console.error('Error fetching user ID:', error);
-      return 'Ошибка поиска пользователя';
-    }
+    return new Promise((resolve, reject) => {
+      try {
+        const userName = extractUsernameFromVkLink(link);
+        VK.Api.call('users.get', { user_ids: userName, v: '5.81' }, (r: any) => {
+          if (r && r.response && r.response[0]) {
+            console.log('USERRRRID ====>>>', r.response[0].id);
+            resolve(r.response[0].id);
+          } else {
+            reject('Ошибка поиска пользователя');
+          }
+        });
+      } catch (error) {
+        console.error('Error fetching user ID:', error);
+        reject('Ошибка поиска пользователя');
+      }
+    });
   } else {
     if (isCreateDev) {
-      userId = Math.floor(Math.random() * 9999).toString();
+      return Promise.resolve(Math.floor(Math.random() * 9999).toString());
     } else {
-      userId = testResponse.session.user.id;
+      return Promise.resolve(testResponse.session.user.id);
     }
   }
-
-  return userId;
 }

@@ -39,7 +39,7 @@ export function UserCreate(): JSX.Element {
   }, [userData]);
 
   const handleSubmit = React.useCallback(async () => {
-    const userId = getIdWithLink(userData.vkLink, true);
+    const userId = await getIdWithLink(userData.vkLink, true);
     const name = getSeparateName(userData.fullName);
 
     const checkRequireInputs = (
