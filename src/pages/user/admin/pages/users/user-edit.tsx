@@ -92,7 +92,7 @@ const renderData = React.useMemo(() => {
   return (
     <>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <h3>Редактировать пользователя</h3>
+        <h3 style={{ color: 'white' }}>Редактировать пользователя</h3>
         <InputForm
           label='Ссылка на страницу ВК'
           type='text'

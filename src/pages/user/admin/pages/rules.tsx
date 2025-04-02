@@ -45,7 +45,7 @@ export function Rules(): JSX.Element {
   return (
     <>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-        <h3>Добавить версию правил</h3>
+        <h3 style={{ color: 'white' }}>Добавить версию правил</h3>
           <SelectForm
             label='Тип правил'
             value={rules.type}
