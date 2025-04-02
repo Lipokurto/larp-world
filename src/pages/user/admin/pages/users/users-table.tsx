@@ -3,7 +3,7 @@ import React from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import DataTable, { TableColumn } from 'react-data-table-component';
 
-import { playersTable } from '../../../../api/user';
+import { playersTable } from '../../../../../api/user';
 
 type PlayersData = {
   id: number,
@@ -16,15 +16,13 @@ type PlayersData = {
   payment: string,
 }
 
-export function PlayersTable(): JSX.Element {
+export function UsersTable(): JSX.Element {
   const [isTableShown, setIsTableShown] = React.useState<boolean>(false);
   const [playersData, setPlayersData] = React.useState<PlayersData[]>([]);
-  const [isLoading, setIsLoading] = React.useState<boolean>(false);
 
-  const fetchPlayersData = React.useCallback(() => {
+  React.useEffect(() => {
     const fetchPlayerInfo = async () => {
       try {
-        setIsLoading(true);
         const response = await axios.get(playersTable);
         const playersDataDTO: PlayersData[] = response.data.map((p: any) => ({
           id: p.vk_id,
@@ -37,7 +35,6 @@ export function PlayersTable(): JSX.Element {
           payment: p.payment,
         }))
         setPlayersData(playersDataDTO);
-        setIsLoading(false);
         setIsTableShown(true);
       } catch (err) {
         toast.error('Ошибка при получении данных');
@@ -49,13 +46,13 @@ export function PlayersTable(): JSX.Element {
 
   const renderTable = React.useMemo(() => {
     const columns: TableColumn<PlayersData>[] = [
-      { name: 'ФИО', selector: (row: PlayersData) => row.fullName },
-      { name: 'ВК', selector: (row: PlayersData) => row.vkLink },
+      { name: 'ФИО', selector: (row: PlayersData) => row.fullName, width: '200px' },
+      { name: 'ВК', selector: (row: PlayersData) => row.vkLink, width: '200px' },
       { name: 'Персонаж', selector: (row: PlayersData) => row.char || '-' },
       { name: 'Роль', selector: (row: PlayersData) => row.role || '-' },
-      { name: 'Локация', selector: (row: PlayersData) => row.location || '-' },
-      { name: 'Фотодопуск', selector: (row: PlayersData) => row.photo },
-      { name: 'Взнос', selector: (row: PlayersData) => row.payment },
+      { name: 'Локация', selector: (row: PlayersData) => row.location || '-', width: '150px' },
+      { name: 'Фотодопуск', selector: (row: PlayersData) => row.photo, width: '80px' },
+      { name: 'Взнос', selector: (row: PlayersData) => row.payment, width: '80px' },
     ];
 
     const data: PlayersData[] = playersData.map((p, i) => ({
@@ -70,25 +67,16 @@ export function PlayersTable(): JSX.Element {
     }))
 
     if (playersData.length > 0) {
-      return <DataTable title="Список всех заявок" columns={columns} data={data} pagination />
+      return <DataTable columns={columns} data={data} pagination />
     }
 
     return null;
   }, [playersData]);
 
-  const handleShowTable = React.useCallback(() => {
-    fetchPlayersData();
-    setIsTableShown(true);
-  }, []);
-
   return (
     <>
-      <div style={{ marginTop: 10 }}>
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
-          <button onClick={handleShowTable}>Показать данные всех игроков</button>
-          <button onClick={() => setIsTableShown(false)}>Спрятать</button>
-        </div>
-
+      <div style={{ marginTop: 10, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <h3>Список всех заявок</h3>
         {isTableShown && renderTable}
       </div>
 

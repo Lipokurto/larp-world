@@ -2,49 +2,26 @@ import React from 'react';
 import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
 
-import VK from '../../vk';
-import { testResponse } from '../../test';
-import { CharForm, PlayerForm, PlayersTable, StatusTable } from '../../components/forms';
-import { UserData } from '../../type';
-import { info } from '../../../../api/user';
+import { CharForm, PlayerForm, StatusTable } from '../../../components/forms';
+import { UserData } from '../../../type';
+import { info } from '../../../../../api/user';
+import { getIdWithLink } from '../../../utils/get-id-with-link';
+import { InputForm } from '../../../components/ui-kit';
 
-function extractUsernameFromVkLink(link:string): string {
-  const match = link.match(/https:\/\/vk\.com\/([a-zA-Z0-9_.]+)/);
-  if (match && match[1]) {
-    return match[1];
-  }
-
-  return '';
-}
-
-export function Users(): JSX.Element {
+export function UserEdit(): JSX.Element {
   const [userLink, setUserLink] = React.useState<string>('');
   const [userId, setUserId] = React.useState<string>('');
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [userData, setUserData] = React.useState<UserData | undefined>(undefined);
-  const [isShowData, setIsShowData] = React.useState<boolean>(false);
 
-  const handleChange = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleLinkChange = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setUserLink(e.target.value);
   }, []);
 
   const handleSubmit = React.useCallback( async () => {
-    if (process.env.REACT_APP_NEW === 'prod') {
-      try {
-        const userName = extractUsernameFromVkLink(userLink);
-        VK.Api.call('users.get', { user_ids: userName, v:'5.81' }, (r: any) => {
-          setUserId(r.response[0].id);
-          fetchUserInfo(r.response[0].id);
-        });
-      } catch (error) {
-        console.error('Error fetching user ID:', error);
-        return 'Ошибка поиска пользователя';
-      }
-    } else {
-      setUserId(testResponse.session.user.id);
-      fetchUserInfo(testResponse.session.user.id);
-    }
-
+    const userId = getIdWithLink(userLink);
+    setUserId(userId);
+    fetchUserInfo(userId);
   }, [userLink]);
 
 const fetchUserInfo = React.useCallback((innerUserId: string) => {
@@ -70,7 +47,6 @@ const fetchUserInfo = React.useCallback((innerUserId: string) => {
       }
       setUserData(validResponse);
       setIsLoading(false);
-      setIsShowData(true);
     } catch (err) {
       toast.error('Ошибка при получении данных');
     }
@@ -79,12 +55,8 @@ const fetchUserInfo = React.useCallback((innerUserId: string) => {
   fetchPlayerInfo();
 }, [userId]);
 
-const handleHideData = React.useCallback(() => {
-  setIsShowData(false);
-}, [userId]);
-
 const renderData = React.useMemo(() => {
-  if (userData && isShowData) {
+  if (userData) {
     return (
       <>
         <StatusTable
@@ -115,20 +87,21 @@ const renderData = React.useMemo(() => {
       </>
     )
   }
-}, []);
+}, [userData, isLoading, userId]);
 
   return (
     <>
-      <div>
-        <label style={{ color: 'white' }}>Ссылка на страницу ВК</label>
-        <input type='text' onChange={handleChange} />
-        <button onClick={handleSubmit}>Показать</button><button onClick={handleHideData}>Спрятать</button>
-      </div>
-      <div>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <h3>Редактировать пользователя</h3>
+        <InputForm
+          label='Ссылка на страницу ВК'
+          type='text'
+          name='link'
+          value={userLink}
+          onChange={handleLinkChange}
+        />
 
-      <div>
-        <PlayersTable />
-        </div>
+        <button onClick={handleSubmit} disabled={!userLink}>ПОКАЗАТЬ</button>
       </div>
 
       {renderData}
