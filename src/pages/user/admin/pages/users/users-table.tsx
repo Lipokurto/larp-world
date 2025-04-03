@@ -5,6 +5,7 @@ import DataTable, { TableColumn } from 'react-data-table-component';
 
 import { playersTable } from '../../../../../api/user';
 import { renderStatusIcon } from '../../../components/ui-kit/status';
+import { SelectForm, Statistic } from '../../../components/ui-kit';
 
 export const darkTheme = {
   headCells: {
@@ -41,7 +42,8 @@ export type PlayersData = {
 }
 
 export function UsersTable(): JSX.Element {
-  // const [isTableShown, setIsTableShown] = React.useState<boolean>(false);
+  const [filterLocation, setFilterLocation] = React.useState<string | undefined>(undefined);
+  const [storePlayersData, setStorePlayersData] = React.useState<PlayersData[]>([]);
   const [playersData, setPlayersData] = React.useState<PlayersData[]>([]);
 
   React.useEffect(() => {
@@ -61,7 +63,8 @@ export function UsersTable(): JSX.Element {
             photo: p.photo_check,
             payment: p.payment,
           }))
-        setPlayersData(playersDataDTO);
+          setStorePlayersData(() => playersDataDTO);
+          setPlayersData(() =>playersDataDTO);
       } catch (err) {
         toast.error('Ошибка при получении данных');
       }
@@ -69,6 +72,11 @@ export function UsersTable(): JSX.Element {
 
     fetchPlayerInfo();
   }, []);
+
+  React.useEffect(() => {
+    const filteredData = storePlayersData.filter(e => e.location === filterLocation);
+    setPlayersData(filterLocation ? filteredData : storePlayersData);
+  }, [filterLocation])
 
   const renderTable = React.useMemo(() => {
     const columns: TableColumn<PlayersData>[] = [
@@ -100,12 +108,89 @@ export function UsersTable(): JSX.Element {
     }
 
     return null;
-  }, [playersData]);
+  }, [playersData, storePlayersData, filterLocation]);
+
+  const handleChangeFilter = React.useCallback((e: any) => {
+    const { value } = e.target;
+    setFilterLocation(value);
+  }, [storePlayersData, filterLocation, playersData]);
+
+  const handleReset = React.useCallback(() => {
+    setFilterLocation(undefined);
+  }, [storePlayersData, filterLocation, playersData]);
+
+  const renderFilter = React.useMemo(() => {
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <SelectForm
+          label='Фильтр по локации'
+          name='location'
+          value={filterLocation || ''}
+          onSelectChange={handleChangeFilter}
+          options={
+            <>
+              <optgroup label="Военные лагеря">
+                <option value="" disabled selected hidden>Выберите локацию</option>
+                <option value='Престольский лагерь'>Престольский лагерь</option>
+                <option value='Кушанский лагерь'>Кушанский лагерь</option>
+              </optgroup>
+              <optgroup label="город Камельн">
+                <option value='Верхний квартал'>Верхний квартал</option>
+                <option value='Торговый квартал'>Торговый квартал</option>
+                <option value='Восточный квартал'>Восточный квартал</option>
+                <option value='Церковный квартал'>Церковный квартал</option>
+                <option value='Данж'>Данж</option>
+              </optgroup>
+            </>
+          }
+        />
+        <button style={{ marginTop: '-10px' }} onClick={handleReset}>Сброс фильтра</button>
+      </div>
+    )
+  }, [filterLocation]);
+
+  const renderBudgetStatistic = React.useMemo(() => {
+    let sum = 0;
+    storePlayersData.map((e: PlayersData) => {
+      sum = sum + Number(e.payment);
+    })
+
+    return <Statistic label='Бюджет' value={sum.toString()} />;
+  }, [storePlayersData]);
+
+  const renderRequestStatistic = React.useMemo(() => {
+    const requestAmount = storePlayersData.filter(p => p.request).length;
+    const totalAmount = storePlayersData.length;
+
+    return <Statistic label='Заявки' value={`${requestAmount}/${totalAmount}`} />;
+  }, [storePlayersData]);
+
+  const renderPhotoStatistic = React.useMemo(() => {
+    const photoAmount = storePlayersData.filter(p => p.photo).length;
+    const totalAmount = storePlayersData.length;
+
+    return <Statistic label='Фотодопуск' value={`${photoAmount}/${totalAmount}`} />;
+  }, [storePlayersData]);
+
+  const renderPaymentStatistic = React.useMemo(() => {
+    const paymentAmount = storePlayersData.filter(p => p.payment).length;
+    const totalAmount = storePlayersData.length;
+
+    return <Statistic label='Взносов' value={`${paymentAmount}/${totalAmount}`} />;
+  }, [storePlayersData]);
 
   return (
     <>
       <div style={{ marginTop: 10, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <h3 style={{ color: 'white' }}>Список всех заявок</h3>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          {renderFilter}
+          {renderBudgetStatistic}
+          {renderRequestStatistic}
+          {renderPhotoStatistic}
+          {renderPaymentStatistic}
+        </div>
+
         {renderTable}
       </div>
 

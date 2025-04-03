@@ -4,9 +4,9 @@ import axios from 'axios';
 
 import { editPlayerStatus } from '../../../../api/user';
 import { InputForm } from '../ui-kit';
+import { SelectStatusForm } from '../ui-kit/select-status-form';
 
 import s from './form.module.scss';
-import { SelectStatusForm } from '../ui-kit/select-status-form';
 
 type Item = {
   value: string,
@@ -87,8 +87,8 @@ export function StatusAdminForm(props: Props): JSX.Element {
 
   const renderButton = React.useMemo(() => {
     return isEditing
-      ? <div onClick={handleSubmit} className={s.button}>Сохранить</div>
-      : <div onClick={() => setIsEditing(true)} className={s.button}>Редактировать</div>;
+      ? <div onClick={handleSubmit} className={s.buttonAdmin}>Сохранить</div>
+      : <div onClick={() => setIsEditing(true)} className={s.buttonAdmin}>Редактировать</div>;
   }, [isEditing, statusData]);
 
   return (
