@@ -26,6 +26,7 @@
 }
 
 .button {
+  display: none; // TODO: ОТМЕНЯЕМ РЕДАКТИРОВАНИЕ пользаков натекущий момент
   cursor: pointer;
   color: #9694e3;
   font-size: 15px;

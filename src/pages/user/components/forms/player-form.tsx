@@ -84,7 +84,7 @@ export function PlayerForm(props: Props): JSX.Element {
       await axios.post(editPlayer, {
         last_name: validateUserData.lastName.value,
         first_name: validateUserData.firstName.value,
-        middle_name: validateUserData.middleName.value,
+        mid_name: validateUserData.middleName.value,
         birth_date: validateUserData.birthDate.value,
         vk_id: props.vkId,
       });

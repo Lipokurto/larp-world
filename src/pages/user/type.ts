@@ -14,6 +14,5 @@ export type UserData = {
   playerRequest: boolean,
   payment: string,
   photoCheck: boolean,
-  isAdmin: boolean,
-  isBanned: boolean,
+  status: string,
 }

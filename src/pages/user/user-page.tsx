@@ -6,6 +6,7 @@ import { CharForm, PlayerForm, StatusTable } from './components/forms';
 import { info } from '../../api/user';
 import { UserData } from './type';
 import { AdminSelector } from './admin';
+import { CaptainSelector } from './captain';
 
 import s from './user.module.scss';
 
@@ -27,7 +28,7 @@ export function UserPage(props: Props): JSX.Element {
         const validResponse = {
           lastName: { value: response.data.last_name, error: undefined },
           firstName: { value: response.data.first_name, error: undefined },
-          middleName: { value: response.data.middle_name, error: undefined },
+          middleName: { value: response.data.mid_name, error: undefined },
           birthDate: { value: response.data.birth_date, error: undefined },
           charName: { value: response.data.char_name, error: undefined },
           role: { value: response.data.role, error: undefined },
@@ -35,8 +36,7 @@ export function UserPage(props: Props): JSX.Element {
           playerRequest: response.data.player_request,
           payment: response.data.payment,
           photoCheck: response.data.photo_check,
-          isAdmin: Boolean(response.data.isAdmin),
-          isBanned: Boolean(response.data.isBanned),
+          status: response.data.status,
         }
         setUserData(validResponse);
         setIsLoading(false);
@@ -48,13 +48,23 @@ export function UserPage(props: Props): JSX.Element {
   fetchPlayerInfo();
 }, [props]);
 
-  return (
-  <>
-    {userData && userData.isAdmin && (
-      <AdminSelector />
-    )}
+const renderElement = React.useMemo(() => {
+  if (userData) {
+    if (userData.status === 'ADMIN') {
+      return <AdminSelector />
+    }
 
-    {userData && !userData.isAdmin && (
+    if (userData.status === 'CAPTAIN') {
+      return (
+        <CaptainSelector
+          userData={userData}
+          vkId={props.vkId}
+          isLoading={isLoading}
+        />
+      )
+    }
+
+    return (
       <div className={s.formContainer}>
         <PlayerForm
           vkId={props.vkId}
@@ -79,10 +89,18 @@ export function UserPage(props: Props): JSX.Element {
           payment={userData.payment}
           photoCheck={userData.photoCheck}
           isLoading={isLoading}
-          isAdmin={userData.isAdmin}
+          isAdmin={userData.status === 'ADMIN'}
         />
       </div>
-    )}
+    )
+  }
+
+  return null;
+}, [userData, props, isLoading]);
+
+  return (
+  <>
+    {renderElement}
 
     <Toaster
       position="bottom-left"

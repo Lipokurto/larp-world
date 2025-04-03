@@ -4,8 +4,9 @@ import toast, { Toaster } from 'react-hot-toast';
 import DataTable, { TableColumn } from 'react-data-table-component';
 
 import { playersTable } from '../../../../../api/user';
+import { renderStatusIcon } from '../../../components/ui-kit/status';
 
-const darkTheme = {
+export const darkTheme = {
   headCells: {
     style: {
       paddingLeft: '8px',
@@ -27,7 +28,7 @@ const darkTheme = {
   },
 };
 
-type PlayersData = {
+export type PlayersData = {
   id: number,
   fullName: string,
   char?: string,
@@ -36,28 +37,31 @@ type PlayersData = {
   role?: string,
   photo: boolean,
   payment: string,
+  request: boolean,
 }
 
 export function UsersTable(): JSX.Element {
-  const [isTableShown, setIsTableShown] = React.useState<boolean>(false);
+  // const [isTableShown, setIsTableShown] = React.useState<boolean>(false);
   const [playersData, setPlayersData] = React.useState<PlayersData[]>([]);
 
   React.useEffect(() => {
     const fetchPlayerInfo = async () => {
       try {
         const response = await axios.get(playersTable);
-        const playersDataDTO: PlayersData[] = response.data.map((p: any) => ({
-          id: p.vk_id,
-          fullName: `${p.last_name} ${p.first_name} ${p.middle_name || ''}`,
-          char: p.char_name,
-          vkLink: p.vk_link,
-          location: p.location,
-          role: p.role,
-          photo: p.photo_check,
-          payment: p.payment,
-        }))
+        const playersDataDTO: PlayersData[] = response.data
+          .filter((e: any) => e.status !== 'ADMIN')
+          .map((p: any) => ({
+            id: p.vk_id,
+            fullName: `${p.last_name} ${p.first_name} ${p.mid_name || ''}`,
+            char: p.char_name,
+            vkLink: p.vk_link,
+            location: p.location,
+            request: p.player_request,
+            role: p.role,
+            photo: p.photo_check,
+            payment: p.payment,
+          }))
         setPlayersData(playersDataDTO);
-        setIsTableShown(true);
       } catch (err) {
         toast.error('Ошибка при получении данных');
       }
@@ -68,13 +72,15 @@ export function UsersTable(): JSX.Element {
 
   const renderTable = React.useMemo(() => {
     const columns: TableColumn<PlayersData>[] = [
+      { name: '№', selector: (row: PlayersData, index) => (index || 0) + 1, width: '40px' },
       { name: 'ФИО', selector: (row: PlayersData) => row.fullName, width: '200px' },
       { name: 'ВК', selector: (row: PlayersData) => row.vkLink, width: '200px' },
-      { name: 'Персонаж', selector: (row: PlayersData) => row.char || '-' },
-      { name: 'Роль', selector: (row: PlayersData) => row.role || '-' },
+      { name: 'Персонаж', selector: (row: PlayersData) => row.char || '-', maxWidth: '200px' },
+      { name: 'Роль', selector: (row: PlayersData) => row.role || '-', maxWidth: '200px' },
       { name: 'Локация', selector: (row: PlayersData) => row.location || '-', width: '150px' },
-      { name: 'Фотодопуск', selector: (row: PlayersData) => row.photo, width: '80px' },
-      { name: 'Взнос', selector: (row: PlayersData) => row.payment, width: '80px' },
+      { name: 'Заявка', cell: (row: PlayersData) => renderStatusIcon(Boolean(row.request)), width: '50px' },
+      { name: 'Фото', cell: (row: PlayersData) => renderStatusIcon(Boolean(row.photo)), width: '50px' },
+      { name: 'Взнос', cell: (row: PlayersData) => row.payment || renderStatusIcon(false), width: '50px' },
     ];
 
     const data: PlayersData[] = playersData.map((p, i) => ({
@@ -86,6 +92,7 @@ export function UsersTable(): JSX.Element {
       location: p.location,
       photo: p.photo,
       payment: p.payment,
+      request: p.request,
     }))
 
     if (playersData.length > 0) {
@@ -98,8 +105,8 @@ export function UsersTable(): JSX.Element {
   return (
     <>
       <div style={{ marginTop: 10, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      <h3 style={{ color: 'white' }}>Список всех заявок</h3>
-        {isTableShown && renderTable}
+        <h3 style={{ color: 'white' }}>Список всех заявок</h3>
+        {renderTable}
       </div>
 
       <Toaster
