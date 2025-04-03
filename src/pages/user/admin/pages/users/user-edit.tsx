@@ -65,7 +65,7 @@ const renderData = React.useMemo(() => {
           payment={userData.payment}
           photoCheck={userData.photoCheck}
           isLoading={isLoading}
-          isAdmin={userData.isAdmin}
+          isAdmin={true}
         />
 
         <PlayerForm
