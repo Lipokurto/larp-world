@@ -74,6 +74,7 @@ const renderData = React.useMemo(() => {
           middleName={userData.middleName}
           birthDate={userData.birthDate}
           isLoading={isLoading}
+          isAdmin={true}
         />
 
         <CharForm
@@ -82,6 +83,7 @@ const renderData = React.useMemo(() => {
           role={userData.role}
           location={userData.location}
           isLoading={isLoading}
+          isAdmin={true}
         />
       </>
     )

@@ -17,7 +17,6 @@ export function getIdWithLink(link: string, isCreateDev?: boolean): Promise<stri
         const userName = extractUsernameFromVkLink(link);
         VK.Api.call('users.get', { user_ids: userName, v: '5.81' }, (r: any) => {
           if (r && r.response && r.response[0]) {
-            console.log('USERRRRID ====>>>', r.response[0].id);
             resolve(r.response[0].id);
           } else {
             reject('Ошибка поиска пользователя');

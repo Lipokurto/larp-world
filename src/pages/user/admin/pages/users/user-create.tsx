@@ -123,6 +123,22 @@ export function UserCreate(): JSX.Element {
           isLoading={isLoading}
           disabled={isLoading}
           value={userData.location}
+          options={
+            <>
+              <optgroup label="Военные лагеря">
+                <option value="" disabled selected hidden>Выберите локацию</option>
+                <option value='Престольский лагерь'>Престольский лагерь</option>
+                <option value='Кушанский лагерь'>Кушанский лагерь</option>
+              </optgroup>
+              <optgroup label="город Камельн">
+                <option value='Верхний квартал'>Верхний квартал</option>
+                <option value='Торговый квартал'>Торговый квартал</option>
+                <option value='Восточный квартал'>Восточный квартал</option>
+                <option value='Церковный квартал'>Церковный квартал</option>
+                <option value='Данж'>Данж</option>
+              </optgroup>
+            </>
+          }
         />
 
         <div>

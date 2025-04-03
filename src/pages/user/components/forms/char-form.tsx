@@ -22,6 +22,7 @@ type CharData = {
 type Props = CharData & {
   vkId: string,
   isLoading: boolean,
+  isAdmin?: boolean,
 }
 
 export function CharForm(props: Props): JSX.Element {
@@ -94,8 +95,8 @@ export function CharForm(props: Props): JSX.Element {
 
   const renderButton = React.useMemo(() => {
     return isEditing
-      ? <div onClick={handleSubmit} className={s.button}>Сохранить</div>
-      : <div onClick={() => setIsEditing(true)} className={s.button}>Редактировать</div>;
+      ? <div onClick={handleSubmit} className={props.isAdmin ? s.buttonAdmin : s.button}>Сохранить</div>
+      : <div onClick={() => setIsEditing(true)} className={props.isAdmin ? s.buttonAdmin : s.button}>Редактировать</div>;
   }, [isEditing, charData]);
 
   return (
