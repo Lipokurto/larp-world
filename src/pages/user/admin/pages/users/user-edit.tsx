@@ -34,7 +34,7 @@ const fetchUserInfo = React.useCallback((innerUserId: string) => {
       const validResponse: UserData = {
         lastName: { value: response.data.last_name, error: undefined },
         firstName: { value: response.data.first_name, error: undefined },
-        middleName: { value: response.data.middle_name, error: undefined },
+        middleName: { value: response.data.mid_name, error: undefined },
         birthDate: { value: response.data.birth_date, error: undefined },
         charName: { value: response.data.char_name, error: undefined },
         role: { value: response.data.role, error: undefined },
@@ -42,8 +42,7 @@ const fetchUserInfo = React.useCallback((innerUserId: string) => {
         playerRequest: response.data.player_request,
         payment: response.data.payment,
         photoCheck: Boolean(response.data.photo_check),
-        isAdmin: Boolean(response.data.isAdmin),
-        isBanned: Boolean(response.data.isBanned),
+        status: response.data.status,
       }
       setUserData(validResponse);
       setIsLoading(false);
