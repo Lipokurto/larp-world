@@ -41,7 +41,6 @@ async function checkUserHttp(vkId: string, vkLink: string): Promise<string | und
   } catch (error) {
     if (axios.isAxiosError(error) && error.response) {
       if (error.response.data.message === 'Такой пользователь существует') {
-
         return 'OLD';
       }
     }
@@ -51,7 +50,6 @@ async function checkUserHttp(vkId: string, vkLink: string): Promise<string | und
 }
 
 export function VKAuth(): JSX.Element {
-  const [userRegistryStatus, setRegistryStatus] = React.useState<string | undefined> (undefined);
   const [user, setUser] = React.useState<User | undefined>(undefined);
   const [session, setSession] = React.useState<Session | undefined>(undefined);
 
@@ -61,7 +59,7 @@ export function VKAuth(): JSX.Element {
         const { user } = response.session;
         if (user.id) {
           console.log('User authorized:', user.href);
-          setRegistryStatus(await checkUserHttp(user.id, user.href));
+          await checkUserHttp(user.id, user.href)
           setUser(user);
           setSession(response.session);
         } else {
@@ -70,7 +68,7 @@ export function VKAuth(): JSX.Element {
       }, VK.access.PHOTOS);
     } else {
       const { user } = testResponse.session;
-      setRegistryStatus(await checkUserHttp(user.id, user.href));
+      await checkUserHttp(user.id, user.href)
       setUser(user);
       setSession(testResponse.session);
     }
@@ -79,27 +77,13 @@ export function VKAuth(): JSX.Element {
   const handleLogOut = React.useCallback(async () => {
     if (process.env.REACT_APP_NEW === 'prod') {
       await VK.Auth.logout();
-      setRegistryStatus(undefined);
       setUser(undefined);
       setSession(undefined);
     } else {
-      setRegistryStatus(undefined);
       setUser(undefined);
       setSession(undefined);
     }
   }, []);
-
-  const statusText = React.useMemo(() => {
-    if (userRegistryStatus === 'NEW') {
-      return <div style={{ color: 'green' }}>Добро пожаловать, {user?.first_name}!</div>
-    }
-
-    if (userRegistryStatus === 'OLD') {
-      return <div style={{ color: 'white' }}>С возвращением, {user?.first_name}!</div>
-    }
-
-    return <div style={{ color: 'red' }}>Пожалуйста, авторизуйтесь</div>
-  }, [user, userRegistryStatus]);
 
   const renderButtons = React.useMemo(() => {
     if (!session) {
@@ -113,7 +97,6 @@ export function VKAuth(): JSX.Element {
     <div className={s.container}>
       <div className={s.loginContainer}>
         {renderButtons}
-        {statusText}
       </div>
 
       {user && (
