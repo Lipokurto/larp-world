@@ -18,7 +18,7 @@ function Options(props: {
 
   return (
     <>
-      <option disabled selected hidden>Выберите локацию</option>
+      <option disabled value='0' hidden>Выберите локацию</option>
       <optgroup label="Военные лагеря">
         {camps.map(p => <option value={p.id} key={p.id}>{p.name}</option>)}
       </optgroup>
@@ -63,9 +63,10 @@ export function SelectForm(props: Props): JSX.Element {
     <select
       name={props.name}
       className={s.inputOn}
-      value={props.value}
+      value={props.value || '0'}
       onChange={props.onSelectChange}
       disabled={props.disabled}
+      placeholder='Выберите локацию'
     >
       {props.options || (props.locationsList ? <Options locationList={props.locationsList} isAdmin={props.isAdmin} /> : null)}
     </select>

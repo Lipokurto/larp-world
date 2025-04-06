@@ -1,0 +1,1 @@
+export const buildingsTable = `${process.env.REACT_APP_HOST}/api/buildings-table`

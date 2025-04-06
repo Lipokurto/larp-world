@@ -8,8 +8,8 @@ import { testResponse } from './utils/test';
 import vkImage from '../../assets/icons/social/vk.png';
 import exitImage from '../../assets/icons/social/exit.png';
 import { UserPage } from './user-page';
-import { getLocationsList } from '../../api/lists';
-import { LocationItem } from './type';
+import { getBuildingsList, getLocationsList } from '../../api/lists';
+import { BuildingItem, LocationItem } from './type';
 
 import s from './user.module.scss';
 
@@ -56,9 +56,10 @@ export function VKAuth(): JSX.Element {
   const [user, setUser] = React.useState<User | undefined>(undefined);
   const [session, setSession] = React.useState<Session | undefined>(undefined);
   const [locationsList, setLocationsList] = React.useState<LocationItem[]>([]);
+  const [buildingsList, setBuildingsList] = React.useState<BuildingItem[]>([]);
 
   React.useEffect(() => {
-    const fetchLocationsListInfo = async () => {
+    const fetchLocationsList = async () => {
       try {
         const response = await axios.get(getLocationsList);
         setLocationsList(response.data);
@@ -67,7 +68,17 @@ export function VKAuth(): JSX.Element {
       }
     }
 
-    fetchLocationsListInfo();
+    const fetchBuildingsList = async () => {
+      try {
+        const response = await axios.get(getBuildingsList);
+        setBuildingsList(response.data);
+      } catch (err) {
+        toast.error('Ошибка при получении списка строений');
+      }
+    }
+
+    fetchLocationsList();
+    fetchBuildingsList();
 }, []);
 
   const handleLogin = React.useCallback(async () => {
@@ -117,7 +128,11 @@ export function VKAuth(): JSX.Element {
       </div>
 
       {user && (
-        <UserPage vkId={user.id} locationsList={locationsList}/>
+        <UserPage
+          vkId={user.id}
+          locationsList={locationsList}
+          buildingsList={buildingsList}
+        />
       )}
     </div>
   );
