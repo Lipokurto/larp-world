@@ -22,3 +22,10 @@ export type LocationItem = {
   name: string,
   type: string,
 }
+
+export type BuildingItem = {
+  id: number,
+  name: string,
+  type: string,
+  sign: boolean,
+}

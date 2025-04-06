@@ -1,14 +1,16 @@
 import React from 'react';
 
-import { LocationItem, UserData } from '../type';
+import { BuildingItem, LocationItem, UserData } from '../type';
 import { CharForm, PlayerForm, StatusTable } from '../components/forms';
 import { CaptainTeam } from './captain-team';
+import { CaptainBuild } from './captain-build';
 
 type Props = {
   userData: UserData,
   vkId: string,
   isLoading: boolean,
   locationsList: LocationItem[],
+  buildingsList: BuildingItem[],
 }
 
 export function CaptainSelector(props: Props): JSX.Element {
@@ -54,10 +56,17 @@ const renderPlayerData = React.useMemo(() => {
       <div>
         <button onClick={() => setPage('player')} disabled={page==='player'}>Игрок</button>
         <button onClick={() => setPage('team')} disabled={page==='team'}>Команда</button>
+        <button onClick={() => setPage('build')} disabled={page==='build'}>Строения</button>
       </div>
 
       {page === 'player' && renderPlayerData}
-      {page === 'team' && <CaptainTeam locationId={props.userData.locationId.value} locationsList={props.locationsList}/>}
+      {page === 'team' && <CaptainTeam locationId={props.userData.locationId.value} locationsList={props.locationsList} />}
+      {page === 'build' && (
+        <CaptainBuild
+          locationId={props.userData.locationId.value}
+          locationsList={props.locationsList}
+          buildingsList={props.buildingsList}
+        />)}
     </div>
   )
 }
