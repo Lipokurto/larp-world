@@ -25,7 +25,7 @@ export type LocationItem = {
 
 export type BuildingItem = {
   id: number,
-  name: string,
   type: string,
+  class: string,
   sign: boolean,
 }
