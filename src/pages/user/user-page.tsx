@@ -4,7 +4,7 @@ import toast, { Toaster } from 'react-hot-toast';
 
 import { CharForm, PlayerForm, StatusTable } from './components/forms';
 import { info } from '../../api/user';
-import { UserData } from './type';
+import { LocationItem, UserData } from './type';
 import { AdminSelector } from './admin';
 import { CaptainSelector } from './captain';
 
@@ -12,6 +12,7 @@ import s from './user.module.scss';
 
 type Props = {
   vkId: string,
+  locationsList: LocationItem[],
 }
 
 export function UserPage(props: Props): JSX.Element {
@@ -32,7 +33,7 @@ export function UserPage(props: Props): JSX.Element {
           birthDate: { value: response.data.birth_date, error: undefined },
           charName: { value: response.data.char_name, error: undefined },
           role: { value: response.data.role, error: undefined },
-          location: { value: response.data.location, error: undefined },
+          locationId: { value: response.data.location_id, error: undefined },
           playerRequest: response.data.player_request,
           payment: response.data.payment,
           photoCheck: response.data.photo_check,
@@ -51,12 +52,13 @@ export function UserPage(props: Props): JSX.Element {
 const renderElement = React.useMemo(() => {
   if (userData) {
     if (userData.status === 'ADMIN') {
-      return <AdminSelector />
+      return <AdminSelector locationsList={props.locationsList} />
     }
 
     if (userData.status === 'CAPTAIN') {
       return (
         <CaptainSelector
+          locationsList={props.locationsList}
           userData={userData}
           vkId={props.vkId}
           isLoading={isLoading}
@@ -79,7 +81,8 @@ const renderElement = React.useMemo(() => {
           vkId={props.vkId}
           charName={userData.charName}
           role={userData.role}
-          location={userData.location}
+          locationId={userData.locationId}
+          locationsList={props.locationsList}
           isLoading={isLoading}
         />
 

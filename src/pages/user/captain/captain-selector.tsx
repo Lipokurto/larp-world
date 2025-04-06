@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { UserData } from '../type';
+import { LocationItem, UserData } from '../type';
 import { CharForm, PlayerForm, StatusTable } from '../components/forms';
 import { CaptainTeam } from './captain-team';
 
@@ -8,6 +8,7 @@ type Props = {
   userData: UserData,
   vkId: string,
   isLoading: boolean,
+  locationsList: LocationItem[],
 }
 
 export function CaptainSelector(props: Props): JSX.Element {
@@ -31,7 +32,8 @@ const renderPlayerData = React.useMemo(() => {
         vkId={vkId}
         charName={userData.charName}
         role={userData.role}
-        location={userData.location}
+        locationId={userData.locationId}
+        locationsList={props.locationsList}
         isLoading={isLoading}
       />
 
@@ -55,7 +57,7 @@ const renderPlayerData = React.useMemo(() => {
       </div>
 
       {page === 'player' && renderPlayerData}
-      {page === 'team' && <CaptainTeam location={props.userData.location.value}/>}
+      {page === 'team' && <CaptainTeam locationId={props.userData.locationId.value} locationsList={props.locationsList}/>}
     </div>
   )
 }

@@ -3,12 +3,16 @@ import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
 
 import { CharForm, PlayerForm, StatusTable } from '../../../components/forms';
-import { UserData } from '../../../type';
+import { LocationItem, UserData } from '../../../type';
 import { info } from '../../../../../api/user';
-import { getIdWithLink } from '../../../utils/get-id-with-link';
+import { getIdWithLink } from '../../../utils/get-id-by-link';
 import { InputForm } from '../../../components/ui-kit';
 
-export function UserEdit(): JSX.Element {
+type Props = {
+  locationsList: LocationItem[],
+}
+
+export function UserEdit(props: Props): JSX.Element {
   const [userLink, setUserLink] = React.useState<string>('');
   const [userId, setUserId] = React.useState<string>('');
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
@@ -38,7 +42,7 @@ const fetchUserInfo = React.useCallback((innerUserId: string) => {
         birthDate: { value: response.data.birth_date, error: undefined },
         charName: { value: response.data.char_name, error: undefined },
         role: { value: response.data.role, error: undefined },
-        location: { value: response.data.location, error: undefined },
+        locationId: { value: response.data.location_id, error: undefined },
         playerRequest: response.data.player_request,
         payment: response.data.payment,
         photoCheck: Boolean(response.data.photo_check),
@@ -81,8 +85,9 @@ const renderData = React.useMemo(() => {
           vkId={userId}
           charName={userData.charName}
           role={userData.role}
-          location={userData.location}
+          locationId={userData.locationId}
           isLoading={isLoading}
+          locationsList={props.locationsList}
           isAdmin={true}
         />
       </>
