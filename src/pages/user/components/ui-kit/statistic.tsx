@@ -8,7 +8,7 @@ type Props = {
 export function Statistic(props: Props): JSX.Element {
   return (
     <div className={s.statisticContainer}>
-      <div style={{ fontSize: 15 }}>{props.label}</div>
+      <div style={{ fontSize: 15, textAlign: 'center' }}>{props.label}</div>
       <div>{props.value}</div>
     </div>
   )

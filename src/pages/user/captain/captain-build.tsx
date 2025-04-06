@@ -6,8 +6,9 @@ import toast, { Toaster } from 'react-hot-toast';
 import { darkTheme } from '../admin/pages/users/users-table';
 import { getLocationNameById } from '../utils/get-location-name-by-id';
 import { BuildingItem, LocationItem } from '../type';
-import { buildingsTable } from '../../../api/buildings';
+import { buildingsTable, getBuildingsLimits } from '../../../api/buildings';
 import { BuildingsData, BuildingsRow } from '../admin/pages/build/builds-table';
+import { Statistic } from '../components/ui-kit';
 
 type Props = {
   locationId: string,
@@ -15,8 +16,14 @@ type Props = {
   buildingsList: BuildingItem[],
 };
 
+type BuildingLimit = {
+  buildingId: number,
+  count: number,
+}
+
 export function CaptainBuild(props: Props): JSX.Element {
   const [buildingsData, setBuildingsData] = React.useState<BuildingsData[]>([]);
+  const [buildingsLimits, setBuildingsLimits] = React.useState<BuildingLimit[]>([]);
 
   React.useEffect(() => {
     const fetchBuildingsInfo = async () => {
@@ -38,7 +45,22 @@ export function CaptainBuild(props: Props): JSX.Element {
       }
     }
 
+    const fetchBuildingsLimits = async () => {
+      try {
+        const response = await axios.get(getBuildingsLimits, { params: { location_id: props.locationId } });
+        const buildingsLimitsDTO: BuildingLimit[] = response.data
+          .map((p: any) => ({
+            buildingId: p.building_id,
+            count: p.count,
+          }))
+          setBuildingsLimits(() => buildingsLimitsDTO);
+      } catch (err) {
+        toast.error('Ошибка при получении данных');
+      }
+    }
+
     fetchBuildingsInfo();
+    fetchBuildingsLimits();
   }, []);
 
   const renderTable = React.useMemo(() => {
@@ -66,9 +88,24 @@ export function CaptainBuild(props: Props): JSX.Element {
 
     return null;
   }, [buildingsData]);
+
+  const renderLimits = React.useMemo(() => {
+    const items = buildingsLimits.map(p => {
+      const label = props.buildingsList.find(pp => p.buildingId === pp.id)?.type;
+      return (
+        <Statistic
+          label={label || ''}
+          value={p.count.toString()}
+        />
+      )
+    })
+
+    return <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'row' }}>{items}</div>;
+  }, [buildingsLimits]);
   return (
     <>
       <h3 style={{ color: 'white' }}>Строения команды</h3>
+      {renderLimits}
       {renderTable}
 
       <Toaster
