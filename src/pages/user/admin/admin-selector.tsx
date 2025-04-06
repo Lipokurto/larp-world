@@ -1,8 +1,13 @@
 import React from 'react';
 
 import { Rules, Videos, UsersSelector } from './pages';
+import { LocationItem } from '../type';
 
-export function AdminSelector(): JSX.Element {
+type Props = {
+  locationsList: LocationItem[],
+}
+
+export function AdminSelector(props: Props): JSX.Element {
   const [page, setPage] = React.useState<string>('users');
 
   const renderPage = React.useMemo(() => {
@@ -18,7 +23,7 @@ export function AdminSelector(): JSX.Element {
       )
     }
 
-    return <UsersSelector />
+    return <UsersSelector locationsList={props.locationsList} />
   }, [page]);
 
   return (

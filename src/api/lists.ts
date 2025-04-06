@@ -1,0 +1,1 @@
+export const getLocationsList = `${process.env.REACT_APP_HOST}/api/get-locations-list`

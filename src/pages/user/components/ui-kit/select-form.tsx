@@ -1,22 +1,37 @@
 import React from 'react';
 import ContentLoader from 'react-content-loader'
 
+import { LocationItem } from '../../type';
+import { getLocationNameById } from '../../utils/get-location-name-by-id';
+
 import s from './input-form.module.scss'
 
-function DefaultOptions(): JSX.Element {
+function Options(props: {
+    locationList: LocationItem[],
+    isAdmin?: boolean,
+  }): JSX.Element {
+  const { locationList, isAdmin } = props;
+
+  const camps = locationList.filter(p => p.type === 'CAMP');
+  const city = locationList.filter(p => p.type === 'CITY');
+  const secrets = locationList.filter(p => p.type === 'SECRET');
+
   return (
     <>
+      <option disabled selected hidden>Выберите локацию</option>
       <optgroup label="Военные лагеря">
-        <option value="" disabled selected hidden>Выберите локацию</option>
-        <option value='Престольский лагерь'>Престольский лагерь</option>
-        <option value='Кушанский лагерь'>Кушанский лагерь</option>
+        {camps.map(p => <option value={p.id} key={p.id}>{p.name}</option>)}
       </optgroup>
-      <optgroup label="город Камельн">
-        <option value='Верхний квартал'>Верхний квартал</option>
-        <option value='Торговый квартал'>Торговый квартал</option>
-        <option value='Восточный квартал'>Восточный квартал</option>
-        <option value='Церковный квартал'>Церковный квартал</option>
+
+      <optgroup label="Город Камельн">
+        {city.map(p => <option value={p.id} key={p.id}>{p.name}</option>)}
       </optgroup>
+
+      {isAdmin && (
+        <optgroup label="Скрытые локации">
+          {secrets.map(p => <option value={p.id} key={p.id}>{p.name}</option>)}
+        </optgroup>
+      )}
     </>
   )
 }
@@ -25,10 +40,12 @@ type Props = {
   label: string,
   name: string,
   value: string,
+  locationsList?: LocationItem[],
   isLoading?: boolean,
   disabled?: boolean,
   onSelectChange?: (item: any) => void,
   error?: string,
+  isAdmin?: boolean,
   options?: JSX.Element,
 }
 
@@ -37,7 +54,7 @@ export function SelectForm(props: Props): JSX.Element {
     if (props.disabled) {
       return(
         <div className={s.inputOff}>
-          {props.value}
+          {props.locationsList ? getLocationNameById(Number(props.value), props.locationsList) : props.value}
         </div>
       )
     }
@@ -49,9 +66,8 @@ export function SelectForm(props: Props): JSX.Element {
       value={props.value}
       onChange={props.onSelectChange}
       disabled={props.disabled}
-      placeholder='Выберите локацию'
     >
-      {props.options || <DefaultOptions />}
+      {props.options || (props.locationsList ? <Options locationList={props.locationsList} isAdmin={props.isAdmin} /> : null)}
     </select>
     )
   }, [props]);

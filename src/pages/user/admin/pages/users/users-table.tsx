@@ -6,6 +6,8 @@ import DataTable, { TableColumn } from 'react-data-table-component';
 import { playersTable } from '../../../../../api/user';
 import { renderStatusIcon } from '../../../components/ui-kit/status';
 import { SelectForm, Statistic } from '../../../components/ui-kit';
+import { LocationItem } from '../../../type';
+import { getLocationNameById } from '../../../utils/get-location-name-by-id';
 
 export const darkTheme = {
   headCells: {
@@ -34,14 +36,18 @@ export type PlayersData = {
   fullName: string,
   char?: string,
   vkLink: string,
-  location?: string,
+  locationId?: string,
   role?: string,
   photo: boolean,
   payment: string,
   request: boolean,
 }
 
-export function UsersTable(): JSX.Element {
+type Props = {
+  locationsLIst: LocationItem[],
+}
+
+export function UsersTable(props: Props): JSX.Element {
   const [filterLocation, setFilterLocation] = React.useState<string | undefined>(undefined);
   const [storePlayersData, setStorePlayersData] = React.useState<PlayersData[]>([]);
   const [playersData, setPlayersData] = React.useState<PlayersData[]>([]);
@@ -57,7 +63,7 @@ export function UsersTable(): JSX.Element {
             fullName: `${p.last_name} ${p.first_name} ${p.mid_name || ''}`,
             char: p.char_name,
             vkLink: p.vk_link,
-            location: p.location,
+            locationId: p.location_id.toString(),
             request: p.player_request,
             role: p.role,
             photo: p.photo_check,
@@ -74,7 +80,7 @@ export function UsersTable(): JSX.Element {
   }, []);
 
   React.useEffect(() => {
-    const filteredData = storePlayersData.filter(e => e.location === filterLocation);
+    const filteredData = storePlayersData.filter(e => e.locationId === filterLocation);
     setPlayersData(filterLocation ? filteredData : storePlayersData);
   }, [filterLocation])
 
@@ -85,7 +91,7 @@ export function UsersTable(): JSX.Element {
       { name: 'ВК', selector: (row: PlayersData) => row.vkLink, width: '200px' },
       { name: 'Персонаж', selector: (row: PlayersData) => row.char || '-', maxWidth: '200px' },
       { name: 'Роль', selector: (row: PlayersData) => row.role || '-', maxWidth: '200px' },
-      { name: 'Локация', selector: (row: PlayersData) => row.location || '-', width: '150px' },
+      { name: 'Локация', selector: (row: PlayersData) => getLocationNameById(Number(row.locationId), props.locationsLIst), width: '150px' },
       { name: 'Заявка', cell: (row: PlayersData) => renderStatusIcon(Boolean(row.request)), width: '50px' },
       { name: 'Фото', cell: (row: PlayersData) => renderStatusIcon(Boolean(row.photo)), width: '50px' },
       { name: 'Взнос', cell: (row: PlayersData) => row.payment || renderStatusIcon(false), width: '50px' },
@@ -97,7 +103,7 @@ export function UsersTable(): JSX.Element {
       vkLink: p.vkLink,
       char: p.char,
       role: p.role,
-      location: p.location,
+      locationId: p.locationId,
       photo: p.photo,
       payment: p.payment,
       request: p.request,
@@ -124,25 +130,11 @@ export function UsersTable(): JSX.Element {
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <SelectForm
           label='Фильтр по локации'
-          name='location'
+          name='locationId'
           value={filterLocation || ''}
           onSelectChange={handleChangeFilter}
-          options={
-            <>
-              <optgroup label="Военные лагеря">
-                <option value="" disabled selected hidden>Выберите локацию</option>
-                <option value='Престольский лагерь'>Престольский лагерь</option>
-                <option value='Кушанский лагерь'>Кушанский лагерь</option>
-              </optgroup>
-              <optgroup label="город Камельн">
-                <option value='Верхний квартал'>Верхний квартал</option>
-                <option value='Торговый квартал'>Торговый квартал</option>
-                <option value='Восточный квартал'>Восточный квартал</option>
-                <option value='Церковный квартал'>Церковный квартал</option>
-                <option value='Данж'>Данж</option>
-              </optgroup>
-            </>
-          }
+          locationsList={props.locationsLIst}
+          isAdmin={true}
         />
         <button style={{ marginTop: '-10px' }} onClick={handleReset}>Сброс фильтра</button>
       </div>

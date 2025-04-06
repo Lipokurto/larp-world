@@ -2,27 +2,32 @@ import React from 'react';
 import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
 
-import { getIdWithLink } from '../../../utils/get-id-with-link';
+import { getIdWithLink } from '../../../utils/get-id-by-link';
 import { getSeparateName } from '../../../utils/get-separate-name';
 import { createUser } from '../../../../../api/user';
 import { InputForm, SelectForm } from '../../../components/ui-kit';
+import { LocationItem } from '../../../type';
+
+type Props = {
+  locationsList: LocationItem[],
+}
 
 type UserData = {
   fullName: string,
   vkLink: string,
   char: string,
   role: string,
-  location: string,
+  locationId: string,
 }
 
-export function UserCreate(): JSX.Element {
+export function UserCreate(props: Props): JSX.Element {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [userData, setUserData] = React.useState<UserData>({
     fullName: '',
     vkLink: '',
     char: '',
     role: '',
-    location: '',
+    locationId: '',
   });
   const [isDisableSubmit, setIsDisableSubmit] = React.useState<boolean>(true);
 
@@ -59,7 +64,7 @@ export function UserCreate(): JSX.Element {
           mid_name: name.middleName || '',
           char_name: userData.char || '',
           role: userData.role || '',
-          location: userData.location,
+          location_id: Number(userData.locationId),
         });
 
         toast.success('Данные успешно обновлены');
@@ -118,27 +123,14 @@ export function UserCreate(): JSX.Element {
 
         <SelectForm
           label='Локация'
-          name="location"
+          name="locationId"
           onSelectChange={handleChange}
           isLoading={isLoading}
           disabled={isLoading}
-          value={userData.location}
-          options={
-            <>
-              <optgroup label="Военные лагеря">
-                <option value="" disabled selected hidden>Выберите локацию</option>
-                <option value='Престольский лагерь'>Престольский лагерь</option>
-                <option value='Кушанский лагерь'>Кушанский лагерь</option>
-              </optgroup>
-              <optgroup label="город Камельн">
-                <option value='Верхний квартал'>Верхний квартал</option>
-                <option value='Торговый квартал'>Торговый квартал</option>
-                <option value='Восточный квартал'>Восточный квартал</option>
-                <option value='Церковный квартал'>Церковный квартал</option>
-                <option value='Данж'>Данж</option>
-              </optgroup>
-            </>
-          }
+          value={userData.locationId}
+          locationsList={props.locationsList}
+          isAdmin={true}
+
         />
 
         <div>

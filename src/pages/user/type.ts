@@ -10,9 +10,15 @@ export type UserData = {
   birthDate: Item,
   charName: Item,
   role: Item,
-  location: Item,
+  locationId: Item,
   playerRequest: boolean,
   payment: string,
   photoCheck: boolean,
   status: string,
+}
+
+export type LocationItem = {
+  id: number,
+  name: string,
+  type: string,
 }
