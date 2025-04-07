@@ -22,7 +22,8 @@ export function BuildForm(props: Props): JSX.Element {
   const [isTouched, setIsTouched] = React.useState<boolean>(false);
   const [buildingData, setBuildingData] = React.useState<BuildingsData>({
     id: props.id,
-    owner: props.owner,
+    fullName: props.fullName,
+    vkLink: props.vkLink,
     name: props.name,
     type: props.type,
     locationId: props.locationId,
@@ -88,7 +89,7 @@ export function BuildForm(props: Props): JSX.Element {
         label='ФИО владельца'
         type="text"
         name="fullName"
-        value={buildingData.owner.fullName}
+        value={buildingData.fullName || ''}
         onChange={handleChange}
         disabled
         isLoading={props.isLoading}
@@ -98,7 +99,7 @@ export function BuildForm(props: Props): JSX.Element {
         label='Ссылка ВК владельца'
         type="text"
         name="vkLink"
-        value={buildingData.owner.vkLink}
+        value={buildingData.vkLink}
         onChange={handleChange}
         disabled
         isLoading={props.isLoading}

@@ -1,8 +1,7 @@
 import React from 'react';
 
 import { BuildingItem, LocationItem } from '../../type';
-import { BuildsTable } from './build/builds-table';
-import { BuildEdit } from './build/build-edit';
+import { BuildsTable, BuildEdit, BuildCreate } from './build';
 
 type Props = {
   locationsList: LocationItem[],
@@ -14,7 +13,7 @@ export function BuildsSelector(props: Props): JSX.Element {
 
   const renderUserAction = React.useMemo(() => {
     if (action === 'create') {
-      return null;
+      return <BuildCreate locationsList={props.locationsList} buildingsList={props.buildingsList} />;
     }
 
     if (action === 'edit') {

@@ -31,22 +31,11 @@ export const darkTheme = {
 };
 
 export type BuildingsData = {
-  id: number,
+  id?: number,
   name: string,
   type: string,
-  owner: {
-    fullName: string,
-    vkLink: string,
-  },
-  locationId: string,
-}
-
-export type BuildingsRow = {
-  id: number,
-  name: string,
-  fullName: string,
+  fullName?: string,
   vkLink: string,
-  type: string,
   locationId: string,
 }
 
@@ -68,10 +57,8 @@ export function BuildsTable(props: Props): JSX.Element {
           .map((p: any) => ({
             name: p.name,
             type: p.building_type,
-            owner: {
-              fullName: `${p.last_name} ${p.first_name} ${p.mid_name || ''}`,
-              vkLink: p.vk_link,
-            },
+            fullName: `${p.last_name} ${p.first_name} ${p.mid_name || ''}`,
+            vkLink: p.vk_link,
             locationId: p.location_id.toString(),
           }))
           setStoreBuildingsData(() => buildingsDataDTO);
@@ -90,20 +77,20 @@ export function BuildsTable(props: Props): JSX.Element {
   }, [filterLocation])
 
   const renderTable = React.useMemo(() => {
-    const columns: TableColumn<BuildingsRow>[] = [
-      { name: '№', selector: (_row: BuildingsRow, index) => (index || 0) + 1, width: '40px' },
-      { name: 'Название', selector: (row: BuildingsRow) => row.name, width: '100px' },
-      { name: 'Тип', selector: (row: BuildingsRow) => row.type, width: '100px' },
-      { name: 'Владелец', selector: (row: BuildingsRow) => row.fullName, width: '300px' },
-      { name: 'ВК', selector: (row: BuildingsRow) => row.vkLink, maxWidth: '200px' },
-      { name: 'Локация', selector: (row: BuildingsRow) => getLocationNameById(Number(row.locationId), props.locationsList), width: '150px' },
+    const columns: TableColumn<BuildingsData>[] = [
+      { name: '№', selector: (_row: BuildingsData, index) => (index || 0) + 1, width: '40px' },
+      { name: 'Название', selector: (row: BuildingsData) => row.name, width: '100px' },
+      { name: 'Тип', selector: (row: BuildingsData) => row.type, width: '100px' },
+      { name: 'Владелец', selector: (row: BuildingsData) => row.fullName || '', width: '300px' },
+      { name: 'ВК', selector: (row: BuildingsData) => row.vkLink, maxWidth: '200px' },
+      { name: 'Локация', selector: (row: BuildingsData) => getLocationNameById(Number(row.locationId), props.locationsList), width: '150px' },
     ];
 
-    const data: BuildingsRow[] = buildingsData.map((p, i) => ({
+    const data: BuildingsData[] = buildingsData.map((p, i) => ({
       id: i,
       name: p.name,
-      fullName: p.owner.fullName,
-      vkLink: p.owner.vkLink,
+      fullName: p.fullName,
+      vkLink: p.vkLink,
       type: p.type,
       locationId: p.locationId,
     }))
