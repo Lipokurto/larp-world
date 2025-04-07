@@ -6,8 +6,8 @@ export const player: ListItem[] = [
     link: '/registration',
   },
   {
-    label: 'Регистрация локации',
-    link: '/reglocation',
+    label: 'Регистрация строения',
+    link: '/regbuild',
   },
   {
     label: 'Регистрация взноса',

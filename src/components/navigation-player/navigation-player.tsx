@@ -23,8 +23,8 @@ const links: Links[] = [
   },
   {
     disabled: false,
-    to: '/player/reglocation',
-    text: 'Регистрация локации',
+    to: '/player/regbuild',
+    text: 'Регистрация строения',
   },
   {
     disabled: false,

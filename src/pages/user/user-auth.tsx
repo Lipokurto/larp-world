@@ -35,6 +35,11 @@ type Session = {
   user: User,
 }
 
+type Props = {
+  buildingsList: BuildingItem[],
+  locationsList: LocationItem[],
+}
+
 async function checkUserHttp(vkId: string, vkLink: string): Promise<string | undefined> {
   try {
     await axios.post(vkRegistry, { vk_id: vkId, vk_link: vkLink });
@@ -52,34 +57,9 @@ async function checkUserHttp(vkId: string, vkLink: string): Promise<string | und
   }
 }
 
-export function VKAuth(): JSX.Element {
+export function VKAuth(props: Props): JSX.Element {
   const [user, setUser] = React.useState<User | undefined>(undefined);
   const [session, setSession] = React.useState<Session | undefined>(undefined);
-  const [locationsList, setLocationsList] = React.useState<LocationItem[]>([]);
-  const [buildingsList, setBuildingsList] = React.useState<BuildingItem[]>([]);
-
-  React.useEffect(() => {
-    const fetchLocationsList = async () => {
-      try {
-        const response = await axios.get(getLocationsList);
-        setLocationsList(response.data);
-      } catch (err) {
-        toast.error('Ошибка при получении списка локаций');
-      }
-    }
-
-    const fetchBuildingsList = async () => {
-      try {
-        const response = await axios.get(getBuildingsList);
-        setBuildingsList(response.data);
-      } catch (err) {
-        toast.error('Ошибка при получении списка строений');
-      }
-    }
-
-    fetchLocationsList();
-    fetchBuildingsList();
-}, []);
 
   const handleLogin = React.useCallback(async () => {
     if (process.env.REACT_APP_NEW === 'prod') {
@@ -130,8 +110,8 @@ export function VKAuth(): JSX.Element {
       {user && (
         <UserPage
           vkId={user.id}
-          locationsList={locationsList}
-          buildingsList={buildingsList}
+          locationsList={props.locationsList}
+          buildingsList={props.buildingsList}
         />
       )}
     </div>

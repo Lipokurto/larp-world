@@ -88,7 +88,6 @@
 .priceActive {
   color: wheat;
   padding: 5px 0 5px 10px;
-  border-bottom: 2px solid;
   border-image-slice: 1;
   border-image-source:  linear-gradient(to right, wheat, #000000);
   box-shadow:0px 0px 0px 1px #000 inset;
@@ -96,6 +95,23 @@
 
 .price {
   padding: 5px 0 5px 10px;
+}
+
+.tableElement {
+  width: 200px;
+  padding: 5px 0 5px 10px;
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source:  linear-gradient(to right, wheat, #000000, wheat);
+  box-shadow:0px 0px 0px 1px #000 inset;
+}
+
+.listTableContainer {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  flex-wrap: wrap;
+  margin: 10px;
 }
 
 @media only screen and (max-width: 850px) {

@@ -1,4 +1,8 @@
+import React from 'react';
+
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import axios from 'axios';
 
 import { Navigation } from './components/navigation';
 import { Main } from './pages/main/main';
@@ -21,7 +25,8 @@ import {
 } from './pages/world';
 
 import {
-  PlayerRegistry, TeamRegistry, LocationRegistry,
+  PlayerRegistry, TeamRegistry,
+  BuildingRegistry,
 } from './pages/player';
 
 import { About } from './pages/about/about';
@@ -32,9 +37,38 @@ import { Conf } from './pages/conf/conf';
 
 import { VKAuth } from './pages/user/user-auth';
 
+import { getBuildingsList, getLocationsList } from './api/lists';
+import { BuildingItem, LocationItem } from './pages/user/type';
+
 import s from './app.module.css';
 
 export default function App(): JSX.Element {
+  const [locationsList, setLocationsList] = React.useState<LocationItem[]>([]);
+  const [buildingsList, setBuildingsList] = React.useState<BuildingItem[]>([]);
+
+  React.useEffect(() => {
+    const fetchLocationsList = async () => {
+      try {
+        const response = await axios.get(getLocationsList);
+        setLocationsList(response.data);
+      } catch (err) {
+        toast.error('Ошибка при получении списка локаций');
+      }
+    }
+
+    const fetchBuildingsList = async () => {
+      try {
+        const response = await axios.get(getBuildingsList);
+        setBuildingsList(response.data);
+      } catch (err) {
+        toast.error('Ошибка при получении списка строений');
+      }
+    }
+
+    fetchLocationsList();
+    fetchBuildingsList();
+}, []);
+
   return (
     <BrowserRouter>
       <div className={s.app}>
@@ -68,13 +102,13 @@ export default function App(): JSX.Element {
 
           <Route path='/player/registration' element={<PlayerRegistry />} />
           <Route path='/player/regband' element={<TeamRegistry />} />
-          <Route path='/player/reglocation' element={<LocationRegistry />} />
+          <Route path='/player/regbuild' element={<BuildingRegistry buildingsList={buildingsList} locationsList={locationsList}/>} />
           <Route path='/player/regpay' element={<PayRegistry />} />
 
           <Route path='/about' element={<About />} />
           <Route path='/more' element={<More />} />
           <Route path='/vk-policy' element={<Conf />} />
-          <Route path='/user-vk-test' element={<VKAuth />} />
+          <Route path='/user-vk-test' element={<VKAuth buildingsList={buildingsList} locationsList={locationsList} />} />
         </Routes>
       </div>
     </BrowserRouter>
