@@ -2,6 +2,7 @@ import React from 'react';
 
 import { BuildingItem, LocationItem } from '../../type';
 import { BuildsTable } from './build/builds-table';
+import { BuildEdit } from './build/build-edit';
 
 type Props = {
   locationsList: LocationItem[],
@@ -17,10 +18,10 @@ export function BuildsSelector(props: Props): JSX.Element {
     }
 
     if (action === 'edit') {
-      return null;
+      return <BuildEdit locationsList={props.locationsList} buildingsList={props.buildingsList} />;
     }
 
-    return <BuildsTable locationsLIst={props.locationsList} buildingsList={props.buildingsList}/>
+    return <BuildsTable locationsList={props.locationsList} buildingsList={props.buildingsList} />
   }, [action]);
 
   return (

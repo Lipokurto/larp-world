@@ -51,7 +51,7 @@ export type BuildingsRow = {
 }
 
 type Props = {
-  locationsLIst: LocationItem[],
+  locationsList: LocationItem[],
   buildingsList: BuildingItem[],
 }
 
@@ -96,7 +96,7 @@ export function BuildsTable(props: Props): JSX.Element {
       { name: 'Тип', selector: (row: BuildingsRow) => row.type, width: '100px' },
       { name: 'Владелец', selector: (row: BuildingsRow) => row.fullName, width: '300px' },
       { name: 'ВК', selector: (row: BuildingsRow) => row.vkLink, maxWidth: '200px' },
-      { name: 'Локация', selector: (row: BuildingsRow) => getLocationNameById(Number(row.locationId), props.locationsLIst), width: '150px' },
+      { name: 'Локация', selector: (row: BuildingsRow) => getLocationNameById(Number(row.locationId), props.locationsList), width: '150px' },
     ];
 
     const data: BuildingsRow[] = buildingsData.map((p, i) => ({
@@ -132,7 +132,7 @@ export function BuildsTable(props: Props): JSX.Element {
           name='locationId'
           value={filterLocation || ''}
           onSelectChange={handleChangeFilter}
-          locationsList={props.locationsLIst}
+          locationsList={props.locationsList}
           isAdmin={true}
         />
         <button style={{ marginTop: '-10px' }} onClick={handleReset}>Сброс фильтра</button>
