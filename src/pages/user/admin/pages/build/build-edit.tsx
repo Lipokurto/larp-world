@@ -42,10 +42,8 @@ const fetchBuildingsInfo = React.useCallback((innerUserId: string) => {
         id: data.id,
         name: data.name,
         type: props.buildingsList.find(p => p.id === data.building_id)?.type || '',
-        owner: {
-          fullName: `${data.last_name} ${data.first_name} ${data.mid_name || ''}`,
-          vkLink: data.vk_link,
-        },
+        fullName: `${data.last_name} ${data.first_name} ${data.mid_name || ''}`,
+        vkLink: data.vk_link,
         locationId: data.location_id,
       }
       setBuildingData(validResponse);
@@ -65,14 +63,15 @@ const renderData = React.useMemo(() => {
         vkId={userId}
         name={buildingData.name}
         type={buildingData.type}
-        owner={buildingData.owner}
+        fullName={buildingData.fullName}
+        vkLink={buildingData.vkLink}
         locationId={buildingData.locationId}
         isLoading={isLoading}
         id={buildingData.id}
         locationsList={props.locationsList}
         buildingsList={props.buildingsList}
         isAdmin
-        />
+      />
     )
   }
 }, [buildingData, isLoading, userId]);
