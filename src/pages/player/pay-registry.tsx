@@ -72,7 +72,7 @@ export function PayRegistry(): JSX.Element {
   const renderRegSteps = React.useMemo(() => {
     return registrationSteps.map(p => {
       return (
-        <div className={s.item}>
+        <div className={s.item} key={p.label}>
           <div className={s.labelContainer}>
             <img src={p.img} alt='' width={100}/>
             <div className={s.itemLabel}>{p.label.toUpperCase()}</div>

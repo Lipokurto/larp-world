@@ -5,8 +5,8 @@ import { Chapter, NavigationPlayer } from '../../components';
 import intro from '../../assets/icons/registration/01_intro.png';
 import arm from '../../assets/icons/registration/02_arm.png';
 import done from '../../assets/icons/registration/05_done.png';
-import { BuildingItem, LocationItem } from '../user/type';
 import excelIcon from './../../assets/icons/social/excel.png';
+import { useAppSelector } from '../../redux/hooks';
 
 import s from './registry.module.css';
 
@@ -16,7 +16,9 @@ type Steps = {
   description: JSX.Element,
 };
 
-function RegSteps(props: Props): JSX.Element {
+function RegSteps(): JSX.Element {
+  const { locations, buildings } = useAppSelector((state) => state.appData);
+
   const rolesTable = React.useMemo(() => {
     return (
       <>
@@ -49,13 +51,13 @@ function RegSteps(props: Props): JSX.Element {
             <div><b>Тип строения: </b><i>Экономическая постройка, постройка для отдыха, коммерческая постройка{}</i></div>
               <h3 style={{ display: 'flex' }}>Список всех доступных строений (лимиты локаций {'>>>'} {rolesTable})</h3>
               <div className={s.listTableContainer}>
-                {props.buildingsList.map(p => <div key={p.id} className={s.tableElement}>{p.type}</div>)}
+                {buildings.map(p => <div key={p.id} className={s.tableElement}>{p.type}</div>)}
               </div>
             <div><b>Название строение: </b><i>Принимаются только русскоязычные названия</i></div>
             <div><b>Локация: </b><i>где строение будет расположена (квартал или определенный лагерь)</i></div>
               <h3 style={{ display: 'flex' }}>Список всех доступных локаций</h3>
               <div className={s.listTableContainer}>
-                {props.locationsList.filter(p => p.type !== 'SECRET').map(p => <div key={p.id} className={s.tableElement}>{p.name}</div>)}
+                {locations.filter(p => p.type !== 'SECRET').map(p => <div key={p.id} className={s.tableElement}>{p.name}</div>)}
               </div>
             <div><b>Хозяин (ВК): </b><i>Ссылка на хозяина в соц сетях.</i></div>
             <div><b>Хозяин (ФИО): </b><i> ФИО игрока. Игровое имя персонажа</i></div>
@@ -92,7 +94,7 @@ function RegSteps(props: Props): JSX.Element {
     <>
       {registrationSteps.map(p => {
         return (
-          <div className={s.item}>
+          <div className={s.item} key={p.label}>
             <div className={s.labelContainer}>
               <img src={p.img} alt='' width={100}/>
               <div className={s.itemLabel}>{p.label.toUpperCase()}</div>
@@ -106,20 +108,14 @@ function RegSteps(props: Props): JSX.Element {
   )
 }
 
-type Props = {
-  buildingsList: BuildingItem[],
-  locationsList: LocationItem[],
-}
-
-export function BuildingRegistry(props: Props): JSX.Element {
+export function BuildingRegistry(): JSX.Element {
   return (
     <div className={s.container}>
       <Chapter chapter='Регистрация строения'/>
 
       <NavigationPlayer selectedLink='/player/regbuild' />
 
-      <RegSteps buildingsList={props.buildingsList} locationsList={props.locationsList} />
-
+      <RegSteps />
     </div>
   )
 }

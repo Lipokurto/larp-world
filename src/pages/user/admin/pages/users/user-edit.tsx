@@ -3,16 +3,12 @@ import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
 
 import { CharForm, PlayerForm, StatusTable } from '../../../components/forms';
-import { LocationItem, UserData } from '../../../type';
+import { UserData } from '../../../type';
 import { info } from '../../../../../api/user';
 import { getIdWithLink } from '../../../utils/get-id-by-link';
 import { InputForm } from '../../../components/ui-kit';
 
-type Props = {
-  locationsList: LocationItem[],
-}
-
-export function UserEdit(props: Props): JSX.Element {
+export function UserEdit(): JSX.Element {
   const [userLink, setUserLink] = React.useState<string>('');
   const [userId, setUserId] = React.useState<string>('');
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
@@ -87,7 +83,6 @@ const renderData = React.useMemo(() => {
           role={userData.role}
           locationId={userData.locationId}
           isLoading={isLoading}
-          locationsList={props.locationsList}
           isAdmin={true}
         />
       </>

@@ -46,11 +46,12 @@ export function NavigationPlayer(props: Props): JSX.Element {
     ));
 
     setItems(newItems);
-  }, [items, props.selectedLink]);
+  }, [props.selectedLink]);
 
   const renderItems = React.useMemo(() => (
       items.map(p => (
         <NavLink
+          key={p.text}
           className={p.disabled ? s.linkOff : s.link}
           replace
           to={p.to}

@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import toast from 'react-hot-toast';
 
 import VK from './utils/vk';
 import { vkRegistry, vkRegistryChar } from '../../api/user';
@@ -8,8 +7,6 @@ import { testResponse } from './utils/test';
 import vkImage from '../../assets/icons/social/vk.png';
 import exitImage from '../../assets/icons/social/exit.png';
 import { UserPage } from './user-page';
-import { getBuildingsList, getLocationsList } from '../../api/lists';
-import { BuildingItem, LocationItem } from './type';
 
 import s from './user.module.scss';
 
@@ -35,11 +32,6 @@ type Session = {
   user: User,
 }
 
-type Props = {
-  buildingsList: BuildingItem[],
-  locationsList: LocationItem[],
-}
-
 async function checkUserHttp(vkId: string, vkLink: string): Promise<string | undefined> {
   try {
     await axios.post(vkRegistry, { vk_id: vkId, vk_link: vkLink });
@@ -57,7 +49,7 @@ async function checkUserHttp(vkId: string, vkLink: string): Promise<string | und
   }
 }
 
-export function VKAuth(props: Props): JSX.Element {
+export function VKAuth(): JSX.Element {
   const [user, setUser] = React.useState<User | undefined>(undefined);
   const [session, setSession] = React.useState<Session | undefined>(undefined);
 
@@ -108,11 +100,7 @@ export function VKAuth(props: Props): JSX.Element {
       </div>
 
       {user && (
-        <UserPage
-          vkId={user.id}
-          locationsList={props.locationsList}
-          buildingsList={props.buildingsList}
-        />
+        <UserPage vkId={user.id} />
       )}
     </div>
   );

@@ -4,16 +4,11 @@ import toast, { Toaster } from 'react-hot-toast';
 
 import { getIdWithLink } from '../../../utils/get-id-by-link';
 import { InputForm, SelectForm } from '../../../components/ui-kit';
-import { BuildingItem, LocationItem } from '../../../type';
 import { BuildingsData } from './builds-table';
 import { createBuilding } from '../../../../../api/buildings';
+import { useAppSelector } from '../../../../../redux/hooks';
 
-type Props = {
-  locationsList: LocationItem[],
-  buildingsList: BuildingItem[],
-}
-
-export function BuildCreate(props: Props): JSX.Element {
+export function BuildCreate(): JSX.Element {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [buildingData, setBuildingData] = React.useState<BuildingsData>({
     name: '',
@@ -22,6 +17,7 @@ export function BuildCreate(props: Props): JSX.Element {
     locationId: '',
   });
   const [isDisableSubmit, setIsDisableSubmit] = React.useState<boolean>(true);
+  const { locations, buildings } = useAppSelector((state) => state.appData);
 
   React.useEffect(() => {
     setIsDisableSubmit(
@@ -49,7 +45,7 @@ export function BuildCreate(props: Props): JSX.Element {
         await axios.post(createBuilding, {
           owner_id: userId,
           name: buildingData.name,
-          building_id: props.buildingsList.find(p => p.id.toString() === buildingData.type)?.id,
+          building_id: buildings.find(p => p.id.toString() === buildingData.type)?.id,
           location_id: buildingData.locationId,
         });
 
@@ -60,15 +56,15 @@ export function BuildCreate(props: Props): JSX.Element {
       setIsLoading(false);
 
     return undefined;
-  }, [props, buildingData]);
+  }, [buildingData]);
 
   const renderTypeOptions = React.useMemo(() => {
     return (
       <>
-        {props.buildingsList.map(p => <option value={p.id} key={p.id}>{p.type}</option>)}
+        {buildings.map(p => <option value={p.id} key={p.id}>{p.type}</option>)}
       </>
     )
-  }, [props.buildingsList]);
+  }, [buildings]);
 
   return (
     <>
@@ -107,7 +103,7 @@ export function BuildCreate(props: Props): JSX.Element {
           value={buildingData.locationId}
           name='locationId'
           onSelectChange={handleChange}
-          locationsList={props.locationsList}
+          locationsList={locations}
           isAdmin
         />
 

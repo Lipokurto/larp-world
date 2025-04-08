@@ -54,7 +54,7 @@ export function SelectForm(props: Props): JSX.Element {
     if (props.disabled) {
       return(
         <div className={s.inputOff}>
-          {props.locationsList ? getLocationNameById(Number(props.value), props.locationsList) : props.value}
+          {props.locationsList ? getLocationNameById(Number(props.value)) : props.value}
         </div>
       )
     }

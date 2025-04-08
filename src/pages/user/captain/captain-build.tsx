@@ -5,15 +5,13 @@ import toast, { Toaster } from 'react-hot-toast';
 
 import { darkTheme } from '../admin/pages/users/users-table';
 import { getLocationNameById } from '../utils/get-location-name-by-id';
-import { BuildingItem, LocationItem } from '../type';
 import { buildingsTable, getBuildingsLimits } from '../../../api/buildings';
 import { BuildingsData } from '../admin/pages/build/builds-table';
 import { Statistic } from '../components/ui-kit';
+import { useAppSelector } from '../../../redux/hooks';
 
 type Props = {
   locationId: string,
-  locationsList: LocationItem[],
-  buildingsList: BuildingItem[],
 };
 
 type BuildingLimit = {
@@ -24,6 +22,7 @@ type BuildingLimit = {
 export function CaptainBuild(props: Props): JSX.Element {
   const [buildingsData, setBuildingsData] = React.useState<BuildingsData[]>([]);
   const [buildingsLimits, setBuildingsLimits] = React.useState<BuildingLimit[]>([]);
+  const { buildings } = useAppSelector((state) => state.appData);
 
   React.useEffect(() => {
     const fetchBuildingsInfo = async () => {
@@ -68,7 +67,7 @@ export function CaptainBuild(props: Props): JSX.Element {
       { name: 'Тип', selector: (row: BuildingsData) => row.type, width: '100px' },
       { name: 'Владелец', selector: (row: BuildingsData) => row.fullName || '', width: '300px' },
       { name: 'ВК', selector: (row: BuildingsData) => row.vkLink, maxWidth: '200px' },
-      { name: 'Локация', selector: (row: BuildingsData) => getLocationNameById(Number(row.locationId), props.locationsList), width: '150px' },
+      { name: 'Локация', selector: (row: BuildingsData) => getLocationNameById(Number(row.locationId)), width: '150px' },
     ];
 
     const data: BuildingsData[] = buildingsData.map((p, i) => ({
@@ -89,7 +88,7 @@ export function CaptainBuild(props: Props): JSX.Element {
 
   const renderLimits = React.useMemo(() => {
     const items = buildingsLimits.map(p => {
-      const label = props.buildingsList.find(pp => p.buildingId === pp.id)?.type;
+      const label = buildings.find(pp => p.buildingId === pp.id)?.type;
       return (
         <Statistic
           label={label || ''}

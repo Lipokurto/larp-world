@@ -6,8 +6,8 @@ import DataTable, { TableColumn } from 'react-data-table-component';
 import { playersTable } from '../../../../../api/user';
 import { renderStatusIcon } from '../../../components/ui-kit/status';
 import { SelectForm, Statistic } from '../../../components/ui-kit';
-import { LocationItem } from '../../../type';
 import { getLocationNameById } from '../../../utils/get-location-name-by-id';
+import { useAppSelector } from '../../../../../redux/hooks';
 
 export const darkTheme = {
   headCells: {
@@ -43,14 +43,11 @@ export type PlayersData = {
   request: boolean,
 }
 
-type Props = {
-  locationsLIst: LocationItem[],
-}
-
-export function UsersTable(props: Props): JSX.Element {
+export function UsersTable(): JSX.Element {
   const [filterLocation, setFilterLocation] = React.useState<string | undefined>(undefined);
   const [storePlayersData, setStorePlayersData] = React.useState<PlayersData[]>([]);
   const [playersData, setPlayersData] = React.useState<PlayersData[]>([]);
+  const { locations } = useAppSelector((state) => state.appData);
 
   React.useEffect(() => {
     const fetchPlayerInfo = async () => {
@@ -91,7 +88,7 @@ export function UsersTable(props: Props): JSX.Element {
       { name: 'ВК', selector: (row: PlayersData) => row.vkLink, width: '200px' },
       { name: 'Персонаж', selector: (row: PlayersData) => row.char || '-', maxWidth: '200px' },
       { name: 'Роль', selector: (row: PlayersData) => row.role || '-', maxWidth: '200px' },
-      { name: 'Локация', selector: (row: PlayersData) => getLocationNameById(Number(row.locationId), props.locationsLIst), width: '150px' },
+      { name: 'Локация', selector: (row: PlayersData) => getLocationNameById(Number(row.locationId)), width: '150px' },
       { name: 'Заявка', cell: (row: PlayersData) => renderStatusIcon(Boolean(row.request)), width: '50px' },
       { name: 'Фото', cell: (row: PlayersData) => renderStatusIcon(Boolean(row.photo)), width: '50px' },
       { name: 'Взнос', cell: (row: PlayersData) => row.payment || renderStatusIcon(false), width: '50px' },
@@ -133,7 +130,7 @@ export function UsersTable(props: Props): JSX.Element {
           name='locationId'
           value={filterLocation || ''}
           onSelectChange={handleChangeFilter}
-          locationsList={props.locationsLIst}
+          locationsList={locations}
           isAdmin={true}
         />
         <button style={{ marginTop: '-10px' }} onClick={handleReset}>Сброс фильтра</button>
