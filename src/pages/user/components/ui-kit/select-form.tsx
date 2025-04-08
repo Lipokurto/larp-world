@@ -1,8 +1,8 @@
 import React from 'react';
 import ContentLoader from 'react-content-loader'
 
-import { LocationItem } from '../../type';
 import { getLocationNameById } from '../../utils/get-location-name-by-id';
+import { LocationItem } from '../../../../redux/appDataSlice';
 
 import s from './input-form.module.scss'
 

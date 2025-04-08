@@ -16,16 +16,3 @@ export type UserData = {
   photoCheck: boolean,
   status: string,
 }
-
-export type LocationItem = {
-  id: number,
-  name: string,
-  type: string,
-}
-
-export type BuildingItem = {
-  id: number,
-  type: string,
-  class: string,
-  sign: boolean,
-}

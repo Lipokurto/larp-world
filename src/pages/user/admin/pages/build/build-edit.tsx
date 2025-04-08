@@ -14,7 +14,7 @@ export function BuildEdit(): JSX.Element {
   const [userId, setUserId] = React.useState<string>('');
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [buildingData, setBuildingData] = React.useState<BuildingsData | undefined>(undefined);
-  const { locations, buildings } = useAppSelector((state) => state.appData);
+  const { buildings } = useAppSelector((state) => state.appData);
 
   const handleLinkChange = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setUserLink(e.target.value);
@@ -62,10 +62,8 @@ const renderData = React.useMemo(() => {
         fullName={buildingData.fullName}
         vkLink={buildingData.vkLink}
         locationId={buildingData.locationId}
-        isLoading={isLoading}
         id={buildingData.id}
-        locationsList={locations}
-        buildingsList={buildings}
+        isLoading={isLoading}
         isAdmin
       />
     )
