@@ -4,16 +4,14 @@ import axios from 'axios';
 
 import { InputForm, SelectForm } from '../ui-kit';
 import { BuildingsData } from '../../admin/pages/build/builds-table';
-import { BuildingItem, LocationItem } from '../../type';
 import { editBuilding } from '../../../../api/buildings';
+import { useAppSelector } from '../../../../redux/hooks';
 
 import s from './form.module.scss';
 
 type Props = BuildingsData & {
   vkId: string,
   isLoading: boolean,
-  locationsList: LocationItem[],
-  buildingsList: BuildingItem[],
   isAdmin?: boolean,
 }
 
@@ -28,6 +26,7 @@ export function BuildForm(props: Props): JSX.Element {
     type: props.type,
     locationId: props.locationId,
   });
+  const { locations, buildings } = useAppSelector((state) => state.appData);
 
   const handleChange = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -49,7 +48,7 @@ export function BuildForm(props: Props): JSX.Element {
       await axios.post(editBuilding, {
         id: props.id,
         name: buildingData.name,
-        building_id: props.buildingsList.find(p => p.id.toString() === buildingData.type)?.id,
+        building_id: buildings.find(p => p.id.toString() === buildingData.type)?.id,
         location_id: buildingData.locationId,
       });
 
@@ -72,10 +71,10 @@ export function BuildForm(props: Props): JSX.Element {
   const renderTypeOptions = React.useMemo(() => {
     return (
       <>
-        {props.buildingsList.map(p => <option value={p.id} key={p.id}>{p.type}</option>)}
+        {buildings.map(p => <option value={p.id} key={p.id}>{p.type}</option>)}
       </>
     )
-  }, [props.buildingsList]);
+  }, [buildings]);
 
   return (
     <div className={s.container}>
@@ -130,7 +129,7 @@ export function BuildForm(props: Props): JSX.Element {
         name='locationId'
         disabled={!isEditing}
         onSelectChange={handleChange}
-        locationsList={props.locationsList}
+        locationsList={locations}
         isAdmin
       />
     </div>

@@ -1,8 +1,4 @@
-import React from 'react';
-
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import toast from 'react-hot-toast';
-import axios from 'axios';
 
 import { Navigation } from './components/navigation';
 import { Main } from './pages/main/main';

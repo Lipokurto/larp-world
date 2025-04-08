@@ -1,7 +1,20 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { BuildingItem, LocationItem } from '../pages/user/type';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+
 import { getBuildingsList, getLocationsList } from '../api/lists';
+
+export type LocationItem = {
+  id: number,
+  name: string,
+  type: string,
+}
+
+type BuildingItem = {
+  id: number,
+  type: string,
+  class: string,
+  sign: boolean,
+}
 
 interface AppDataState {
   locations: LocationItem[],
