@@ -1,26 +1,20 @@
 import React from 'react';
 
-import { BuildingItem, LocationItem } from '../../type';
 import { BuildsTable, BuildEdit, BuildCreate } from './build';
 
-type Props = {
-  locationsList: LocationItem[],
-  buildingsList: BuildingItem[],
-}
-
-export function BuildsSelector(props: Props): JSX.Element {
+export function BuildsSelector(): JSX.Element {
   const [action, setAction] = React.useState<string>('table');
 
   const renderUserAction = React.useMemo(() => {
     if (action === 'create') {
-      return <BuildCreate locationsList={props.locationsList} buildingsList={props.buildingsList} />;
+      return <BuildCreate />;
     }
 
     if (action === 'edit') {
-      return <BuildEdit locationsList={props.locationsList} buildingsList={props.buildingsList} />;
+      return <BuildEdit />;
     }
 
-    return <BuildsTable locationsList={props.locationsList} buildingsList={props.buildingsList} />
+    return <BuildsTable />
   }, [action]);
 
   return (

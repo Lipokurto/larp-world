@@ -4,9 +4,9 @@ import toast, { Toaster } from 'react-hot-toast';
 import DataTable, { TableColumn } from 'react-data-table-component';
 
 import { SelectForm } from '../../../components/ui-kit';
-import { BuildingItem, LocationItem } from '../../../type';
 import { getLocationNameById } from '../../../utils/get-location-name-by-id';
 import { buildingsTable } from '../../../../../api/buildings';
+import { useAppSelector } from '../../../../../redux/hooks';
 
 export const darkTheme = {
   headCells: {
@@ -39,15 +39,11 @@ export type BuildingsData = {
   locationId: string,
 }
 
-type Props = {
-  locationsList: LocationItem[],
-  buildingsList: BuildingItem[],
-}
-
-export function BuildsTable(props: Props): JSX.Element {
+export function BuildsTable(): JSX.Element {
   const [filterLocation, setFilterLocation] = React.useState<string | undefined>(undefined);
   const [storeBuildingsData, setStoreBuildingsData] = React.useState<BuildingsData[]>([]);
   const [buildingsData, setBuildingsData] = React.useState<BuildingsData[]>([]);
+  const { locations } = useAppSelector((state) => state.appData);
 
   React.useEffect(() => {
     const fetchBuildingsInfo = async () => {
@@ -83,7 +79,7 @@ export function BuildsTable(props: Props): JSX.Element {
       { name: 'Тип', selector: (row: BuildingsData) => row.type, width: '100px' },
       { name: 'Владелец', selector: (row: BuildingsData) => row.fullName || '', width: '300px' },
       { name: 'ВК', selector: (row: BuildingsData) => row.vkLink, maxWidth: '200px' },
-      { name: 'Локация', selector: (row: BuildingsData) => getLocationNameById(Number(row.locationId), props.locationsList), width: '150px' },
+      { name: 'Локация', selector: (row: BuildingsData) => getLocationNameById(Number(row.locationId)), width: '150px' },
     ];
 
     const data: BuildingsData[] = buildingsData.map((p, i) => ({
@@ -119,7 +115,7 @@ export function BuildsTable(props: Props): JSX.Element {
           name='locationId'
           value={filterLocation || ''}
           onSelectChange={handleChangeFilter}
-          locationsList={props.locationsList}
+          locationsList={locations}
           isAdmin={true}
         />
         <button style={{ marginTop: '-10px' }} onClick={handleReset}>Сброс фильтра</button>

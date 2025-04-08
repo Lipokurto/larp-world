@@ -1,25 +1,20 @@
 import React from 'react';
 
 import { UserEdit, UsersTable, UserCreate } from './users';
-import { LocationItem } from '../../type';
 
-type Props = {
-  locationsList: LocationItem[],
-}
-
-export function UsersSelector(props: Props): JSX.Element {
+export function UsersSelector(): JSX.Element {
   const [action, setAction] = React.useState<string>('table');
 
   const renderUserAction = React.useMemo(() => {
     if (action === 'create') {
-      return <UserCreate locationsList={props.locationsList} />
+      return <UserCreate />
     }
 
     if (action === 'edit') {
-      return <UserEdit locationsList={props.locationsList} />
+      return <UserEdit />
     }
 
-    return <UsersTable locationsLIst={props.locationsList} />
+    return <UsersTable />
   }, [action]);
 
   return (

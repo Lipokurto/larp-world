@@ -8,11 +8,9 @@ import { renderStatusIcon } from '../components/ui-kit/status';
 import { playersTable } from '../../../api/user';
 import { Statistic } from '../components/ui-kit';
 import { getLocationNameById } from '../utils/get-location-name-by-id';
-import { LocationItem } from '../type';
 
 type Props = {
   locationId: string,
-  locationsList: LocationItem[],
 };
 
 export function CaptainTeam(props: Props): JSX.Element {
@@ -46,7 +44,7 @@ export function CaptainTeam(props: Props): JSX.Element {
     { name: '№', selector: (row: PlayersData, index) => (index || 0) + 1, width: '40px' },
     { name: 'ФИО', selector: (row: PlayersData) => row.fullName, width: '200px' },
     { name: 'ВК', selector: (row: PlayersData) => row.vkLink, width: '200px' },
-    { name: 'Локация', selector: (row: PlayersData) => getLocationNameById(Number(row.locationId), props.locationsList) || '-', width: '150px' },
+    { name: 'Локация', selector: (row: PlayersData) => getLocationNameById(Number(row.locationId)) || '-', width: '150px' },
     { name: 'Заявка', cell: (row: PlayersData) => renderStatusIcon(Boolean(row.request)), width: '50px' },
     { name: 'Фото', cell: (row: PlayersData) => renderStatusIcon(Boolean(row.photo)), width: '50px' },
     { name: 'Взнос', cell: (row: PlayersData) => renderStatusIcon(Boolean(row.payment)), width: '50px' },

@@ -1,14 +1,8 @@
 import React from 'react';
 
 import { Rules, Videos, UsersSelector, BuildsSelector } from './pages';
-import { BuildingItem, LocationItem } from '../type';
 
-type Props = {
-  locationsList: LocationItem[],
-  buildingsList: BuildingItem[],
-}
-
-export function AdminSelector(props: Props): JSX.Element {
+export function AdminSelector(): JSX.Element {
   const [page, setPage] = React.useState<string>('users');
 
   const renderPage = React.useMemo(() => {
@@ -26,14 +20,11 @@ export function AdminSelector(props: Props): JSX.Element {
 
     if (page === 'build') {
       return (
-        <BuildsSelector
-          locationsList={props.locationsList}
-          buildingsList={props.buildingsList}
-        />
+        <BuildsSelector />
       )
     }
 
-    return <UsersSelector locationsList={props.locationsList} />
+    return <UsersSelector />
   }, [page]);
 
   return (

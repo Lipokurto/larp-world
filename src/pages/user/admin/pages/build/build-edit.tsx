@@ -3,22 +3,18 @@ import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
 
 import { BuildForm } from '../../../components/forms';
-import { BuildingItem, LocationItem } from '../../../type';
 import { getIdWithLink } from '../../../utils/get-id-by-link';
 import { InputForm } from '../../../components/ui-kit';
 import { BuildingsData } from './builds-table';
 import { getBuilding } from '../../../../../api/buildings';
+import { useAppSelector } from '../../../../../redux/hooks';
 
-type Props = {
-  locationsList: LocationItem[],
-  buildingsList: BuildingItem[],
-}
-
-export function BuildEdit(props: Props): JSX.Element {
+export function BuildEdit(): JSX.Element {
   const [userLink, setUserLink] = React.useState<string>('');
   const [userId, setUserId] = React.useState<string>('');
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [buildingData, setBuildingData] = React.useState<BuildingsData | undefined>(undefined);
+  const { locations, buildings } = useAppSelector((state) => state.appData);
 
   const handleLinkChange = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setUserLink(e.target.value);
@@ -41,7 +37,7 @@ const fetchBuildingsInfo = React.useCallback((innerUserId: string) => {
       const validResponse: BuildingsData = {
         id: data.id,
         name: data.name,
-        type: props.buildingsList.find(p => p.id === data.building_id)?.type || '',
+        type: buildings.find(p => p.id === data.building_id)?.type || '',
         fullName: `${data.last_name} ${data.first_name} ${data.mid_name || ''}`,
         vkLink: data.vk_link,
         locationId: data.location_id,
@@ -68,8 +64,8 @@ const renderData = React.useMemo(() => {
         locationId={buildingData.locationId}
         isLoading={isLoading}
         id={buildingData.id}
-        locationsList={props.locationsList}
-        buildingsList={props.buildingsList}
+        locationsList={locations}
+        buildingsList={buildings}
         isAdmin
       />
     )

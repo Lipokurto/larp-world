@@ -6,11 +6,7 @@ import { getIdWithLink } from '../../../utils/get-id-by-link';
 import { getSeparateName } from '../../../utils/get-separate-name';
 import { createUser } from '../../../../../api/user';
 import { InputForm, SelectForm } from '../../../components/ui-kit';
-import { LocationItem } from '../../../type';
-
-type Props = {
-  locationsList: LocationItem[],
-}
+import { useAppSelector } from '../../../../../redux/hooks';
 
 type UserData = {
   fullName: string,
@@ -20,7 +16,7 @@ type UserData = {
   locationId: string,
 }
 
-export function UserCreate(props: Props): JSX.Element {
+export function UserCreate(): JSX.Element {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [userData, setUserData] = React.useState<UserData>({
     fullName: '',
@@ -30,6 +26,7 @@ export function UserCreate(props: Props): JSX.Element {
     locationId: '',
   });
   const [isDisableSubmit, setIsDisableSubmit] = React.useState<boolean>(true);
+  const { locations } = useAppSelector((state) => state.appData);
 
   React.useEffect(() => {
     setIsDisableSubmit(isLoading || userData.fullName === '' || userData.vkLink === '');
@@ -128,9 +125,8 @@ export function UserCreate(props: Props): JSX.Element {
           isLoading={isLoading}
           disabled={isLoading}
           value={userData.locationId}
-          locationsList={props.locationsList}
+          locationsList={locations}
           isAdmin={true}
-
         />
 
         <div>

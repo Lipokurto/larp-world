@@ -5,7 +5,7 @@ import axios from 'axios';
 import { editPlayerChar } from '../../../../api/user';
 import { InputForm, SelectForm } from '../ui-kit';
 import { charNameValidation } from './form-validation';
-import { LocationItem } from '../../type';
+import { useAppSelector } from '../../../../redux/hooks';
 
 import s from './form.module.scss';
 
@@ -23,7 +23,6 @@ type CharData = {
 type Props = CharData & {
   vkId: string,
   isLoading: boolean,
-  locationsList: LocationItem[],
   isAdmin?: boolean,
 }
 
@@ -35,6 +34,7 @@ export function CharForm(props: Props): JSX.Element {
     role: { value: props.role.value, error: props.role.error },
     locationId: { value: props.locationId.value, error: props.locationId.error },
   });
+    const { locations } = useAppSelector((state) => state.appData);
 
   const handleChange = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -139,7 +139,7 @@ export function CharForm(props: Props): JSX.Element {
           disabled={!isEditing}
           error={charData.locationId.error}
           isLoading={props.isLoading}
-          locationsList={props.locationsList}
+          locationsList={locations}
           isAdmin={props.isAdmin}
         />
       </div>
