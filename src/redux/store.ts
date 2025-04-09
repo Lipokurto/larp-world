@@ -1,11 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { appDataReducer } from './appDataSlice';
-// import apiDataReducer from './apiDataSlice';
+import { appDataReducer } from './app-data-slice';
+import { userReducer } from './user-slice';
 
 export const store = configureStore({
   reducer: {
     appData: appDataReducer,
-    // user: undefined,
+    user: userReducer,
   },
 });
 
