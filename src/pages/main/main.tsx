@@ -1,17 +1,24 @@
 // eslint-disable jsx-a11y/anchor-is-valid
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavigateFunction, NavLink, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
+import Tooltip from 'react-tooltip-lite';
 
 import { SubMenu } from './sub-menu';
 import { Logo } from '../../components/logo';
 import { NavigationModal, useResize } from '../../components';
 import { rules } from '../../components/navigation/lists';
 
+import vkImage from '../../assets/icons/social/vk.png';
 import staticLogo from '../../assets/LOGO_2025.png';
 import { getVideos } from '../../api/materials';
 import { SidePanel } from './side-panel';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { VKResponse } from '../user/user-auth';
+import VK from '../user/utils/vk';
+import { loginFailure, loginStart, loginSuccess } from '../../redux/user-slice';
+import { testResponse } from '../user/utils/test';
 
 import s from './main.module.scss';
 
@@ -26,6 +33,10 @@ export function Main(): JSX.Element {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
   const [videoObject, setVideoObject] = React.useState<Link[]>([]);
   const [isVideoLoading, setIsVideoLoading] = React.useState<boolean>(false);
+  const [isAuthOpen, setIsAuthOpen] = React.useState<boolean>(false);
+  const { isAuthenticated } = useAppSelector((state) => state.user);
+  const navigate: NavigateFunction = useNavigate();
+  const dispatch = useAppDispatch();
 
   const { width } = useResize();
 
@@ -57,6 +68,38 @@ export function Main(): JSX.Element {
     setIsOpen(true);
   }, []);
 
+  const handleUserCheck = React.useCallback(() => {
+    if (isAuthenticated) {
+      return navigate('/user');
+    }
+
+    if (!isAuthOpen) {
+      return setIsAuthOpen(true);
+    }
+
+    return setIsAuthOpen(false);
+  }, []);
+
+  const handleLogin = React.useCallback(async () => {
+    let userData = undefined;
+    if (process.env.REACT_APP_NEW === 'prod') {
+      VK.Auth.login(async (response: VKResponse) => {
+        const { user } = response.session;
+        if (user.id) {
+          console.log('User authorized:', user.href);
+          dispatch(loginStart());
+          userData = user;
+        }
+      }, VK.access.PHOTOS);
+    } else {
+      const { user } = testResponse.session;
+      userData = user;
+    }
+
+    dispatch(userData ? loginSuccess(userData) : loginFailure('Ошибка авторизации'));
+    navigate('/user');
+  }, []);
+
   const renderLogo = React.useMemo(() => {
     return width < 800 ? <img src={staticLogo} alt='' width={200} style={{ marginLeft:'-100px' }}/> : <Logo />
   }, [width]);
@@ -81,17 +124,31 @@ export function Main(): JSX.Element {
     )
   }, [videoObject, isVideoLoading]);
 
+  const renderAuthButton = React.useMemo(() => {
+    return (
+      <img src={vkImage} width={50} onClick={handleLogin} />
+    )
+  } ,[]);
+
   return (
     <>
       <div className={s.container}>
         <div className={s.buttons}>
             <NavLink className={s.mainButton} to='/player/registration'>Регистрация на игру</NavLink>
 
-            <NavLink className={s.secondButton} to='/about'>О мероприятии</NavLink>
+            <Tooltip
+              content={renderAuthButton}
+              background='wheat'
+              direction="top"
+              isOpen={isAuthOpen}
+              useHover={false}
+            >
+              <button className={s.secondButton} onClick={handleUserCheck}>Личный кабинет</button>
+            </Tooltip>
 
             <a className={s.secondButton} onClick={() => handleClick()}>Правила</a>
 
-            <NavLink className={s.secondButton} to='/more'>Дополнительно</NavLink>
+            <NavLink className={s.secondButton} to='/about'>О мероприятии</NavLink>
 
             <NavLink style={{ alignSelf: 'end' }} to='/vk-policy'>Политика конфиденциальности</NavLink>
         </div>

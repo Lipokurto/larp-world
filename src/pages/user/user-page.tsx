@@ -1,12 +1,16 @@
 import React from 'react';
 import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
+import { NavigateFunction, useNavigate } from 'react-router-dom';
 
 import { CharForm, PlayerForm, StatusTable } from './components/forms';
 import { info } from '../../api/user';
 import { UserData } from './type';
 import { AdminSelector } from './admin';
 import { CaptainSelector } from './captain';
+import exitImage from '../../assets/icons/social/exit.png';
+import { useAppDispatch } from '../../redux/hooks';
+import { logout } from '../../redux/user-slice';
 
 import s from './user.module.scss';
 
@@ -17,6 +21,8 @@ type Props = {
 export function UserPage(props: Props): JSX.Element {
   const [userData, setUserData] = React.useState<UserData | undefined>(undefined);
   const [isLoading, setIsLoading] = React.useState<boolean>(true);
+  const dispatch = useAppDispatch();
+  const navigate: NavigateFunction = useNavigate();
 
   React.useEffect(() => {
     const fetchPlayerInfo = async () => {
@@ -47,6 +53,11 @@ export function UserPage(props: Props): JSX.Element {
 
   fetchPlayerInfo();
 }, [props]);
+
+const handleLogout = React.useCallback(() => {
+  dispatch(logout());
+  navigate('/')
+}, []);
 
 const renderElement = React.useMemo(() => {
   if (userData) {
@@ -100,6 +111,10 @@ const renderElement = React.useMemo(() => {
 
   return (
   <>
+    <div className={s.loginContainer}>
+      <img src={exitImage} width={30} onClick={handleLogout} />
+    </div>
+
     {renderElement}
 
     <Toaster

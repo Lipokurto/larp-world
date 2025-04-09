@@ -1,5 +1,5 @@
 import React from 'react';
-import { fetchAppData } from './redux/appDataSlice';
+import { fetchAppData } from './redux/app-data-slice';
 import { useAppDispatch } from './redux/hooks';
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
