@@ -18,7 +18,7 @@ import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import VK from './vk';
 import { loginFailure, loginStart, loginSuccess } from '../../redux/user-slice';
 import { testResponse } from './test';
-import { Link, VKResponse } from './type';
+import { Link, User, VKResponse } from './type';
 
 import s from './main.module.scss';
 
@@ -94,23 +94,32 @@ export function Main(): JSX.Element {
   const handleLogin = React.useCallback(async (e: React.MouseEvent) => {
     e.nativeEvent.stopImmediatePropagation();
 
-    let userData = undefined;
-    if (process.env.REACT_APP_NEW === 'prod') {
-      VK.Auth.login(async (response: VKResponse) => {
-        const { user } = response.session;
-        if (user.id) {
-          console.log('User authorized:', user.href);
-          dispatch(loginStart());
-          userData = user;
-        }
-      }, VK.access.PHOTOS);
-    } else {
-      const { user } = testResponse.session;
-      userData = user;
-    }
+    try {
+      dispatch(loginStart());
 
-    dispatch(userData ? loginSuccess(userData) : loginFailure('Ошибка авторизации'));
-    navigate('/user');
+      if (process.env.REACT_APP_NEW === 'prod') {
+        const userData = await new Promise<User>((resolve, reject) => {
+          VK.Auth.login((response: VKResponse) => {
+            if (response.session?.user) {
+              console.log('User authorized:', response.session.user.href);
+              resolve(response.session.user);
+            } else {
+              reject(new Error('Авторизация не удалась'));
+            }
+          }, VK.access.PHOTOS);
+        });
+
+        dispatch(loginSuccess(userData));
+      } else {
+        const { user } = testResponse.session;
+        dispatch(loginSuccess(user));
+      }
+
+      navigate('/user');
+    } catch (error: any) {
+      dispatch(loginFailure(error.message));
+      toast.error('Ошибка авторизации');
+    }
   }, [dispatch, navigate]);
 
   const renderLogo = React.useMemo(() => {

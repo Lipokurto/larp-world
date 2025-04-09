@@ -92,7 +92,11 @@ export function BuildsTable(): JSX.Element {
     }))
 
     if (buildingsData.length > 0) {
-      return <DataTable columns={columns} data={data} theme='dark' customStyles={darkTheme}/>
+      return (
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <DataTable columns={columns} data={data} theme='dark' customStyles={darkTheme} />
+        </div>
+      )
     }
 
     return null;
