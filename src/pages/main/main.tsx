@@ -15,19 +15,12 @@ import staticLogo from '../../assets/LOGO_2025.png';
 import { getVideos } from '../../api/materials';
 import { SidePanel } from './side-panel';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { VKResponse } from '../user/user-auth';
-import VK from '../user/utils/vk';
+import VK from './vk';
 import { loginFailure, loginStart, loginSuccess } from '../../redux/user-slice';
-import { testResponse } from '../user/utils/test';
+import { testResponse } from './test';
+import { Link, VKResponse } from './type';
 
 import s from './main.module.scss';
-
-type Link = {
-  id: number,
-  name: string,
-  link: string,
-  page: string,
-}
 
 export function Main(): JSX.Element {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);

@@ -1,6 +1,7 @@
 import React from 'react';
 import ContentLoader from 'react-content-loader';
 import { Toaster } from 'react-hot-toast';
+import Tooltip from 'react-tooltip-lite';
 
 import { StatusBar } from '../ui-kit';
 import { StatusAdminForm } from './status-admin-form';
@@ -49,9 +50,29 @@ const renderTable = React.useMemo(() => {
 
   return (
     <div className={s.statusContainer}>
-      <StatusBar status={props.playerRequest} label='Заявка' />
-      <StatusBar status={Boolean(props.payment)} label='Взнос' />
-      <StatusBar status={props.photoCheck} label='Фотодопуск' />
+      <Tooltip
+        direction='top'
+        content='Все данные о персонаже заполнены'
+        background='wheat'
+      >
+        <StatusBar status={props.playerRequest} label='Заявка' />
+      </Tooltip>
+
+      <Tooltip
+        direction='top'
+        content='Пройден фотодопуск'
+        background='wheat'
+      >
+        <StatusBar status={props.photoCheck} label='Фотодопуск' />
+      </Tooltip>
+
+      <Tooltip
+        direction='top'
+        content='Сдан благотворительный взнос'
+        background='wheat'
+      >
+        <StatusBar status={Boolean(props.payment)} label='Взнос' />
+      </Tooltip>
     </div>
   )
 }, [props.isLoading]);

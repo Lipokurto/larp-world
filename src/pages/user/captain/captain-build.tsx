@@ -9,6 +9,7 @@ import { buildingsTable, getBuildingsLimits } from '../../../api/buildings';
 import { BuildingsData } from '../admin/pages/build/builds-table';
 import { Statistic } from '../components/ui-kit';
 import { useAppSelector } from '../../../redux/hooks';
+import { NavLink } from 'react-router-dom';
 
 type Props = {
   locationId: string,
@@ -80,10 +81,20 @@ export function CaptainBuild(props: Props): JSX.Element {
     }))
 
     if (buildingsData.length > 0) {
-      return <DataTable columns={columns} data={data} theme='dark' customStyles={darkTheme}/>
+      return (
+        <>
+          <h3 style={{ color: 'white' }}>Строения команды</h3>
+          <DataTable columns={columns} data={data} theme='dark' customStyles={darkTheme}/>
+        </>
+    )
     }
 
-    return null;
+    return (
+      <div style={{ color: 'white', display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '15px' }}>
+        <div>В вашей команде нет строений</div>
+        <div>Используйте <NavLink to='/player/regbuild'>регистрацию строений</NavLink> для того чтобы добавить строения в команду</div>
+      </div>
+    );
   }, [buildingsData]);
 
   const renderLimits = React.useMemo(() => {
@@ -97,11 +108,18 @@ export function CaptainBuild(props: Props): JSX.Element {
       )
     })
 
-    return <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'row' }}>{items}</div>;
+    return (
+      <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', marginTop: '15px' }}>
+        <div style={{ color: 'white' }}>Лимиты строений вашей команды:</div>
+        <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'row' }}>
+          {items}
+        </div>
+      </div>
+    );
   }, [buildingsLimits]);
+
   return (
-    <>
-      <h3 style={{ color: 'white' }}>Строения команды</h3>
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       {renderLimits}
       {renderTable}
 
@@ -109,6 +127,6 @@ export function CaptainBuild(props: Props): JSX.Element {
         position="bottom-left"
         reverseOrder={false}
       />
-    </>
+    </div>
   )
 }
