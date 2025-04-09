@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
-import { NavigateFunction, useNavigate } from 'react-router-dom';
+import { NavigateFunction, NavLink, useNavigate } from 'react-router-dom';
 
 import { CharForm, PlayerForm, StatusTable } from './components/forms';
 import { info } from '../../api/user';
@@ -47,7 +47,7 @@ export function UserPage(props: Props): JSX.Element {
         setUserData(validResponse);
         setIsLoading(false);
       } catch (err) {
-        toast.error('Ошибка при получении данных');
+        toast.error('Пользователь не найден');
       }
     }
 
@@ -106,7 +106,12 @@ const renderElement = React.useMemo(() => {
     )
   }
 
-  return null;
+  return (
+    <div className={s.unknownContainer}>
+      <h3>Вы не зарегистрированы</h3>
+      <div>Чтобы разблокировать свой личный кабинет пройдите <NavLink to='/player/registration'>регистрацию</NavLink></div>
+    </div>
+  );
 }, [userData, props, isLoading]);
 
   return (

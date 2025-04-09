@@ -12,7 +12,16 @@
 }
 
 .formContainer {
-  display: contents;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.unknownContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
 }
 
 .loginContainer img:hover {

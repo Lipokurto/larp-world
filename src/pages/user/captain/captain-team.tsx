@@ -82,7 +82,7 @@ export function CaptainTeam(props: Props): JSX.Element {
   }, [playersData]);
 
   return (
-    <>
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
       <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
         {renderRequestStatistic}
         {renderPhotoStatistic}
@@ -95,6 +95,6 @@ export function CaptainTeam(props: Props): JSX.Element {
         position="bottom-left"
         reverseOrder={false}
       />
-    </>
+    </div>
   )
 }

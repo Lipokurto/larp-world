@@ -5,7 +5,6 @@ import { Chapter, NavigationPlayer } from '../../components';
 import intro from '../../assets/icons/registration/01_intro.png';
 import arm from '../../assets/icons/registration/02_arm.png';
 import done from '../../assets/icons/registration/05_done.png';
-import excelIcon from './../../assets/icons/social/excel.png';
 import { useAppSelector } from '../../redux/hooks';
 
 import s from './registry.module.css';
@@ -23,7 +22,7 @@ function RegSteps(): JSX.Element {
     return (
       <>
         <a href='https://docs.google.com/spreadsheets/d/1l5G5-vJ56_ibip1hng414RTNg3HXjJtS7RmQ0ACPdvE/edit?usp=sharing' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>
-        <img src={excelIcon} alt="" width={30} />
+          Таблица лимитов локаций
         </a>
       </>
     )
@@ -49,7 +48,7 @@ function RegSteps(): JSX.Element {
 
           <div className={s.request}>
             <div><b>Тип строения: </b><i>Экономическая постройка, постройка для отдыха, коммерческая постройка{}</i></div>
-              <h3 style={{ display: 'flex' }}>Список всех доступных строений (лимиты локаций {'>>>'} {rolesTable})</h3>
+              <h3 style={{ display: 'flex' }}>Список всех доступных строений ({rolesTable})</h3>
               <div className={s.listTableContainer}>
                 {buildings.map(p => <div key={p.id} className={s.tableElement}>{p.type}</div>)}
               </div>

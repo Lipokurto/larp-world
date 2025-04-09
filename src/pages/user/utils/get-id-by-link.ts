@@ -1,5 +1,5 @@
-import { testResponse } from './test';
-import VK from './vk';
+import { testResponse } from '../../main/test';
+import VK from '../../main/vk';
 
 function extractUsernameFromVkLink(link:string): string {
   const match = link.match(/https:\/\/vk\.com\/([a-zA-Z0-9_.]+)/);
