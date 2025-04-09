@@ -37,6 +37,8 @@ export function Main(): JSX.Element {
   const { isAuthenticated } = useAppSelector((state) => state.user);
   const navigate: NavigateFunction = useNavigate();
   const dispatch = useAppDispatch();
+  const tooltipRef = React.useRef<HTMLDivElement>(null);
+  const imgRef = React.useRef<HTMLImageElement>(null);
 
   const { width } = useResize();
 
@@ -64,6 +66,22 @@ export function Main(): JSX.Element {
     fetchPlayerInfo();
   }, []);
 
+  React.useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        tooltipRef.current &&
+        event.target instanceof Node &&
+        !tooltipRef.current.contains(event.target) &&
+        !imgRef.current?.contains(event.target)
+      ) {
+        setIsAuthOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
   const handleClick = React.useCallback(() => {
     setIsOpen(true);
   }, []);
@@ -80,7 +98,9 @@ export function Main(): JSX.Element {
     return setIsAuthOpen(false);
   }, []);
 
-  const handleLogin = React.useCallback(async () => {
+  const handleLogin = React.useCallback(async (e: React.MouseEvent) => {
+    e.nativeEvent.stopImmediatePropagation();
+
     let userData = undefined;
     if (process.env.REACT_APP_NEW === 'prod') {
       VK.Auth.login(async (response: VKResponse) => {
@@ -98,7 +118,7 @@ export function Main(): JSX.Element {
 
     dispatch(userData ? loginSuccess(userData) : loginFailure('Ошибка авторизации'));
     navigate('/user');
-  }, []);
+  }, [dispatch, navigate]);
 
   const renderLogo = React.useMemo(() => {
     return width < 800 ? <img src={staticLogo} alt='' width={200} style={{ marginLeft:'-100px' }}/> : <Logo />
@@ -126,25 +146,33 @@ export function Main(): JSX.Element {
 
   const renderAuthButton = React.useMemo(() => {
     return (
-      <img src={vkImage} width={50} onClick={handleLogin} />
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <div style={{ fontSize: '15px' }}>Авторизация</div>
+        <div style={{ marginBottom: 10, fontSize: '15px' }}>через ВК</div>
+        <img ref={imgRef} src={vkImage} width={50} onClick={handleLogin} />
+      </div>
     )
-  } ,[]);
+  }, [imgRef]);
 
   return (
     <>
-      <div className={s.container}>
+      <div className={s.container} style={{ opacity: isAuthOpen ? 0.8 : 1 }}>
         <div className={s.buttons}>
             <NavLink className={s.mainButton} to='/player/registration'>Регистрация на игру</NavLink>
 
-            <Tooltip
-              content={renderAuthButton}
-              background='wheat'
-              direction="top"
-              isOpen={isAuthOpen}
-              useHover={false}
-            >
-              <button className={s.secondButton} onClick={handleUserCheck}>Личный кабинет</button>
-            </Tooltip>
+            <div ref={tooltipRef} className={s.secondButton}>
+              <Tooltip
+                content={renderAuthButton}
+                background='wheat'
+                direction="left"
+                isOpen={isAuthOpen}
+                useHover={false}
+                tipContentHover={false}
+                className={s.tooltip}
+              >
+                <div onClick={handleUserCheck}>Личный кабинет</div>
+              </Tooltip>
+            </div>
 
             <a className={s.secondButton} onClick={() => handleClick()}>Правила</a>
 
