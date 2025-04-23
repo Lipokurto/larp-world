@@ -21,8 +21,7 @@ import {
 } from './pages/world';
 
 import {
-  PlayerRegistry, TeamRegistry,
-  BuildingRegistry,
+  PlayerRegistry, TeamRegistry, BuildingRegistry,
 } from './pages/player';
 
 import { About } from './pages/about/about';
@@ -31,9 +30,10 @@ import { More } from './pages/more/more';
 import { PayRegistry } from './pages/player/pay-registry';
 import { Conf } from './pages/conf/conf';
 import { UserPage } from './pages/user/user-page';
+import { useAppSelector } from './redux/hooks';
+import { UserEmptyPage } from './pages/user/user-empty-page';
 
 import s from './app.module.css';
-import { useAppSelector } from './redux/hooks';
 
 export default function App(): JSX.Element {
   const { user } = useAppSelector((state) => state.user);
@@ -77,7 +77,7 @@ export default function App(): JSX.Element {
           <Route path='/about' element={<About />} />
           <Route path='/more' element={<More />} />
           <Route path='/vk-policy' element={<Conf />} />
-          <Route path='/user' element={user?.id ? <UserPage vkId={user?.id}/> : null} />
+          <Route path='/user' element={user?.id ? <UserPage vkId={user?.id}/> : <UserEmptyPage />} />
         </Routes>
       </div>
     </BrowserRouter>
