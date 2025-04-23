@@ -27,8 +27,10 @@ export function UserCreate(): JSX.Element {
   });
   const [isDisableSubmit, setIsDisableSubmit] = React.useState<boolean>(true);
   const { locations } = useAppSelector((state) => state.appData);
+  const isMounted = React.useRef(true);
 
   React.useEffect(() => {
+    isMounted.current = false;
     setIsDisableSubmit(isLoading || userData.fullName === '' || userData.vkLink === '');
   }, [isLoading, userData]);
 
@@ -51,7 +53,6 @@ export function UserCreate(): JSX.Element {
     )
 
     if (checkRequireInputs) {
-      setIsLoading(true);
       try {
         await axios.post(createUser, {
           vk_id: userId,
@@ -64,13 +65,20 @@ export function UserCreate(): JSX.Element {
           location_id: Number(userData.locationId),
         });
 
-        toast.success('Данные успешно обновлены');
+        if (isMounted.current) {
+          toast.success('Данные успешно обновлены');
+        }
       } catch (error) {
-        toast.error('Что-то пошло не так');
-      }
+        if (isMounted.current) {
+          toast.error('Что-то пошло не так');
+        }
+      } finally {
+        if (isMounted.current) {
+          setIsLoading(false);
+        }
       setIsLoading(false);
     }
-
+  }
     return undefined;
   }, [userData]);
 
