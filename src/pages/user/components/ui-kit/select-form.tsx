@@ -63,7 +63,7 @@ export function SelectForm(props: Props): JSX.Element {
     <select
       name={props.name}
       className={s.inputOn}
-      value={props.value || '0'}
+      value={props.value}
       onChange={props.onSelectChange}
       disabled={props.disabled}
       placeholder='Выберите локацию'

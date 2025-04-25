@@ -12,22 +12,12 @@ export function BuildCreate(): JSX.Element {
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [buildingData, setBuildingData] = React.useState<BuildingsData>({
     name: '',
-    type: '',
+    type: '0',
     vkLink: '',
     locationId: '',
   });
-  const [isDisableSubmit, setIsDisableSubmit] = React.useState<boolean>(true);
-  const { locations, buildings } = useAppSelector((state) => state.appData);
 
-  React.useEffect(() => {
-    setIsDisableSubmit(
-      isLoading ||
-      buildingData.name === '' ||
-      buildingData.type === '' ||
-      buildingData.vkLink === '' ||
-      buildingData.locationId === '',
-    );
-  }, [isLoading, buildingData]);
+  const { locations, buildings } = useAppSelector((state) => state.appData);
 
   const handleChange = React.useCallback((e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -61,6 +51,7 @@ export function BuildCreate(): JSX.Element {
   const renderTypeOptions = React.useMemo(() => {
     return (
       <>
+        <option disabled value='0' hidden>Выберите тип строения</option>
         {buildings.map(p => <option value={p.id} key={p.id}>{p.type}</option>)}
       </>
     )
@@ -108,7 +99,7 @@ export function BuildCreate(): JSX.Element {
         />
 
         <div>
-          <button onClick={handleSubmit} disabled={isDisableSubmit}>СОЗДАТЬ строение</button>
+          <button onClick={handleSubmit}>СОЗДАТЬ строение</button>
         </div>
       </div>
 
