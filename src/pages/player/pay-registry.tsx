@@ -61,7 +61,7 @@ const registrationSteps: Steps[] = [
     label: 'Списки',
     description: (
       <div>
-        <div><a href='https://vk.com/topic-221551368_49748461' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>Список всех сдавших</a></div>
+        <div><a href='https://vk.com/topic-221551368_53245848' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>Список всех сдавших</a></div>
         <i>Списки обновляются не моментально</i>
       </div>
     ),
