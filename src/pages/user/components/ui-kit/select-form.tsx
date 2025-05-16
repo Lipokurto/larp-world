@@ -50,28 +50,9 @@ type Props = {
 }
 
 export function SelectForm(props: Props): JSX.Element {
-  const renderElement = React.useMemo(() => {
-    if (props.disabled) {
-      return(
-        <div className={s.inputOff}>
-          {props.locationsList ? getLocationNameById(Number(props.value)) : props.value}
-        </div>
-      )
-    }
-
-  return (
-    <select
-      name={props.name}
-      className={s.inputOn}
-      value={props.value}
-      onChange={props.onSelectChange}
-      disabled={props.disabled}
-      placeholder='Выберите локацию'
-    >
-      {props.options || (props.locationsList ? <Options locationList={props.locationsList} isAdmin={props.isAdmin} /> : null)}
-    </select>
-    )
-  }, [props]);
+  const locationName = props.locationsList
+    ? getLocationNameById(Number(props.value))
+    : props.value;
 
   const renderContent = React.useMemo(() => {
     if (props.isLoading) {
@@ -88,12 +69,29 @@ export function SelectForm(props: Props): JSX.Element {
       );
     }
 
+    if (props.disabled) {
+      return (
+        <div className={s.inputOff}>
+          {locationName}
+        </div>
+      );
+    }
+
     return (
-      <>
-        {renderElement}
-      </>
-    )
-  }, [props]);
+      <select
+        name={props.name}
+        className={s.inputOn}
+        value={props.value}
+        onChange={props.onSelectChange}
+        disabled={props.disabled}
+        placeholder='Выберите локацию'
+      >
+        {props.options || (props.locationsList
+          ? <Options locationList={props.locationsList} isAdmin={props.isAdmin} />
+          : null)}
+      </select>
+    );
+  }, [props, locationName]);
 
   return (
     <div className={s.container}>
