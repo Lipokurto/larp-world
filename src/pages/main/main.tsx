@@ -15,10 +15,9 @@ import staticLogo from '../../assets/LOGO_2025.png';
 import { getVideos } from '../../api/materials';
 import { SidePanel } from './side-panel';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import VK from './vk';
-import { loginFailure, loginStart, loginSuccess } from '../../redux/user-slice';
-import { testResponse } from './test';
-import { Link, User, VKResponse } from './type';
+import { loginFailure, loginStart } from '../../redux/user-slice';
+import { Link } from './type';
+import { getAuthUrl } from '../user/utils/auth-utils';
 
 import s from './main.module.scss';
 
@@ -91,36 +90,23 @@ export function Main(): JSX.Element {
     return setIsAuthOpen(false);
   }, []);
 
-  const handleLogin = React.useCallback(async (e: React.MouseEvent) => {
+const handleLogin = React.useCallback(async (e: React.MouseEvent) => {
     e.nativeEvent.stopImmediatePropagation();
 
     try {
       dispatch(loginStart());
 
-      if (process.env.REACT_APP_NEW === 'prod') {
-        const userData = await new Promise<User>((resolve, reject) => {
-          VK.Auth.login((response: VKResponse) => {
-            if (response.session?.user) {
-              console.log('User authorized:', response.session.user.href);
-              resolve(response.session.user);
-            } else {
-              reject(new Error('Авторизация не удалась'));
-            }
-          }, VK.access.PHOTOS);
-        });
+      const clientId = process.env.REACT_APP_VK_ID;
+      const redirectUri = `${window.location.origin}/auth/callback`;
+      const scope = 'photos'; // Укажите нужные права доступа
 
-        dispatch(loginSuccess(userData));
-      } else {
-        const { user } = testResponse.session;
-        dispatch(loginSuccess(user));
-      }
-
-      navigate('/user');
+      const authUrl = await getAuthUrl(clientId, redirectUri, scope);
+      window.location.href = authUrl; // Перенаправляем пользователя
     } catch (error: any) {
       dispatch(loginFailure(error.message));
       toast.error('Ошибка авторизации');
     }
-  }, [dispatch, navigate]);
+  }, [dispatch]);
 
   const renderLogo = React.useMemo(() => {
     return width < 800 ? <img src={staticLogo} alt='' width={200} style={{ marginLeft:'-100px' }}/> : <Logo />
