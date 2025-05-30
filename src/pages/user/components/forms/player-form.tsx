@@ -4,7 +4,7 @@ import axios from 'axios';
 
 import { editPlayer } from '../../../../api/user';
 import { InputForm } from '../ui-kit';
-import { dateValidation, nameValidation } from './form-validation';
+import { nameValidation } from './form-validation';
 
 import s from './form.module.scss';
 
@@ -17,7 +17,6 @@ type UserData = {
   lastName: Item,
   firstName: Item,
   middleName: Item,
-  birthDate: Item,
 }
 
 type Props = UserData & {
@@ -33,7 +32,6 @@ export function PlayerForm(props: Props): JSX.Element {
     lastName: { value: props.lastName.value, error: props.lastName.error },
     firstName: { value: props.firstName.value, error: props.firstName.error },
     middleName: { value: props.middleName.value, error: props.middleName.error },
-    birthDate: { value: props.birthDate.value, error: props.birthDate.error },
   });
 
   const handleChange = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
@@ -68,10 +66,6 @@ export function PlayerForm(props: Props): JSX.Element {
         value: userData.middleName.value,
         error: nameValidation(userData.middleName.value, false),
       },
-      birthDate: {
-        value: userData.birthDate.value,
-        error: dateValidation(userData.birthDate.value),
-      },
     };
 
     const checkValidation = Object.values(validateUserData).some(e => e.error);
@@ -86,7 +80,6 @@ export function PlayerForm(props: Props): JSX.Element {
         last_name: validateUserData.lastName.value,
         first_name: validateUserData.firstName.value,
         mid_name: validateUserData.middleName.value,
-        birth_date: validateUserData.birthDate.value,
         vk_id: props.vkId,
       });
 
@@ -144,17 +137,6 @@ export function PlayerForm(props: Props): JSX.Element {
         onChange={handleChange}
         disabled={!isEditing}
         error={userData.middleName.error}
-        isLoading={props.isLoading}
-      />
-
-      <InputForm
-        label='Дата рождения'
-        type="text"
-        name="birthDate"
-        value={userData.birthDate.value}
-        onChange={handleChange}
-        disabled={!isEditing}
-        error={userData.birthDate.error}
         isLoading={props.isLoading}
       />
     </div>

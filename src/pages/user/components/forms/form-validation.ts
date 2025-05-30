@@ -40,24 +40,3 @@ export function checkAgeDifference(date1: string, date2: string): number {
 
   return Number(parsedDate1[2]) - Number(parsedDate2[2]);
 }
-
-export function dateValidation(value: string): string | undefined {
-  const dateRegex = /^(0[1-9]|[12][0-9]|3[01])\.(0[1-9]|1[0-2])\.\d{4}$/;
-  const PLAY_MOMENT = '04.10.2025';
-
-  if (value.length === 0) {
-    return 'Обязательное поле для заполнения';
-  }
-
-  if (!dateRegex.test(value)) {
-    return 'Допускается формат даты ДД.ММ.ГГГГ';
-  }
-
-  const ageDifference = checkAgeDifference(PLAY_MOMENT, value);
-
-  if (ageDifference < 18) {
-    return 'На момент мероприятия вам должно быть не менее 18 лет';
-  }
-
-  return undefined;
-}
