@@ -32,6 +32,7 @@ import { Conf } from './pages/conf/conf';
 import { UserPage } from './pages/user/user-page';
 import { useAppSelector } from './redux/hooks';
 import { UserEmptyPage } from './pages/user/user-empty-page';
+import { AuthCallback } from './pages/main/AuthCallback';
 
 import s from './app.module.css';
 
@@ -45,6 +46,7 @@ export default function App(): JSX.Element {
         <Navigation />
 
         <Routes>
+        <Route path="/auth/callback" element={<AuthCallback />} />
           <Route path='/' element={<Main />} />
           <Route path='/rules/general' element={<General />} />
           <Route path='/rules/battle' element={<Battle />} />

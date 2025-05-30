@@ -28,12 +28,9 @@ export type VKResponse = {
 }
 
 export type User = {
-  domain: string,
-  first_name: string,
+  accessToken: string,
   href: string,
   id: string,
-  last_name: string,
-  nickname: string,
 }
 
 export type Session = {
