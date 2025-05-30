@@ -35,7 +35,6 @@ export function UserPage(props: Props): JSX.Element {
           lastName: { value: response.data.last_name, error: undefined },
           firstName: { value: response.data.first_name, error: undefined },
           middleName: { value: response.data.mid_name, error: undefined },
-          birthDate: { value: response.data.birth_date, error: undefined },
           charName: { value: response.data.char_name, error: undefined },
           role: { value: response.data.role, error: undefined },
           locationId: { value: response.data.location_id, error: undefined },
@@ -82,7 +81,6 @@ const renderElement = React.useMemo(() => {
           lastName={userData.lastName}
           firstName={userData.firstName}
           middleName={userData.middleName}
-          birthDate={userData.birthDate}
           isLoading={isLoading}
         />
 
