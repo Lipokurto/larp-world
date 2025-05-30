@@ -14,14 +14,18 @@ export function getIdWithLink(link: string, isCreateDev?: boolean): Promise<stri
     return new Promise((resolve, reject) => {
       (async () => {
         try {
-          const username = extractUsernameFromVkLink(link);
-          if (!username) {
+          const screen_name = extractUsernameFromVkLink(link);
+          if (!screen_name) {
             reject('Некорректная ссылка');
             return;
           }
-          const response = await axios.get('/api/get-vk-id', { params: { username } });
-          if (response.data.id) {
-            resolve(response.data.id.toString());
+          const response = await axios.post(`${process.env.REACT_APP_HOST}/resolveScreenName`, {
+              screen_name,
+              access_token: process.env.REACT_APP_APP_SERVICE_KEY,
+          });
+
+          if (response.data.response.object_id) {
+            resolve(response.data.response.object_id.toString());
           } else {
             reject('Пользователь не найден');
           }
