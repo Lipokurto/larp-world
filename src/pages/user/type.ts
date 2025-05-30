@@ -7,7 +7,6 @@ export type UserData = {
   lastName: Item,
   firstName: Item,
   middleName: Item,
-  birthDate: Item,
   charName: Item,
   role: Item,
   locationId: Item,
