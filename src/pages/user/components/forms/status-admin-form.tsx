@@ -123,7 +123,7 @@ export function StatusAdminForm(props: Props): JSX.Element {
         <SelectStatusForm
           label='Фотодопуск'
           name='photoCheck'
-          value={statusData.photoCheck.value.toString()}
+          value={statusData.photoCheck.value?.toString()}
           onSelectChange={handleChange}
           disabled={!isEditing}
           error={statusData.photoCheck.error}
