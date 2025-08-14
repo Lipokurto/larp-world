@@ -40,7 +40,7 @@ export function UserPage(props: Props): JSX.Element {
           locationId: { value: response.data.location_id, error: undefined },
           playerRequest: response.data.player_request,
           payment: response.data.payment,
-          photoCheck: response.data.photo_check.toString() || '0',
+          photoCheck: response.data.photo_check?.toString() || '0',
           status: response.data.status,
         }
         setUserData(validResponse);
