@@ -4,7 +4,7 @@ import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
 
 import { darkTheme, PlayersData } from '../admin/pages/users/users-table';
-import { renderStatusIcon } from '../components/ui-kit/status';
+import { renderStatusIcon, renderStatusIconFloat } from '../components/ui-kit/status';
 import { playersTable } from '../../../api/user';
 import { Statistic } from '../components/ui-kit';
 import { getLocationNameById } from '../utils/get-location-name-by-id';
@@ -46,7 +46,7 @@ export function CaptainTeam(props: Props): JSX.Element {
     { name: 'ВК', selector: (row: PlayersData) => row.vkLink, width: '200px' },
     { name: 'Локация', selector: (row: PlayersData) => getLocationNameById(Number(row.locationId)) || '-', width: '150px' },
     { name: 'Заявка', cell: (row: PlayersData) => renderStatusIcon(Boolean(row.request)), width: '50px' },
-    { name: 'Фото', cell: (row: PlayersData) => renderStatusIcon(Boolean(row.photo)), width: '50px' },
+    { name: 'Фото', cell: (row: PlayersData) => renderStatusIconFloat(row.photo?.toString()), width: '50px' },
     { name: 'Взнос', cell: (row: PlayersData) => renderStatusIcon(Boolean(row.payment)), width: '50px' },
   ];
 

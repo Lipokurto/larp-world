@@ -4,7 +4,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import DataTable, { TableColumn } from 'react-data-table-component';
 
 import { playersTable } from '../../../../../api/user';
-import { renderStatusIcon } from '../../../components/ui-kit/status';
+import { renderStatusIcon, renderStatusIconFloat } from '../../../components/ui-kit/status';
 import { SelectForm, Statistic } from '../../../components/ui-kit';
 import { getLocationNameById } from '../../../utils/get-location-name-by-id';
 import { useAppSelector } from '../../../../../redux/hooks';
@@ -38,7 +38,7 @@ export type PlayersData = {
   vkLink: string,
   locationId?: string,
   role?: string,
-  photo: boolean,
+  photo: string,
   payment: string,
   request: boolean,
 }
@@ -90,7 +90,7 @@ export function UsersTable(): JSX.Element {
       { name: 'Роль', selector: (row: PlayersData) => row.role || '-', maxWidth: '200px' },
       { name: 'Локация', selector: (row: PlayersData) => getLocationNameById(Number(row.locationId)), width: '150px' },
       { name: 'Заявка', cell: (row: PlayersData) => renderStatusIcon(Boolean(row.request)), width: '50px' },
-      { name: 'Фото', cell: (row: PlayersData) => renderStatusIcon(Boolean(row.photo)), width: '50px' },
+      { name: 'Фото', cell: (row: PlayersData) => renderStatusIconFloat(row.photo?.toString()), width: '50px' },
       { name: 'Взнос', cell: (row: PlayersData) => row.payment || renderStatusIcon(false), width: '50px' },
     ];
 

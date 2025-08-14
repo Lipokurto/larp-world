@@ -17,10 +17,36 @@ type Props = {
 export function StatusBar(props: Props): JSX.Element {
   const statusText = React.useMemo(() => renderStatusIcon(props.status), [props]);
 
-return (
-  <div className={s.statusContainer}>
-    <div className={s.label}>{props.label}</div>
-    <div className={s.status}>{statusText}</div>
-  </div>
-)
+  return (
+    <div className={s.statusContainer}>
+      <div className={s.label}>{props.label}</div>
+      <div className={s.status}>{statusText}</div>
+    </div>
+  )
+}
+
+export function renderStatusIconFloat(status: string): JSX.Element {
+  if (status === '0.5') {
+    return <IoIosCheckbox style={{ color: 'orange' }} />;
+  } else if (status === '1') {
+    return <IoIosCheckbox style={{ color: 'green' }} />;
+  } else {
+    return <IoIosRemoveCircle style={{ color: 'red' }} />;
+  }
+}
+
+type PropsFloat = {
+  label: string,
+  status: string,
+}
+
+export function StatusBarFloat(props: PropsFloat): JSX.Element {
+  const statusText = React.useMemo(() => renderStatusIconFloat(props.status), [props]);
+
+  return (
+    <div className={s.statusContainer}>
+      <div className={s.label}>{props.label}</div>
+      <div className={s.status}>{statusText}</div>
+    </div>
+  )
 }
