@@ -5,13 +5,14 @@ import Tooltip from 'react-tooltip-lite';
 
 import { StatusBar } from '../ui-kit';
 import { StatusAdminForm } from './status-admin-form';
+import { StatusBarFloat } from '../ui-kit/status';
 
 import s from './form.module.scss';
 
 type StatusData = {
   playerRequest: boolean,
   payment: string,
-  photoCheck: boolean,
+  photoCheck: string,
 }
 
 type Props = StatusData & {
@@ -42,7 +43,7 @@ const renderTable = React.useMemo(() => {
         vkId={props.vkId}
         playerRequest={{ value: props.playerRequest ? '1' : '0', error: '' }}
         payment={{ value: props.payment, error: '' }}
-        photoCheck={{ value: props.photoCheck ? '1' : '0', error: '' }}
+        photoCheck={{ value: props.photoCheck, error: '' }}
         isLoading={props.isLoading}
       />
     )
@@ -63,7 +64,7 @@ const renderTable = React.useMemo(() => {
         content='Пройден фотодопуск'
         background='wheat'
       >
-        <StatusBar status={props.photoCheck} label='Фотодопуск' />
+        <StatusBarFloat status={props.photoCheck} label='Фотодопуск' />
       </Tooltip>
 
       <Tooltip

@@ -12,6 +12,6 @@ export type UserData = {
   locationId: Item,
   playerRequest: boolean,
   payment: string,
-  photoCheck: boolean,
+  photoCheck: string,
   status: string,
 }

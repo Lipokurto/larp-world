@@ -40,7 +40,7 @@ const fetchUserInfo = React.useCallback((innerUserId: string) => {
         locationId: { value: response.data.location_id, error: undefined },
         playerRequest: response.data.player_request,
         payment: response.data.payment,
-        photoCheck: Boolean(response.data.photo_check),
+        photoCheck: response.data.photo_check,
         status: response.data.status,
       }
       setUserData(validResponse);

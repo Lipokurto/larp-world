@@ -10,12 +10,21 @@ type Props = {
   disabled: boolean,
   isLoading: boolean,
   onSelectChange?: (item: any) => void,
+  isFloat?: boolean,
   error?: string,
 }
 
 export function SelectStatusForm(props: Props): JSX.Element {
   const renderElement = React.useMemo(() => {
     if (props.disabled) {
+      if (props.value === '0.5') {
+        return (
+          <div className={s.inputOff}>
+            Условно
+          </div>
+        )
+      }
+
       return(
         <div className={s.inputOff}>
           {props.value === '1' ? 'Есть' : 'Нет'}
@@ -32,6 +41,7 @@ export function SelectStatusForm(props: Props): JSX.Element {
       disabled={props.disabled}
     >
       <option value='0'>Нет</option>
+      {props.isFloat && <option value='0.5'>Условно</option>}
       <option value='1'>Есть</option>
     </select>
     )

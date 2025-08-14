@@ -13,3 +13,27 @@ src/pages/user/utils - функции для работы с данными
 npm run build:dev
 
 .env не хранятся в репозитории
+
+ДЛЯ ЗАПУСКА ПРОЕКТА ЛОКАЛЬНО:
+в файле src\pages\main\main.tsx
+
+const handleLogin = React.useCallback(async (e: React.MouseEvent) => {
+e.nativeEvent.stopImmediatePropagation();
+
+    try {
+      dispatch(loginSuccess({
+        id: '№№№№№№',
+        href: 'https://vk.com/id№№№№№№№',
+        accessToken: 'userResponse.access_token',
+      }));
+      navigate('/user');
+    } catch (error: any) {
+      dispatch(loginFailure(error.message));
+      toast.error('Ошибка авторизации');
+    }
+
+}, [dispatch]);
+
+НЕ КОММИТИМ ЭТИ ИЗМЕНЕНИЯ
+
+запускаем сервер через node server.js
