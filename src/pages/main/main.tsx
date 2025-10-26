@@ -11,7 +11,7 @@ import { NavigationModal, useResize } from '../../components';
 import { rules } from '../../components/navigation/lists';
 
 import vkImage from '../../assets/icons/social/vk.png';
-import staticLogo from '../../assets/LOGO_2025.png';
+import staticLogo from '../../assets/LOGO_2026.png';
 import { getVideos } from '../../api/materials';
 import { SidePanel } from './side-panel';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
