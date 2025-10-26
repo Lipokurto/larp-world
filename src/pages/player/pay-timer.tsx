@@ -48,16 +48,16 @@ export function PayTimer(): JSX.Element {
   }, [currentTime, currentTimeInterval]);
 
   const renderPrice = React.useMemo(() => {
-    const currentIndex = payLimits.findIndex(p => currentTimeInterval?.price === p.price);
+    // const currentIndex = payLimits.findIndex(p => currentTimeInterval?.price === p.price);
 
-    return (
-      <div className={s.prices}>
-        <div className={currentIndex === 0 ? s.priceActive : s.price}>До 01 мая 2025 г. - {payLimits[0].price} р.</div>
-        <div className={currentIndex === 1 ? s.priceActive : s.price}>До 01 июля 2025 г. - {payLimits[1].price} р.</div>
-        <div className={currentIndex === 2 ? s.priceActive : s.price}>До 01 сентября 2025 г. - {payLimits[2].price} р.</div>
-        <div className={currentIndex === 3 ? s.priceActive : s.price}>С сентября и "на полигоне" - {payLimits[3].price} р.</div>
-      </div>
-    )
+    // return (
+    //   <div className={s.prices}>
+    //     <div className={currentIndex === 0 ? s.priceActive : s.price}>До 01 мая 2026 г. - {payLimits[0].price} р.</div>
+    //     <div className={currentIndex === 1 ? s.priceActive : s.price}>До 01 июля 2026 г. - {payLimits[1].price} р.</div>
+    //     <div className={currentIndex === 2 ? s.priceActive : s.price}>До 01 сентября 2026 г. - {payLimits[2].price} р.</div>
+    //     <div className={currentIndex === 3 ? s.priceActive : s.price}>С сентября и "на полигоне" - {payLimits[3].price} р.</div>
+    //   </div>
+    // )
     return (
       <div>ОЖИДАЙТЕ ОБНОВЛЕНИЯ</div>
     )

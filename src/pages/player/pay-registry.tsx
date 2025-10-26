@@ -28,11 +28,14 @@ const registrationSteps: Steps[] = [
     description: (
       <div>
         <div>Оплата благотворительного взноса осуществляется по номеру телефона</div>
+        <div>Оплата принимается только ПОСЛЕ подачи заявки</div>
 
         <div className={s.request}>
           <div style={{ fontSize: 20, color: 'wheat' }}>+79787917870</div>
           <div>Синицкий Александр Анатольевич</div>
-          <div>РНКБ / СберБАНК</div>
+          <div>ВТБ / СберБАНК</div>
+          <div>В назначении платежа указать:</div>
+          <div>"Благотворительный взнос Темные века"</div>
         </div>
 
         <div>Взносы не возвращаются</div>
@@ -58,11 +61,12 @@ const registrationSteps: Steps[] = [
   },
   {
     img: check,
-    label: 'Списки',
+    label: 'Статус',
     description: (
       <div>
-        <div><a href='https://vk.com/topic-221551368_53245848' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>Список всех сдавших</a></div>
-        <i>Списки обновляются не моментально</i>
+        <div>Проверить статус платежа в <a href='http://larpdarkage.ru/user' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>личном кабинете</a></div>
+        <i>Статус обновляется не моментально</i>
+        <div>Если возникнут вопросы пишите в сообщениях <a href='https://vk.com/larpdarkage' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>группы</a></div>
       </div>
     ),
   },
