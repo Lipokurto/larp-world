@@ -12,7 +12,7 @@
       fr="5%"
     >
       <stop offset="25%" stop-color="#FF0000" />
-      <stop offset="45%" stop-color="#45BA55" />
+      <!-- <stop offset="45%" stop-color="#45BA55" /> -->
       <stop offset="95%" stop-color="#000000" />
     </radialGradient>
   </defs>

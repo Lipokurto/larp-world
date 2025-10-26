@@ -7,7 +7,7 @@
 .knight {
   z-index: 1;
   position: absolute;
-  margin-left: 220px;
+  margin-left: 190px;
 
   animation: moveUpDown 10s infinite;
 }
