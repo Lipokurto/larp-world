@@ -42,6 +42,8 @@ export function UserPage(props: Props): JSX.Element {
           payment: response.data.payment,
           photoCheck: response.data.photo_check?.toString() || '0',
           status: response.data.status,
+          story: response.data.story_link,
+          achivments: response.data.achivments || [],
         }
         setUserData(validResponse);
         setIsLoading(false);
@@ -82,6 +84,7 @@ const renderElement = React.useMemo(() => {
           firstName={userData.firstName}
           middleName={userData.middleName}
           isLoading={isLoading}
+          achivments={userData.achivments}
         />
 
         <CharForm
@@ -97,6 +100,7 @@ const renderElement = React.useMemo(() => {
           playerRequest={userData.playerRequest}
           payment={userData.payment}
           photoCheck={userData.photoCheck}
+          story={userData.story}
           isLoading={isLoading}
           isAdmin={userData.status === 'ADMIN'}
         />

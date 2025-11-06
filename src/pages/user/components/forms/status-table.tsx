@@ -13,6 +13,7 @@ type StatusData = {
   playerRequest: boolean,
   payment: string,
   photoCheck: string,
+  story?: string,
 }
 
 type Props = StatusData & {
@@ -44,6 +45,7 @@ const renderTable = React.useMemo(() => {
         playerRequest={{ value: props.playerRequest ? '1' : '0', error: '' }}
         payment={{ value: props.payment, error: '' }}
         photoCheck={{ value: props.photoCheck, error: '' }}
+        story={{ value: props.story || '', error: '' }}
         isLoading={props.isLoading}
       />
     )
@@ -73,6 +75,14 @@ const renderTable = React.useMemo(() => {
         background='wheat'
       >
         <StatusBar status={Boolean(props.payment)} label='Взнос' />
+      </Tooltip>
+
+      <Tooltip
+        direction='top'
+        content='Квента подана и обработана'
+        background='wheat'
+      >
+        <StatusBar status={Boolean(props.story)} label='История' />
       </Tooltip>
     </div>
   )

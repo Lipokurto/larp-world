@@ -24,6 +24,7 @@ const renderPlayerData = React.useMemo(() => {
         lastName={userData.lastName}
         firstName={userData.firstName}
         middleName={userData.middleName}
+        achivments={userData.achivments}
         isLoading={isLoading}
       />
 

@@ -15,7 +15,7 @@ import staticLogo from '../../assets/LOGO_2026.png';
 import { getVideos } from '../../api/materials';
 import { SidePanel } from './side-panel';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { loginFailure, loginStart } from '../../redux/user-slice';
+import { loginFailure, loginStart, loginSuccess } from '../../redux/user-slice';
 import { Link } from './type';
 import { getAuthUrl } from '../user/utils/auth-utils';
 
@@ -91,7 +91,7 @@ export function Main(): JSX.Element {
   }, []);
 
 const handleLogin = React.useCallback(async (e: React.MouseEvent) => {
-    e.nativeEvent.stopImmediatePropagation();
+  e.nativeEvent.stopImmediatePropagation();
 
     try {
       dispatch(loginStart());

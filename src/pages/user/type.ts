@@ -14,4 +14,6 @@ export type UserData = {
   payment: string,
   photoCheck: string,
   status: string,
+  story: string,
+  achivments: Item[],
 }

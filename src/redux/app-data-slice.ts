@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
-import { getBuildingsList, getLocationsList } from '../api/lists';
+import { getAchivmentsList, getBuildingsList, getLocationsList } from '../api/lists';
+import { addIconFromList } from './achivment-icon-builder';
 
 export type LocationItem = {
   id: number,
@@ -16,9 +17,18 @@ type BuildingItem = {
   sign: boolean,
 }
 
+type AchivmentItem = {
+  id: number,
+  label: string,
+  status: string,
+  about: boolean,
+  img?: string,
+}
+
 interface AppDataState {
   locations: LocationItem[],
   buildings: BuildingItem[],
+  achivments: AchivmentItem[],
   loading: boolean,
   error: string | null,
 }
@@ -26,6 +36,7 @@ interface AppDataState {
 const initialState: AppDataState = {
   locations: [],
   buildings: [],
+  achivments: [],
   loading: false,
   error: null,
 };
@@ -33,14 +44,16 @@ const initialState: AppDataState = {
 export const fetchAppData = createAsyncThunk(
   'appData/fetchAppData',
   async () => {
-    const [locationsResponse, buildingsResponse] = await Promise.all([
+    const [locationsResponse, buildingsResponse, achivmentsResponse] = await Promise.all([
       axios.get<LocationItem[]>(getLocationsList),
       axios.get<BuildingItem[]>(getBuildingsList),
+      axios.get<AchivmentItem[]>(getAchivmentsList),
     ]);
 
     return {
       locations: locationsResponse.data,
       buildings: buildingsResponse.data,
+      achivments: achivmentsResponse.data.map((achivment) => (addIconFromList(achivment))),
     };
   },
 );
@@ -59,6 +72,7 @@ const appDataSlice = createSlice({
         state.loading = false;
         state.locations = action.payload.locations;
         state.buildings = action.payload.buildings;
+        state.achivments = action.payload.achivments;
       })
       .addCase(fetchAppData.rejected, (state, action) => {
         state.loading = false;
