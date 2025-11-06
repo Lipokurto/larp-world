@@ -171,11 +171,11 @@ export function PlayerForm(props: Props): JSX.Element {
       });
 
       toast.success('Достижение успешно удалено');
+      setIsEditing(false);
+      props.onCallback();
     } catch (error) {
       toast.error('Что-то пошло не так');
     }
-
-    props.onCallback;
   }, [props]);
 
   const renderAchivments = React.useMemo(() => {
@@ -199,6 +199,10 @@ export function PlayerForm(props: Props): JSX.Element {
           </>
         )}
 
+        {!isEditing && props.achivments.length === 0 && props.isAdmin && (
+          <button onClick={() => setIsEditing(true)} className={s.addAchivment}>+</button>
+        )}
+
         <div>Достижения</div>
         {currentAchivments.map((item, i) => (
           <Tooltip content={renderAchivmentItem(item, i)} key={i} background='black' direction='left'>
@@ -217,7 +221,7 @@ export function PlayerForm(props: Props): JSX.Element {
       <div className={s.labelContainer}>
         <div className={s.label}>Игрок</div>
 
-        {props.achivments.length > 0 && (renderAchivments)}
+        {renderAchivments}
 
         <div>{renderEditButton}</div>
       </div>
