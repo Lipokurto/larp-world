@@ -6,3 +6,5 @@ export const editPlayerStatus = `${process.env.REACT_APP_HOST}/api/edit-player-s
 export const info = `${process.env.REACT_APP_HOST}/api/info`;
 export const playersTable = `${process.env.REACT_APP_HOST}/api/players-table`;
 export const createUser = `${process.env.REACT_APP_HOST}/api/create-user`
+export const achivmentsEdit = `${process.env.REACT_APP_HOST}/api/achivments-edit`;
+export const achivmentDelete = `${process.env.REACT_APP_HOST}/api/achivment-delete`;

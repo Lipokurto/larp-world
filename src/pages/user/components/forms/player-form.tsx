@@ -4,8 +4,8 @@ import axios from 'axios';
 import Tooltip from 'react-tooltip-lite';
 
 import { useAppSelector } from '../../../../redux/hooks';
-import { editPlayer } from '../../../../api/user';
-import { InputForm } from '../ui-kit';
+import { achivmentDelete, achivmentsEdit, editPlayer } from '../../../../api/user';
+import { InputForm, SelectAchivmentForm } from '../ui-kit';
 import { nameValidation } from './form-validation';
 
 import s from './form.module.scss';
@@ -26,11 +26,17 @@ type Props = UserData & {
   isLoading: boolean,
   achivments: any[],
   isAdmin?: boolean,
+  onCallback: () => void,
+}
+
+export type AchivmentsData = {
+  achivmentId: string,
 }
 
 export function PlayerForm(props: Props): JSX.Element {
   const [isEditing, setIsEditing] = React.useState<boolean>(false);
   const [isTouched, setIsTouched] = React.useState<boolean>(false);
+  const [achivmentData, setAchivmentData] = React.useState<AchivmentsData>({ achivmentId: '0' });
   const [userData, setUserData] = React.useState<UserData>({
     lastName: { value: props.lastName.value, error: props.lastName.error },
     firstName: { value: props.firstName.value, error: props.firstName.error },
@@ -39,7 +45,7 @@ export function PlayerForm(props: Props): JSX.Element {
 
   const { achivments } = useAppSelector((state) => state.appData);
 
-  const handleChange = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleUserChange = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setUserData((prevData) => ({
       ...prevData,
@@ -50,6 +56,15 @@ export function PlayerForm(props: Props): JSX.Element {
     }));
     setIsTouched(true);
   }, [userData]);
+
+  const handleAchivmentChange = React.useCallback((e: React.ChangeEvent<HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setAchivmentData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+    setIsTouched(true);
+  }, [achivmentData]);
 
   const handleSubmit = React.useCallback(async () => {
     if (!isTouched) {
@@ -74,31 +89,54 @@ export function PlayerForm(props: Props): JSX.Element {
     };
 
     const checkValidation = Object.values(validateUserData).some(e => e.error);
-    if (checkValidation) {
-      setUserData(validateUserData);
+      if (checkValidation) {
+        setUserData(validateUserData);
 
-      return;
-    }
-
-    try {
-      await axios.post(editPlayer, {
-        last_name: validateUserData.lastName.value,
-        first_name: validateUserData.firstName.value,
-        mid_name: validateUserData.middleName.value,
-        vk_id: props.vkId,
-      });
-
-      toast.success('Данные успешно обновлены');
-    } catch (error) {
-      toast.error('Что-то пошло не так');
+        return;
       }
+
+      try {
+        await axios.post(editPlayer, {
+          last_name: validateUserData.lastName.value,
+          first_name: validateUserData.firstName.value,
+          mid_name: validateUserData.middleName.value,
+          vk_id: props.vkId,
+        });
+
+        toast.success('Данные успешно обновлены');
+      } catch (error) {
+        toast.error('Что-то пошло не так');
+        }
 
     setIsEditing(false);
 
     return undefined;
   }, [userData, props]);
 
-  const renderButton = React.useMemo(() => {
+  const handleAchivmentSubmit = React.useCallback(async () => {
+    if (!isTouched) {
+      setIsEditing(false);
+
+      return undefined;
+    }
+
+    try {
+      await axios.post(achivmentsEdit, {
+        vk_id: props.vkId,
+        achivment_id: achivmentData.achivmentId,
+      });
+
+      setAchivmentData({ achivmentId: '0' });
+      toast.success('Достижение успешно добавлено');
+    } catch (error) {
+      toast.error('Что-то пошло не так');
+    }
+
+    setIsEditing(false);
+    props.onCallback;
+  }, [achivmentData, props]);
+
+  const renderEditButton = React.useMemo(() => {
     return isEditing
       ? <div onClick={handleSubmit} className={props.isAdmin ? s.buttonAdmin : s.button}>Сохранить</div>
       : <div onClick={() => setIsEditing(true)} className={props.isAdmin ? s.buttonAdmin : s.button}>Редактировать</div>;
@@ -112,21 +150,68 @@ export function PlayerForm(props: Props): JSX.Element {
       </div>
     )},[]);
 
+    const renderAchivmentsOptions = React.useMemo(() => {
+      return (
+        <>
+          <option disabled value='0' hidden>Выберите достижение</option>
+          {achivments.map(p => <option value={p.id} key={p.id}>{p.label}</option>)}
+        </>
+
+      )
+    }, [achivments]);
+
+  const handleAchivmentDelete = React.useCallback(async (e: React.MouseEvent<HTMLButtonElement>) =>{
+    const achivmentId = e.currentTarget.value;
+
+    try {
+      await axios.delete(achivmentDelete, {
+        data: {
+          vk_id: props.vkId,
+          achivment_id: achivmentId,
+        },
+      });
+
+      toast.success('Достижение успешно удалено');
+    } catch (error) {
+      toast.error('Что-то пошло не так');
+    }
+
+    props.onCallback;
+  }, [props]);
+
   const renderAchivments = React.useMemo(() => {
     const currentAchivments = achivments.filter(a => props.achivments.some(p => p.achivment_id === a.id));
 
     return (
       <div className={s.achivment}>
+        {isEditing && (
+          <>
+            <SelectAchivmentForm
+              label='Добавить достижение'
+              name='achivmentId'
+              value={achivmentData.achivmentId}
+              onSelectChange={handleAchivmentChange}
+              options={renderAchivmentsOptions}
+            />
+
+            <button onClick={handleAchivmentSubmit} className={s.addAchivment}>
+              Добавить
+            </button>
+          </>
+        )}
+
+        <div>Достижения</div>
         {currentAchivments.map((item, i) => (
           <Tooltip content={renderAchivmentItem(item, i)} key={i} background='black' direction='left'>
             <div className={s.achivmentItem}>
+              {isEditing && <button onClick={handleAchivmentDelete} value={item.id}>Убрать</button>}
               <img key={i} src={item.img} alt="achivment" style={{ width: '50px', height: '50px', marginRight: '5px' }} />
             </div>
           </Tooltip>
         ))}
       </div>
-  )
-}, [props.achivments]);
+    )
+  }, [props.achivments, isEditing, achivments, achivmentData]);
 
   return (
     <div className={s.container}>
@@ -135,7 +220,7 @@ export function PlayerForm(props: Props): JSX.Element {
 
         {props.achivments.length > 0 && (renderAchivments)}
 
-        <div>{renderButton}</div>
+        <div>{renderEditButton}</div>
       </div>
 
     <div className={s.inputContainer}>
@@ -144,7 +229,7 @@ export function PlayerForm(props: Props): JSX.Element {
         type="text"
         name="lastName"
         value={userData.lastName.value}
-        onChange={handleChange}
+        onChange={handleUserChange}
         disabled={!isEditing}
         error={userData.lastName.error}
         isLoading={props.isLoading}
@@ -155,7 +240,7 @@ export function PlayerForm(props: Props): JSX.Element {
         type="text"
         name="firstName"
         value={userData.firstName.value}
-        onChange={handleChange}
+        onChange={handleUserChange}
         disabled={!isEditing}
         error={userData.firstName.error}
         isLoading={props.isLoading}
@@ -166,7 +251,7 @@ export function PlayerForm(props: Props): JSX.Element {
         type="text"
         name="middleName"
         value={userData.middleName.value}
-        onChange={handleChange}
+        onChange={handleUserChange}
         disabled={!isEditing}
         error={userData.middleName.error}
         isLoading={props.isLoading}
