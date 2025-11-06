@@ -17,6 +17,7 @@ type statusData = {
   playerRequest: Item,
   payment: Item,
   photoCheck: Item,
+  story: Item,
 }
 
 type Props = statusData & {
@@ -31,6 +32,7 @@ export function StatusAdminForm(props: Props): JSX.Element {
     playerRequest: { value: props.playerRequest.value, error: props.playerRequest.error },
     payment: { value: props.payment.value, error: props.payment.error },
     photoCheck: { value: props.photoCheck.value, error: props.photoCheck.error },
+    story: { value: props.story.value, error: props.story.error },
   });
 
   const handleChange = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
@@ -72,6 +74,7 @@ export function StatusAdminForm(props: Props): JSX.Element {
         player_request: validateCharData.playerRequest.value,
         payment: validateCharData.payment.value,
         photo_check: validateCharData.photoCheck.value,
+        story_link: statusData.story.value,
         vk_id: props.vkId,
       });
 
@@ -117,6 +120,17 @@ export function StatusAdminForm(props: Props): JSX.Element {
           onChange={handleChange}
           disabled={!isEditing}
           error={statusData.payment.error}
+          isLoading={props.isLoading}
+        />
+
+        <InputForm
+          label='История ссылка'
+          type="string"
+          name="story"
+          value={statusData.story.value}
+          onChange={handleChange}
+          disabled={!isEditing}
+          error={statusData.story.error}
           isLoading={props.isLoading}
         />
 

@@ -42,6 +42,8 @@ const fetchUserInfo = React.useCallback((innerUserId: string) => {
         payment: response.data.payment,
         photoCheck: response.data.photo_check,
         status: response.data.status,
+        story: response.data.story_link,
+        achivments: response.data.achivments || [],
       }
       setUserData(validResponse);
       setIsLoading(false);
@@ -64,6 +66,7 @@ const renderData = React.useMemo(() => {
           photoCheck={userData.photoCheck}
           isLoading={isLoading}
           isAdmin={true}
+          story={userData.story}
         />
 
         <PlayerForm
@@ -71,6 +74,7 @@ const renderData = React.useMemo(() => {
           lastName={userData.lastName}
           firstName={userData.firstName}
           middleName={userData.middleName}
+          achivments={userData.achivments}
           isLoading={isLoading}
           isAdmin={true}
         />

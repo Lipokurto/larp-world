@@ -38,6 +38,7 @@ export type PlayersData = {
   vkLink: string,
   locationId?: string,
   role?: string,
+  story?: string,
   photo: string,
   payment: string,
   request: boolean,
@@ -65,7 +66,8 @@ export function UsersTable(): JSX.Element {
             role: p.role,
             photo: p.photo_check,
             payment: p.payment,
-          }))
+            story: p.story_link,
+          }));
           setStorePlayersData(() => playersDataDTO);
           setPlayersData(() =>playersDataDTO);
       } catch (err) {
@@ -92,6 +94,7 @@ export function UsersTable(): JSX.Element {
       { name: 'Заявка', cell: (row: PlayersData) => renderStatusIcon(Boolean(row.request)), width: '50px' },
       { name: 'Фото', cell: (row: PlayersData) => renderStatusIconFloat(row.photo?.toString()), width: '50px' },
       { name: 'Взнос', cell: (row: PlayersData) => row.payment || renderStatusIcon(false), width: '50px' },
+      { name: 'История', cell: (row: PlayersData) => <a href={row.story} target="_blank">{row.story ? 'Откр.' : renderStatusIcon(false)}</a>, width: '50px' },
     ];
 
     const data: PlayersData[] = playersData.map((p, i) => ({
@@ -104,6 +107,7 @@ export function UsersTable(): JSX.Element {
       photo: p.photo,
       payment: p.payment,
       request: p.request,
+      story: p.story,
     }))
 
     if (playersData.length > 0) {

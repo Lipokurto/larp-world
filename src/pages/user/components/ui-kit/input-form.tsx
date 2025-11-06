@@ -20,7 +20,9 @@ export function InputForm(props: Props): JSX.Element {
     if (props.disabled) {
       return(
         <div className={s.inputOff}>
-          {props.value}
+          {props.name === 'story'
+            ? <a href={props.value} target="_blank">Ссылка на историю</a>
+            : props.value}
         </div>
       )
     }

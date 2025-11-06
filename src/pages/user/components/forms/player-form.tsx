@@ -1,7 +1,9 @@
 import React from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import axios from 'axios';
+import Tooltip from 'react-tooltip-lite';
 
+import { useAppSelector } from '../../../../redux/hooks';
 import { editPlayer } from '../../../../api/user';
 import { InputForm } from '../ui-kit';
 import { nameValidation } from './form-validation';
@@ -22,6 +24,7 @@ type UserData = {
 type Props = UserData & {
   vkId: string,
   isLoading: boolean,
+  achivments: any[],
   isAdmin?: boolean,
 }
 
@@ -33,6 +36,8 @@ export function PlayerForm(props: Props): JSX.Element {
     firstName: { value: props.firstName.value, error: props.firstName.error },
     middleName: { value: props.middleName.value, error: props.middleName.error },
   });
+
+  const { achivments } = useAppSelector((state) => state.appData);
 
   const handleChange = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -99,10 +104,37 @@ export function PlayerForm(props: Props): JSX.Element {
       : <div onClick={() => setIsEditing(true)} className={props.isAdmin ? s.buttonAdmin : s.button}>Редактировать</div>;
   }, [isEditing, userData]);
 
+  const renderAchivmentItem = React.useCallback((item: any, i: number) => {
+    return (
+      <div>
+        <div key={i} className={s.achivmentText}>{item.label}</div>
+        <div>{item.about}</div>
+      </div>
+    )},[]);
+
+  const renderAchivments = React.useMemo(() => {
+    const currentAchivments = achivments.filter(a => props.achivments.some(p => p.achivment_id === a.id));
+
+    return (
+      <div className={s.achivment}>
+        {currentAchivments.map((item, i) => (
+          <Tooltip content={renderAchivmentItem(item, i)} key={i} background='black' direction='left'>
+            <div className={s.achivmentItem}>
+              <img key={i} src={item.img} alt="achivment" style={{ width: '50px', height: '50px', marginRight: '5px' }} />
+            </div>
+          </Tooltip>
+        ))}
+      </div>
+  )
+}, [props.achivments]);
+
   return (
     <div className={s.container}>
       <div className={s.labelContainer}>
         <div className={s.label}>Игрок</div>
+
+        {props.achivments.length > 0 && (renderAchivments)}
+
         <div>{renderButton}</div>
       </div>
 
