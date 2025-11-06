@@ -17,7 +17,7 @@ type BuildingItem = {
   sign: boolean,
 }
 
-type AchivmentItem = {
+export type AchivmentItem = {
   id: number,
   label: string,
   status: string,

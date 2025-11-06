@@ -24,36 +24,36 @@ export function UserPage(props: Props): JSX.Element {
   const dispatch = useAppDispatch();
   const navigate: NavigateFunction = useNavigate();
 
-  React.useEffect(() => {
-    const fetchPlayerInfo = async () => {
-      try {
-        setIsLoading(true);
-        const response = await axios.get(info, {
-          params: { vk_id: props.vkId },
-        });
-        const validResponse = {
-          lastName: { value: response.data.last_name, error: undefined },
-          firstName: { value: response.data.first_name, error: undefined },
-          middleName: { value: response.data.mid_name, error: undefined },
-          charName: { value: response.data.char_name, error: undefined },
-          role: { value: response.data.role, error: undefined },
-          locationId: { value: response.data.location_id, error: undefined },
-          playerRequest: response.data.player_request,
-          payment: response.data.payment,
-          photoCheck: response.data.photo_check?.toString() || '0',
-          status: response.data.status,
-          story: response.data.story_link,
-          achivments: response.data.achivments || [],
-        }
-        setUserData(validResponse);
-        setIsLoading(false);
-      } catch (err) {
-        toast.error('Пользователь не найден');
+  const fetchPlayerInfo = async () => {
+    try {
+      setIsLoading(true);
+      const response = await axios.get(info, {
+        params: { vk_id: props.vkId },
+      });
+      const validResponse = {
+        lastName: { value: response.data.last_name, error: undefined },
+        firstName: { value: response.data.first_name, error: undefined },
+        middleName: { value: response.data.mid_name, error: undefined },
+        charName: { value: response.data.char_name, error: undefined },
+        role: { value: response.data.role, error: undefined },
+        locationId: { value: response.data.location_id, error: undefined },
+        playerRequest: response.data.player_request,
+        payment: response.data.payment,
+        photoCheck: response.data.photo_check?.toString() || '0',
+        status: response.data.status,
+        story: response.data.story_link,
+        achivments: response.data.achivments || [],
       }
+      setUserData(validResponse);
+      setIsLoading(false);
+    } catch (err) {
+      toast.error('Пользователь не найден');
     }
+  }
 
-  fetchPlayerInfo();
-}, [props]);
+  React.useEffect(() => {
+    fetchPlayerInfo();
+  }, [props]);
 
 const handleLogout = React.useCallback(() => {
   dispatch(logout());
@@ -85,6 +85,7 @@ const renderElement = React.useMemo(() => {
           middleName={userData.middleName}
           isLoading={isLoading}
           achivments={userData.achivments}
+          onCallback={fetchPlayerInfo}
         />
 
         <CharForm
