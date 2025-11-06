@@ -9,6 +9,7 @@ type Props = {
   userData: UserData,
   vkId: string,
   isLoading: boolean,
+  onCallback: () => void,
 }
 
 export function CaptainSelector(props: Props): JSX.Element {
@@ -26,6 +27,7 @@ const renderPlayerData = React.useMemo(() => {
         middleName={userData.middleName}
         achivments={userData.achivments}
         isLoading={isLoading}
+        onCallback={props.onCallback}
       />
 
       <CharForm

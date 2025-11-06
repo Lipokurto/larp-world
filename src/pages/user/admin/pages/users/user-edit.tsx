@@ -77,6 +77,7 @@ const renderData = React.useMemo(() => {
           achivments={userData.achivments}
           isLoading={isLoading}
           isAdmin={true}
+          onCallback={() => fetchUserInfo(userId)}
         />
 
         <CharForm

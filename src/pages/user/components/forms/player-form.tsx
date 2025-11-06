@@ -25,8 +25,8 @@ type Props = UserData & {
   vkId: string,
   isLoading: boolean,
   achivments: any[],
-  isAdmin?: boolean,
   onCallback: () => void,
+  isAdmin?: boolean,
 }
 
 export type AchivmentsData = {
@@ -128,12 +128,11 @@ export function PlayerForm(props: Props): JSX.Element {
 
       setAchivmentData({ achivmentId: '0' });
       toast.success('Достижение успешно добавлено');
+      setIsEditing(false);
+      props.onCallback();
     } catch (error) {
       toast.error('Что-то пошло не так');
     }
-
-    setIsEditing(false);
-    props.onCallback;
   }, [achivmentData, props]);
 
   const renderEditButton = React.useMemo(() => {

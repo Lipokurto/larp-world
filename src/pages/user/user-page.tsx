@@ -72,6 +72,7 @@ const renderElement = React.useMemo(() => {
           userData={userData}
           vkId={props.vkId}
           isLoading={isLoading}
+          onCallback={fetchPlayerInfo}
         />
       )
     }
