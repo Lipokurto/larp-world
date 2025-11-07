@@ -34,9 +34,9 @@ export function UserPage(props: Props): JSX.Element {
         lastName: { value: response.data.last_name, error: undefined },
         firstName: { value: response.data.first_name, error: undefined },
         middleName: { value: response.data.mid_name, error: undefined },
-        charName: { value: response.data.char_name, error: undefined },
-        role: { value: response.data.role, error: undefined },
-        locationId: { value: response.data.location_id, error: undefined },
+        charName: { value: response.data?.char_name, error: undefined },
+        role: { value: response.data?.role, error: undefined },
+        locationId: { value: response.data?.location_id, error: undefined },
         playerRequest: response.data.player_request,
         payment: response.data.payment,
         photoCheck: response.data.photo_check?.toString() || '0',
@@ -58,6 +58,15 @@ export function UserPage(props: Props): JSX.Element {
 const handleLogout = React.useCallback(() => {
   dispatch(logout());
   navigate('/')
+}, []);
+
+const renderEmptyChar = React.useMemo(() => {
+  return (
+    <div className={s.unknownContainer}>
+      <h3>Персонаж не найден</h3>
+      <div>Чтобы создать персонажа пройдите <NavLink to='/player/registration'>регистрацию</NavLink></div>
+    </div>
+  );
 }, []);
 
 const renderElement = React.useMemo(() => {
@@ -89,13 +98,15 @@ const renderElement = React.useMemo(() => {
           onCallback={fetchPlayerInfo}
         />
 
-        <CharForm
-          vkId={props.vkId}
-          charName={userData.charName}
-          role={userData.role}
-          locationId={userData.locationId}
-          isLoading={isLoading}
-        />
+        {userData.locationId.value ? (
+          <CharForm
+            vkId={props.vkId}
+            charName={userData.charName}
+            role={userData.role}
+            locationId={userData.locationId}
+            isLoading={isLoading}
+          />
+        ) : renderEmptyChar}
 
         <StatusTable
           vkId={props.vkId}
