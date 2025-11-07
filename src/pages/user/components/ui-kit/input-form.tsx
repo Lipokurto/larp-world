@@ -30,7 +30,7 @@ export function InputForm(props: Props): JSX.Element {
   return (
     <Tooltip
       isOpen={Boolean(props.error)}
-      content={props.error}
+      content={props.error || ''}
       background='pink'
       direction='left'
     >

@@ -7,12 +7,14 @@ import { UserData } from '../../../type';
 import { info } from '../../../../../api/user';
 import { getIdWithLink } from '../../../utils/get-id-by-link';
 import { InputForm } from '../../../components/ui-kit';
+import { CreateCharModal } from './create-char-modal/create-char-modal';
 
 export function UserEdit(): JSX.Element {
   const [userLink, setUserLink] = React.useState<string>('');
   const [userId, setUserId] = React.useState<string>('');
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
   const [userData, setUserData] = React.useState<UserData | undefined>(undefined);
+  const [isModalOpen, setIsModalOpen] = React.useState<boolean>(false);
 
   const handleLinkChange = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setUserLink(e.target.value);
@@ -55,7 +57,17 @@ const fetchUserInfo = React.useCallback((innerUserId: string) => {
   fetchPlayerInfo();
 }, [userId]);
 
+const renderAddCharButton = React.useMemo(() => (
+  <button
+    style={{ marginTop: '20px' }}
+    onClick={() => setIsModalOpen(true)}
+  >
+    Добавить персонажа
+  </button>
+), []);
+
 const renderData = React.useMemo(() => {
+  const hasChar = userData?.charName.value || userData?.role.value || userData?.locationId.value;
   if (userData) {
     return (
       <>
@@ -80,14 +92,16 @@ const renderData = React.useMemo(() => {
           onCallback={() => fetchUserInfo(userId)}
         />
 
-        <CharForm
-          vkId={userId}
-          charName={userData.charName}
-          role={userData.role}
-          locationId={userData.locationId}
-          isLoading={isLoading}
-          isAdmin={true}
-        />
+        {hasChar ? (
+          <CharForm
+            vkId={userId}
+            charName={userData.charName}
+            role={userData.role}
+            locationId={userData.locationId}
+            isLoading={isLoading}
+            isAdmin={true}
+          />
+        ) : renderAddCharButton}
       </>
     )
   }
@@ -114,6 +128,15 @@ const renderData = React.useMemo(() => {
         position="bottom-left"
         reverseOrder={false}
       />
+
+      {isModalOpen && (
+        <CreateCharModal
+          vkId={userId}
+          isAdmin={true}
+          setIsOpen={setIsModalOpen}
+          onCallback={() => fetchUserInfo(userId)}
+        />
+      )}
     </>
   )
 }

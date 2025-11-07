@@ -14,7 +14,7 @@ type Item = {
   error?: string,
 }
 
-type CharData = {
+export type CharData = {
   charName: Item,
   role: Item,
   locationId: Item,
@@ -34,7 +34,7 @@ export function CharForm(props: Props): JSX.Element {
     role: { value: props.role.value, error: props.role.error },
     locationId: { value: props.locationId.value, error: props.locationId.error },
   });
-    const { locations } = useAppSelector((state) => state.appData);
+  const { locations } = useAppSelector((state) => state.appData);
 
   const handleChange = React.useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -88,7 +88,7 @@ export function CharForm(props: Props): JSX.Element {
       toast.success('Данные успешно обновлены');
     } catch (error) {
       toast.error('Что-то пошло не так');
-      }
+    }
 
     setIsEditing(false);
 
@@ -113,7 +113,7 @@ export function CharForm(props: Props): JSX.Element {
           label='Имя'
           type="text"
           name="charName"
-          value={charData.charName.value.toString()}
+          value={charData.charName?.value?.toString() || ''}
           onChange={handleChange}
           disabled={!isEditing}
           error={charData.charName.error}
@@ -124,7 +124,7 @@ export function CharForm(props: Props): JSX.Element {
           label='Роль'
           type="text"
           name="role"
-          value={charData.role.value.toString()}
+          value={charData.role?.value?.toString() || ''}
           onChange={handleChange}
           disabled={!isEditing}
           error={charData.role.error}
@@ -134,7 +134,7 @@ export function CharForm(props: Props): JSX.Element {
         <SelectForm
           label='Локация'
           name='locationId'
-          value={charData.locationId.value.toString()}
+          value={charData.locationId?.value?.toString() || ''}
           onSelectChange={handleChange}
           disabled={!isEditing}
           error={charData.locationId.error}
