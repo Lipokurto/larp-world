@@ -5,7 +5,7 @@ import DataTable, { TableColumn } from 'react-data-table-component';
 
 import { playersTable } from '../../../../../api/user';
 import { renderStatusIcon, renderStatusIconFloat } from '../../../components/ui-kit/status';
-import { SelectForm, Statistic } from '../../../components/ui-kit';
+import { renderAchivments, SelectForm, Statistic } from '../../../components/ui-kit';
 import { getLocationNameById } from '../../../utils/get-location-name-by-id';
 import { useAppSelector } from '../../../../../redux/hooks';
 
@@ -42,13 +42,13 @@ export type PlayersData = {
   photo: string,
   payment: string,
   request: boolean,
+  achivments?: { achivment_id: number }[],
 }
 
 export function UsersTable(): JSX.Element {
   const [filterLocation, setFilterLocation] = React.useState<string | undefined>(undefined);
   const [storePlayersData, setStorePlayersData] = React.useState<PlayersData[]>([]);
   const [playersData, setPlayersData] = React.useState<PlayersData[]>([]);
-  const [isUsersCheck, setIsUsersCheck] = React.useState<boolean>(true);
   const { locations } = useAppSelector((state) => state.appData);
 
   React.useEffect(() => {
@@ -68,6 +68,7 @@ export function UsersTable(): JSX.Element {
             photo: p.photo_check,
             payment: p.payment,
             story: p.story_link,
+            achivments: p.achivments || [],
           }));
           setStorePlayersData(() => playersDataDTO);
           setPlayersData(() =>playersDataDTO);
@@ -86,9 +87,13 @@ export function UsersTable(): JSX.Element {
 
   const renderUsersTable = React.useMemo(() => {
     const columns: TableColumn<PlayersData>[] = [
+      { name: 'Ачивки', cell: (row: PlayersData) => renderAchivments(row.achivments), width: '50px' },
       { name: '№', selector: (row: PlayersData, index) => (index || 0) + 1, width: '40px' },
       { name: 'ФИО', selector: (row: PlayersData) => row.fullName, width: '200px' },
       { name: 'ВК', selector: (row: PlayersData) => row.vkLink, width: '200px' },
+      { name: 'Персонаж', selector: (row: PlayersData) => row.char || '-', maxWidth: '200px' },
+      { name: 'Роль', selector: (row: PlayersData) => row.role || '-', maxWidth: '200px' },
+      { name: 'Локация', selector: (row: PlayersData) => getLocationNameById(Number(row.locationId)), width: '150px' },
       { name: 'Заявка', cell: (row: PlayersData) => renderStatusIcon(Boolean(row.request)), width: '50px' },
       { name: 'Фото', cell: (row: PlayersData) => renderStatusIconFloat(row.photo?.toString()), width: '50px' },
       { name: 'Взнос', cell: (row: PlayersData) => row.payment || renderStatusIcon(false), width: '50px' },
@@ -106,42 +111,8 @@ export function UsersTable(): JSX.Element {
       payment: p.payment,
       request: p.request,
       story: p.story,
+      achivments: p.achivments,
     }))
-
-    if (playersData.length > 0) {
-      return (
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <DataTable columns={columns} data={data} theme='dark' customStyles={darkTheme}/>
-        </div>
-      )
-    }
-
-    return <div>Некого показывать</div>;
-  }, [playersData, storePlayersData, filterLocation]);
-
-  const renderCharTable = React.useMemo(() => {
-    const columns: TableColumn<PlayersData>[] = [
-      { name: '№', selector: (row: PlayersData, index) => (index || 0) + 1, width: '40px' },
-      { name: 'ФИО', selector: (row: PlayersData) => row.fullName, width: '200px' },
-      { name: 'ВК', selector: (row: PlayersData) => row.vkLink, width: '200px' },
-      { name: 'Персонаж', selector: (row: PlayersData) => row.char || '-', maxWidth: '200px' },
-      { name: 'Роль', selector: (row: PlayersData) => row.role || '-', maxWidth: '200px' },
-      { name: 'Локация', selector: (row: PlayersData) => getLocationNameById(Number(row.locationId)), width: '150px' },
-      { name: 'История', cell: (row: PlayersData) => <a href={row.story} target="_blank">{row.story ? 'Откр.' : renderStatusIcon(false)}</a>, width: '50px' },
-    ];
-
-    const data: PlayersData[] = playersData.map((p, i) => ({
-      id: i,
-      fullName: p.fullName,
-      vkLink: p.vkLink,
-      char: p.char,
-      role: p.role,
-      locationId: p.locationId,
-      photo: p.photo,
-      payment: p.payment,
-      request: p.request,
-      story: p.story,
-    })).filter(p => p.locationId !== undefined);
 
     if (playersData.length > 0) {
       return (
@@ -221,12 +192,7 @@ export function UsersTable(): JSX.Element {
           {renderPaymentStatistic}
         </div>
 
-        <div>
-          <button onClick={() => setIsUsersCheck(true)}>Личные кабинеты</button>
-          <button onClick={() => setIsUsersCheck(false)}>Персонажи</button>
-        </div>
-
-        {isUsersCheck ? renderUsersTable : renderCharTable}
+        {renderUsersTable}
       </div>
 
       <Toaster
