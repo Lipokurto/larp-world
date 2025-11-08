@@ -26,86 +26,86 @@ export function UserEdit(): JSX.Element {
     fetchUserInfo(userId);
   }, [userLink]);
 
-const fetchUserInfo = React.useCallback((innerUserId: string) => {
-  const fetchPlayerInfo = async () => {
-    try {
-      setIsLoading(true);
-      const response = await axios.get(info, {
-        params: { vk_id: innerUserId },
-      });
-      const validResponse: UserData = {
-        lastName: { value: response.data.last_name, error: undefined },
-        firstName: { value: response.data.first_name, error: undefined },
-        middleName: { value: response.data.mid_name, error: undefined },
-        charName: { value: response.data.char_name, error: undefined },
-        role: { value: response.data.role, error: undefined },
-        locationId: { value: response.data.location_id, error: undefined },
-        playerRequest: response.data.player_request,
-        payment: response.data.payment,
-        photoCheck: response.data.photo_check,
-        status: response.data.status,
-        story: response.data.story_link,
-        achivments: response.data.achivments || [],
+  const fetchUserInfo = React.useCallback((innerUserId: string) => {
+    const fetchPlayerInfo = async () => {
+      try {
+        setIsLoading(true);
+        const response = await axios.get(info, {
+          params: { vk_id: innerUserId },
+        });
+        const validResponse: UserData = {
+          lastName: { value: response.data.last_name, error: undefined },
+          firstName: { value: response.data.first_name, error: undefined },
+          middleName: { value: response.data.mid_name, error: undefined },
+          playerRequest: response.data.player_request,
+          payment: response.data.payment,
+          photoCheck: response.data.photo_check,
+          status: response.data.status,
+          story: response.data.story_link,
+          achivments: response.data.achivments || [],
+          charName: { value: response.data.char_name, error: undefined },
+          role: { value: response.data.role, error: undefined },
+          locationId: { value: response.data.location_id, error: undefined },
+        }
+        setUserData(validResponse);
+        setIsLoading(false);
+      } catch (err) {
+        toast.error('Ошибка при получении данных');
       }
-      setUserData(validResponse);
-      setIsLoading(false);
-    } catch (err) {
-      toast.error('Ошибка при получении данных');
     }
-  }
 
-  fetchPlayerInfo();
-}, [userId]);
+    fetchPlayerInfo();
+  }, [userId]);
 
-const renderAddCharButton = React.useMemo(() => (
-  <button
-    style={{ marginTop: '20px' }}
-    onClick={() => setIsModalOpen(true)}
-  >
-    Добавить персонажа
-  </button>
-), []);
+  const renderAddCharButton = React.useMemo(() => (
+    <button
+      style={{ marginTop: '20px' }}
+      onClick={() => setIsModalOpen(true)}
+    >
+      Добавить персонажа
+    </button>
+  ), []);
 
-const renderData = React.useMemo(() => {
-  const hasChar = userData?.charName.value || userData?.role.value || userData?.locationId.value;
-  if (userData) {
-    return (
-      <>
-        <StatusTable
-          vkId={userId}
-          playerRequest={userData.playerRequest}
-          payment={userData.payment}
-          photoCheck={userData.photoCheck}
-          isLoading={isLoading}
-          isAdmin={true}
-          story={userData.story}
-        />
-
-        <PlayerForm
-          vkId={userId}
-          lastName={userData.lastName}
-          firstName={userData.firstName}
-          middleName={userData.middleName}
-          achivments={userData.achivments}
-          isLoading={isLoading}
-          isAdmin={true}
-          onCallback={() => fetchUserInfo(userId)}
-        />
-
-        {hasChar ? (
-          <CharForm
+  const renderData = React.useMemo(() => {
+    const hasChar = Boolean(userData?.charName.value || userData?.role.value || userData?.locationId.value);
+    if (userData) {
+      return (
+        <>
+          <StatusTable
             vkId={userId}
-            charName={userData.charName}
-            role={userData.role}
-            locationId={userData.locationId}
+            playerRequest={userData.playerRequest}
+            payment={userData.payment}
+            photoCheck={userData.photoCheck}
             isLoading={isLoading}
             isAdmin={true}
+            story={userData.story}
           />
-        ) : renderAddCharButton}
-      </>
-    )
-  }
-}, [userData, isLoading, userId]);
+
+          <PlayerForm
+            vkId={userId}
+            lastName={userData.lastName}
+            firstName={userData.firstName}
+            middleName={userData.middleName}
+            achivments={userData.achivments}
+            isLoading={isLoading}
+            isAdmin={true}
+            onCallback={() => fetchUserInfo(userId)}
+          />
+
+          {hasChar ? (
+            <CharForm
+              vkId={userId}
+              charName={userData.charName}
+              role={userData.role}
+              locationId={userData.locationId}
+              isLoading={isLoading}
+              isAdmin={true}
+            />
+          ) : renderAddCharButton}
+        </>
+      )
+    }
+  }, [userData, isLoading, userId, renderAddCharButton]);
 
   return (
     <>

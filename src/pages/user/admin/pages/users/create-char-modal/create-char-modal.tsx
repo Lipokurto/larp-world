@@ -28,10 +28,6 @@ export function CreateCharModal(props: Props): JSX.Element {
 
   const { locations } = useAppSelector((state) => state.appData);
 
-  React.useEffect(() => {
-    document.body.style.overflowY = 'hidden';
-  }, []);
-
   const handleClose = React.useCallback(() => {
     document.body.style.overflowY = 'visible';
 
@@ -49,7 +45,7 @@ export function CreateCharModal(props: Props): JSX.Element {
     }));
   }, [charData]);
 
-    const handleSubmit = React.useCallback(async () => {
+  const handleSubmit = React.useCallback(async () => {
     const validateCharData = {
       charName: {
         value: charData.charName.value,
@@ -65,19 +61,13 @@ export function CreateCharModal(props: Props): JSX.Element {
       },
     };
 
-    const checkValidation = Object.values(validateCharData).some(e => e.error);
-    if (checkValidation) {
+    const failedValidation = Object.values(validateCharData).some(e => e.error);
+    if (!failedValidation) {
       setCharData(validateCharData);
 
       try {
         await axios.post(vkRegistryChar, { vk_id: props.vkId });
 
-        toast.success('Данные успешно обновлены');
-      } catch (error) {
-        toast.error('Что-то пошло не так');
-      }
-
-      try {
         await axios.post(editPlayerChar, {
           char_name: validateCharData.charName.value,
           role: validateCharData.role.value,
@@ -85,16 +75,15 @@ export function CreateCharModal(props: Props): JSX.Element {
           vk_id: props.vkId,
         });
 
+      props.onCallback();
+      props.setIsOpen(false);
+
         toast.success('Данные успешно обновлены');
       } catch (error) {
         toast.error('Что-то пошло не так');
       }
-      props.onCallback();
-      props.setIsOpen(false);
-
-      return undefined;
     }
-  }, [charData]);
+  }, [charData, props]);
 
   return (
     <>

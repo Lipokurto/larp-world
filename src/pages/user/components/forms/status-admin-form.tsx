@@ -88,7 +88,7 @@ export function StatusAdminForm(props: Props): JSX.Element {
     return undefined;
   }, [statusData]);
 
-  const renderButton = React.useMemo(() => {
+  const renderEditButton = React.useMemo(() => {
     return isEditing
       ? <div onClick={handleSubmit} className={s.buttonAdmin}>Сохранить</div>
       : <div onClick={() => setIsEditing(true)} className={s.buttonAdmin}>Редактировать</div>;
@@ -98,7 +98,7 @@ export function StatusAdminForm(props: Props): JSX.Element {
     <div className={s.container}>
       <div className={s.labelContainer}>
         <div className={s.label}>Статус</div>
-        <div>{renderButton}</div>
+        <div>{renderEditButton}</div>
       </div>
 
       <div className={s.inputContainer}>
