@@ -95,7 +95,7 @@ export function CharForm(props: Props): JSX.Element {
     return undefined;
   }, [charData]);
 
-  const renderButton = React.useMemo(() => {
+  const renderEditButton = React.useMemo(() => {
     return isEditing
       ? <div onClick={handleSubmit} className={props.isAdmin ? s.buttonAdmin : s.button}>Сохранить</div>
       : <div onClick={() => setIsEditing(true)} className={props.isAdmin ? s.buttonAdmin : s.button}>Редактировать</div>;
@@ -105,7 +105,7 @@ export function CharForm(props: Props): JSX.Element {
     <div className={s.container}>
       <div className={s.labelContainer}>
         <div className={s.label}>Персонаж</div>
-        <div>{renderButton}</div>
+        <div>{renderEditButton}</div>
       </div>
 
       <div className={s.inputContainer}>
