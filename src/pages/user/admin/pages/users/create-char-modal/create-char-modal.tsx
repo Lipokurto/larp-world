@@ -61,7 +61,7 @@ export function CreateCharModal(props: Props): JSX.Element {
       },
       locationId: {
         value: charData.locationId.value,
-        error: '',
+        error: undefined,
       },
     };
 
