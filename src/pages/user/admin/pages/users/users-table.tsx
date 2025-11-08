@@ -48,6 +48,7 @@ export function UsersTable(): JSX.Element {
   const [filterLocation, setFilterLocation] = React.useState<string | undefined>(undefined);
   const [storePlayersData, setStorePlayersData] = React.useState<PlayersData[]>([]);
   const [playersData, setPlayersData] = React.useState<PlayersData[]>([]);
+  const [isUsersCheck, setIsUsersCheck] = React.useState<boolean>(true);
   const { locations } = useAppSelector((state) => state.appData);
 
   React.useEffect(() => {
@@ -61,7 +62,7 @@ export function UsersTable(): JSX.Element {
             fullName: `${p.last_name} ${p.first_name} ${p.mid_name || ''}`,
             char: p.char_name,
             vkLink: p.vk_link,
-            locationId: p.location_id.toString(),
+            locationId: p.location_id?.toString(),
             request: p.player_request,
             role: p.role,
             photo: p.photo_check,
@@ -83,14 +84,11 @@ export function UsersTable(): JSX.Element {
     setPlayersData(filterLocation ? filteredData : storePlayersData);
   }, [filterLocation])
 
-  const renderTable = React.useMemo(() => {
+  const renderUsersTable = React.useMemo(() => {
     const columns: TableColumn<PlayersData>[] = [
       { name: '№', selector: (row: PlayersData, index) => (index || 0) + 1, width: '40px' },
       { name: 'ФИО', selector: (row: PlayersData) => row.fullName, width: '200px' },
       { name: 'ВК', selector: (row: PlayersData) => row.vkLink, width: '200px' },
-      { name: 'Персонаж', selector: (row: PlayersData) => row.char || '-', maxWidth: '200px' },
-      { name: 'Роль', selector: (row: PlayersData) => row.role || '-', maxWidth: '200px' },
-      { name: 'Локация', selector: (row: PlayersData) => getLocationNameById(Number(row.locationId)), width: '150px' },
       { name: 'Заявка', cell: (row: PlayersData) => renderStatusIcon(Boolean(row.request)), width: '50px' },
       { name: 'Фото', cell: (row: PlayersData) => renderStatusIconFloat(row.photo?.toString()), width: '50px' },
       { name: 'Взнос', cell: (row: PlayersData) => row.payment || renderStatusIcon(false), width: '50px' },
@@ -118,7 +116,42 @@ export function UsersTable(): JSX.Element {
       )
     }
 
-    return null;
+    return <div>Некого показывать</div>;
+  }, [playersData, storePlayersData, filterLocation]);
+
+  const renderCharTable = React.useMemo(() => {
+    const columns: TableColumn<PlayersData>[] = [
+      { name: '№', selector: (row: PlayersData, index) => (index || 0) + 1, width: '40px' },
+      { name: 'ФИО', selector: (row: PlayersData) => row.fullName, width: '200px' },
+      { name: 'ВК', selector: (row: PlayersData) => row.vkLink, width: '200px' },
+      { name: 'Персонаж', selector: (row: PlayersData) => row.char || '-', maxWidth: '200px' },
+      { name: 'Роль', selector: (row: PlayersData) => row.role || '-', maxWidth: '200px' },
+      { name: 'Локация', selector: (row: PlayersData) => getLocationNameById(Number(row.locationId)), width: '150px' },
+      { name: 'История', cell: (row: PlayersData) => <a href={row.story} target="_blank">{row.story ? 'Откр.' : renderStatusIcon(false)}</a>, width: '50px' },
+    ];
+
+    const data: PlayersData[] = playersData.map((p, i) => ({
+      id: i,
+      fullName: p.fullName,
+      vkLink: p.vkLink,
+      char: p.char,
+      role: p.role,
+      locationId: p.locationId,
+      photo: p.photo,
+      payment: p.payment,
+      request: p.request,
+      story: p.story,
+    })).filter(p => p.locationId !== undefined);
+
+    if (playersData.length > 0) {
+      return (
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <DataTable columns={columns} data={data} theme='dark' customStyles={darkTheme}/>
+        </div>
+      )
+    }
+
+    return <div>Некого показывать</div>;
   }, [playersData, storePlayersData, filterLocation]);
 
   const handleChangeFilter = React.useCallback((e: any) => {
@@ -188,7 +221,12 @@ export function UsersTable(): JSX.Element {
           {renderPaymentStatistic}
         </div>
 
-        {renderTable}
+        <div>
+          <button onClick={() => setIsUsersCheck(true)}>Личные кабинеты</button>
+          <button onClick={() => setIsUsersCheck(false)}>Персонажи</button>
+        </div>
+
+        {isUsersCheck ? renderUsersTable : renderCharTable}
       </div>
 
       <Toaster
