@@ -4,6 +4,7 @@ import { RiCloseLine } from 'react-icons/ri';
 import { NavButton } from '../button/nav-button';
 import { List } from '../list/list';
 import { ListItem } from '../navigation/lists/type';
+import { Rules } from '../../pages/main/main';
 
 import s from './navigation-modal.module.css';
 
@@ -12,9 +13,10 @@ type Props = {
   list: ListItem[] | null,
   setIsOpen: (arg0: boolean) => void,
   link: string,
+  rulesDTO?: Rules,
 }
 
-export function NavigationModal({ title, list, setIsOpen, link }: Props): JSX.Element {
+export function NavigationModal({ title, list, setIsOpen, link, rulesDTO }: Props): JSX.Element {
   React.useEffect(() => {
     document.body.style.overflowY = 'hidden';
   }, []);
@@ -33,6 +35,15 @@ export function NavigationModal({ title, list, setIsOpen, link }: Props): JSX.El
           <div className={s.modalHeader}>
             <h5 className={s.heading}>{title}</h5>
           </div>
+
+          {title === 'Правила' && rulesDTO && (
+            <div className={s.rulesNotice}>
+              <div>Актуальные правила:</div>
+              <a href={rulesDTO.common.link} target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }} download={rulesDTO.common.label}>
+                {` Скачать ${rulesDTO.common.label}`}
+              </a>
+            </div>
+          )}
 
           <button className={s.closeBtn} onClick={handleClose}>
             <RiCloseLine style={{ marginBottom: '-3px' }} />

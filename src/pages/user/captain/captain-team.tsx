@@ -6,7 +6,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { darkTheme, PlayersData } from '../admin/pages/users/users-table';
 import { renderStatusIcon, renderStatusIconFloat } from '../components/ui-kit/status';
 import { playersTable } from '../../../api/user';
-import { Statistic } from '../components/ui-kit';
+import { renderAchivments, Statistic } from '../components/ui-kit';
 import { getLocationNameById } from '../utils/get-location-name-by-id';
 
 type Props = {
@@ -30,6 +30,7 @@ export function CaptainTeam(props: Props): JSX.Element {
             role: p.role,
             photo: p.photo_check,
             payment: p.payment,
+            achivments: p.achivments || [],
           }))
         setPlayersData(playersDataDTO);
       } catch (err) {
@@ -41,6 +42,7 @@ export function CaptainTeam(props: Props): JSX.Element {
   }, []);
 
   const columns: TableColumn<PlayersData>[] = [
+    { name: 'Ачивки', cell: (row: PlayersData) => renderAchivments(row.achivments), width: '50px' },
     { name: '№', selector: (row: PlayersData, index) => (index || 0) + 1, width: '40px' },
     { name: 'ФИО', selector: (row: PlayersData) => row.fullName, width: '200px' },
     { name: 'ВК', selector: (row: PlayersData) => row.vkLink, width: '200px' },
@@ -58,6 +60,7 @@ export function CaptainTeam(props: Props): JSX.Element {
     photo: p.photo,
     payment: p.payment,
     request: p.request,
+    achivments: p.achivments,
   }))
 
   const renderRequestStatistic = React.useMemo(() => {
