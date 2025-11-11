@@ -87,7 +87,6 @@ export function Navigation(): JSX.Element {
 
   return (
     <>
-
       {width > 850 ? renderNormMenu : renderSmallMenu}
 
       {isOpen && (

@@ -10,9 +10,13 @@ import { Logo } from '../../components/logo';
 import { NavigationModal, useResize } from '../../components';
 import { rules } from '../../components/navigation/lists';
 
+import commonPdfIcon from './../../assets/icons/social/commonPdfIcon.png';
+import battlePdfIcon from './../../assets/icons/social/battlePdfIcon.png';
+import votePdfIcon from './../../assets/icons/social/votePdfIcon.png';
+
 import vkImage from '../../assets/icons/social/vk.png';
 import staticLogo from '../../assets/LOGO_2026.png';
-import { getVideos } from '../../api/materials';
+import { getRules, getVideos } from '../../api/materials';
 import { SidePanel } from './side-panel';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { loginFailure, loginStart, loginSuccess } from '../../redux/user-slice';
@@ -20,6 +24,24 @@ import { Link } from './type';
 import { getAuthUrl } from '../user/utils/auth-utils';
 
 import s from './main.module.scss';
+
+type RuleItem = {
+  label: string,
+  link: string,
+  icon: string,
+}
+
+export type Rules = {
+  common: RuleItem,
+  battle: RuleItem,
+  vote: RuleItem,
+}
+
+type Data = {
+  type: string,
+  version: string,
+  link: string,
+}
 
 export function Main(): JSX.Element {
   const [isOpen, setIsOpen] = React.useState<boolean>(false);
@@ -31,30 +53,75 @@ export function Main(): JSX.Element {
   const dispatch = useAppDispatch();
   const tooltipRef = React.useRef<HTMLDivElement>(null);
   const imgRef = React.useRef<HTMLImageElement>(null);
+  const [rulesDTO, setRulesDTO] = React.useState<Rules>({
+    common: {
+      label: '',
+      link: '',
+      icon: '',
+    },
+    battle: {
+      label: '',
+      link: '',
+      icon: '',
+    },
+    vote: {
+      label: '',
+      link: '',
+      icon: '',
+    },
+  });
 
   const { width } = useResize();
 
-    React.useEffect(() => {
-      const fetchPlayerInfo = async () => {
-        setIsVideoLoading(true);
-        try {
-          const response = await axios.get(getVideos, { params: { page: 'main' } });
-          const videoItems: Link[] = response.data.map((item: Link) => {
-            if (item.page === 'main') {
-              return ({
-                id: item.id,
-                link: item.link,
-              });
-            }
-          });
+  React.useEffect(() => {
+    const fetchPlayerInfo = async () => {
+      setIsVideoLoading(true);
+      try {
+        const response = await axios.get(getVideos, { params: { page: 'main' } });
+        const videoItems: Link[] = response.data.map((item: Link) => {
+          if (item.page === 'main') {
+            return ({
+              id: item.id,
+              link: item.link,
+            });
+          }
+        });
 
-          setVideoObject(videoItems);
-        } catch (err) {
-          toast.error('Ошибка при получении данных');
-        }
-        setIsVideoLoading(false);
+        setVideoObject(videoItems);
+      } catch (err) {
+        toast.error('Ошибка при получении данных');
       }
+      setIsVideoLoading(false);
+    }
 
+    const fetchRules = async () => {
+      try {
+        const response = await axios.get(getRules);
+        const rulesDTO = {
+          common: {
+            link: response.data.find((p: Data) => p.type === 'common')?.link,
+            label: `Общие правила v${response.data.find((p: Data) => p.type === 'common')?.version}`,
+            icon: commonPdfIcon,
+          },
+          battle: {
+            link: response.data.find((p: Data) => p.type === 'battle')?.link,
+            label: `Боевые ивенты v${response.data.find((p: Data) => p.type === 'battle')?.version}`,
+            icon: battlePdfIcon,
+          },
+          vote: {
+            link: response.data.find((p: Data) => p.type === 'vote')?.link,
+            label: `Голосование v${response.data.find((p: Data) => p.type === 'vote')?.version}`,
+            icon: votePdfIcon,
+          },
+        }
+
+        setRulesDTO(rulesDTO);
+      } catch (err) {
+        toast.error('Ошибка при получении данных');
+      }
+    }
+
+    fetchRules();
     fetchPlayerInfo();
   }, []);
 
@@ -171,7 +238,7 @@ const handleLogin = React.useCallback(async (e: React.MouseEvent) => {
 
         <div className={s.logo}>
           <div className={s.social}>
-            <SidePanel />
+            <SidePanel rulesDTO={rulesDTO} />
           </div>
 
           {renderLogo}
@@ -186,6 +253,7 @@ const handleLogin = React.useCallback(async (e: React.MouseEvent) => {
           list={rules}
           title='Правила'
           link='/rules'
+          rulesDTO={rulesDTO}
         />
       )}
 

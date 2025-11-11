@@ -1,84 +1,16 @@
-import React from 'react';
 import Tooltip from 'react-tooltip-lite';
-import toast from 'react-hot-toast';
-import axios from 'axios';
 
 import vkImage from './../../assets/icons/social/vk.png';
 import ruStore from './../../assets/icons/social/ruStore.png';
-import commonPdfIcon from './../../assets/icons/social/commonPdfIcon.png';
-import battlePdfIcon from './../../assets/icons/social/battlePdfIcon.png';
-import votePdfIcon from './../../assets/icons/social/votePdfIcon.png';
+
 import excelIcon from './../../assets/icons/social/excel.png';
-import { getRules } from '../../api/materials';
+import { Rules } from './main';
 
-type RuleItem = {
-  label: string,
-  link: string,
-  icon: string,
+type Props = {
+  rulesDTO: Rules,
 }
 
-type Rules = {
-  common: RuleItem,
-  battle: RuleItem,
-  vote: RuleItem,
-}
-
-type Data = {
-  type: string,
-  version: string,
-  link: string,
-}
-
-export function SidePanel(): JSX.Element {
-  const [rules, setRules] = React.useState<Rules>({
-    common: {
-      label: '',
-      link: '',
-      icon: '',
-    },
-    battle: {
-      label: '',
-      link: '',
-      icon: '',
-    },
-    vote: {
-      label: '',
-      link: '',
-      icon: '',
-    },
-  });
-
-  React.useEffect(() => {
-    const fetchPlayerInfo = async () => {
-      try {
-        const response = await axios.get(getRules);
-        const rulesDTO = {
-          common: {
-            link: response.data.find((p: Data) => p.type === 'common')?.link,
-            label: `Общие правила v${response.data.find((p: Data) => p.type === 'common')?.version}`,
-            icon: commonPdfIcon,
-          },
-          battle: {
-            link: response.data.find((p: Data) => p.type === 'battle')?.link,
-            label: `Боевые ивенты v${response.data.find((p: Data) => p.type === 'battle')?.version}`,
-            icon: battlePdfIcon,
-          },
-          vote: {
-            link: response.data.find((p: Data) => p.type === 'vote')?.link,
-            label: `Голосование v${response.data.find((p: Data) => p.type === 'vote')?.version}`,
-            icon: votePdfIcon,
-          },
-        }
-
-        setRules(rulesDTO);
-      } catch (err) {
-        toast.error('Ошибка при получении данных');
-      }
-    }
-
-  fetchPlayerInfo();
-}, []);
-
+export function SidePanel({ rulesDTO }: Props): JSX.Element {
   return (
     <>
       <Tooltip
@@ -102,32 +34,32 @@ export function SidePanel(): JSX.Element {
       </Tooltip>
 
       <Tooltip
-        content={rules.common.label}
+        content={rulesDTO.common.label}
         background='wheat'
         direction="left"
       >
-        <a href={rules.common.link} target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }} download={rules.common.label}>
-          <img src={rules.common.icon} alt="" width={30} />
+        <a href={rulesDTO.common.link} target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }} download={rulesDTO.common.label}>
+          <img src={rulesDTO.common.icon} alt="" width={30} />
         </a>
       </Tooltip>
 
       <Tooltip
-        content={rules.battle.label}
+        content={rulesDTO.battle.label}
         background='wheat'
         direction="left"
       >
-        <a href={rules.battle.link} target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }} download={rules.battle.label}>
-          <img src={rules.battle.icon} alt="" width={30} />
+        <a href={rulesDTO.battle.link} target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }} download={rulesDTO.battle.label}>
+          <img src={rulesDTO.battle.icon} alt="" width={30} />
         </a>
       </Tooltip>
 
       <Tooltip
-        content={rules.vote.label}
+        content={rulesDTO.vote.label}
         background='wheat'
         direction="left"
       >
-        <a href={rules.vote.link} target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }} download={rules.vote.label}>
-          <img src={rules.vote.icon} alt="" width={30} />
+        <a href={rulesDTO.vote.link} target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }} download={rulesDTO.vote.label}>
+          <img src={rulesDTO.vote.icon} alt="" width={30} />
         </a>
       </Tooltip>
 

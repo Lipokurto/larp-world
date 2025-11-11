@@ -25,6 +25,12 @@
   box-shadow: 0 0 50px -10px wheat;;
 }
 
+.rulesNotice {
+  width: 300px;
+  padding: 20px;
+  text-align: center;
+}
+
 .modalHeader {
   background: black;
   overflow: hidden;
