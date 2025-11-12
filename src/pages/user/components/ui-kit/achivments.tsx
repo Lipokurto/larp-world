@@ -3,9 +3,11 @@ import Tooltip from 'react-tooltip-lite';
 import { useAppSelector } from '../../../../redux/hooks';
 import { AchivmentItem } from '../../../../redux/app-data-slice';
 
+import s from './achivments.module.scss';
+
 function renderAchivmentIcon(achivment: AchivmentItem): JSX.Element {
   return (
-    <div style={{ display: 'flex', alignItems: 'center', width: 'inherit' }} key={achivment.id}>
+    <div className={s.achivmentItem} key={achivment.id}>
       <img src={achivment.img} style={{ marginRight: '10px', height: '40px' }} />
 
       <div>
