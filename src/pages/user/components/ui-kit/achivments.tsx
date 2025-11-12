@@ -5,9 +5,13 @@ import { AchivmentItem } from '../../../../redux/app-data-slice';
 
 function renderAchivmentIcon(achivment: AchivmentItem): JSX.Element {
   return (
-    <div style={{ display: 'flex', alignItems: 'center', width: '200px' }} key={achivment.id}>
+    <div style={{ display: 'flex', alignItems: 'center', width: 'inherit' }} key={achivment.id}>
       <img src={achivment.img} style={{ marginRight: '10px', height: '40px' }} />
-      <div>{achivment.label}</div>
+
+      <div>
+        <div style={{ fontWeight: 'bold' }}>{achivment.label}</div>
+        <div style={{ fontSize: 12 }}>{achivment.about}</div>
+      </div>
     </div>
   );
 }
