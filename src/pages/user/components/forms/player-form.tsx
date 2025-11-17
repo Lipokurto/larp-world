@@ -7,6 +7,8 @@ import { useAppSelector } from '../../../../redux/hooks';
 import { achivmentDelete, achivmentsEdit, editPlayer } from '../../../../api/user';
 import { InputForm, SelectAchivmentForm } from '../ui-kit';
 import { nameValidation } from './form-validation';
+import { AchivmentItem } from '../../../../redux/app-data-slice';
+import { AchivmentModal } from './achivment-modal/achivment-modal';
 
 import s from './form.module.scss';
 
@@ -34,6 +36,8 @@ export type AchivmentsData = {
 }
 
 export function PlayerForm(props: Props): JSX.Element {
+  const [isAchivmentModalOpen, setIsAchivmentModalOpen] = React.useState<boolean>(false);
+  const [activeAchivment, setActiveAchivment] = React.useState<AchivmentItem | null>(null);
   const [isEditing, setIsEditing] = React.useState<boolean>(false);
   const [isTouched, setIsTouched] = React.useState<boolean>(false);
   const [achivmentData, setAchivmentData] = React.useState<AchivmentsData>({ achivmentId: '0' });
@@ -178,6 +182,11 @@ export function PlayerForm(props: Props): JSX.Element {
     }
   }, [props]);
 
+  const handleAchivmentModalOpen = React.useCallback((isOpen: boolean, item: AchivmentItem | null) => {
+    setActiveAchivment(item);
+    setIsAchivmentModalOpen(isOpen);
+  }, []);
+
   const renderAchivments = React.useMemo(() => {
     const currentAchivments = achivments.filter(a => props.achivments.some(p => p.achivment_id === a.id));
 
@@ -208,7 +217,17 @@ export function PlayerForm(props: Props): JSX.Element {
           <Tooltip content={renderAchivmentItem(item, i)} key={i} background='black' direction='left'>
             <div className={s.achivmentItem}>
               {isEditing && <button onClick={handleAchivmentDelete} value={item.id}>Убрать</button>}
-              <img key={i} src={item.img} alt="achivment" style={{ width: '50px', height: '50px', marginRight: '5px' }} />
+              <img
+                key={i}
+                src={item.img}
+                alt="achivment"
+                style={{
+                  width: '50px',
+                  height: '50px',
+                  marginRight: '5px',
+                }}
+                onClick={() => handleAchivmentModalOpen(true, item)}
+              />
             </div>
           </Tooltip>
         ))}
@@ -217,54 +236,63 @@ export function PlayerForm(props: Props): JSX.Element {
   }, [props.achivments, isEditing, achivments, achivmentData]);
 
   return (
-    <div className={s.container}>
-      <div className={s.labelContainer}>
-        <div className={s.label}>Игрок</div>
+    <>
+      <div className={s.container}>
+        <div className={s.labelContainer}>
+          <div className={s.label}>Игрок</div>
 
-        {renderAchivments}
+          {renderAchivments}
 
-        <div>{renderEditButton}</div>
+          <div>{renderEditButton}</div>
+        </div>
+
+      <div className={s.inputContainer}>
+        <InputForm
+          label='Фамилия'
+          type="text"
+          name="lastName"
+          value={userData.lastName.value}
+          onChange={handleUserChange}
+          disabled={!isEditing}
+          error={userData.lastName.error}
+          isLoading={props.isLoading}
+        />
+
+        <InputForm
+          label='Имя'
+          type="text"
+          name="firstName"
+          value={userData.firstName.value}
+          onChange={handleUserChange}
+          disabled={!isEditing}
+          error={userData.firstName.error}
+          isLoading={props.isLoading}
+        />
+
+        <InputForm
+          label='Отчество (необязательно)'
+          type="text"
+          name="middleName"
+          value={userData.middleName.value}
+          onChange={handleUserChange}
+          disabled={!isEditing}
+          error={userData.middleName.error}
+          isLoading={props.isLoading}
+        />
       </div>
 
-    <div className={s.inputContainer}>
-      <InputForm
-        label='Фамилия'
-        type="text"
-        name="lastName"
-        value={userData.lastName.value}
-        onChange={handleUserChange}
-        disabled={!isEditing}
-        error={userData.lastName.error}
-        isLoading={props.isLoading}
-      />
+        <Toaster
+          position="bottom-left"
+          reverseOrder={false}
+        />
+      </div>
 
-      <InputForm
-        label='Имя'
-        type="text"
-        name="firstName"
-        value={userData.firstName.value}
-        onChange={handleUserChange}
-        disabled={!isEditing}
-        error={userData.firstName.error}
-        isLoading={props.isLoading}
-      />
-
-      <InputForm
-        label='Отчество (необязательно)'
-        type="text"
-        name="middleName"
-        value={userData.middleName.value}
-        onChange={handleUserChange}
-        disabled={!isEditing}
-        error={userData.middleName.error}
-        isLoading={props.isLoading}
-      />
-    </div>
-
-      <Toaster
-        position="bottom-left"
-        reverseOrder={false}
-      />
-    </div>
+      {isAchivmentModalOpen && (
+        <AchivmentModal
+          item={activeAchivment}
+          setIsOpen={setIsAchivmentModalOpen}
+        />
+      )}
+    </>
   );
 }
