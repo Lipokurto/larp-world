@@ -63,7 +63,7 @@ export function SidePanel({ rulesDTO }: Props): JSX.Element {
         </a>
       </Tooltip>
 
-      <Tooltip
+      {/* <Tooltip
         content='Таблица всех ролей'
         background='wheat'
         direction="left"
@@ -71,7 +71,7 @@ export function SidePanel({ rulesDTO }: Props): JSX.Element {
         <a href='https://docs.google.com/spreadsheets/d/1l5G5-vJ56_ibip1hng414RTNg3HXjJtS7RmQ0ACPdvE/edit?usp=sharing' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>
           <img src={excelIcon} alt="" width={30} />
         </a>
-      </Tooltip>
+      </Tooltip> */}
     </>
   )
 }
