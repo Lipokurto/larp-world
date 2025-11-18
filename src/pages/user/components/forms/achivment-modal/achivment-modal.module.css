@@ -86,3 +86,17 @@
   top: 0;
   align-self: flex-end;
 }
+
+.diamond {
+  position: absolute;
+  left: 31%;
+  height: 130px;
+  top: 11.5%;
+  z-index: 1;
+}
+
+.image {
+  position: relative;
+  height: 80px;
+  z-index: 2;
+}

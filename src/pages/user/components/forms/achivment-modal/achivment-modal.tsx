@@ -1,9 +1,9 @@
-import React from 'react';
 import { RiCloseLine } from 'react-icons/ri';
 import { AchivmentItem } from '../../../../../redux/app-data-slice';
+import { NavButton } from '../../../../../components';
+import bgDiamond from './../../../../../assets/achivments/large-icons/bg-diamond.svg';
 
 import s from './achivment-modal.module.css';
-import { NavButton } from '../../../../../components';
 
 type Props = {
   item: AchivmentItem | null,
@@ -22,7 +22,8 @@ export function AchivmentModal(props: Props): JSX.Element {
 
         <div className={s.modalContent}>
           <div style={{ marginBottom: '10px' }}>
-            <img src={props.item?.img} style={{ height: '80px' }} />
+            <img src={props.item?.img} className={s.image} />
+            <img src={bgDiamond} className={s.diamond} />
           </div>
           <div>{props.item?.about}</div>
         </div>
