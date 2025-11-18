@@ -214,7 +214,12 @@ export function PlayerForm(props: Props): JSX.Element {
 
         <div>Достижения</div>
         {currentAchivments.map((item, i) => (
-          <Tooltip content={renderAchivmentItem(item, i)} key={i} background='black' direction='left'>
+          <Tooltip
+            content={renderAchivmentItem(item, i)}
+            key={i}
+            background='black'
+            direction='left'
+          >
             <div className={s.achivmentItem}>
               {isEditing && <button onClick={handleAchivmentDelete} value={item.id}>Убрать</button>}
               <img
