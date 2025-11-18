@@ -13,6 +13,8 @@ import colloboration from '../assets/achivments/colloboration.png';
 import test from '../assets/achivments/test.png';
 import wording from '../assets/achivments/wording.png';
 import invention from '../assets/achivments/invention.png';
+import champ from '../assets/achivments/champ.png';
+import best_icon from '../assets/achivments/best_icon.png';
 
 export const achivmentslist = [
   { id: 1, img: ban_forever },
@@ -30,6 +32,8 @@ export const achivmentslist = [
   { id: 13, img: igrotech },
   { id: 14, img: captain_3 },
   { id: 15, img: ahch_3 },
+  { id: 16, img: champ },
+  { id: 17, img: best_icon },
 ];
 
 export function addIconFromList(obj: any): any {
