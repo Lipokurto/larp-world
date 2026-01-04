@@ -1,0 +1,1 @@
+export const currentGameYear = 2026;
