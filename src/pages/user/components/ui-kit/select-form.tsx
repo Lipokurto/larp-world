@@ -23,7 +23,7 @@ function Options(props: {
         {camps.map(p => <option value={p.id} key={p.id}>{p.name}</option>)}
       </optgroup>
 
-      <optgroup label="Город Камельн">
+      <optgroup label="Город Айзенбург">
         {city.map(p => <option value={p.id} key={p.id}>{p.name}</option>)}
       </optgroup>
 

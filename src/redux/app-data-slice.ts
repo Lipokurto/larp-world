@@ -3,11 +3,13 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import { getAchivmentsList, getBuildingsList, getLocationsList } from '../api/lists';
 import { addIconFromList } from './achivment-icon-builder';
+import { currentGameYear } from '../GAME_YEAR';
 
 export type LocationItem = {
   id: number,
   name: string,
   type: string,
+  game_year: number,
 }
 
 type BuildingItem = {
@@ -70,7 +72,7 @@ const appDataSlice = createSlice({
       })
       .addCase(fetchAppData.fulfilled, (state, action) => {
         state.loading = false;
-        state.locations = action.payload.locations;
+        state.locations = action.payload.locations.filter(p => p.game_year === currentGameYear);
         state.buildings = action.payload.buildings;
         state.achivments = action.payload.achivments;
       })
