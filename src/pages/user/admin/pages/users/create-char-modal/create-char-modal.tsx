@@ -66,7 +66,7 @@ export function CreateCharModal(props: Props): JSX.Element {
       setCharData(validateCharData);
 
       try {
-        await axios.post(vkRegistryChar, { vk_id: props.vkId });
+        // await axios.post(vkRegistryChar, { vk_id: props.vkId });
 
         await axios.post(editPlayerChar, {
           char_name: validateCharData.charName.value,

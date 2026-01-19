@@ -165,7 +165,7 @@ const handleLogin = React.useCallback(async (e: React.MouseEvent) => {
 
       const clientId = process.env.REACT_APP_VK_ID;
       const redirectUri = `${window.location.origin}/auth/callback`;
-      const scope = 'photos'; // Укажите нужные права доступа
+      const scope = 'offline'; // Укажите нужные права доступа
 
       const authUrl = await getAuthUrl(clientId, redirectUri, scope);
       window.location.href = authUrl; // Перенаправляем пользователя
