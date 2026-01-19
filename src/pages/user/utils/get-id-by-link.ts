@@ -19,10 +19,7 @@ export function getIdWithLink(link: string, isCreateDev?: boolean): Promise<stri
             reject('Некорректная ссылка');
             return;
           }
-          const response = await axios.post(`${process.env.REACT_APP_HOST}/resolveScreenName`, {
-              screen_name,
-              access_token: process.env.REACT_APP_APP_SERVICE_KEY,
-          });
+          const response = await axios.post(`${process.env.REACT_APP_HOST}/resolveScreenName`, { screen_name });
 
           if (response.data.response.object_id) {
             resolve(response.data.response.object_id.toString());
