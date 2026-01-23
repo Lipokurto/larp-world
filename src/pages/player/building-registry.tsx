@@ -21,7 +21,7 @@ function RegSteps(): JSX.Element {
   const rolesTable = React.useMemo(() => {
     return (
       <>
-        <a href='https://docs.google.com/spreadsheets/d/1l5G5-vJ56_ibip1hng414RTNg3HXjJtS7RmQ0ACPdvE/edit?usp=sharing' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>
+        <a href='https://docs.google.com/spreadsheets/d/10qtHRKDqcJN79-8Ef9Kjys25EFVoEp_bvDABDTudrRA/edit?usp=sharing' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>
           Таблица лимитов локаций
         </a>
       </>
