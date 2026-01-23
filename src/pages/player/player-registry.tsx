@@ -71,6 +71,7 @@ const registrationSteps: Steps[] = [
       <div>
         <div>Исходя из вашей роли вас можно будет вписать в общий сюжет (это необязательный пункт)</div>
         <div><a href='https://vk.com/ho3gp9i' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>Мастер по сюжету</a></div>
+        <div>Конечный вариант вашей квенты будет прикреплен мастером в вашем <a href='http://larpdarkage.ru/user' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>личном кабинете</a></div>
       </div>
     ),
   },

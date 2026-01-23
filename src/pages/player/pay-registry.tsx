@@ -27,17 +27,11 @@ const registrationSteps: Steps[] = [
     label: 'Оплата',
     description: (
       <div>
-        <div>Оплата благотворительного взноса осуществляется по номеру телефона</div>
         <div>Оплата принимается только ПОСЛЕ подачи заявки</div>
 
         <div className={s.request}>
-          <div style={{ fontSize: 20, color: 'wheat' }}>+79787917870</div>
-          <div>Синицкий Александр Анатольевич</div>
-          <div>ВТБ / СберБАНК</div>
-          <div>В назначении платежа указать:</div>
-          <div>"Благотворительный взнос Темные века"</div>
+          <div>Реквизиты для внесения оплаты вы получите после подачи заявки в <a href='https://vk.com/id245595011' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>сообщениях группы</a></div>
         </div>
-
         <div>Взносы не возвращаются</div>
       </div>
     ),
@@ -47,7 +41,7 @@ const registrationSteps: Steps[] = [
     label: 'Данные',
     description: (
       <div>
-        <div>В личном сообщении написать <a href='https://vk.com/id245595011' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>координатору</a></div>
+        <div>В личном сообщении написать <a href='https://vk.com/alex_sin_cube' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>координатору</a></div>
 
         <div>В сообщении указать:</div>
         <div className={s.request}>
