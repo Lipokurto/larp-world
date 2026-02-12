@@ -61,8 +61,8 @@ export function CreateCharModal(props: Props): JSX.Element {
       },
     };
 
-    const failedValidation = Object.values(validateCharData).some(e => e.error);
-    if (!failedValidation) {
+    // const failedValidation = Object.values(validateCharData).some(e => e.error);
+    // if (!failedValidation) {
       setCharData(validateCharData);
 
       try {
@@ -82,7 +82,7 @@ export function CreateCharModal(props: Props): JSX.Element {
       } catch (error) {
         toast.error('Что-то пошло не так');
       }
-    }
+    // }
   }, [charData, props]);
 
   return (
