@@ -59,7 +59,7 @@ const registrationSteps: Steps[] = [
     label: 'Концепт',
     description: (
       <div>
-        <div>Обсудите внешний вид своего персонажа с <a href='https://vk.com/truespil' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>мастером по допуску антуража</a></div>
+        <div>Обсудите внешний вид своего персонажа с мастером по допуску в сообщениях <a href='https://vk.com/larpdarkage' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>группы</a></div>
         <div></div>
       </div>
     ),

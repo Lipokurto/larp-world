@@ -30,7 +30,7 @@ const registrationSteps: Steps[] = [
         <div>Оплата принимается только ПОСЛЕ подачи заявки</div>
 
         <div className={s.request}>
-          <div>Реквизиты для внесения оплаты вы получите после подачи заявки в <a href='https://vk.com/id245595011' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>сообщениях группы</a></div>
+          <div>Реквизиты для внесения оплаты вы получите после подачи заявки в сообщениях <a href='https://vk.com/larpdarkage' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>группы</a></div>
         </div>
         <div>Взносы не возвращаются</div>
       </div>
