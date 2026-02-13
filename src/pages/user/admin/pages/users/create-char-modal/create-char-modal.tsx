@@ -8,7 +8,7 @@ import { InputForm, SelectForm } from '../../../../components/ui-kit';
 import { NavButton } from '../../../../../../components';
 import { CharData } from '../../../../components/forms/char-form';
 import { charNameValidation } from '../../../../components/forms/form-validation';
-import { editPlayerChar, vkRegistryChar } from '../../../../../../api/user';
+import { editPlayerChar } from '../../../../../../api/user';
 
 import s from './create-char-modal.module.css';
 
