@@ -30,7 +30,10 @@ const registrationSteps: Steps[] = [
         <div>Оплата принимается только ПОСЛЕ подачи заявки</div>
 
         <div className={s.request}>
-          <div>Реквизиты для внесения оплаты вы получите после подачи заявки в сообщениях <a href='https://vk.com/larpdarkage' target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>группы</a></div>
+          <div style={{ fontSize: 20, fontWeight: 'bold' }}>+79787917870</div>
+          <div>Сбер</div>
+          <div>Синицкий А. А.</div>
+          <div>Комментарий: "Орг. взнос LARP мероприятия /ФИО за кого взнос/"</div>
         </div>
         <div>Взносы не возвращаются</div>
       </div>
@@ -47,9 +50,10 @@ const registrationSteps: Steps[] = [
         <div className={s.request}>
           <div>ФИО отправителя платежа</div>
           <div>Сумма</div>
-          <div>Город и ФИО игроков, за которых оплачен взнос</div>
           <div>Скрин платежа</div>
         </div>
+
+        <div>Если все хорошо: в течении дня координатор подтвердит перевод и пришлет вам чек</div>
       </div>
     ),
   },
