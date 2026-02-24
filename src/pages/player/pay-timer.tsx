@@ -54,7 +54,7 @@ export function PayTimer(): JSX.Element {
       <div className={s.prices}>
         <div className={currentIndex === 0 ? s.priceActive : s.price}>До 01 мая 2026 г. - {payLimits[0].price} р.</div>
         <div className={currentIndex === 1 ? s.priceActive : s.price}>До 01 августа 2026 г. - {payLimits[1].price} р.</div>
-        <div className={currentIndex === 2 ? s.priceActive : s.price}>До 01 октября 2026 г. - {payLimits[2].price} р.</div>
+        <div className={currentIndex === 2 ? s.priceActive : s.price}>До 26 сентября 2026 г. - {payLimits[2].price} р.</div>
         <div className={currentIndex === 3 ? s.priceActive : s.price}>"на полигоне" - {payLimits[3].price} р.</div>
       </div>
     )
