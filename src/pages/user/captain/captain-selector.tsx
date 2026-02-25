@@ -44,7 +44,7 @@ const renderPlayerData = React.useMemo(() => {
         payment={userData.payment}
         photoCheck={userData.photoCheck}
         isLoading={isLoading}
-        isAdmin={false}
+        status={userData.status}
       />
     </>
   )

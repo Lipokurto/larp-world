@@ -45,7 +45,11 @@ export type PlayersData = {
   achivments?: { achivment_id: number }[],
 }
 
-export function UsersTable(): JSX.Element {
+type Props = {
+  status: string,
+}
+
+export function UsersTable(props: Props): JSX.Element {
   const [filterLocation, setFilterLocation] = React.useState<string | undefined>(undefined);
   const [storePlayersData, setStorePlayersData] = React.useState<PlayersData[]>([]);
   const [playersData, setPlayersData] = React.useState<PlayersData[]>([]);
@@ -173,6 +177,13 @@ export function UsersTable(): JSX.Element {
     return <Statistic label='Фотодопуск' value={`${photoAmount}/${totalAmount}`} />;
   }, [storePlayersData]);
 
+  const renderQuestStatistic = React.useMemo(() => {
+    const questAmount = storePlayersData.filter(p => p.story).length;
+    const totalAmount = storePlayersData.length;
+
+    return <Statistic label='Квенты' value={`${questAmount}/${totalAmount}`} />;
+  }, [storePlayersData]);
+
   const renderPaymentStatistic = React.useMemo(() => {
     const paymentAmount = storePlayersData.filter(p => p.payment).length;
     const totalAmount = storePlayersData.length;
@@ -186,10 +197,11 @@ export function UsersTable(): JSX.Element {
         <h3 style={{ color: 'white' }}>Список всех заявок</h3>
         <div style={{ display: 'flex', alignItems: 'center' }}>
           {renderFilter}
-          {renderBudgetStatistic}
+          {props.status === 'ADMIN' && renderBudgetStatistic}
           {renderRequestStatistic}
           {renderPhotoStatistic}
-          {renderPaymentStatistic}
+          {props.status === 'ADMIN' && renderPaymentStatistic}
+          {renderQuestStatistic}
         </div>
 
         {renderUsersTable}

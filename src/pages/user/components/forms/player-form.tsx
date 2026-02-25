@@ -248,7 +248,7 @@ export function PlayerForm(props: Props): JSX.Element {
 
           {renderAchivments}
 
-          <div>{renderEditButton}</div>
+          <div>{props.isAdmin ? renderEditButton : null}</div>
         </div>
 
       <div className={s.inputContainer}>

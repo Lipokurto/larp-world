@@ -71,8 +71,8 @@ const renderEmptyChar = React.useMemo(() => {
 
 const renderElement = React.useMemo(() => {
   if (userData) {
-    if (userData.status === 'ADMIN') {
-      return <AdminSelector />
+    if (userData.status === 'ADMIN' || userData.status === 'QUEST') {
+      return <AdminSelector status={userData.status} />;
     }
 
     if (userData.status === 'CAPTAIN') {
@@ -115,7 +115,7 @@ const renderElement = React.useMemo(() => {
           photoCheck={userData.photoCheck}
           story={userData.story}
           isLoading={isLoading}
-          isAdmin={userData.status === 'ADMIN'}
+          status={userData.status}
         />
       </div>
     )
