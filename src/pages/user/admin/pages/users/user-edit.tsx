@@ -9,7 +9,11 @@ import { getIdWithLink } from '../../../utils/get-id-by-link';
 import { InputForm } from '../../../components/ui-kit';
 import { CreateCharModal } from './create-char-modal/create-char-modal';
 
-export function UserEdit(): JSX.Element {
+type Props = {
+  status: string,
+};
+
+export function UserEdit(props: Props): JSX.Element {
   const [userLink, setUserLink] = React.useState<string>('');
   const [userId, setUserId] = React.useState<string>('');
   const [isLoading, setIsLoading] = React.useState<boolean>(false);
@@ -77,7 +81,7 @@ export function UserEdit(): JSX.Element {
             payment={userData.payment}
             photoCheck={userData.photoCheck}
             isLoading={isLoading}
-            isAdmin={true}
+            status={props.status}
             story={userData.story}
           />
 
@@ -88,7 +92,7 @@ export function UserEdit(): JSX.Element {
             middleName={userData.middleName}
             achivments={userData.achivments}
             isLoading={isLoading}
-            isAdmin={true}
+            isAdmin={props.status === 'ADMIN'}
             onCallback={() => fetchUserInfo(userId)}
           />
 
@@ -99,7 +103,7 @@ export function UserEdit(): JSX.Element {
               role={userData.role}
               locationId={userData.locationId}
               isLoading={isLoading}
-              isAdmin={true}
+              isAdmin={props.status === 'ADMIN'}
             />
           ) : renderAddCharButton}
         </>

@@ -2,7 +2,11 @@ import React from 'react';
 
 import { Rules, Videos, UsersSelector, BuildsSelector } from './pages';
 
-export function AdminSelector(): JSX.Element {
+type Props = {
+  status: string,
+};
+
+export function AdminSelector(props: Props): JSX.Element {
   const [page, setPage] = React.useState<string>('users');
 
   const renderPage = React.useMemo(() => {
@@ -24,16 +28,20 @@ export function AdminSelector(): JSX.Element {
       )
     }
 
-    return <UsersSelector />
-  }, [page]);
+    return <UsersSelector status={props.status} />
+  }, [page, props.status]);
 
   return (
     <div>
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <button onClick={() => setPage('users')} disabled={page === 'users'}>Игроки</button>
-        <button onClick={() => setPage('build')} disabled={page === 'build'}>Строения</button>
-        <button onClick={() => setPage('rules')} disabled={page === 'rules'}>Правила</button>
-        <button onClick={() => setPage('videos')} disabled={page === 'videos'}>Видео</button>
+        {props.status === 'ADMIN' && (
+          <>
+            <button onClick={() => setPage('build')} disabled={page === 'build'}>Строения</button>
+            <button onClick={() => setPage('rules')} disabled={page === 'rules'}>Правила</button>
+            <button onClick={() => setPage('videos')} disabled={page === 'videos'}>Видео</button>
+          </>
+        )}
       </div>
 
       {renderPage}

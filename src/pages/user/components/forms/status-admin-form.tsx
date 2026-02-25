@@ -23,6 +23,7 @@ type statusData = {
 type Props = statusData & {
   vkId: string,
   isLoading: boolean,
+  status: string,
 }
 
 export function StatusAdminForm(props: Props): JSX.Element {
@@ -107,7 +108,7 @@ export function StatusAdminForm(props: Props): JSX.Element {
           name="playerRequest"
           value={statusData.playerRequest.value}
           onSelectChange={handleChange}
-          disabled={!isEditing}
+          disabled={!isEditing || props.status !== 'ADMIN'}
           error={statusData.playerRequest.error}
           isLoading={props.isLoading}
         />
@@ -118,7 +119,7 @@ export function StatusAdminForm(props: Props): JSX.Element {
           name="payment"
           value={statusData.payment.value}
           onChange={handleChange}
-          disabled={!isEditing}
+          disabled={!isEditing || props.status !== 'ADMIN'}
           error={statusData.payment.error}
           isLoading={props.isLoading}
         />
@@ -139,7 +140,7 @@ export function StatusAdminForm(props: Props): JSX.Element {
           name='photoCheck'
           value={statusData.photoCheck.value?.toString()}
           onSelectChange={handleChange}
-          disabled={!isEditing}
+          disabled={!isEditing || props.status !== 'ADMIN'}
           error={statusData.photoCheck.error}
           isLoading={props.isLoading}
           isFloat

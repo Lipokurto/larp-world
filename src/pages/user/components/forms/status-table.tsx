@@ -19,7 +19,7 @@ type StatusData = {
 type Props = StatusData & {
   vkId: string,
   isLoading: boolean,
-  isAdmin?: boolean,
+  status: string,
 }
 
 export function StatusTable(props: Props): JSX.Element {
@@ -38,7 +38,7 @@ const renderTable = React.useMemo(() => {
     );
   }
 
-  if (props.isAdmin) {
+  if (props.status === 'ADMIN' || props.status === 'QUEST') {
     return (
       <StatusAdminForm
         vkId={props.vkId}
@@ -47,6 +47,7 @@ const renderTable = React.useMemo(() => {
         photoCheck={{ value: props.photoCheck, error: '' }}
         story={{ value: props.story || '', error: '' }}
         isLoading={props.isLoading}
+        status={props.status}
       />
     )
   }
@@ -90,7 +91,7 @@ const renderTable = React.useMemo(() => {
 
   return (
     <div className={s.container}>
-      {!props.isAdmin && (
+      {props.status !== 'ADMIN' && (
         <div className={s.labelStatusContainer}>
           <div className={s.label}>Статус</div>
         </div>
