@@ -94,7 +94,7 @@ export function UsersTable(props: Props): JSX.Element {
       { name: 'Ачивки', cell: (row: PlayersData) => renderAchivments(row.achivments), width: '50px' },
       { name: '№', selector: (row: PlayersData, index) => (index || 0) + 1, width: '40px' },
       { name: 'ФИО', selector: (row: PlayersData) => row.fullName, width: '200px' },
-      { name: 'ВК', selector: (row: PlayersData) => row.vkLink, width: '200px' },
+      { name: 'ВК', cell: (row: PlayersData) => <a href={row.vkLink} target='_blank' rel="noreferrer" style={{ color: 'goldenrod' }}>{row.vkLink}</a>, width: '200px' },
       { name: 'Персонаж', selector: (row: PlayersData) => row.char || '-', maxWidth: '200px' },
       { name: 'Роль', selector: (row: PlayersData) => row.role || '-', maxWidth: '200px' },
       { name: 'Локация', selector: (row: PlayersData) => getLocationNameById(Number(row.locationId)), width: '150px' },
