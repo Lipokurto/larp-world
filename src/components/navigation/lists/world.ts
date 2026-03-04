@@ -10,8 +10,12 @@ export const world: ListItem[] = [
     link: '/politic',
   },
   {
-    label: 'Карта',
+    label: 'Карта мира',
     link: '/map',
+  },
+  {
+    label: 'Города',
+    link: '/cities',
   },
   // {
   //   label: 'Отряды',
