@@ -50,7 +50,7 @@ export function Cities(): JSX.Element {
     <div className={s.container}>
       <Chapter chapter='ГОРОДА' />
       <div className={s.buttonsContainer}>
-        <button onClick={() => setCity('Айзенбург')}>Город Айзенбур</button>
+        <button onClick={() => setCity('Айзенбург')}>Город Айзенбург</button>
       </div>
 
       {renderText}
