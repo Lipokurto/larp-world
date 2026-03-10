@@ -35,7 +35,13 @@
 }
 
 .text {
+  width: 800px;
   margin: 20px auto 0 auto;
   text-align: start;
+}
 
+@media only screen and (max-width: 800px) {
+  .text {
+    width: 100%;
+  }
 }
