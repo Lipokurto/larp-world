@@ -17,6 +17,10 @@ export const world: ListItem[] = [
     label: 'Города',
     link: '/cities',
   },
+  {
+    label: 'Бестиарий',
+    link: '/monsters',
+  },
   // {
   //   label: 'Отряды',
   //   link: '/war-bands',
