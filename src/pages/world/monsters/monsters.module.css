@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  width: 75%;
+  color: white;
+  flex-direction: column;
+  text-align: center;
+  padding: 20px 20px 20px 20px;
+  margin: 0 auto 0 auto;
+}
+
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  text-align: initial;
+  margin-left: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+  text-align: center;
+}
+
+@media only screen and (max-width: 1024px) {
+  .listContainer {
+    text-align: center;
+  }
+
+}
