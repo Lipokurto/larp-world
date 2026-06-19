@@ -86,6 +86,8 @@ export function Monsters(): JSX.Element {
     <div className={s.container}>
       <Chapter chapter='БЕСТИАРИЙ' />
       <div className={s.listContainer}>
+        <div>ВАЖНО: Указаны только монстры о которых хоть что-то известно</div>
+        <br />
         {renderMonstersList}
       </div>
     </div>
