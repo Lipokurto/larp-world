@@ -11,6 +11,7 @@ import { CaptainSelector } from './captain';
 import exitImage from '../../assets/icons/social/exit.png';
 import { useAppDispatch } from '../../redux/hooks';
 import { logout } from '../../redux/user-slice';
+import { RegionalSelector } from './regional';
 
 import s from './user.module.scss';
 
@@ -73,6 +74,17 @@ const renderElement = React.useMemo(() => {
   if (userData) {
     if (userData.status === 'ADMIN' || userData.status === 'QUEST') {
       return <AdminSelector status={userData.status} />;
+    }
+
+    if (userData.status === 'REGIONAL') {
+      return (
+        <RegionalSelector
+          userData={userData}
+          vkId={props.vkId}
+          isLoading={isLoading}
+          onCallback={fetchPlayerInfo}
+        />
+      )
     }
 
     if (userData.status === 'CAPTAIN') {
