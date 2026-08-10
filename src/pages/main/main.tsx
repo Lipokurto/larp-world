@@ -110,7 +110,7 @@ export function Main(): JSX.Element {
           },
           vote: {
             link: response.data.find((p: Data) => p.type === 'vote')?.link,
-            label: `Голосование v${response.data.find((p: Data) => p.type === 'vote')?.version}`,
+            label: `Политика v${response.data.find((p: Data) => p.type === 'vote')?.version}`,
             icon: votePdfIcon,
           },
         }
