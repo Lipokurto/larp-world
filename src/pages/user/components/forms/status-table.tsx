@@ -72,7 +72,7 @@ const renderTable = React.useMemo(() => {
 
       <Tooltip
         direction='top'
-        content='Сдан благотворительный взнос'
+        content='Сдан организационный взнос'
         background='wheat'
       >
         <StatusBar status={Boolean(props.payment)} label='Взнос' />
@@ -83,7 +83,11 @@ const renderTable = React.useMemo(() => {
         content='Квента подана и обработана'
         background='wheat'
       >
-        <StatusBar status={Boolean(props.story)} label='История' />
+        <StatusBar
+          status={Boolean(props.story)}
+          label='История'
+          storyLink={props.story}
+        />
       </Tooltip>
     </div>
   )

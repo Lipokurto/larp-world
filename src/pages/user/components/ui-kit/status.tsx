@@ -12,6 +12,7 @@ export function renderStatusIcon(status: boolean): JSX.Element {
 type Props = {
   label: string,
   status: boolean,
+  storyLink?: string,
 }
 
 export function StatusBar(props: Props): JSX.Element {
@@ -19,7 +20,13 @@ export function StatusBar(props: Props): JSX.Element {
 
   return (
     <div className={s.statusContainer}>
-      <div className={s.label}>{props.label}</div>
+      {props.storyLink && (
+        <a href={props.storyLink} target="_blank" rel="noopener noreferrer">
+          {statusText}
+        </a>
+      )}
+
+      {!props.storyLink && <div className={s.label}>{props.label}</div>}
       <div className={s.status}>{statusText}</div>
     </div>
   )
