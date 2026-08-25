@@ -22,7 +22,7 @@ export function StatusBar(props: Props): JSX.Element {
     <div className={s.statusContainer}>
       {props.storyLink && (
         <a href={props.storyLink} target="_blank" rel="noopener noreferrer">
-          {statusText}
+          {props.label}
         </a>
       )}
 
